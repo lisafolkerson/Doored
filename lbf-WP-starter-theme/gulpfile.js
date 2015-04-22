@@ -5,7 +5,7 @@ var notify = require ( 'gulp-notify' );
 
 // Here we define the list of things to happen when we run gulp styles
 gulp.task( 'styles', function() {
-	gulp.src( 'wp-content/themes/contemporary_art_gallery/style.scss' )
+	gulp.src( 'wp-content/themes/LBF-Doored-Theme/' )
 	.pipe( sass({errLogToConsole : true}))
 	.pipe( gulp.dest('wp-content/themes/contemporary_art_gallery/' ))
 	.pipe( notify ( 'CSS Compiled' ));
