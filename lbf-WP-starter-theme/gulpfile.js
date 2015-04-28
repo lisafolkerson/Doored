@@ -12,5 +12,5 @@ gulp.task( 'styles', function() {
 	});
 
 gulp.task( 'watch', function() {
-	gulp.watch('wp-content/themes/LBF-Doored-Theme/**/*.scss',['styles'])
+	gulp.watch('wp-content/themes/LBF-Doored-Theme/styles/*.scss',['styles'])
 	});
