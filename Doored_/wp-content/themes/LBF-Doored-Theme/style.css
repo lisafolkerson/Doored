@@ -167,7 +167,8 @@ img.alignright {
                    Default Styling
    ========================================================================== */
 body {
-  color: #333; }
+  color: #333;
+  background: #f2d8bd; }
 
 .container {
   max-width: 1200px;
