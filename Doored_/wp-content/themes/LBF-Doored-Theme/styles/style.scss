@@ -9,6 +9,8 @@ Author URI: http://lisafolkerson.com
 
 @import "normalize";
 
+$main-color: #ffcc99;
+
 
 /* =============================================================================
                    Default Styling
@@ -16,7 +18,7 @@ Author URI: http://lisafolkerson.com
 
 body { 
   color:#333;
-  background: mistyrose;
+  background: #ccc;
 }
 
 .container {
@@ -105,25 +107,32 @@ pre {
    ========================================================================== */
 
 header {
-  background: #ccc;
+  background: #ccc cover no-repeat top;
+  background-image: url('assets/images/bannernotext.jpg');
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4); 
+  display: flex;
 }
 
-ul.menu {
+.menu {
   margin:0;
   padding:0;
+  flex: 1;
 
-}
-ul.menu li {
-  display:inline;
-  margin-right: 10px;
-}
-
-ul.menu li a {
-  color:#333;
-  padding:10px;
-  background:#333; 
-  color:white;
-}
+  ul {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display:inline;
+      margin-right: 10px;
+      
+      a {
+        padding:10px; 
+        color:black;
+      }//end a
+    } // end li
+  }  // end ul
+} // end menu
 
 
 
