@@ -182,6 +182,12 @@ body {
 .full {
   width: 100%; }
 
+h1 {
+  font-family: 'Kite One', sans-serif; }
+
+p, h2, h3 {
+  font-family: 'Open Sans', 'Helvetica', 'Ariel', sans-serif; }
+
 /* links */
 a {
   color: #BA209B;
@@ -231,6 +237,26 @@ pre {
   border: 1px solid #ccc; }
 
 /* =============================================================================
+         Navigation & Header
+   ========================================================================== */
+header {
+  background: #ccc; }
+
+ul.menu {
+  margin: 0;
+  padding: 0; }
+
+ul.menu li {
+  display: inline;
+  margin-right: 10px; }
+
+ul.menu li a {
+  color: #333;
+  padding: 10px;
+  background: #333;
+  color: white; }
+
+/* =============================================================================
                    Sidebar
    ========================================================================== */
 .sidebar {
@@ -249,23 +275,6 @@ pre {
    ========================================================================== */
 footer {
   clear: both; }
-
-/* =============================================================================
-                   Navigation
-   ========================================================================== */
-ul.menu {
-  margin: 0;
-  padding: 0; }
-
-ul.menu li {
-  display: inline;
-  margin-right: 10px; }
-
-ul.menu li a {
-  color: #333;
-  padding: 10px;
-  background: #333;
-  color: white; }
 
 /* =============================================================================
                    Comment Styling
