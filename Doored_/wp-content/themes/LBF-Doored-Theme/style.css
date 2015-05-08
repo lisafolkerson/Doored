@@ -270,13 +270,18 @@ header {
   flex-direction: row;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  flex-grow: 3; }
+  flex-grow: 3;
+  display: flex; }
   .menu ul {
     margin: 0;
     padding: 0; }
     .menu ul li {
       display: inline;
-      margin-right: 10px; }
+      margin-right: 10px;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end; }
       .menu ul li a {
         padding: 10px; }
 
