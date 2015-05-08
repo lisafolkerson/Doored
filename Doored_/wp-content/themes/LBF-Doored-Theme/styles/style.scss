@@ -24,6 +24,7 @@ body {
 .container {
   max-width:1200px; 
   margin:0 auto;
+  // display: flex;
 }
 
 .content {
@@ -39,6 +40,8 @@ body {
 
 h1 {
   font-family: 'Kite One', sans-serif;
+  margin: 0 auto;
+  font-size: 3.2rem;
 }
 
 p, h2, h3 {
@@ -110,13 +113,43 @@ header {
   background: #ccc cover no-repeat top;
   background-image: url('assets/images/bannernotext.jpg');
   box-shadow: 2px 2px 4px rgba(0,0,0,0.4); 
-  display: flex;
-}
+  // display: flex;
+
+  a {
+    color: black;
+  }
+
+  a:hover, a:focus {
+    color: black;
+  }
+
+  .container {
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  h1 {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-left:  3%;
+  }
+} // end header
 
 .menu {
   margin:0;
   padding:0;
-  flex: 1;
+  // flex: 1;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  flex-grow: 3;
 
   ul {
     margin: 0;
@@ -128,7 +161,6 @@ header {
       
       a {
         padding:10px; 
-        color:black;
       }//end a
     } // end li
   }  // end ul
