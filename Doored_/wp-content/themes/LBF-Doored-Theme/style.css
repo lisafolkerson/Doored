@@ -284,6 +284,12 @@ header {
       justify-content: flex-end; }
       .menu ul li a {
         padding: 10px; }
+      .menu ul li a:hover {
+        text-decoration: underline;
+        -webkit-text-decoration: underline; }
+      .menu ul li a:focus {
+        text-decoration: underline;
+        -webkit-text-decoration: underline; }
 
 /* =============================================================================
                    Sidebar

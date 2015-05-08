@@ -167,6 +167,16 @@ header {
       a {
         padding:10px; 
       }//end a
+
+      a:hover {
+        text-decoration: underline;
+        -webkit-text-decoration: underline;
+      }
+
+      a:focus {
+        text-decoration: underline;
+        -webkit-text-decoration: underline;
+      } //end a:focus
     } // end li
   }  // end ul
 } // end menu
