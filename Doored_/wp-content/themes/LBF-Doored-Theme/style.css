@@ -243,7 +243,7 @@ pre {
    ========================================================================== */
 header {
   background: cover no-repeat top;
-  background-color: #ffcc99;
+  background-color: #fc9;
   background-image: url('assets/images/bannernotext.jpg');
   background-blend-mode: multiply;
   background-blend-mode: overlay;
@@ -488,3 +488,7 @@ p.form-allowed-tags, .nocomments {
 
 #respond p, #comments-list ul #respond {
   margin: 0; }
+
+@media (max-width: 900px) {
+  header {
+    background: #fc9; } }
