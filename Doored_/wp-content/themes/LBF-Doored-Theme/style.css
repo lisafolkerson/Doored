@@ -192,11 +192,11 @@ p, h2, h3 {
 
 /* links */
 a {
-  color: #BA209B;
+  color: #9FFFF5;
   text-decoration: none; }
 
 a:hover {
-  color: #D424B1; }
+  color: #9FFFF5; }
 
 /* paragraphs */
 p {
@@ -242,14 +242,18 @@ pre {
          Navigation & Header
    ========================================================================== */
 header {
-  background: #ccc cover no-repeat top;
+  background: cover no-repeat top;
+  background-color: #ffcc99;
   background-image: url('assets/images/bannernotext.jpg');
+  background-blend-mode: multiply;
+  background-blend-mode: overlay;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
   header a {
     color: black; }
   header a:hover, header a:focus {
     color: black; }
   header .container {
+    padding: 20px 40px;
     display: flex;
     -webkit-justify-content: center;
     justify-content: center;
@@ -262,6 +266,8 @@ header {
     justify-content: flex-start;
     flex-grow: 1;
     margin-left: 3%; }
+    header h1 a:hover {
+      border-bottom: 4px solid #9FFFF5; }
 
 .menu {
   margin: 0;
