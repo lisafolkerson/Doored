@@ -1,6 +1,6 @@
 <?php get_header();  ?>
 
-<div class="main">
+<div class="main clearfix">
   <div class="container">
 
     <div class="content">
@@ -12,9 +12,6 @@
 
       <?php endwhile; // end the loop?>
     </div> <!-- /,content -->
-
-    <?php get_sidebar(); ?>
-
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
