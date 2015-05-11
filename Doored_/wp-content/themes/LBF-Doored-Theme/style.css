@@ -282,7 +282,8 @@ header {
     margin: 0;
     padding: 0; }
     .menu ul li {
-      display: inline;
+      display: inline-block;
+      list-style: none;
       margin-right: 10px;
       -webkit-flex-direction: row;
       flex-direction: row;
@@ -488,7 +489,3 @@ p.form-allowed-tags, .nocomments {
 
 #respond p, #comments-list ul #respond {
   margin: 0; }
-
-@media (max-width: 900px) {
-  header {
-    background: #fc9; } }
