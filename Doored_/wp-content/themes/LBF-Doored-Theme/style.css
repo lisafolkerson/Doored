@@ -290,13 +290,9 @@ header {
       -webkit-justify-content: flex-end;
       justify-content: flex-end; }
       .menu ul li a {
-        padding: 10px; }
-      .menu ul li a:hover {
-        text-decoration: underline;
-        -webkit-text-decoration: underline; }
-      .menu ul li a:focus {
-        text-decoration: underline;
-        -webkit-text-decoration: underline; }
+        padding: 0px 10px; }
+      .menu ul li a:hover, .menu ul li a:focus {
+        border-bottom: 2px solid #9FFFF5; }
 
 /* =============================================================================
                    Sidebar
