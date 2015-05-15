@@ -2,7 +2,7 @@
   <div class="container">
     <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p>
     <div class="grounder"></div>
-  </div>
+  </div><!--end .container-->
 </footer>
 
 <script>
