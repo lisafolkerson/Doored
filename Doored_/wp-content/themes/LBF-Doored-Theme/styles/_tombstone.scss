@@ -1,0 +1,19 @@
+.tombstone {
+	  margin: 0 auto;
+	  border: 1px solid red;
+}
+
+.upperTombstone {
+	border-radius: 50%;
+	width: 200px;
+	height: 90px;
+	background: grey;
+
+}
+
+.lowerTombstone {
+	height: 150px;
+	width: 250px;
+	background: grey;
+	border-radius: 5px 5px 0px 0px;
+}

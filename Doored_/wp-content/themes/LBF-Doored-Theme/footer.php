@@ -1,6 +1,15 @@
 <footer>
   <div class="container">
-    <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p>
+
+	<!-- start tombstone-->
+	<div class="tombstone">
+		<div class="upperTombstone"></div>
+		<div class="lowerTombstone">
+		    <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p>
+			
+		</div><!--end .lowerTombstone-->
+	</div><!--end .tombstone-->
+
     <div class="grounder"></div>
   </div><!--end .container-->
 </footer>

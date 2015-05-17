@@ -155,8 +155,6 @@ header {
 
   .menu {
   margin:0;
-  padding:0;
-  // flex: 1;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-justify-content: flex-end;
@@ -183,8 +181,6 @@ header {
       }//end a
 
       a:hover, a:focus {
-        // text-decoration: underline;
-        // -webkit-text-decoration: underline;
        border-bottom: 2px solid $accent;
 
       }
@@ -205,11 +201,12 @@ header {
 }   
 
 .mainLeft {
-  border: 1px solid red;
   flex: 2 auto;
   padding: 30px;
-  // margin-right: 40px;
+  padding-top: 70px;
   max-width: 50%; 
+  position: relative;
+  text-align: center; 
 
   .livestream {
     padding: 20px;
@@ -217,8 +214,22 @@ header {
     border-radius: 50%; 
     display: inline-block;
     float: right;
-    background-image: url('assets/images/hover3.jpg')
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
 
+  .livestream:hover::after {
+    background-image: url('assets/images/hover3.jpg');
+      content: "";
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
+      border-radius: 50%;
   }
 
   .pageTitle {
@@ -226,20 +237,65 @@ header {
     border: 2px solid black;
     display: inline-block;
     text-transform: uppercase;
+    text-align: center;
+    margin-top: 150px;
+}
+    a {
+      color: black;
+    }
 
-  }
+    h2:hover {
+      background-image: url('assets/images/hover2.jpg');
+    }
   
   .subtitle {
     text-transform: uppercase;
     font-size: 1.5rem;
+    margin-top: 0;
   }
-
 }// end .mainLeft
 
 .mainRight {
-  border: 1px solid yellow;
   flex: 1 auto;
   padding: 30px;
+  padding-top: 150px;
+
+  .videoLink {
+    margin-bottom: 40px;
+  }
+
+  .watch {
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0 30px;
+
+  }
+
+  .action {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    word-spacing: 100%; 
+    margin: 10px;
+    transform: rotate(-12deg);
+    line-height: 1;
+  }
+
+  .lwatch {
+    text-align: center;
+    flex: 5;
+  }
+
+  .rwatch {
+    flex: 1;
+  }
+
+  #Artboard-1 {
+    max-width: 100%;
+    stroke: #000;
+  }
 }
 
 /* =============================================================================
@@ -267,6 +323,8 @@ header {
 footer {
   clear:both;
 }
+
+@import "tombstone";
 
 .grounder {
   width: 100%;

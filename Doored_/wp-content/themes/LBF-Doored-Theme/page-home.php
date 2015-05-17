@@ -13,14 +13,16 @@ get_header();  ?>
 		<div class="mainLeft">
 	
 			<!-- THE IMAGE FOR LIVE STREAM -->
-		  <div class="livestream">	
-			  <?php $image = get_field('livestream');
-			  if( !empty($image) ): ?>
-			  	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-			  <?php endif; ?>
+		  <div class="livestream">
+			<a href="http://livestream.com/doubledoubleland" target="_blank">
+				<?php $image = get_field('livestream');
+				  if( !empty($image) ): ?>
+				  	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+				<?php endif; ?>
+			</a>
 		  </div><!--end .livestream-->
 
-		  <h2 class="pageTitle"><?php the_title(); ?></h2>
+		  <a href="#"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
 
 		  <p class="subtitle"><?php the_field('subtitle') ?></p>
 
@@ -33,12 +35,31 @@ get_header();  ?>
 
 		<div class="mainRight">
 		  <!-- THE IMAGE FOR VIDEO PAGE -->
-		  <?php $videoImg = get_field('recent_show_image');
-		  if( !empty($image) ): ?>
-		  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" />
-		  <?php endif; ?>
+		  <a href="#">
+			  <?php $videoImg = get_field('recent_show_image');
+			  if( !empty($image) ): ?>
+			  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink"/>
+			  <?php endif; ?>
+		  </a>
+			<div class="watch clearfix">
+				<div class="lwatch">
+				  <p class="action"><?php the_field('call_to_action') ?></p>
+				</div><!--end .watch-->	
+				<div class="rwatch">
+				  <svg viewBox="0 0 74 196" >
+				      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+				          <g id="Artboard-1" sketch:type="MSArtboardGroup" stroke-width="5">
+				              <path d="M15.0815536,195.303061 C14.9570602,186.369971 14.6392204,177.901763 17.2562025,169.18284 C41.8690782,87.1808406 39.027125,85.3481483 39.027125,9" id="Path-4" sketch:type="MSShapeGroup" transform="translate(27.063576, 102.151530) rotate(6.000000) translate(-27.063576, -102.151530) "></path>
+				              <path d="M45.6167783,11 C41.9813159,28.7620589 15.9751196,36.1226383 14,54.9146462" id="Path-5" sketch:type="MSShapeGroup"></path>
+				              <path d="M46,8 C52.7700147,21.7926238 67.3217533,38.031286 72.9981696,48.7801116" id="Path-6" sketch:type="MSShapeGroup"></path>
+				          </g>
+				      </g>
+				  </svg>
+				</div><!--end .rwatch-->	
+			</div><!--end .watch-->  
 
-		  <p class="action"><?php the_field('call_to_action') ?></p>
+			<a href="#">&#8623;</a>
+
 	  	</div><!--end .mainRIght-->
 
 
