@@ -358,7 +358,12 @@ header {
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
-    padding: 0 30px; }
+    padding: 0 30px;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap; }
+  .mainRight .watch > * {
+    padding: 10px;
+    flex: 1 100%; }
   .mainRight .action {
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -374,6 +379,13 @@ header {
   .mainRight #Artboard-1 {
     max-width: 100%;
     stroke: #000; }
+
+.downBoy {
+  text-decoration: none;
+  -webkit-text-decoration: none;
+  font-size: 150px;
+  color: black;
+  flex: 4 100%; }
 
 /* =============================================================================
                    Sidebar
@@ -397,7 +409,8 @@ footer {
 
 .tombstone {
   margin: 0 auto;
-  border: 1px solid red; }
+  border: 1px solid red;
+  display: flex; }
 
 .upperTombstone {
   border-radius: 50%;

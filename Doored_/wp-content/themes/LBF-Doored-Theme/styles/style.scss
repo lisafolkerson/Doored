@@ -271,7 +271,14 @@ header {
     -webkit-align-items: center;
     align-items: center;
     padding: 0 30px;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
 
+  }
+
+  .watch > * {
+    padding: 10px;
+    flex: 1 100%;
   }
 
   .action {
@@ -296,6 +303,14 @@ header {
     max-width: 100%;
     stroke: #000;
   }
+}
+
+.downBoy {
+  text-decoration: none;
+  -webkit-text-decoration: none;
+  font-size: 150px;
+  color: black;
+  flex: 4 100%;
 }
 
 /* =============================================================================

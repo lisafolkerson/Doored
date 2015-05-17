@@ -57,13 +57,11 @@ get_header();  ?>
 				  </svg>
 				</div><!--end .rwatch-->	
 			</div><!--end .watch-->  
-
-			<a href="#">&#8623;</a>
-
 	  	</div><!--end .mainRIght-->
-
-
     </div> <!-- /.content -->
+
+	<a href="#" class="downBoy">&#8623;</a>
+
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
