@@ -414,7 +414,6 @@ footer {
     text-align: center; }
   footer .tombstone {
     margin: 0 auto;
-    border: 1px solid red;
     position: relative;
     display: inline-block;
     text-align: center; }
@@ -423,12 +422,30 @@ footer {
     width: 200px;
     height: 90px;
     background: grey;
-    margin: 0 auto; }
+    margin: 0 auto;
+    position: relative;
+    top: 65px;
+    z-index: -10; }
   footer .lowerTombstone {
     height: 150px;
     width: 250px;
     background: grey;
-    border-radius: 5px 5px 0px 0px; }
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden; }
+    footer .lowerTombstone .name {
+      border: 2px solid black;
+      display: inline-block;
+      padding: 3px 35px;
+      margin-top: 20px;
+      overflow: hidden; }
+      footer .lowerTombstone .name p {
+        margin: 0;
+        font-family: 'Kite One', sans-serif;
+        font-size: 2.2rem; }
+      footer .lowerTombstone .name p:nth-child(2) {
+        font-size: 0.8rem; }
+    footer .lowerTombstone p {
+      margin: 0; }
   footer .grounder {
     width: 100%;
     background: #9FFFF5;

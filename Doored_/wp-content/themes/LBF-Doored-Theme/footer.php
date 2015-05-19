@@ -5,6 +5,12 @@
 	<div class="tombstone">
 		<div class="upperTombstone"></div>
 		<div class="lowerTombstone">
+		<a href="#top">
+			<div class="name">
+				<p>doored</p>
+				<p>2012 - <?php echo date('Y'); ?></p>
+			</div><!--end .name-->
+		</a>
 		    <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p>
 			
 		</div><!--end .lowerTombstone-->
