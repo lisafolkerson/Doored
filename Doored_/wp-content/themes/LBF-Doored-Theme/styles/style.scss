@@ -305,6 +305,10 @@ header {
   }
 }
 
+.arrow {
+  text-align: center;
+}
+
 .downBoy {
   text-decoration: none;
   -webkit-text-decoration: none;
@@ -337,7 +341,12 @@ header {
 
 footer {
   clear:both;
-}
+
+  .container {
+    margin: 0 auto;
+    text-align: center;
+  }
+
 
 @import "tombstone";
 
@@ -347,6 +356,7 @@ footer {
   height: 20px;
 }
 
+} // end footer
 
 
 @import "comments";

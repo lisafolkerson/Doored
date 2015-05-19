@@ -380,6 +380,9 @@ header {
     max-width: 100%;
     stroke: #000; }
 
+.arrow {
+  text-align: center; }
+
 .downBoy {
   text-decoration: none;
   -webkit-text-decoration: none;
@@ -406,28 +409,30 @@ header {
    ========================================================================== */
 footer {
   clear: both; }
-
-.tombstone {
-  margin: 0 auto;
-  border: 1px solid red;
-  display: flex; }
-
-.upperTombstone {
-  border-radius: 50%;
-  width: 200px;
-  height: 90px;
-  background: grey; }
-
-.lowerTombstone {
-  height: 150px;
-  width: 250px;
-  background: grey;
-  border-radius: 5px 5px 0px 0px; }
-
-.grounder {
-  width: 100%;
-  background: #9FFFF5;
-  height: 20px; }
+  footer .container {
+    margin: 0 auto;
+    text-align: center; }
+  footer .tombstone {
+    margin: 0 auto;
+    border: 1px solid red;
+    position: relative;
+    display: inline-block;
+    text-align: center; }
+  footer .upperTombstone {
+    border-radius: 50%;
+    width: 200px;
+    height: 90px;
+    background: grey;
+    margin: 0 auto; }
+  footer .lowerTombstone {
+    height: 150px;
+    width: 250px;
+    background: grey;
+    border-radius: 5px 5px 0px 0px; }
+  footer .grounder {
+    width: 100%;
+    background: #9FFFF5;
+    height: 20px; }
 
 /* =============================================================================
                    Comment Styling

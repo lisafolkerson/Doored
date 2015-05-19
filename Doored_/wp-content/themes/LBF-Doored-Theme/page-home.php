@@ -60,7 +60,9 @@ get_header();  ?>
 	  	</div><!--end .mainRIght-->
     </div> <!-- /.content -->
 
-	<a href="#" class="downBoy">&#8623;</a>
+	<div class="arrow">
+		<a href="#" class="downBoy">&#8623;</a>
+		</div><!--end .arrow-->
 
   </div> <!-- /.container -->
 </div> <!-- /.main -->
