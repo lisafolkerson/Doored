@@ -62,7 +62,27 @@ get_header();  ?>
 
 	<div class="arrow">
 		<a href="#" class="downBoy">&#8623;</a>
-		</div><!--end .arrow-->
+	</div>
+
+	<div class="repeater clearfix">
+		<?php
+		// check if the repeater field has rows of data
+		if( have_rows('pinned_content') ):
+		 	// loop through the rows of data
+		    while ( have_rows('pinned_content') ) : the_row();
+		        // display a sub field value
+				$rptrImg = get_sub_field('pinned_image'); ?>
+				
+				<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
+				
+
+		        <?php the_sub_field('links_to');
+		    endwhile;
+		else :
+		    // no rows found
+		endif;
+		?>
+	</div><!--end .repeater-->
 
   </div> <!-- /.container -->
 </div> <!-- /.main -->
