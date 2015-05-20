@@ -72,12 +72,14 @@ get_header();  ?>
 		    while ( have_rows('pinned_content') ) : the_row();
 		        // display a sub field value
 				$rptrImg = get_sub_field('pinned_image'); ?>
-				
-				<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
-				
+				<div class="pinnedItem">
+					<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
+					
+			        <?php the_sub_field('links_to');?>
+		    	</div><!--end .pinnedItem-->
 
-		        <?php the_sub_field('links_to');
-		    endwhile;
+		    <?php endwhile;
+
 		else :
 		    // no rows found
 		endif;
