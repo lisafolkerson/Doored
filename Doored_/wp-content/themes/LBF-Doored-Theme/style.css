@@ -463,9 +463,12 @@ header {
   .lowerTombstone .name {
     border: 2px solid black;
     display: inline-block;
-    padding: 3px 35px;
+    padding: 3px 50px;
     margin-top: 20px;
-    overflow: hidden; }
+    overflow: hidden;
+    color: black;
+    text-shadow: 1px 1px 1px #D0D2E8;
+    box-shadow: 1px 1px 1px #D0D2E8; }
     .lowerTombstone .name p {
       margin: 0;
       font-family: 'Kite One', sans-serif;
@@ -473,7 +476,8 @@ header {
     .lowerTombstone .name p:nth-child(2) {
       font-size: 0.8rem; }
   .lowerTombstone p {
-    margin: 0; }
+    margin: 0;
+    text-shadow: 1px 1px 1px #D0D2E8; }
 
 .grounder {
   width: 100%;
