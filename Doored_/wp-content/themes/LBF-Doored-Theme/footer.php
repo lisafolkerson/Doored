@@ -1,5 +1,5 @@
 <footer>
-  <div class="container">
+  <div class="footer-container">
 
 	<!-- start tombstone-->
 	<div class="tombstone">
@@ -17,7 +17,7 @@
 	</div><!--end .tombstone-->
 
     <div class="grounder"></div>
-  </div><!--end .container-->
+  </div><!--end .footer-container-->
 </footer>
 
 <script>

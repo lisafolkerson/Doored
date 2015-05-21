@@ -168,11 +168,12 @@ img.alignright {
    ========================================================================== */
 body {
   color: #333;
-  background: #ccc; }
+  background: #fc9; }
 
 .container {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 5%; }
 
 .content {
   float: left;
@@ -317,11 +318,15 @@ header {
     display: inline-block;
     float: right;
     position: absolute;
-    right: 0;
-    top: 15px; }
+    right: -110px;
+    top: 15px;
+    z-index: 10; }
   .mainLeft .livestream:hover::after {
     background-image: url('assets/images/hover3.jpg');
-    content: "";
+    content: "Live Stream";
+    color: #9FFFF5;
+    white-space: nowrap;
+    font-size: 4rem;
     opacity: 0.5;
     top: 0;
     left: 0;
@@ -381,12 +386,16 @@ header {
     stroke: #000; }
 
 .arrow {
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  bottom: 61vh;
+  right: 3vw;
+  display: inline-block; }
 
 .downBoy {
   text-decoration: none;
   -webkit-text-decoration: none;
-  font-size: 150px;
+  font-size: 72px;
   color: black;
   flex: 4 100%; }
 
@@ -396,7 +405,8 @@ header {
   column-count: 3;
   -moz-column-gap: 1em;
   -webkit-column-gap: 1em;
-  column-gap: 1em; }
+  column-gap: 1em;
+  padding-top: 30px; }
   .repeater .pinnedItem {
     background-color: #eee;
     display: inline-block;
@@ -420,49 +430,56 @@ header {
 /* =============================================================================
                    Footer
    ========================================================================== */
-footer {
-  clear: both; }
-  footer .container {
-    margin: 0 auto;
-    text-align: center; }
-  footer .tombstone {
-    margin: 0 auto;
-    position: relative;
+.footer-container {
+  margin: 0 auto;
+  text-align: center; }
+
+.tombstone {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: 0;
+  bottom: -4px; }
+
+.upperTombstone {
+  border-radius: 50%;
+  width: 200px;
+  height: 90px;
+  background: grey;
+  margin: 0 auto;
+  position: relative;
+  top: 65px;
+  z-index: -10;
+  font-size: 1rem; }
+
+.lowerTombstone {
+  height: 150px;
+  width: 250px;
+  background: grey;
+  border-radius: 5px 5px 0px 0px;
+  overflow: hidden;
+  position: relative;
+  font-size: 1rem; }
+  .lowerTombstone .name {
+    border: 2px solid black;
     display: inline-block;
-    text-align: center; }
-  footer .upperTombstone {
-    border-radius: 50%;
-    width: 200px;
-    height: 90px;
-    background: grey;
-    margin: 0 auto;
-    position: relative;
-    top: 65px;
-    z-index: -10; }
-  footer .lowerTombstone {
-    height: 150px;
-    width: 250px;
-    background: grey;
-    border-radius: 5px 5px 0px 0px;
+    padding: 3px 35px;
+    margin-top: 20px;
     overflow: hidden; }
-    footer .lowerTombstone .name {
-      border: 2px solid black;
-      display: inline-block;
-      padding: 3px 35px;
-      margin-top: 20px;
-      overflow: hidden; }
-      footer .lowerTombstone .name p {
-        margin: 0;
-        font-family: 'Kite One', sans-serif;
-        font-size: 2.2rem; }
-      footer .lowerTombstone .name p:nth-child(2) {
-        font-size: 0.8rem; }
-    footer .lowerTombstone p {
-      margin: 0; }
-  footer .grounder {
-    width: 100%;
-    background: #9FFFF5;
-    height: 20px; }
+    .lowerTombstone .name p {
+      margin: 0;
+      font-family: 'Kite One', sans-serif;
+      font-size: 2.2rem; }
+    .lowerTombstone .name p:nth-child(2) {
+      font-size: 0.8rem; }
+  .lowerTombstone p {
+    margin: 0; }
+
+.grounder {
+  width: 100%;
+  background: #9FFFF5;
+  height: 20px;
+  display: block; }
 
 /* =============================================================================
                    Comment Styling

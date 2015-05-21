@@ -11,6 +11,7 @@ Author URI: http://lisafolkerson.com
 
 $main-color: #fc9;
 $accent: #9FFFF5;
+$background: #fc9;
 
 
 /* =============================================================================
@@ -19,12 +20,13 @@ $accent: #9FFFF5;
 
 body { 
   color:#333;
-  background: #ccc;
+  background: $background;
 }
 
 .container {
   max-width:1200px; 
   margin:0 auto;
+  padding: 0 5%;
 
 }
 
@@ -198,6 +200,7 @@ header {
     display: flex;
     -webkit-flex-direction: row;
     flex-direction: row;
+
 }   
 
 .mainLeft {
@@ -215,13 +218,17 @@ header {
     display: inline-block;
     float: right;
     position: absolute;
-    right: 0;
+    right: -110px;
     top: 15px;
+    z-index: 10;
   }
 
   .livestream:hover::after {
     background-image: url('assets/images/hover3.jpg');
-      content: "";
+      content: "Live Stream";
+      color: $accent;
+      white-space: nowrap;
+      font-size: 4rem;
       opacity: 0.5;
       top: 0;
       left: 0;
@@ -307,12 +314,17 @@ header {
 
 .arrow {
   text-align: center;
+  position: relative;
+  bottom: 61vh;
+  right: 3vw;
+  display: inline-block;
 }
+
 
 .downBoy {
   text-decoration: none;
   -webkit-text-decoration: none;
-  font-size: 150px;
+  font-size: 72px;
   color: black;
   flex: 4 100%;
 }
@@ -325,27 +337,17 @@ header {
     -moz-column-gap: 1em;
     -webkit-column-gap: 1em;
     column-gap: 1em;
-
-   // display: -webkit-box;
-   // display: -moz-box;
-   // display: -ms-flexbox;
-   // display: -webkit-flex;
-   // display: flex;   
-   // -webkit-flex-flow: row wrap;
-   // flex-flow: row wrap;
-  // justify-content: space-around;
+    padding-top: 30px;
 
   .pinnedItem {
-    // max-width: 100%;
-    // flex: 1 30%;
-    // margin: 10px 1%;
     background-color: #eee;
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
 
   }
-}
+} // end .repeater
+
 /* =============================================================================
                    Sidebar
    ========================================================================== */
@@ -368,24 +370,14 @@ header {
                    Footer
    ========================================================================== */
 
-footer {
-  clear:both;
-
-  .container {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-
 @import "tombstone";
 
 .grounder {
   width: 100%;
   background: $accent;
   height: 20px;
+  display: block;
 }
-
-} // end footer
 
 
 @import "comments";
