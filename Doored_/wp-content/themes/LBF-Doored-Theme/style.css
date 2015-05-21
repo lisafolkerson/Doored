@@ -391,18 +391,17 @@ header {
   flex: 4 100%; }
 
 .repeater {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  /*   justify-content: space-around;
- */ }
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-gap: 1em;
+  column-gap: 1em; }
   .repeater .pinnedItem {
-    /*   max-width: 100%; */
-    flex: 1 20%; }
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%; }
 
 /* =============================================================================
                    Sidebar

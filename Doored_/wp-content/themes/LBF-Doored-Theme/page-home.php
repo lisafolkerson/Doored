@@ -61,10 +61,10 @@ get_header();  ?>
     </div> <!-- /.content -->
 
 	<div class="arrow">
-		<a href="#" class="downBoy">&#8623;</a>
+		<a href="#repeater" class="downBoy">&#8623;</a>
 	</div>
 
-	<div class="repeater clearfix">
+	<div class="repeater clearfix" id="repeater">
 		<?php
 		// check if the repeater field has rows of data
 		if( have_rows('pinned_content') ):
