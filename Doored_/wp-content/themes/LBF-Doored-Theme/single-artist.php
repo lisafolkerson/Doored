@@ -36,22 +36,22 @@
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
         </div><!-- #nav-below -->
 
-        <?php comments_template( '', true ); ?>
+        <?php //comments_template( '', true ); ?>
 
       <?php endwhile; // end of the loop. ?>
 
       <div class="repeater clearfix" id="repeater">
         <?php
         // check if the repeater field has rows of data
-        if( have_rows('pinned_content') ):
+        if( have_rows('artist_repeater') ):
           // loop through the rows of data
-            while ( have_rows('pinned_content') ) : the_row();
+            while ( have_rows('artist_repeater') ) : the_row();
                 // display a sub field value
-            $rptrImg = get_sub_field('pinned_image'); ?>
+            $rptrImg = get_sub_field('artist_image'); ?>
             <div class="pinnedItem">
-              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
+              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
               
-                  <?php the_sub_field('links_to');?>
+                  <?php the_sub_field('artist_text');?>
               </div><!--end .pinnedItem-->
 
             <?php endwhile;
