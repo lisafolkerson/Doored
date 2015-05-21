@@ -1,14 +1,16 @@
 <?php get_header(); ?>
 
 <div class="main clearfix">
-  <div class="container clearfix">
+  <div class="container clearfix artist-page">
 
     <div class="content">
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <h1 class="entry-title"><?php the_title(); ?></h1>
-
+          <div class="section-header">
+            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a>
+          </div><!--end .section-header-->
 
           <div class="entry-content">
             <?php the_content(); ?>
@@ -19,8 +21,8 @@
           </div><!-- .entry-content -->
 
           <div class="entry-utility">
-            <?php hackeryou_posted_in(); ?>
-            <?php edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
+            <?php //hackeryou_posted_in(); ?>
+            <?php //edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
           </div><!-- .entry-utility -->
         </div><!-- #post-## -->
 
