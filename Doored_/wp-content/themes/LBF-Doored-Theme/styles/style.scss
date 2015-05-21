@@ -348,6 +348,31 @@ header {
   }
 } // end .repeater
 
+
+/* =============================================================================
+              Single Artist Page
+   ========================================================================== */
+
+.single-artist {
+
+  .entry-title {
+        padding: 10px 15px;
+        border: 2px solid black;
+        display: inline-block;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 150px;
+    }
+
+  a {
+    color: black;
+  }
+
+  h2:hover {
+    background-image: url('assets/images/hover2.jpg');
+  }
+} //end .single-artist
+
 /* =============================================================================
                    Sidebar
    ========================================================================== */

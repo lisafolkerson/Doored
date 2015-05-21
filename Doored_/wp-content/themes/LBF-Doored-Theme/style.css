@@ -414,6 +414,21 @@ header {
     width: 100%; }
 
 /* =============================================================================
+              Single Artist Page
+   ========================================================================== */
+.single-artist .entry-title {
+  padding: 10px 15px;
+  border: 2px solid black;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 150px; }
+.single-artist a {
+  color: black; }
+.single-artist h2:hover {
+  background-image: url('assets/images/hover2.jpg'); }
+
+/* =============================================================================
                    Sidebar
    ========================================================================== */
 .sidebar {
