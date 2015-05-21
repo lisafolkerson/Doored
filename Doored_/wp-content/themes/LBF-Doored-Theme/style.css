@@ -418,7 +418,7 @@ header {
    ========================================================================== */
 .artist-page {
   width: 100%;
-  padding: 0 5%; }
+  padding: 40px 5%; }
 
 .section-header {
   text-align: center; }
@@ -442,6 +442,14 @@ header {
 .sidebar {
   width: 30%;
   float: left; }
+  .sidebar .sidebarTitle {
+    font-family: 'Kite One', sans-serif;
+    padding: 10px 15px;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: center;
+    font-size: 1.6rem;
+    width: 100%; }
 
 .sidebar ul {
   margin: 0;

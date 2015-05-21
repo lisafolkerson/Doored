@@ -9,16 +9,21 @@
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a>
+            <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
           </div><!--end .section-header-->
 
-          <div class="entry-content">
-            <?php the_content(); ?>
+          <?php $artistImg = get_field('artist_image'); ?>
+            <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
+
+          <?php the_field('about') ?>  
+
+
+          <div class="back-n-forth">
             <?php wp_link_pages(array(
               'before' => '<div class="page-link"> Pages: ',
               'after' => '</div>'
             )); ?>
-          </div><!-- .entry-content -->
+          </div><!-- .back-n-forth -->
 
           <div class="entry-utility">
             <?php //hackeryou_posted_in(); ?>
