@@ -11,7 +11,7 @@
 				<p>2012 - <?php echo date('Y'); ?></p>
 			</div><!--end .name-->
 		</a>
-		    <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p>
+		    <!-- <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p> -->
 			
 		</div><!--end .lowerTombstone-->
 	</div><!--end .tombstone-->
