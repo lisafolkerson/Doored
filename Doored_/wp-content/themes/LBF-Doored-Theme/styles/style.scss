@@ -31,9 +31,9 @@ body {
 }
 
 .content {  
-  float:left;
-  width:65%;
-  margin-right: 5%;
+  // float:left;
+  width:100%;
+  // margin-right: 5%;
 
 }
 
@@ -159,6 +159,11 @@ header {
   }
 } // end header
 
+.livestream {
+  flex-grow: 1;
+  text-align: center;
+}
+
   .watchIcon {
     height: 80px;
   }
@@ -169,7 +174,7 @@ header {
   flex-direction: row;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
-  flex-grow: 3;
+  flex-grow: 2;
   display: flex;
 
   ul {
@@ -184,6 +189,7 @@ header {
         flex-direction: row;
       -webkit-justify-content: flex-end;
       justify-content: flex-end;
+      font-size: 1.1rem;
       
       a {
         padding:0px 10px; 
@@ -214,8 +220,7 @@ header {
 
 .mainLeft {
   flex: 2 auto;
-  padding: 30px;
-  padding-top: 70px;
+  padding: 30px 10px 30px 0;
   max-width: 50%; 
   position: relative;
   text-align: center; 
@@ -230,6 +235,7 @@ header {
     right: -110px;
     top: 15px;
     z-index: 10;
+    visibility: hidden;
   }
 
   .pageTitle {
@@ -238,13 +244,13 @@ header {
     display: inline-block;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 10px;
 }
     a {
       color: black;
     }
 
-    h2:hover {
+    h2:hover, h2:focus {
       background: $accent;
     }
   
@@ -257,8 +263,7 @@ header {
 
 .mainRight {
   flex: 1 auto;
-  padding: 30px;
-  padding-top: 150px;
+  padding: 30px 0 30px 10px;
 
   .videoLink {
     margin-bottom: 40px;
@@ -303,7 +308,7 @@ header {
     max-width: 100%;
     stroke: #000;
   }
-}
+} // end .mainRight
 
 .arrow {
   text-align: center;
@@ -346,7 +351,14 @@ header {
 .artist-page {
   width: 100%;
   padding: 40px 5%;
-}
+
+  .content{
+    float:left;
+    width:65%;
+    margin-right: 5%;
+  }
+}// end .artist-page
+
 
 .section-header {
   text-align: center;
