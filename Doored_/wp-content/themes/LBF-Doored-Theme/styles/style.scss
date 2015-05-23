@@ -202,13 +202,14 @@ header {
          MAIN PAGE
    ========================================================================== */
 
-.customHome {
+.mainView {
   width: 100%;
   display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  height: 100vh;
+  
 }   
 
 .mainLeft {
@@ -231,22 +232,6 @@ header {
     z-index: 10;
   }
 
-  .livestream:hover::after {
-    background-image: url('assets/images/hover3.jpg');
-      content: "Live Stream";
-      color: $accent;
-      white-space: nowrap;
-      font-size: 4rem;
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -1;   
-      border-radius: 50%;
-  }
-
   .pageTitle {
     padding: 10px 15px;
     border: 2px solid black;
@@ -260,7 +245,7 @@ header {
     }
 
     h2:hover {
-      background-image: url('assets/images/hover2.jpg');
+      background: $accent;
     }
   
   .subtitle {
