@@ -199,6 +199,9 @@ a {
 a:hover {
   color: #9FFFF5; }
 
+a:focus {
+  color: #9FFFF5; }
+
 /* paragraphs */
 p {
   line-height: 1.5; }
@@ -267,7 +270,7 @@ header {
     justify-content: flex-start;
     flex-grow: 1;
     margin-left: 3%; }
-    header h1 a:hover {
+    header h1 a:hover, header h1 a:focus {
       border-bottom: 4px solid #9FFFF5; }
 
 .menu {
@@ -433,8 +436,11 @@ header {
     font-size: 2rem; }
   .single-artist a {
     color: black; }
-  .single-artist h2:hover {
-    background-image: url('assets/images/hover2.jpg'); }
+  .single-artist a:focus, .single-artist a:hover {
+    background: #9FFFF5;
+    padding: 0 3px; }
+  .single-artist h2:hover, .single-artist h2:focus {
+    background: #9FFFF5; }
 
 /* =============================================================================
                    Sidebar

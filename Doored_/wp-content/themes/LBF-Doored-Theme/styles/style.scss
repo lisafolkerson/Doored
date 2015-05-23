@@ -61,6 +61,10 @@ a:hover {
   color: $accent;
 }
 
+a:focus {
+  color: $accent;
+}
+
 /* paragraphs */
 p {
   line-height: 1.5;
@@ -148,7 +152,7 @@ header {
     flex-grow: 1;
     margin-left:  3%;
   
-  a:hover {
+  a:hover, a:focus {
     border-bottom: 4px solid $accent;
   }
   
@@ -377,8 +381,13 @@ header {
     color: black;
   }
 
-  h2:hover {
-    background-image: url('assets/images/hover2.jpg');
+  a:focus, a:hover {
+    background: $accent;
+    padding: 0 3px;
+  }
+
+  h2:hover, h2:focus {
+    background: $accent;
   }
 } //end .single-artist
 
