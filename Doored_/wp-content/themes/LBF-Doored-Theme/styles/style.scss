@@ -159,6 +159,10 @@ header {
   }
 } // end header
 
+  .watchIcon {
+    height: 80px;
+  }
+
   .menu {
   margin:0;
   -webkit-flex-direction: row;
@@ -319,8 +323,6 @@ header {
 .arrow {
   text-align: center;
   position: relative;
-  bottom: 61vh;
-  right: 6%;
   display: inline-block;
 }
 

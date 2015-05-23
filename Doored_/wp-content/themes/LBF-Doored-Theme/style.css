@@ -273,6 +273,9 @@ header {
     header h1 a:hover, header h1 a:focus {
       border-bottom: 4px solid #9FFFF5; }
 
+.watchIcon {
+  height: 80px; }
+
 .menu {
   margin: 0;
   -webkit-flex-direction: row;
@@ -391,8 +394,6 @@ header {
 .arrow {
   text-align: center;
   position: relative;
-  bottom: 61vh;
-  right: 6%;
   display: inline-block; }
 
 .downBoy {

@@ -24,6 +24,16 @@
         </a>
     </h1>
 
+      <!-- THE IMAGE FOR LIVE STREAM -->
+      <div class="livestream">
+      <a href="http://livestream.com/doubledoubleland" target="_blank">
+        <?php $image = get_field('livestream');
+          if( !empty($image) ): ?>
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="watchIcon">
+        <?php endif; ?>
+      </a>
+      </div><!--end .livestream-->
+
     <div class="menu">
       <?php wp_nav_menu( array(
         'container' => false,

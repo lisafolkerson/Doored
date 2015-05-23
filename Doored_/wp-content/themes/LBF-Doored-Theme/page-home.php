@@ -61,7 +61,6 @@ get_header();  ?>
     </div> <!-- /.content -->
 
 	<div class="arrow">
-		<a href="#repeater" class="downBoy">&#8623;</a>
 	</div>
 
 	<div class="repeater clearfix" id="repeater">
