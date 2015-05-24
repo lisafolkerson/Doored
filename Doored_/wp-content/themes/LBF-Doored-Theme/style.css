@@ -509,6 +509,10 @@ header {
   .lowerTombstone p {
     margin: 0;
     text-shadow: 1px 1px 1px #D0D2E8; }
+  .lowerTombstone a {
+    margin: 10px 0px;
+    text-shadow: 1px 1px 1px #D0D2E8;
+    font-family: 'Kite One', sans-serif; }
 
 /* =============================================================================
 

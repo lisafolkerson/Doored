@@ -5,14 +5,14 @@
 	<div class="tombstone">
 		<div class="upperTombstone"></div>
 		<div class="lowerTombstone">
-		<a href="#top">
+		<a href="#top" class="">
 			<div class="name">
 				<p>doored</p>
 				<p>2012 - <?php echo date('Y'); ?></p>
 			</div><!--end .name-->
 		</a>
 		    <!-- <p>&copy; Life of a Craphead <?php echo date('Y'); ?></p> -->
-			
+			<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
 		</div><!--end .lowerTombstone-->
 	</div><!--end .tombstone-->
 
