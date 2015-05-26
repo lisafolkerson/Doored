@@ -24,13 +24,14 @@
 }
 
 .lowerTombstone {
-	height: 150px;
+	// height: 150px;
 	width: 250px;
 	background: grey;
 	border-radius: 5px 5px 0px 0px;
 	overflow: hidden;
 	position: relative;
 	font-size: 1rem;
+	padding: 5px 0px 45px 0px;
 
 
 	.name {
@@ -64,6 +65,7 @@
 		margin: 10px 0px;
 		text-shadow: 1px 1px 1px #D0D2E8;
 		font-family: 'Kite One', sans-serif;
+		color: black; 
 	}
 } // end lowerTombstone
 
