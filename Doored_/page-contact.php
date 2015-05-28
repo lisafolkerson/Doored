@@ -4,7 +4,7 @@
 	Template Name: Contact Page
 */
 
-get_header();  ?>x
+get_header();  ?>
 
 <div class="main clearfix">
   <div class="container">
