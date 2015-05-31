@@ -266,3 +266,12 @@ function get_post_parent($post) {
 		return $post->ID;
 	}
 }
+
+
+// var width = $(window).width();
+// $('#wpgmza_map').attr('style','width:' + width + 'px; left:-26.5% !important;');
+// });
+
+// $(window).resize(function(){
+// var width = $(window).width();
+// $('#wpgmza_map').attr('style','width:' + width + 'px; left:-26.5% !important;');
