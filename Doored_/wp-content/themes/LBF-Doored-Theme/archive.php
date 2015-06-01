@@ -4,6 +4,23 @@
   <div class="container">
     <div class="content">
 
+    <!-- bring in all images from uploaded media -->
+    <?php
+
+    $query_images_args = array(
+        'post_type' => 'attachment', 'post_mime_type' =>'image', 'post_status' => 'inherit', 'posts_per_page' => -1,
+    );
+
+    $query_images = new WP_Query( $query_images_args );
+    $images = array();
+    foreach ( $query_images->posts as $image) {
+        $images[]= wp_get_attachment_url( $image->ID );
+    }
+    ?>
+
+    <img src="<?php echo $images['url']; ?>" alt="<?php echo $images['alt']; ?>" class="archiveImage">
+
+      <!-- bring in all posts -->
       <?php if ( have_posts() ) the_post(); ?>
 
       <h1>
