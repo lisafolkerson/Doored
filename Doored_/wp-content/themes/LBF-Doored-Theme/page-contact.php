@@ -11,19 +11,11 @@ get_header();  ?>
     <div class="content customHome">
 		<div class="mainView">
 			<div class="mainLeft">
-		
-				<!-- THE IMAGE FOR LIVE STREAM -->
-			  <div class="livestream">
-				<a href="http://livestream.com/doubledoubleland" target="_blank">
-					<?php $image = get_field('livestream');
-					  if( !empty($image) ): ?>
-
-					<?php endif; ?>
-				</a>
-			  </div><!--end .livestream-->
+	
+			  <h2>WHY WHY WHY</h2>
 
 			  <a href="#"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
-
+`
 			  <p class="subtitle"><?php the_field('subtitle') ?></p>
 
 			   <!-- THE IMAGE TO REPRESENT DOORED -->
