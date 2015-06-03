@@ -77,6 +77,8 @@ get_header();  ?>
 		?>
 	</div><!--end .repeater-->
 
+	<?php get_sidebar(); ?>
+
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
