@@ -7,8 +7,8 @@ get_header(); ?>
 
 <div class="main clearfix">
   <div class="container clearfix show-page">
-
     <div class="content">
+    
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -27,7 +27,7 @@ get_header(); ?>
               'before' => '<div class="page-link"> Pages: ',
               'after' => '</div>'
             )); ?>
-          </div><!-- .back-n-forth -->
+          </div><!-- /.back-n-forth -->
 
           <div class="entry-utility">
             <?php //edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>

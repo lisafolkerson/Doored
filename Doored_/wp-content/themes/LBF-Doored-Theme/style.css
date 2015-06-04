@@ -437,6 +437,36 @@ header {
     background: #9FFFF5; }
 
 /* =============================================================================
+        Show    Page
+   ========================================================================== */
+.show-page {
+  width: 100%;
+  padding: 40px 5%; }
+  .show-page .content {
+    float: left;
+    width: 65%;
+    margin-right: 5%; }
+
+.section-header {
+  text-align: center; }
+
+.show-page {
+  margin: 0 auto; }
+  .show-page .entry-title {
+    padding: 10px 15px;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem; }
+  .show-page a {
+    color: black; }
+  .show-page a:focus, .show-page a:hover {
+    background: #9FFFF5;
+    padding: 0 3px; }
+  .show-page h2:hover, .show-page h2:focus {
+    background: #9FFFF5; }
+
+/* =============================================================================
                    Sidebar
    ========================================================================== */
 .sidebar {

@@ -388,6 +388,52 @@ header {
 } //end .single-artist
 
 /* =============================================================================
+        Show    Page
+   ========================================================================== */
+.show-page {
+  width: 100%;
+  padding: 40px 5%;
+
+  .content{
+    float:left;
+    width:65%;
+    margin-right: 5%;
+  } 
+}// end .show-page
+
+
+.section-header {
+  text-align: center;
+}
+
+.show-page {
+    margin: 0 auto;
+    // text-align: center;
+
+  .entry-title {
+        padding: 10px 15px;
+        border: 2px solid black;
+        display: inline-block;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+  a {
+    color: black;
+  }
+
+  a:focus, a:hover {
+    background: $accent;
+    padding: 0 3px;
+  }
+
+  h2:hover, h2:focus {
+    background: $accent;
+  }
+} //end .show-page
+
+
+/* =============================================================================
                    Sidebar
    ========================================================================== */
 .sidebar {
