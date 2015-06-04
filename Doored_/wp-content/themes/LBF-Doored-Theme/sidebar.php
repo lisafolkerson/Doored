@@ -6,16 +6,16 @@
 		<?php 
 
 		if ( is_single() || is_page( 'shows' ) ) : // shows page?>
-			<h1 class="entry-title" itemprop="name"><?php the_title(); ?> or Shows</h1>
+			<h3 class="entry-title" itemprop="name"><?php the_title(); ?> or Shows</h3>
 
 		<?php endif; ?>	
 		 <?php 
 
-		if ( is_page( 'artists' ) ) : // artists page ?>   <h2>artist page</h2>  
-		    <h2 class="entry-title" itemprop="name">
+		if ( is_page( 'artists' ) ) : // artists page ?>   <h3>artist page</h3>  
+		    <h3 class="entry-title" itemprop="name">
 		           	or artists
 		               <a itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-		           </h2>         
+		           </h3>         
 		<?php endif; ?>
 	</ul>
 </div>
