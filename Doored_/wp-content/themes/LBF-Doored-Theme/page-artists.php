@@ -3,12 +3,27 @@
 <div class="main clearfix">
   <div class="container clearfix artist-page">
     <div class="content">
-    
+
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+
+        <?php $latestPosts = new WP_Query(array(
+            'post_type' => 'artist', //only want portfolio posts
+        )) ?>
+        
+        <?php if ($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post(); ?>
+  
+            <div class="single-entry">
+              <h1 class="entry-title"><?php the_title(); ?></h1>
+
+            </div><!--end .single-entry-->
+          
+
+        <?php endwhile //end custom loop ?>
+        <?php wp_reset_postdata(); //return env back to regular functionality?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <h1 class="entry-title"><?php //the_title(); ?></h1>
             <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
           </div><!--end .section-header-->
 
