@@ -23,7 +23,7 @@
 
 		<?php 
 
-		if ( is_single() || is_page( 'artists' ) ) : ?>  
+		if ( is_page( 'artists' ) ) : ?>  
 		    <h3 class="entry-title" itemprop="name"><?php the_title(); ?></h3>         
 
 		    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
