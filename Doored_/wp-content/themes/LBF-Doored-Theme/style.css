@@ -490,9 +490,8 @@ header {
 .sidebar ul {
   margin: 0;
   padding: 0; }
-
-.sidebar ul li {
-  list-style: none; }
+  .sidebar ul li {
+    list-style: none; }
 
 /* =============================================================================
                Contact Page
@@ -532,7 +531,7 @@ header {
   overflow: hidden;
   position: relative;
   font-size: 1rem;
-  padding: 5px 0px 45 px 0px; }
+  padding: 5px 0px 45px 0px; }
   .lowerTombstone .name {
     border: 2px solid black;
     display: inline-block;
