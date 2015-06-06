@@ -1,7 +1,7 @@
 <div class="sidebar">
 	<ul class="xoxo">
 		<?php 
-		if ( is_page( 'shows' ) ) : ?>
+		if ( is_page( 'shows' ) || is_single( 'show' ) ) : ?>
 			<h3 class="sidebarTitle" itemprop="name"><?php the_title(); ?></h3>
 			<?php $latestPosts = new WP_Query(array(
 			    'post_type' => 'show', //only want show posts
@@ -15,7 +15,7 @@
 			  <?php endwhile //end custom loop ?>
 		<?php endif; ?>	    
 		<?php 
-		if ( is_page( 'artists' ) ) : ?>  
+		if ( is_page( 'artists' ) || is_single( 'artist' ) ) : ?>  
 		    <h3 class="sidebarTitle" itemprop="name"><?php the_title(); ?></h3>         
 	      <?php $latestPosts = new WP_Query(array(
 	          'post_type' => 'artist', //only want artist posts
