@@ -450,7 +450,18 @@ header {
     width: 100%;
 
   }
-}
+
+  .single-entry {
+    width: 100%;
+
+    img {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+    }
+  }// end .single-entry
+}// end .sidebar
 
 .sidebar ul {
   margin:0;

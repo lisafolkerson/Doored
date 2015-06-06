@@ -480,6 +480,12 @@ header {
     text-align: center;
     font-size: 1.6rem;
     width: 100%; }
+  .sidebar .single-entry {
+    width: 100%; }
+    .sidebar .single-entry img {
+      display: inline-block; }
+    .sidebar .single-entry p {
+      display: inline-block; }
 
 .sidebar ul {
   margin: 0;
