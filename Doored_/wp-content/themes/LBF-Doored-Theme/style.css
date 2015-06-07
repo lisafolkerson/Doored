@@ -191,14 +191,11 @@ p, h2, h3 {
 
 /* links */
 a {
-  color: #9FFFF5;
+  color: black;
   text-decoration: none; }
 
-a:hover {
-  color: #9FFFF5; }
-
-a:focus {
-  color: #9FFFF5; }
+a:hover, a:focus {
+  border-bottom: 2px solid #9FFFF5; }
 
 /* paragraphs */
 p {
@@ -416,25 +413,23 @@ header {
     float: left;
     width: 65%;
     margin-right: 5%; }
-
-.section-header {
-  text-align: center; }
-
-.single-artist {
-  margin: 0 auto; }
-  .single-artist .entry-title {
-    padding: 10px 15px;
-    border: 2px solid black;
-    display: inline-block;
-    text-align: center;
-    font-size: 2rem; }
-  .single-artist a {
-    color: black; }
-  .single-artist a:focus, .single-artist a:hover {
-    background: #9FFFF5;
-    padding: 0 3px; }
-  .single-artist h2:hover, .single-artist h2:focus {
-    background: #9FFFF5; }
+  .artist-page .section-header {
+    text-align: center; }
+  .artist-page .single-artist {
+    margin: 0 auto; }
+    .artist-page .single-artist .entry-title {
+      padding: 10px 15px;
+      border: 2px solid black;
+      display: inline-block;
+      text-align: center;
+      font-size: 2rem; }
+    .artist-page .single-artist a {
+      color: black; }
+    .artist-page .single-artist a:focus, .artist-page .single-artist a:hover {
+      background: #9FFFF5;
+      padding: 0 3px; }
+    .artist-page .single-artist h2:hover, .artist-page .single-artist h2:focus {
+      background: #9FFFF5; }
 
 /* =============================================================================
         Show    Page
@@ -488,12 +483,16 @@ header {
       display: inline-block;
       border-radius: 50%;
       border: 2px solid black; }
-    .sidebar .single-entry p {
+    .sidebar .single-entry .entry-name {
       display: inline-block;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      margin: 0 15px; }
+      margin: 0 15px;
+      color: black; }
+    .sidebar .single-entry a.a__img:hover, .sidebar .single-entry a.a__img:hover .showImage {
+      border: none;
+      background: none; }
 
 .sidebar ul {
   margin: 0;

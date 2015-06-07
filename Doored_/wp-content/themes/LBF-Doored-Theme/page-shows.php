@@ -63,8 +63,6 @@ get_header(); ?>
         endif;
         ?>
       </div><!--end .repeater-->
-
-
     </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>
