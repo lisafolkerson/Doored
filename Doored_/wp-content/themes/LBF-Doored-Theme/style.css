@@ -481,11 +481,19 @@ header {
     font-size: 1.6rem;
     width: 100%; }
   .sidebar .single-entry {
-    width: 100%; }
+    width: 100%;
+    position: relative;
+    padding: 0px 25px; }
     .sidebar .single-entry img {
-      display: inline-block; }
+      display: inline-block;
+      border-radius: 50%;
+      border: 2px solid black; }
     .sidebar .single-entry p {
-      display: inline-block; }
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 15px; }
 
 .sidebar ul {
   margin: 0;
@@ -498,6 +506,14 @@ header {
    ========================================================================== */
 .page-id-15 {
   text-align: center; }
+
+/* =============================================================================
+                   Error
+   ========================================================================== */
+.error404 {
+  text-align: center; }
+  .error404 .main {
+    padding: 50px; }
 
 /* =============================================================================
                    Footer

@@ -13,7 +13,7 @@ get_header(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <!-- <h1 class="entry-title"><?php the_title(); ?></h1> -->
           </div><!--end .section-header-->
 
           <?php $showImg = get_field('show_image'); ?>
