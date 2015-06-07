@@ -67,6 +67,11 @@
 		font-family: 'Kite One', sans-serif;
 		color: black; 
 	}
+
+	a:hover, a:focus, a:active .showImage {
+	  border: none;
+	  background: none;
+	}
 } // end lowerTombstone
 
 

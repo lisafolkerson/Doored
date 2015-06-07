@@ -482,7 +482,8 @@ header {
     .sidebar .single-entry img {
       display: inline-block;
       border-radius: 50%;
-      border: 2px solid black; }
+      border: 2px solid black;
+      width: 90px; }
     .sidebar .single-entry .entry-name {
       display: inline-block;
       position: absolute;
@@ -490,7 +491,7 @@ header {
       transform: translateY(-50%);
       margin: 0 15px;
       color: black; }
-    .sidebar .single-entry a.a__img:hover, .sidebar .single-entry a.a__img:hover .showImage {
+    .sidebar .single-entry a.a__img:hover, .sidebar .single-entry a.a__img:focus, .sidebar .single-entry a.a__img:active .showImage {
       border: none;
       background: none; }
 
@@ -570,6 +571,9 @@ header {
     text-shadow: 1px 1px 1px #D0D2E8;
     font-family: 'Kite One', sans-serif;
     color: black; }
+  .lowerTombstone a:hover, .lowerTombstone a:focus, .lowerTombstone a:active .showImage {
+    border: none;
+    background: none; }
 
 /* =============================================================================
 
