@@ -2,8 +2,7 @@
 	<ul class="xoxo">
 		<?php 
 		if ( is_page( 'shows' ) || is_singular( 'show' ) ): ?>
-			<h3 class="sidebarTitle" itemprop="name">Shows</h3>
-		
+			<h3 class="sidebarTitle" itemprop="name">Shows</h3>	
 			<?php $latestShowPosts = new WP_Query(array(
 			    'post_type' => 'show', //only want show posts
 			)) ?>			

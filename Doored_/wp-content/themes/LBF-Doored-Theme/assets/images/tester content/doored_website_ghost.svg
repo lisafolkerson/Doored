@@ -1,6 +1,7 @@
-<svg viewBox="0 0 792 612" style="enable-background:new ">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 792 612">
+<style>
 <![CDATA[
-	.st0{fill:#AEDFE1;}
+.st0{fill:#AEDFE1;}
 	.st1{fill:#E5E4E3;}
 	.st2{fill:#EAE9E8;}
 	.st3{fill:#BFBEBB;}
@@ -24,22 +25,19 @@
 	<g class="st12">
 		<g>
 			<defs>
-				
-					<rect id="SVGID_1_" x="184.1" y="-18.7" transform="matrix(1 -5.902663e-03 5.902663e-03 1 -1.8452 2.5004)" width="477.1" height="665"/>
+				<rect id="SVGID_1_" x="184.1" y="-18.7" transform="matrix(1 -5.902663e-03 5.902663e-03 1 -1.8452 2.5004)" width="477.1" height="665"/>
 			</defs>
 			<clipPath id="SVGID_2_">
 				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 			</clipPath>
 			<g class="st4">
-				<defs>
-					
+				<defs>			
 						<rect id="SVGID_3_" x="185" y="-18.7" transform="matrix(1 -5.902431e-03 5.902431e-03 1 -1.8452 2.5005)" width="475.5" height="665"/>
 				</defs>
 				<clipPath id="SVGID_4_">
 					<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
 				</clipPath>
 				<g transform="matrix(1 0 0 1 6.103516e-05 6.103516e-05)" style="clip-path:url(#SVGID_4_);">
-					
 						<image style="overflow:visible;" width="2544" height="3558" xlink:href="67FFA5DD267D26F3.jpg"  transform="matrix(-0.1869 1.103234e-03 -1.103234e-03 -0.1869 662.4229 644.9678)">
 					</image>
 				</g>
