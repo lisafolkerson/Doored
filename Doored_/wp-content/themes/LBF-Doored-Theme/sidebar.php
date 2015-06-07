@@ -12,10 +12,10 @@
 
 			  <div class="single-entry entry-show">
 			    <?php $showImg = get_field('show_image'); ?>
-			    <a href="#" class="a__img">
+			    <a href="<?php the_permalink(); ?>" class="a__img">
 				    <img src="<?php echo $showImg['sizes']['square']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 			    </a>
-			    <a href="#" class="entry-name"><?php the_title(); ?></a>
+			    <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
 			  </div><!--end .single-entry-->		    
 			  <?php endwhile //end custom loop ?>
 		<?php endif; ?>	    
@@ -34,10 +34,10 @@
 		    
         <div class="single-entry entry-artist">
         	<?php $artistImg = get_field('artist_image'); ?>
-        	<a href="#" class="a__img">
+        	<a href="<?php the_permalink(); ?>" class="a__img">
 	        	<img src="<?php echo $artistImg['sizes']['square']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
 	        </a>
-          <a href="#" class="entry-name"><?php the_title(); ?></a>
+          <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
         </div><!--end .single-entry-->
 	      <?php endwhile //end custom loop ?>
 		<?php endif; ?>

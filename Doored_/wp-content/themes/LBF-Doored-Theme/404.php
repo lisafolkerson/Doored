@@ -7,6 +7,9 @@
     <p>Apologies, but the page you requested could not be found. Perhaps searching will help.</p>
     <?php get_search_form(); ?>
 
+    <img src="assets/images/tester\ content/doored_website_ghost.svg" alt="">
+    <img src="assets/images/tester\ content/selina.jpg" height="776" width="1200" alt="">
+
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
