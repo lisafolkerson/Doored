@@ -12,9 +12,9 @@ get_header(); ?>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <div class="section-header">
-            <!-- <h1 class="entry-title"><?php the_title(); ?></h1> -->
-          </div><!--end .section-header-->
+
+        <div class="single-entry">
+        <h2 class="entry-title"><?php the_title(); ?></h2>
 
           <?php $showImg = get_field('show_image'); ?>
             <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">

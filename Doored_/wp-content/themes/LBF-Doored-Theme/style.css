@@ -406,59 +406,32 @@ header {
 /* =============================================================================
               Single Artist Page
    ========================================================================== */
-.artist-page {
-  width: 100%;
-  padding: 40px 5%; }
-  .artist-page .content {
-    float: left;
-    width: 65%;
-    margin-right: 5%; }
-  .artist-page .section-header {
-    text-align: center; }
-  .artist-page .single-artist {
-    margin: 0 auto; }
-    .artist-page .single-artist .entry-title {
-      padding: 10px 15px;
-      border: 2px solid black;
-      display: inline-block;
-      text-align: center;
-      font-size: 2rem; }
-    .artist-page .single-artist a {
-      color: black; }
-    .artist-page .single-artist a:focus, .artist-page .single-artist a:hover {
-      background: #9FFFF5;
-      padding: 0 3px; }
-    .artist-page .single-artist h2:hover, .artist-page .single-artist h2:focus {
-      background: #9FFFF5; }
-
 /* =============================================================================
         Show    Page
    ========================================================================== */
-.show-page {
-  width: 100%;
-  padding: 40px 5%; }
-  .show-page .content {
-    float: left;
-    width: 65%;
-    margin-right: 5%; }
-
 .section-header {
   text-align: center; }
 
-.show-page {
-  margin: 0 auto; }
-  .show-page .entry-title {
+.show-page, .artist-page {
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 5%; }
+  .show-page .content, .artist-page .content {
+    float: left;
+    width: 65%;
+    margin-right: 5%; }
+  .show-page .entry-title, .artist-page .entry-title {
     padding: 10px 15px;
     border: 2px solid black;
     display: inline-block;
     text-align: center;
     font-size: 2rem; }
-  .show-page a {
+  .show-page a, .artist-page a {
     color: black; }
-  .show-page a:focus, .show-page a:hover {
+  .show-page a:focus, .show-page a:hover, .artist-page a:focus, .artist-page a:hover {
     background: #9FFFF5;
     padding: 0 3px; }
-  .show-page h2:hover, .show-page h2:focus {
+  .show-page h2:hover, .show-page h2:focus, .artist-page h2:hover, .artist-page h2:focus {
     background: #9FFFF5; }
 
 /* =============================================================================

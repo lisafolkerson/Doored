@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+/*
+  Template Name: Artists Page
+*/
+
+get_header(); ?>
 
 <div class="main clearfix">
   <div class="container clearfix artist-page">
@@ -6,20 +11,12 @@
 
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-        <?php $latestPosts = new WP_Query(array(
-            'post_type' => 'artist', //only want portfolio posts
-        )) ?>
-        
-        <?php if ($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post(); ?>
-  
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
             <div class="single-entry">
               <h1 class="entry-title"><?php the_title(); ?></h1>
 
             </div><!--end .single-entry-->
-          
-
-        <?php endwhile //end custom loop ?>
-        <?php wp_reset_postdata(); //return env back to regular functionality?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
@@ -32,19 +29,12 @@
 
           <?php the_field('about') ?>  
 
-
           <div class="back-n-forth">
             <?php wp_link_pages(array(
               'before' => '<div class="page-link"> Pages: ',
               'after' => '</div>'
             )); ?>
           </div><!-- .back-n-forth -->
-
-          <div class="entry-utility">
-            <?php //hackeryou_posted_in(); ?>
-            <?php //edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
-          </div><!-- .entry-utility -->
-        </div><!-- #post-## -->
 
         <div id="nav-below" class="navigation">
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
@@ -75,7 +65,7 @@
         ?>
       </div><!--end .repeater-->
 
-
+</div>
     </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>
