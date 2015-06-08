@@ -3,20 +3,32 @@
 <div class="main clearfix">
   <div class="container clearfix show-page">
 
-    <div class="content">
-      <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<div class="content">
+
+       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
           <div class="section-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
+            <h2 class="entry-title"><?php the_title(); ?></h2>
           </div><!--end .section-header-->
 
-          <?php $artistImg = get_field('artist_image'); ?>
-            <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
+          <?php $showImg = get_field('show_image'); ?>
+            <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
-          <?php the_field('about') ?>  
+            <?php
+              $posttags = get_the_tags();
+              if ($posttags) {
+                foreach($posttags as $tag) {
+                  echo '<img src="http://example.com/images/' . $tag->term_id . '.jpg" 
+              alt="' . $tag->name . '" />'; 
+                }
+              }
+            ?>
 
+            <div class="about">
+              <?php the_field('about_show') ?>  
+            </div>
 
           <div class="back-n-forth">
             <?php wp_link_pages(array(
@@ -24,20 +36,12 @@
               'after' => '</div>'
             )); ?>
           </div><!-- .back-n-forth -->
-
-          <div class="entry-utility">
-            <?php //hackeryou_posted_in(); ?>
-            <?php //edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
-          </div><!-- .entry-utility -->
         </div><!-- #post-## -->
 
         <div id="nav-below" class="navigation">
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
         </div><!-- #nav-below -->
-
-        <?php //comments_template( '', true ); ?>
-
       <?php endwhile; // end of the loop. ?>
 
       <div class="repeater clearfix" id="repeater">
@@ -50,19 +54,15 @@
             $rptrImg = get_sub_field('artist_image'); ?>
             <div class="pinnedItem">
               <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
-              
-                  <?php the_sub_field('artist_text');?>
+                <?php the_sub_field('artist_text');?>
               </div><!--end .pinnedItem-->
 
             <?php endwhile;
-
         else :
             // no rows found
         endif;
         ?>
       </div><!--end .repeater-->
-
-
     </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>

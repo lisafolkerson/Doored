@@ -342,53 +342,9 @@ header {
 } // end .repeater
 
 
-/* =============================================================================
-              Single Artist Page
-   ========================================================================== */
-// .artist-page {
-//   width: 100%;
-//   padding: 40px 5%;
-
-//   .content{
-//     float:left;
-//     width:65%;
-//     margin-right: 5%;
-//   }
-
-
-// .section-header {
-//   text-align: center;
-// }
-
-// .single-artist {
-//     margin: 0 auto;
-//     // text-align: center;
-
-//   .entry-title {
-//         padding: 10px 15px;
-//         border: 2px solid black;
-//         display: inline-block;
-//         text-align: center;
-//         font-size: 2rem;
-//     }
-
-//   a {
-//     color: black;
-//   }
-
-//   a:focus, a:hover {
-//     background: $accent;
-//     padding: 0 3px;
-//   }
-
-//   h2:hover, h2:focus {
-//     background: $accent;
-//   }
-// } //end .single-artist
-// }// end .artist-page
 
 /* =============================================================================
-        Show    Page
+        Show / Artist Page
    ========================================================================== */
 
 .section-header {
@@ -398,12 +354,19 @@ header {
 .show-page, .artist-page {
     margin: 0 auto;
     width: 100%;
-    padding: 40px 5%;
+    padding: 0 5%;
 
     .content{
       float:left;
       width:65%;
       margin-right: 5%;
+
+      .about {
+        text-align: center;
+      }
+      h2 {
+      font-family: 'Kite One', sans-serif;
+      }
     } 
 
   .entry-title {
@@ -416,18 +379,25 @@ header {
 
   a {
     color: black;
-  }
-
-  a:focus, a:hover {
-    background: $accent;
     padding: 0 3px;
   }
 
-  h2:hover, h2:focus {
-    background: $accent;
+  a:focus, a:hover {
+    border-bottom: 2px solid $accent;
   }
-} //end .show-page
+} //end .show-page/ .artist-page
 
+.nav-next, .nav-previous {
+  display: inline-block;
+}
+
+.nav-next {
+  float: right;
+}
+
+.nav-next:hover, .nav-previous:hover {
+  background: $accent;
+} 
 
 /* =============================================================================
                    Sidebar
