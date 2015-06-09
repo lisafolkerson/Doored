@@ -275,3 +275,10 @@ function get_post_parent($post) {
 // $(window).resize(function(){
 // var width = $(window).width();
 // $('#wpgmza_map').attr('style','width:' + width + 'px; left:-26.5% !important;');
+
+
+// $(function() {
+
+//     $.filtrify('container', 'placeHolder');
+
+// });
