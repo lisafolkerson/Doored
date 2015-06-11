@@ -56,7 +56,9 @@
             <div class="project-image">
               <?php the_post_thumbnail('portfolio'); ?>
             </div>
+
             
+
             
             <div class="project-info">
               <?php the_title(); ?>
