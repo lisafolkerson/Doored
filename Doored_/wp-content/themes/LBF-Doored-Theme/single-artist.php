@@ -30,8 +30,6 @@
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
         </div><!-- #nav-below -->
 
-        <?php //comments_template( '', true ); ?>
-
       <?php endwhile; // end of the loop. ?>
 
       <div class="repeater clearfix" id="repeater">
@@ -55,8 +53,6 @@
         endif;
         ?>
       </div><!--end .repeater-->
-
-
     </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>
