@@ -6,7 +6,7 @@
 
     <h2>ARCHIVE EH</h2>
 
-    <!-- bring in all images from uploaded media -->
+     <!-- bring in all images from uploaded media -->
     <?php
 
     $query_images_args = array(
