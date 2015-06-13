@@ -20,7 +20,7 @@ get_header();  ?>
 			<?php the_field( 'about_us' ) ?>
 		
 			<div class="theCredits">
-				
+				<?php  dynamic_sidebar( 'primary-widget-area' ); ?>
 			</div><!--end theredits-->
 
 	        <?php $contactImg = get_field('contact_image'); ?>
