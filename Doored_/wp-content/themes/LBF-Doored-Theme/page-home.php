@@ -22,7 +22,7 @@ get_header();  ?>
 				</a>
 			  </div><!--end .livestream-->
 
-			  <a href="#"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
+			  <a href="<?php bloginfo('template_directory'); ?>/shows"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
 
 			  <p class="subtitle"><?php the_field('subtitle') ?></p>
 

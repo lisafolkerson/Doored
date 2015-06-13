@@ -17,7 +17,9 @@
         ?>
         <div class="archive--images">
             <?php foreach ($images as $img) { ?>
-              <img src="<?php echo $img; ?>" class="allImages">
+              <a href="<?php //the_permalink(); ?>">
+                  <img src="<?php echo $img; ?>" class="allImages">
+              </a>
             <?php } ?>
         </div><!--end .archive--images-->
                

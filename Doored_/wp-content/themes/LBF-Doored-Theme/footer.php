@@ -2,9 +2,9 @@
   <div class="footer-container">
 
 	<!-- start tombstone-->
-	<div class="tombstone">
+	<div class="tombstone smoothScroll">
 		<div class="upperTombstone"></div>
-		<div class="lowerTombstone">
+		<div class="lowerTombstone smoothScroll">
 		<a href="#top" class="">
 			<div class="name">
 				<p>doored</p>
