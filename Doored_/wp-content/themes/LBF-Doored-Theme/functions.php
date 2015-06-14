@@ -39,6 +39,7 @@ endif;
 add_action( 'after_setup_theme', 'theme_setup' );
 
 
+
 /* Add all our JavaScript files here.
 We'll let WordPress add them to our templates automatically instead
 of writing our own script tags in the header and footer. */
@@ -49,7 +50,7 @@ function hackeryou_scripts() {
 	wp_deregister_script('jquery');
   wp_enqueue_script(
   	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
   	false, //dependencies
   	null, //version number
   	true //load in footer
@@ -73,6 +74,7 @@ function hackeryou_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_scripts' );
+
 
 
 /* Custom Title Tags */

@@ -15,9 +15,9 @@ get_header();  ?>
 	    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	        <?php the_content(); ?>
 
-			<?php the_field( 'map' ) ?>
+	        <?php the_field( 'snazzymap' ); ?>
 
-			<?php the_field( 'about_us' ) ?>
+			<?php the_field( 'map' ); ?>
 		
 			<div class="theCredits">
 				<?php  dynamic_sidebar( 'primary-widget-area' ); ?>
@@ -28,7 +28,7 @@ get_header();  ?>
 	      
 	    </div><!-- #post-## -->
 	
-	  <?php endwhile; // end of the loop. ?>
+	  <?php endwhile; ?>
 	
     </div> <!-- /.content -->
   </div> <!-- /.container -->
