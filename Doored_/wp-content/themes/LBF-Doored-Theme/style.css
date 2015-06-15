@@ -257,6 +257,9 @@ header {
     color: black; }
   header a:hover, header a:focus {
     color: black; }
+  header a:hover img {
+    border: none;
+    background: none; }
   header .container {
     padding: 20px 40px;
     display: flex;
@@ -423,16 +426,26 @@ header {
   padding-top: 30px;
   width: 100%; }
   .repeater .pinnedItem, .theCredits .pinnedItem {
-    background-color: #eee;
+    background-color: #F4FFF2;
     display: inline-block;
     margin: 0 0 1em;
-    width: 100%; }
+    width: 100%;
+    padding-bottom: 3px; }
 
 /* =============================================================================
         Show / Artist Page
    ========================================================================== */
 .section-header {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 30px; }
+
+.entry-title {
+  padding: 10px 15px;
+  border: 2px solid black;
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0; }
 
 .show-page, .artist-page {
   margin: 0 auto;
@@ -446,12 +459,6 @@ header {
       text-align: center; }
     .show-page .content h2, .artist-page .content h2 {
       font-family: 'Kite One', sans-serif; }
-  .show-page .entry-title, .artist-page .entry-title {
-    padding: 10px 15px;
-    border: 2px solid black;
-    display: inline-block;
-    text-align: center;
-    font-size: 2rem; }
   .show-page a, .artist-page a {
     color: black;
     padding: 0 3px; }

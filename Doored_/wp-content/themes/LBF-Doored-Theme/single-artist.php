@@ -8,7 +8,7 @@
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <h2 class="entry-title"><?php the_title(); ?></h2>
             <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
           </div><!--end .section-header-->
 
@@ -16,7 +16,6 @@
             <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
 
           <?php the_field('about') ?>  
-
 
           <div class="back-n-forth">
             <?php wp_link_pages(array(

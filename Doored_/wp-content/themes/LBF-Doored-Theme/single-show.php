@@ -5,10 +5,10 @@
 
 <div class="content">
 
-       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+       <?php if ( have_posts() ) while ( have_posts() ) : the_post();
+        ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 
           <div class="section-header">
             <h2 class="entry-title"><?php the_title(); ?></h2>
@@ -27,45 +27,36 @@
               'after' => '</div>'
             )); ?>
           </div><!-- .back-n-forth -->
-        </div><!-- #post-## -->
 
         <div id="nav-below" class="navigation">
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
         </div><!-- #nav-below -->
-      <?php endwhile; // end of the loop. ?>
 
-      <!--start zoe code-->
-      <div id="placeholder"></div>
-      <div id="legend"></div>
+        <div class="repeater clearfix" id="repeater">
+          <?php
+          // check if the repeater field has rows of data
+          if( have_rows('artist_repeater') ):
+            // loop through the rows of data
+              while ( have_rows('artist_repeater') ) : the_row();
+                  // display a sub field value
+              $rptrImg = get_sub_field('artist_image'); ?>
+              <div class="pinnedItem">
+                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
                 
-      <div id="containerZoe">
-        <?php
-        $args = array(
-          'post_type' => 'show',
-          'nopaging' => true
-        );
-          
-        $the_query = new WP_Query( $args );
-                  
-        while ( $the_query->have_posts() ) : $i++;
-        $the_query->the_post(); ?>
-                    
-          <div class="portfolio<?php if ( ($i%3) == 0 ) { echo ' last'; } elseif ( ($i%2) == 0 ) { echo ' two-last'; } elseif ( ($i%4) == 0 ) { echo ' very-large'; } ?>">
-          
-            <div class="project-image">
-              <?php the_post_thumbnail('portfolio'); ?>
-            </div>
-            
-            <div class="project-info">
-              <?php the_title(); ?>
-            </div>
-                        
-          </div>
-          
-        <?php endwhile; wp_reset_postdata(); ?>
-        
-      </div><!--end ZOe COde-->
+                    <?php the_sub_field('artist_text');?>
+                </div><!--end .pinnedItem-->
+
+              <?php endwhile;
+
+          else :
+              // no rows found
+          endif;
+          ?>
+          </div><!--end .repeater-->
+        </div><!-- #post-## -->
+
+      <?php endwhile; // end of the loop. ?>
 
     </div> <!-- /.content -->
 
