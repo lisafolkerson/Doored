@@ -44,11 +44,11 @@ add_action( 'after_setup_theme', 'theme_setup' );
 We'll let WordPress add them to our templates automatically instead
 of writing our own script tags in the header and footer. */
 
-function hackeryou_scripts() {
+function lets_add_some_scripts() {
 
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
-  wp_enqueue_script(
+  	wp_enqueue_script(
   	'jquery',
   	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.jsx",
   	false, //dependencies
@@ -73,7 +73,7 @@ function hackeryou_scripts() {
   );
 }
 
-add_action( 'wp_enqueue_scripts', 'hackeryou_scripts' );
+add_action( 'wp_enqueue_scripts', 'lets_add_some_scripts' );
 
 
 

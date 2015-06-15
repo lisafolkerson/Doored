@@ -13,6 +13,7 @@ $main-color: #fc9;
 $accent: #c30;
 $background: #fc9;
 $textAccent: #F4FFF2;
+$watchNow: #D49598;
 
 
 /* =============================================================================
@@ -174,7 +175,7 @@ header {
 
   a {
     position: relative;
-    color: #D49598;
+    color: $watchNow;
   }
 
   a:hover {
@@ -413,6 +414,8 @@ header {
 
   a:focus, a:hover {
     border-bottom: 2px solid $accent;
+    background: $accent;
+    color: $textAccent;
   }
 } //end .show-page/ .artist-page
 
@@ -425,7 +428,6 @@ header {
 }
 
 .nav-next:hover, .nav-previous:hover {
-  background: $accent;
   background: $accent;
   color: $textAccent;
 } 
@@ -451,6 +453,11 @@ header {
     width: 100%;
     position: relative;
     padding: 0px 25px;
+
+    a:hover {
+      background: $accent;
+      color: $textAccent;
+    }
 
     img {
       display: inline-block;
@@ -506,7 +513,6 @@ header {
     } 
 
     a:hover, a:focus {
-      background: $accent;
       background: $accent;
       color: $textAccent;
     }

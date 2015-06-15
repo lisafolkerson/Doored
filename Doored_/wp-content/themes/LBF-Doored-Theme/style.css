@@ -453,7 +453,9 @@ header {
     color: black;
     padding: 0 3px; }
   .show-page a:focus, .show-page a:hover, .artist-page a:focus, .artist-page a:hover {
-    border-bottom: 2px solid #c30; }
+    border-bottom: 2px solid #c30;
+    background: #c30;
+    color: #F4FFF2; }
 
 .nav-next, .nav-previous {
   display: inline-block; }
@@ -462,7 +464,6 @@ header {
   float: right; }
 
 .nav-next:hover, .nav-previous:hover {
-  background: #c30;
   background: #c30;
   color: #F4FFF2; }
 
@@ -484,6 +485,9 @@ header {
     width: 100%;
     position: relative;
     padding: 0px 25px; }
+    .sidebar .single-entry a:hover {
+      background: #c30;
+      color: #F4FFF2; }
     .sidebar .single-entry img {
       display: inline-block;
       border-radius: 50%;
@@ -523,7 +527,6 @@ header {
       text-decoration: underline;
       padding: 0 3px; }
     .page-id-15 .widget-container a:hover, .page-id-15 .widget-container a:focus {
-      background: #c30;
       background: #c30;
       color: #F4FFF2; }
   .page-id-15 .widget-title {
