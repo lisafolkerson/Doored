@@ -9,36 +9,27 @@ get_header(); ?>
   <div class="container clearfix show-page">
     <div class="content">
 
-      <?php get_post_custom($post_id); ?> 
+     <?php $latestPosts = new WP_Query(array(
+         'post_type' => 'show', //only want portfolio posts
+         'posts_per_page'   => 1
+     )) ?>
+     
+     <?php if ($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post(); ?>
 
-       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+     <div class="section-header">
+       <h2 class="entry-title"><?php the_title(); ?></h2>
+     </div><!--end .section-header-->
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+     <?php $showImg = get_field('show_image'); ?>
+       <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
-          <div class="section-header">
-            <h2 class="entry-title"><?php the_title(); ?></h2>
-          </div><!--end .section-header-->
+       <div class="about">
+         <?php the_field('about_show') ?>  
+       </div>
 
-          <?php $showImg = get_field('show_image'); ?>
-            <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+     <?php endwhile; // end of the loop. ?>
+     <?php wp_reset_postdata(); //return env back to regular functionality?>
 
-          <div class="about">
-            <?php the_field('about_show') ?>  
-          </div>
-
-          <div class="back-n-forth">
-            <?php wp_link_pages(array(
-              'before' => '<div class="page-link"> Pages: ',
-              'after' => '</div>'
-            )); ?>
-          </div><!-- .back-n-forth -->
-        </div><!-- #post-## -->
-
-        <div id="nav-below" class="navigation">
-          <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
-          <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
-        </div><!-- #nav-below -->
-      <?php endwhile; // end of the loop. ?>
 
     </div> <!-- /.content -->
     <?php get_sidebar(); ?>
