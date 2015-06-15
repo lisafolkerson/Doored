@@ -15,7 +15,4 @@ setInterval(function() {
     }
 }, 650);
 
-$(function(){
-	//your jQuery here
-
 });

@@ -379,8 +379,20 @@ header {
     padding-bottom: 3px;
     text-align: center;
   }
+
+  p {
+    margin: 0 auto;
+  }
 } // end .repeater
 
+.pinnedItem:hover, .pinnedItem:focus {
+  border: none;
+  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+}
+
+.pinnedItem:hover a, .pinnedItem:focus  a {
+  border: none;
+}
 
 
 /* =============================================================================

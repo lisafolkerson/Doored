@@ -5,7 +5,7 @@
 	<div class="tombstone smoothScroll">
 		<div class="upperTombstone"></div>
 		<div class="lowerTombstone smoothScroll">
-		<a href="#top" class="">
+		<a href="#top" class="smoothScroll">
 			<div class="name">
 				<p>doored</p>
 				<p>2012 - <?php echo date('Y'); ?></p>

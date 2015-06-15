@@ -11,16 +11,6 @@ get_header();  ?>
     <div class="content customHome">
 		<div class="mainView">
 			<div class="mainLeft">
-		
-				<!-- THE IMAGE FOR LIVE STREAM -->
-			  <div class="livestream">
-				<a href="http://livestream.com/doubledoubleland" target="_blank">
-					<?php $image = get_field('livestream');
-					  if( !empty($image) ): ?>
-
-					<?php endif; ?>
-				</a>
-			  </div><!--end .livestream-->
 
 			  <a href="index.php?page_id=13"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
 
@@ -28,7 +18,7 @@ get_header();  ?>
 
 			   <!-- THE IMAGE TO REPRESENT DOORED -->
 			  <?php $dooredImg = get_field('main_image');
-			  if( !empty($image) ): ?>
+			  if( !empty($dooredImg) ): ?>
 			  	<img src="<?php echo $dooredImg['url']; ?>" alt="<?php echo $dooredImg['alt']; ?>" />
 			  <?php endif; ?>
     	</div><!--end.mainLeft-->
@@ -36,7 +26,7 @@ get_header();  ?>
 		<div class="mainRight">
 			  <!-- THE IMAGE FOR VIDEO PAGE -->
 			  <?php $videoImg = get_field('recent_show_image');
-			  if( !empty($image) ): ?>
+			  if( !empty($videoImg) ): ?>
 			  <a href="index.php?page_id=13" class="imagelink">
 				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink">
 				  <?php endif; ?>
@@ -73,9 +63,11 @@ get_header();  ?>
 		        // display a sub field value
 				$rptrImg = get_sub_field('pinned_image'); ?>
 				<div class="pinnedItem">
-					<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
-					
-			        <?php the_sub_field('links_to');?>
+					<a href="index.php?<php get_sub_field('links_to'); ?>">
+						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
+						
+				        <?php the_sub_field('pinned_text');?>
+			        </a>
 		    	</div><!--end .pinnedItem-->
 
 		    <?php endwhile;

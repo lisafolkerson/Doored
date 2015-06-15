@@ -433,6 +433,15 @@ header {
     width: 100%;
     padding-bottom: 3px;
     text-align: center; }
+  .repeater p, .theCredits p {
+    margin: 0 auto; }
+
+.pinnedItem:hover, .pinnedItem:focus {
+  border: none;
+  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4); }
+
+.pinnedItem:hover a, .pinnedItem:focus a {
+  border: none; }
 
 /* =============================================================================
         Show / Artist Page
