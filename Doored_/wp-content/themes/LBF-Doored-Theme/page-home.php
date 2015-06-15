@@ -22,7 +22,7 @@ get_header();  ?>
 				</a>
 			  </div><!--end .livestream-->
 
-			  <a href="<?php bloginfo('template_directory'); ?>/shows"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
+			  <a href="index.php?page_id=13"><h2 class="pageTitle"><?php the_title(); ?></h2></a>
 
 			  <p class="subtitle"><?php the_field('subtitle') ?></p>
 
@@ -35,7 +35,7 @@ get_header();  ?>
 
 			<div class="mainRight">
 			  <!-- THE IMAGE FOR VIDEO PAGE -->
-			  <a href="#">
+			  <a href="index.php?page_id=13">
 				  <?php $videoImg = get_field('recent_show_image');
 				  if( !empty($image) ): ?>
 				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink"/>
