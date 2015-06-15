@@ -31,9 +31,9 @@ get_header();  ?>
 			  if( !empty($image) ): ?>
 			  	<img src="<?php echo $dooredImg['url']; ?>" alt="<?php echo $dooredImg['alt']; ?>" />
 			  <?php endif; ?>
-		  </div><!--end.mainLeft-->
+    	</div><!--end.mainLeft-->
 
-			<div class="mainRight">
+		<div class="mainRight">
 			  <!-- THE IMAGE FOR VIDEO PAGE -->
 			  <?php $videoImg = get_field('recent_show_image');
 			  if( !empty($image) ): ?>
@@ -41,7 +41,7 @@ get_header();  ?>
 				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink">
 				  <?php endif; ?>
 			  </a>
-			  
+
 			  <div class="watch clearfix">
 					
 					<div class="lwatch">
