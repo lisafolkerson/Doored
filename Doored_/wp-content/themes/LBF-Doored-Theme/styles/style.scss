@@ -10,7 +10,7 @@ Author URI: http://lisafolkerson.com
 @import "normalize";
 
 $main-color: #fc9;
-$accent: #9FFFF5;
+$accent: #c30;
 $background: #fc9;
 
 
@@ -265,6 +265,8 @@ header {
 .mainRight {
   flex: 1 auto;
   padding: 30px 0 30px 10px;
+
+  .imagelink
 
   .videoLink {
     margin-bottom: 40px;

@@ -35,7 +35,7 @@ get_header();  ?>
 
 			<div class="mainRight">
 			  <!-- THE IMAGE FOR VIDEO PAGE -->
-			  <a href="index.php?page_id=13">
+			  <a href="index.php?page_id=13" class="imagelink">
 				  <?php $videoImg = get_field('recent_show_image');
 				  if( !empty($image) ): ?>
 				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink"/>

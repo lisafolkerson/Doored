@@ -195,7 +195,7 @@ a {
   text-decoration: none; }
 
 a:hover, a:focus {
-  border-bottom: 2px solid #9FFFF5; }
+  border-bottom: 2px solid #c30; }
 
 /* paragraphs */
 p {
@@ -272,7 +272,7 @@ header {
     flex-grow: 1;
     margin-left: 3%; }
     header h1 a:hover, header h1 a:focus {
-      border-bottom: 4px solid #9FFFF5; }
+      border-bottom: 4px solid #c30; }
 
 .livestream {
   flex-grow: 1;
@@ -304,7 +304,7 @@ header {
       .menu ul li a {
         padding: 0px 10px; }
       .menu ul li a:hover, .menu ul li a:focus {
-        border-bottom: 2px solid #9FFFF5; }
+        border-bottom: 2px solid #c30; }
 
 /* =============================================================================
          MAIN PAGE
@@ -344,7 +344,7 @@ header {
   .mainLeft a {
     color: black; }
   .mainLeft h2:hover, .mainLeft h2:focus {
-    background: #9FFFF5; }
+    background: #c30; }
   .mainLeft .subtitle {
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -353,7 +353,7 @@ header {
 .mainRight {
   flex: 1 auto;
   padding: 30px 0 30px 10px; }
-  .mainRight .videoLink {
+  .mainRight .imagelink .videoLink {
     margin-bottom: 40px; }
   .mainRight .watch {
     display: flex;
@@ -438,7 +438,7 @@ header {
     color: black;
     padding: 0 3px; }
   .show-page a:focus, .show-page a:hover, .artist-page a:focus, .artist-page a:hover {
-    border-bottom: 2px solid #9FFFF5; }
+    border-bottom: 2px solid #c30; }
 
 .nav-next, .nav-previous {
   display: inline-block; }
@@ -447,7 +447,7 @@ header {
   float: right; }
 
 .nav-next:hover, .nav-previous:hover {
-  background: #9FFFF5; }
+  background: #c30; }
 
 /* =============================================================================
                    Sidebar
@@ -506,7 +506,7 @@ header {
       text-decoration: underline;
       padding: 0 3px; }
     .page-id-15 .widget-container a:hover, .page-id-15 .widget-container a:focus {
-      background: #9FFFF5; }
+      background: #c30; }
   .page-id-15 .widget-title {
     border: 2px solid black;
     text-transform: uppercase;
@@ -613,7 +613,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
    ========================================================================== */
 .grounder {
   width: 100%;
-  background: #9FFFF5;
+  background: #c30;
   height: 20px;
   display: block; }
 
