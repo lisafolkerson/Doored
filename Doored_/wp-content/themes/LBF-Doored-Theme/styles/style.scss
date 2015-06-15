@@ -12,6 +12,7 @@ Author URI: http://lisafolkerson.com
 $main-color: #fc9;
 $accent: #c30;
 $background: #fc9;
+$textAccent: #F4FFF2;
 
 
 /* =============================================================================
@@ -253,6 +254,8 @@ header {
 
     h2:hover, h2:focus {
       background: $accent;
+      // border: 2px solid $textAccent;
+      color: $textAccent;
     }
   
   .subtitle {
@@ -266,7 +269,9 @@ header {
   flex: 1 auto;
   padding: 30px 0 30px 10px;
 
-  .imagelink
+  .imagelink:hover {
+    border-bottom: none;
+  }
 
   .videoLink {
     margin-bottom: 40px;
