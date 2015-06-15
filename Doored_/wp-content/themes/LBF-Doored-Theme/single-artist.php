@@ -52,7 +52,8 @@
             // no rows found
         endif;
         ?>
-      </div><!--end .repeater-->
+        </div><!--end .repeater-->
+      </div><!-- #post-## -->
     </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>

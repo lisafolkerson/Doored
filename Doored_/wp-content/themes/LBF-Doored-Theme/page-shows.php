@@ -9,6 +9,8 @@ get_header(); ?>
   <div class="container clearfix show-page">
     <div class="content">
 
+      <?php get_post_custom($post_id); ?> 
+
        <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

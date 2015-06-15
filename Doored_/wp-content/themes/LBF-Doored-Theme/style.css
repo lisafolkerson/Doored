@@ -402,7 +402,8 @@ header {
   -moz-column-gap: 1em;
   -webkit-column-gap: 1em;
   column-gap: 1em;
-  padding-top: 30px; }
+  padding-top: 30px;
+  width: 100%; }
   .repeater .pinnedItem, .theCredits .pinnedItem {
     background-color: #eee;
     display: inline-block;
