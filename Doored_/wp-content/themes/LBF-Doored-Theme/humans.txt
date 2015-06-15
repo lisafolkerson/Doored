@@ -2,11 +2,13 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  Developer & Designer: Lisa Folkerson
+  Site: lisafolkerson.com
+  Twitter: @lisafolkerson
+  Location: Toronto, ON
 
+  Assets: Laura McCoy
+  Ghost: Alisha Davidson
 
 
 /* SITE */
