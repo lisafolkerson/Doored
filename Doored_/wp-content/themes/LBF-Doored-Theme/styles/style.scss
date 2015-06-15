@@ -161,9 +161,12 @@ header {
   }
 } // end header
 
-.livestream {
+.header--livestream {
   flex-grow: 1;
   text-align: center;
+  background: $textAccent;
+  font: 'Lucinda calligraphy', fantasy;
+  font-size: 30px;
 }
 
   .watchIcon {
@@ -254,7 +257,6 @@ header {
 
     h2:hover, h2:focus {
       background: $accent;
-      // border: 2px solid $textAccent;
       color: $textAccent;
     }
   
@@ -271,6 +273,7 @@ header {
 
   .imagelink:hover {
     border-bottom: none;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4); 
   }
 
   .videoLink {
@@ -405,6 +408,8 @@ header {
 
 .nav-next:hover, .nav-previous:hover {
   background: $accent;
+  background: $accent;
+  color: $textAccent;
 } 
 
 /* =============================================================================
@@ -484,6 +489,8 @@ header {
 
     a:hover, a:focus {
       background: $accent;
+      background: $accent;
+      color: $textAccent;
     }
   }
 

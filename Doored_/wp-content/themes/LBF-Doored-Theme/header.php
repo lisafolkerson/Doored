@@ -16,7 +16,6 @@
   <?php wp_head(); ?>
 </head>
 
-
 <body <?php body_class(); ?>>
 
 <header id="top">
@@ -27,15 +26,12 @@
         </a>
     </h1>
 
-      <!-- THE IMAGE FOR LIVE STREAM -->
-      <div class="livestream">
-      <a href="http://livestream.com/doubledoubleland" target="_blank">
-        <?php $image = get_field('livestream');
-          if( !empty($image) ): ?>
-            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="watchIcon">
-        <?php endif; ?>
-      </a>
-      </div><!--end .livestream-->
+      <!-- THE LINK FOR LIVE STREAM -->
+      <div class="header--livestream">
+        <a href="http://livestream.com/doubledoubleland" target="_blank">
+          Watch Now
+        </a>
+      </div><!--end .header--livestream-->
 
     <div class="menu">
       <?php wp_nav_menu( array(

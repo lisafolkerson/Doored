@@ -35,12 +35,13 @@ get_header();  ?>
 
 			<div class="mainRight">
 			  <!-- THE IMAGE FOR VIDEO PAGE -->
+			  <?php $videoImg = get_field('recent_show_image');
+			  if( !empty($image) ): ?>
 			  <a href="index.php?page_id=13" class="imagelink">
-				  <?php $videoImg = get_field('recent_show_image');
-				  if( !empty($image) ): ?>
-				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink"/>
+				  	<img src="<?php echo $videoImg['url']; ?>" alt="<?php echo $videoImg['alt']; ?>" class="videoLink">
 				  <?php endif; ?>
 			  </a>
+			  
 			  <div class="watch clearfix">
 					
 					<div class="lwatch">

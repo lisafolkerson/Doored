@@ -274,9 +274,12 @@ header {
     header h1 a:hover, header h1 a:focus {
       border-bottom: 4px solid #c30; }
 
-.livestream {
+.header--livestream {
   flex-grow: 1;
-  text-align: center; }
+  text-align: center;
+  background: #F4FFF2;
+  font: 'Lucinda calligraphy', fantasy;
+  font-size: 30px; }
 
 .watchIcon {
   height: 80px; }
@@ -355,7 +358,8 @@ header {
   flex: 1 auto;
   padding: 30px 0 30px 10px; }
   .mainRight .imagelink:hover {
-    border-bottom: none; }
+    border-bottom: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); }
   .mainRight .videoLink {
     margin-bottom: 40px; }
   .mainRight .watch {
@@ -450,7 +454,9 @@ header {
   float: right; }
 
 .nav-next:hover, .nav-previous:hover {
-  background: #c30; }
+  background: #c30;
+  background: #c30;
+  color: #F4FFF2; }
 
 /* =============================================================================
                    Sidebar
@@ -509,7 +515,9 @@ header {
       text-decoration: underline;
       padding: 0 3px; }
     .page-id-15 .widget-container a:hover, .page-id-15 .widget-container a:focus {
-      background: #c30; }
+      background: #c30;
+      background: #c30;
+      color: #F4FFF2; }
   .page-id-15 .widget-title {
     border: 2px solid black;
     text-transform: uppercase;
