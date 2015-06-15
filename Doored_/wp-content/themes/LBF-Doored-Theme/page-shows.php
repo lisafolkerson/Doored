@@ -18,6 +18,7 @@ get_header(); ?>
 
      <div class="section-header">
        <h2 class="entry-title"><?php the_title(); ?></h2>
+       <p><?php the_field('date') ?></p>
      </div><!--end .section-header-->
 
      <?php $showImg = get_field('show_image'); ?>
@@ -29,6 +30,28 @@ get_header(); ?>
 
      <?php endwhile; // end of the loop. ?>
      <?php wp_reset_postdata(); //return env back to regular functionality?>
+
+     <div class="repeater clearfix" id="repeater">
+       <?php
+       // check if the repeater field has rows of data
+       if( have_rows('show_repeater') ):
+         // loop through the rows of data
+           while ( have_rows('show_repeater') ) : the_row();
+               // display a sub field value
+           $rptrImg = get_sub_field('show_image'); ?>
+           <div class="pinnedItem">
+             <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
+             
+                 <?php the_sub_field('show_text');?>
+             </div><!--end .pinnedItem-->
+
+           <?php endwhile;
+
+       else :
+           // no rows found
+       endif;
+       ?>
+       </div><!--end .repeater-->
 
 
     </div> <!-- /.content -->

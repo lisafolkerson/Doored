@@ -284,3 +284,35 @@ function get_post_parent($post) {
 //     $.filtrify('container', 'placeHolder');
 
 // });
+
+
+// remove unnecessary menus
+function remove_admin_menus () {
+	global $menu;
+
+	// all users
+	$restrict = explode(',', 'Links,Comments,Posts,Maps,Options');
+	
+	// non-administrator users
+	$restrict_user = explode(',', 'Plugins,Users,Posts,Tools,Options,Maps');
+
+	// WP localization
+	$f = create_function('$v,$i', 'return __($v);');
+	array_walk($restrict, $f);
+	if (!current_user_can('activate_plugins')) {
+		array_walk($restrict_user, $f);
+		$restrict = array_merge($restrict, $restrict_user);
+	}
+
+	// remove menus
+	end($menu);
+	while (prev($menu)) {
+		$k = key($menu);
+		$v = explode(' ', $menu[$k][0]);
+		if(in_array(is_null($v[0]) ? '' : $v[0] , $restrict)) unset($menu[$k]);
+	}
+
+}
+add_action('admin_menu', 'remove_admin_menus');
+
+add_filter('acf/settings/show_admin', '__return_false');

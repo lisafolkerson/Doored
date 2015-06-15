@@ -36,7 +36,8 @@
     <div class="menu">
       <?php wp_nav_menu( array(
         'container' => false,
-        'theme_locations' => 'primary'
+        'theme_locations' => 'primary',
+        'menu' => 'menu1'
       )); ?> 
     </div><!--end .menu-->
   </div> <!-- /.container -->

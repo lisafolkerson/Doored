@@ -12,6 +12,7 @@
 
           <div class="section-header">
             <h2 class="entry-title"><?php the_title(); ?></h2>
+            <p><?php the_field('date') ?></p>
           </div><!--end .section-header-->
 
           <?php $showImg = get_field('show_image'); ?>
@@ -36,15 +37,15 @@
         <div class="repeater clearfix" id="repeater">
           <?php
           // check if the repeater field has rows of data
-          if( have_rows('artist_repeater') ):
+          if( have_rows('show_repeater') ):
             // loop through the rows of data
-              while ( have_rows('artist_repeater') ) : the_row();
+              while ( have_rows('show_repeater') ) : the_row();
                   // display a sub field value
-              $rptrImg = get_sub_field('artist_image'); ?>
+              $rptrImg = get_sub_field('show_image'); ?>
               <div class="pinnedItem">
-                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
+                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
                 
-                    <?php the_sub_field('artist_text');?>
+                    <?php the_sub_field('show_text');?>
                 </div><!--end .pinnedItem-->
 
               <?php endwhile;

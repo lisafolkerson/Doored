@@ -176,7 +176,8 @@ body {
   padding: 0 5%; }
 
 .content {
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
 
 .full {
   width: 100%; }
@@ -430,7 +431,8 @@ header {
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
-    padding-bottom: 3px; }
+    padding-bottom: 3px;
+    text-align: center; }
 
 /* =============================================================================
         Show / Artist Page
@@ -469,6 +471,9 @@ header {
 
 .nav-next, .nav-previous {
   display: inline-block; }
+
+.nav-previous {
+  float: left; }
 
 .nav-next {
   float: right; }
