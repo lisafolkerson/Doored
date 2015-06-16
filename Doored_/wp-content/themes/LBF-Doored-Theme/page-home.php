@@ -63,10 +63,9 @@ get_header();  ?>
 		        // display a sub field value
 				$rptrImg = get_sub_field('pinned_image'); ?>
 				<div class="pinnedItem">
-					<a href="index.php?<php get_sub_field('links_to'); ?>">
-						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage"/>
-						
-				        <?php the_sub_field('pinned_text');?>
+					<a href="<?php the_sub_field('links_to'); ?>">
+						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage" alt="<?php the_sub_field('pinned_text');?>">
+				        <p><?php the_sub_field('pinned_text');?></p>
 			        </a>
 		    	</div><!--end .pinnedItem-->
 
