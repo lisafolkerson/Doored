@@ -31,18 +31,22 @@
 
       <?php endwhile; // end of the loop. ?>
 
+      <?php the_sub_field('artist_gallery');?>
+
       <div class="repeater clearfix" id="repeater">
         <?php
         // check if the repeater field has rows of data
         if( have_rows('artist_repeater') ):
           // loop through the rows of data
             while ( have_rows('artist_repeater') ) : the_row();
-                // display a sub field value
             $rptrImg = get_sub_field('artist_image'); ?>
+
             <div class="pinnedItem">
-              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
+              <a href="<?php the_sub_field( 'links_to' ); ?>">
+                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
               
-                  <?php the_sub_field('artist_text');?>
+                  <p><?php the_sub_field('artist_text');?></p>
+                </a>
               </div><!--end .pinnedItem-->
 
             <?php endwhile;

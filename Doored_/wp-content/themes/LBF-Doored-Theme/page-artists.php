@@ -36,11 +36,13 @@ get_header(); ?>
              while ( have_rows('artist_repeater') ) : the_row();
                  // display a sub field value
              $rptrImg = get_sub_field('artist_image'); ?>
-             <div class="pinnedItem">
+            <div class="pinnedItem">
+              <a href="<?php the_sub_field( 'links_to' ); ?>">
                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
                
-                   <?php the_sub_field('artist_text');?>
-               </div><!--end .pinnedItem-->
+                   <p><?php the_sub_field('artist_text');?></p>
+              </a>     
+            </div><!--end .pinnedItem-->
 
              <?php endwhile;
 

@@ -60,7 +60,7 @@ get_header();  ?>
 		if( have_rows('pinned_content') ):
 		 	// loop through the rows of data
 		    while ( have_rows('pinned_content') ) : the_row();
-		        // display a sub field value
+		        // display image and link it properly
 				$rptrImg = get_sub_field('pinned_image'); ?>
 				<div class="pinnedItem">
 					<a href="<?php the_sub_field('links_to'); ?>">

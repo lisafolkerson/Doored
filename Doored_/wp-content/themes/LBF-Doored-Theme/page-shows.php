@@ -40,9 +40,11 @@ get_header(); ?>
                // display a sub field value
            $rptrImg = get_sub_field('show_image'); ?>
            <div class="pinnedItem">
+            <a href="<?php the_sub_field( 'links_to' ); ?>">
              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
              
-                 <?php the_sub_field('show_text');?>
+                 <p><?php the_sub_field('show_text');?></p>
+               </a>  
              </div><!--end .pinnedItem-->
 
            <?php endwhile;

@@ -17,10 +17,19 @@
             foreach ( $query_images->posts as $image) {
                 $images[]= wp_get_attachment_url( $image->ID );
             }
+
+            $posts_array = get_posts( $query_images_args );
+            $imageURLs = array();
+            foreach ( ) {
+                
+            }
+
         ?>
         <div class="archive--images">
-            <?php foreach ($images as $img) { ?>
-              <a href="<?php //the_permalink(); ?>">
+            <?php foreach ($images as $img) { 
+                
+                ?>
+              <a href="<?php echo $img; ?>">
                   <img src="<?php echo $img; ?>" class="allImages">
               </a>
             <?php } ?>
