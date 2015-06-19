@@ -56,9 +56,11 @@
         ?>
         </div><!--end .repeater-->
 
-
-
-      <?php the_field('artist_gallery');?>
+      <?php $images = get_field('gallery'); if( $images ): ?> <!-- This is the gallery filed slug -->
+      <?php foreach( $images as $image ): ?> <!-- This is your image loop -->
+      <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /> <!-- Image Code -->
+      <?php endforeach; ?> <!-- This is where the image loop ends -->
+      <?php endif; ?> <!-- This is where the gallery loop ends -->
 
       <div class="repeater clearfix" id="repeater">
         <?php
