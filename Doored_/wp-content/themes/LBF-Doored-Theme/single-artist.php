@@ -48,19 +48,16 @@
                 </a>
               </div><!--end .pinnedItem-->
 
-            <?php endwhile;
-
-        else :
-            // no rows found
-        endif;
-        ?>
+            <?php endwhile; endif;?>
         </div><!--end .repeater-->
 
-      <?php $images = get_field('gallery'); if( $images ): ?> <!-- This is the gallery filed slug -->
-      <?php foreach( $images as $image ): ?> <!-- This is your image loop -->
-      <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /> <!-- Image Code -->
-      <?php endforeach; ?> <!-- This is where the image loop ends -->
-      <?php endif; ?> <!-- This is where the gallery loop ends -->
+        <div id="grid">
+          <?php $images = get_field('artist_gallery'); if( $images ): ?> <!-- This is the gallery filed slug -->
+          <?php foreach( $images as $image ): ?> <!-- This is your image loop -->
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" > <!-- Image Code -->  
+          <?php endforeach; ?> <!-- This is where the image loop ends -->
+          <?php endif; ?> <!-- This is where the gallery loop ends -->
+        </div>
 
       <div class="repeater clearfix" id="repeater">
         <?php
@@ -72,18 +69,13 @@
 
             <div class="pinnedItem">
               <a href="<?php the_sub_field( 'links_to' ); ?>">
-                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
+                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage">
               
                   <p><?php the_sub_field('artist_text');?></p>
                 </a>
               </div><!--end .pinnedItem-->
 
-            <?php endwhile;
-
-        else :
-            // no rows found
-        endif;
-        ?>
+            <?php endwhile; endif; ?>
         </div><!--end .repeater-->
       </div><!-- #post-## -->
     </div> <!-- /.content -->

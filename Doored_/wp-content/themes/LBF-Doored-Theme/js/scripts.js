@@ -15,4 +15,15 @@ setInterval(function() {
     }
 }, 650);
 
+	
+var $container = $("#grid");
+  // initialize Masonry after all images have loaded  
+  $container.imagesLoaded( function() {
+    $container.masonry({
+      columnWidth: 150,
+      itemSelector: ".repeatingArtistImage",
+      gutter: 15
+    });
+  });
+
 });

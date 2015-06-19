@@ -168,7 +168,22 @@ img.alignright {
    ========================================================================== */
 body {
   color: #333;
-  background: #fc9; }
+  background: #ffcc99;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffcc99 35%, #d49598 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(35%, #ffcc99), color-stop(100%, #d49598));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffcc99 35%, #d49598 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffcc99 35%, #d49598 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffcc99 35%, #d49598 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffcc99 35%, #d49598 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc99', endColorstr='#d49598',GradientType=0 );
+  /* IE6-9 */ }
 
 .container {
   max-width: 1200px;
@@ -501,6 +516,24 @@ header {
   border: none;
   background: #F4FFF2;
   color: black; }
+
+#grid {
+  padding-top: 30px;
+  width: 100%; }
+  #grid .repeatingArtistImage {
+    float: left;
+    margin: 1%;
+    text-align: center;
+    background-color: #F4FFF2;
+    display: inline-block;
+    width: 30%;
+    padding-bottom: 3px; }
+    #grid .repeatingArtistImage p {
+      margin: 0 auto; }
+    #grid .repeatingArtistImage a {
+      padding: 0; }
+  #grid p {
+    margin: 0 auto; }
 
 /* =============================================================================
                    Sidebar
