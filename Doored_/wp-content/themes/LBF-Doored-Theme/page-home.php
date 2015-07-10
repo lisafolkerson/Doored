@@ -54,7 +54,7 @@ get_header();  ?>
 	  	</div><!--end .mainView-->
     </div> <!-- /.content -->
 
-	<div class="repeater clearfix" id="repeater">
+	<div class="repeater clearfix grid" id="repeater">
 		<?php
 		// check if the repeater field has rows of data
 		if( have_rows('pinned_content') ):
@@ -62,7 +62,7 @@ get_header();  ?>
 		    while ( have_rows('pinned_content') ) : the_row();
 		        // display image and link it properly
 				$rptrImg = get_sub_field('pinned_image'); ?>
-				<div class="pinnedItem">
+				<div class="pinnedItem item">
 					<a href="<?php the_sub_field('links_to'); ?>">
 						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage" alt="<?php the_sub_field('pinned_text');?>">
 				        <p><?php the_sub_field('pinned_text');?></p>

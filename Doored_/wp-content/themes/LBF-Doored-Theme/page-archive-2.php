@@ -18,11 +18,11 @@
                 $images[]= wp_get_attachment_url( $image->ID );
             }
 
-            $posts_array = get_posts( $query_images_args );
-            $imageURLs = array();
-            foreach ( ) {
+            // $posts_array = get_posts( $query_images_args );
+            // $imageURLs = array();
+            // foreach ( ) {
                 
-            }
+            // }
 
         ?>
         <div class="archive--images">

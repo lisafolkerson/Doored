@@ -19,7 +19,7 @@ get_header();  ?>
 		
 			<div class="theCredits">
 				<?php  dynamic_sidebar( 'primary-widget-area' ); ?>
-			</div><!--end theredits-->
+			</div><!--end thecredits-->
 
 	        <?php $contactImg = get_field('contact_image'); ?>
 	          <img src="<?php echo $contactImg['url']; ?>" alt="<?php echo $contactImg['alt']; ?>" class="showImage">

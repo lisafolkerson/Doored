@@ -319,10 +319,10 @@ add_filter('acf/settings/show_admin', '__return_false');
 /**
  * MASONRY ENQUEUE SCRIPTS
  */
-function emitheme_scripts_method() {
+function lisa_freemason_scripts_method() {
   wp_enqueue_script(
     "jquery-masonry",
     array("jquery")
   );
 }
-add_action("wp_enqueue_scripts", "emitheme_scripts_method");
+add_action("wp_enqueue_scripts", "lisa_freemason_scripts_method");
