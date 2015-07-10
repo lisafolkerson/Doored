@@ -483,44 +483,10 @@ header {
 /* =============================================================================
              Repeater
    ========================================================================== */
-.repeater, .theCredits {
-  -moz-column-count: 3;
-  -webkit-column-count: 3;
-  column-count: 3;
-  -moz-column-gap: 1em;
-  -webkit-column-gap: 1em;
-  column-gap: 1em;
+.grid {
   padding-top: 30px;
   width: 100%; }
-  .repeater .pinnedItem, .theCredits .pinnedItem {
-    background-color: #F4FFF2;
-    display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
-    padding-bottom: 3px;
-    text-align: center; }
-    .repeater .pinnedItem p, .theCredits .pinnedItem p {
-      margin: 0 auto; }
-    .repeater .pinnedItem a, .theCredits .pinnedItem a {
-      padding: 0; }
-  .repeater p, .theCredits p {
-    margin: 0 auto; }
-
-.pinnedItem:hover, .pinnedItem:focus {
-  border: none;
-  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  background: #F4FFF2;
-  color: black; }
-
-.pinnedItem:hover a, .pinnedItem:focus a {
-  border: none;
-  background: #F4FFF2;
-  color: black; }
-
-#grid {
-  padding-top: 30px;
-  width: 100%; }
-  #grid .repeatingArtistImage {
+  .grid .item {
     float: left;
     margin: 1%;
     text-align: center;
@@ -528,12 +494,10 @@ header {
     display: inline-block;
     width: 30%;
     padding-bottom: 3px; }
-    #grid .repeatingArtistImage p {
+    .grid .item p {
       margin: 0 auto; }
-    #grid .repeatingArtistImage a {
+    .grid .item a {
       padding: 0; }
-  #grid p {
-    margin: 0 auto; }
 
 /* =============================================================================
                    Sidebar

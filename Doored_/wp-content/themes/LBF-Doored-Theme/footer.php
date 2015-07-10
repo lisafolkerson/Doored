@@ -19,6 +19,9 @@
   </div><!--end .footer-container-->
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+
 <script>
 /* Google Analytics! */
  var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID
@@ -26,36 +29,6 @@
  g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
  s.parentNode.insertBefore(g,s)}(document,"script"));
 
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="js/fitrify.js"></script> -->
-
-<script>
-jQuery(document).ready(function($){
-     $.filtrify("container", "placeholder", {
-     	close : true,
-     	callback : function( query, match, mismatch ) {
-     	           if ( !mismatch.length ) {
-     	               $("#legend").html("VViewing All");
-     	           } else {
-     	               var category, tags, i, tag, legend = "<h4>Currently filtered by:</h4>";
-     	               for ( category in query ) {
-     	                   tags = query[category];
-     	                   if ( tags.length ) {
-     	                       legend += "";
-     	                       for ( i = 0; i < tags.length; i++ ) {
-     	                           tag = tags[i];
-     	                           legend += "" + tag + "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;";
-     	                       };
-     	                       legend += "";
-     	                   };
-     	               };
-     	               $("#legend").html( legend );
-     	           };
-     	       }
-     });
-});
 </script>
 
 <?php wp_footer(); ?>

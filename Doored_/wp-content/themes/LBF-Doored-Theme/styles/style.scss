@@ -440,62 +440,61 @@ header {
    ========================================================================== */
 
 
-.repeater, .theCredits {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-    -moz-column-gap: 1em;
-    -webkit-column-gap: 1em;
-    column-gap: 1em;
+// .repeater, .theCredits {
+//     -moz-column-count: 3;
+//     -webkit-column-count: 3;
+//     column-count: 3;
+//     -moz-column-gap: 1em;
+//     -webkit-column-gap: 1em;
+//     column-gap: 1em;
+//     padding-top: 30px;
+//     width: 100%;
+
+//   .pinnedItem {
+//     background-color: $textAccent;
+//     display: inline-block;
+//     margin: 0 0 1em;
+//     width: 100%;
+//     padding-bottom: 3px;
+//     text-align: center;
+
+//     p {
+//       margin: 0 auto;
+//     }
+
+//     a {
+//       padding: 0;
+//     }
+//   }
+
+//   p {
+//     margin: 0 auto;
+//   }
+// } // end .repeater
+
+// .pinnedItem:hover, .pinnedItem:focus {
+//   border: none;
+//   box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+//   background: $textAccent;
+//   color: black;
+// }
+
+// .pinnedItem:hover a, .pinnedItem:focus  a {
+//   border: none;
+//   background: $textAccent;
+//   color: black;
+// }
+
+.grid {
     padding-top: 30px;
     width: 100%;
 
-  .pinnedItem {
-    background-color: $textAccent;
-    display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
-    padding-bottom: 3px;
-    text-align: center;
-
-    p {
-      margin: 0 auto;
-    }
-
-    a {
-      padding: 0;
-    }
-  }
-
-  p {
-    margin: 0 auto;
-  }
-} // end .repeater
-
-.pinnedItem:hover, .pinnedItem:focus {
-  border: none;
-  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  background: $textAccent;
-  color: black;
-}
-
-.pinnedItem:hover a, .pinnedItem:focus  a {
-  border: none;
-  background: $textAccent;
-  color: black;
-}
-
-#grid {
-    padding-top: 30px;
-    width: 100%;
-
-  .repeatingArtistImage {
+  .item {
     float: left;
     margin: 1%;
     text-align: center;
     background-color: $textAccent;
     display: inline-block;
-    // margin: 0 0 1em;
     width: 30%;
     padding-bottom: 3px;
 
@@ -506,10 +505,6 @@ header {
     a {
       padding: 0;
     }
-  }
-
-  p {
-    margin: 0 auto;
   }
 } // end .repeater
 
