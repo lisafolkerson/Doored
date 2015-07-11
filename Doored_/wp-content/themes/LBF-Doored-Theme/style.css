@@ -483,10 +483,10 @@ header {
 /* =============================================================================
              Repeater
    ========================================================================== */
-.grid {
+.repeater {
   padding-top: 30px;
   width: 100%; }
-  .grid .item {
+  .repeater .item {
     float: left;
     margin: 1%;
     text-align: center;
@@ -494,10 +494,21 @@ header {
     display: inline-block;
     width: 30%;
     padding-bottom: 3px; }
-    .grid .item p {
+    .repeater .item p {
       margin: 0 auto; }
-    .grid .item a {
+    .repeater .item a {
       padding: 0; }
+    .repeater .item a:hover {
+      border: none; }
+  .repeater .item:hover, .repeater .item:focus {
+    border: none;
+    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+    background: #F4FFF2;
+    color: black; }
+  .repeater .item:hover a, .repeater .item:focus a {
+    border: none;
+    background: #F4FFF2;
+    color: black; }
 
 /* =============================================================================
                    Sidebar

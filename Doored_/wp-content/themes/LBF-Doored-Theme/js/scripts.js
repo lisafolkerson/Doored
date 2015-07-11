@@ -3,8 +3,7 @@ $(function(){
 
 // M A S O N R Y 
 jQuery(document).ready(function($){
-  $(".grid").masonry({
-    // columnWidth: 150,
+  $(".repeater").masonry({
     itemSelector: ".item",
     gutter: 15
   });

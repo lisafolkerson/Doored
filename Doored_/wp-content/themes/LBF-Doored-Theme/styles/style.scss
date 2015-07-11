@@ -485,7 +485,7 @@ header {
 //   color: black;
 // }
 
-.grid {
+.repeater {
     padding-top: 30px;
     width: 100%;
 
@@ -505,6 +505,23 @@ header {
     a {
       padding: 0;
     }
+
+    a:hover {
+      border: none;
+    }
+  }
+
+  .item:hover, .item:focus {
+    border: none;
+    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+    background: $textAccent;
+    color: black;
+  }
+
+  .item:hover a, .item:focus  a {
+    border: none;
+    background: $textAccent;
+    color: black;
   }
 } // end .repeater
 
