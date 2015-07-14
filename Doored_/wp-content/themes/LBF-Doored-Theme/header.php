@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/filtrify.css">
   <link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/images/doored-favicon.png"> 
 
-  <?php // Load our CSS ?>
+  <?php // Load CSS ?>
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 
   <?php wp_head(); ?>
@@ -40,8 +40,8 @@
         'menu' => 'menu1'
       )); ?> 
     </div><!--end .menu-->
-
   </div> <!-- /.container -->
+
   <div class="artistMenu">
     <?php wp_nav_menu( array(
       'container' => false,
