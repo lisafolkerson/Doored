@@ -40,7 +40,23 @@
         'menu' => 'menu1'
       )); ?> 
     </div><!--end .menu-->
+
   </div> <!-- /.container -->
+  <div class="artistMenu">
+    <?php wp_nav_menu( array(
+      'container' => false,
+      'theme_locations' => 'artists-menu',
+      'menu' => 'artists-menu'
+    )); ?> 
+  </div><!--end .artistmenu-->
+
+  <div class="showMenu">
+    <?php wp_nav_menu( array(
+      'container' => false,
+      'theme_locations' => 'shows-menu',
+      'menu' => 'shows-menu'
+    )); ?> 
+  </div><!--end .showmenu-->
 </header><!--/.header-->
 
 

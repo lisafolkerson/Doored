@@ -340,6 +340,12 @@ header {
       .menu ul li a:hover, .menu ul li a:focus {
         border-bottom: 2px solid #c30; }
 
+.artistMenu {
+  display: none; }
+
+.showMenu {
+  display: none; }
+
 /* =============================================================================
          MAIN PAGE
    ========================================================================== */
