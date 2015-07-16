@@ -23,6 +23,7 @@ function theme_setup() {
   * adding additional menus to the array. */
 	register_nav_menus( array(
 		'primary' => 'Primary Navigation',
+		'header-menu' => 'Header Menu',
 		'artists-menu' => __( 'Artists Menu' ),
 		'shows-menu' => __( 'Shows Menu' )
 	) );
