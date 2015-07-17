@@ -277,32 +277,24 @@ header {
     border: none;
     background: none; }
   header .container {
-    padding: 20px 40px;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center; }
+    padding: 20px 40px; }
   header h1 {
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-    flex-grow: 1;
-    margin-left: 3%; }
+    text-align: left;
+    float: left; }
     header h1 a:hover, header h1 a:focus {
       border-bottom: 4px solid #c30; }
 
 .header--livestream {
-  flex-grow: 1;
+  display: inline-block;
   text-align: center;
   background: #F4FFF2;
   font-family: 'Kite One', sans-serif;
   font-size: 30px;
   position: relative;
   height: 85px;
-  max-width: 120px;
-  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4); }
+  width: 120px;
+  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+  margin: 0 90px; }
   .header--livestream a {
     position: absolute;
     color: #D49598;
@@ -316,13 +308,8 @@ header {
   height: 80px; }
 
 .menu {
-  margin: 0;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-  flex-grow: 2;
-  display: flex; }
+  margin: 30px;
+  float: right; }
   .menu ul {
     margin: 0;
     padding: 0; }
@@ -330,10 +317,6 @@ header {
       display: inline-block;
       list-style: none;
       margin-right: 10px;
-      -webkit-flex-direction: row;
-      flex-direction: row;
-      -webkit-justify-content: flex-end;
-      justify-content: flex-end;
       font-size: 1.1rem; }
       .menu ul li a {
         padding: 0px 10px; }
@@ -341,7 +324,18 @@ header {
         border-bottom: 2px solid #c30; }
 
 .artistMenu {
-  display: none; }
+  display: none;
+  flex: 1; }
+  .artistMenu ul {
+    -moz-column-count: 5;
+    -webkit-column-count: 5;
+    column-count: 5;
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    column-gap: 1em;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 30px 30px; }
 
 .showMenu {
   display: none; }
