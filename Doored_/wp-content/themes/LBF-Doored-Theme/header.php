@@ -50,7 +50,7 @@
     )); ?> 
   </div><!--end .artistmenu-->
 
-  <div class="showMenu">
+  <div class="showMenu clearfix">
     <?php wp_nav_menu( array(
       'container' => false,
       'theme_locations' => 'shows-menu',

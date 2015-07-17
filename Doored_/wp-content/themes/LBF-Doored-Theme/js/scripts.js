@@ -3,8 +3,13 @@ $(function(){
 
 	// reveal menus
 	$( '#menu-item-284').mouseover(function () {
-		console.log('fine children');
 		$('.artistMenu').slideToggle(500, function () {
+	    });     
+	});
+
+		// reveal menus
+	$( '#menu-item-283').mouseover(function () {
+		$('.showMenu').slideToggle(500, function () {
 	    });     
 	});
 
