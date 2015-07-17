@@ -4,12 +4,14 @@ $(function(){
 	// reveal menus
 	$( '#menu-item-284').mouseover(function () {
 		$('.artistMenu').slideToggle(500, function () {
+			$('.artistMenu').css( 'display', 'block' );
 	    });     
 	});
 
-		// reveal menus
+	// reveal menus
 	$( '#menu-item-283').mouseover(function () {
 		$('.showMenu').slideToggle(500, function () {
+			$('.showMenu').css( 'display', 'block' );
 	    });     
 	});
 

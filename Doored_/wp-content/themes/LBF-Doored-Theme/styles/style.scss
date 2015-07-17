@@ -178,11 +178,7 @@ header {
   margin: 0 90px;
 
   a {
-    position: absolute;
     color: $watchNow;
-    height: 100%;
-    width: 100%;
-    left: 0;
   }
 
   a:hover {
@@ -230,10 +226,23 @@ header {
     -moz-column-gap: 1em;
     -webkit-column-gap: 1em;
     column-gap: 1em;
+    -moz-column-width: 20%;
+    -webkit-column-width: 20%;
+    column-width: 20%;
     list-style: none;
     margin: 0 auto;
     padding: 0 30px 30px;
+    width: 100%;
+
+    li {
+      padding: 6px;
+      font-size: 12px;
+    }
   }
+}
+
+.showMenu ul {
+  text-align: center;
 }
 
 /* =============================================================================
@@ -256,19 +265,6 @@ header {
   max-width: 50%; 
   position: relative;
   text-align: center; 
-
-  .livestream {
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 50%; 
-    display: inline-block;
-    float: right;
-    position: absolute;
-    right: -110px;
-    top: 15px;
-    z-index: 10;
-    visibility: hidden;
-  }
 
   .pageTitle {
     padding: 10px 15px;

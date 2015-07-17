@@ -45,7 +45,7 @@
   <div class="artistMenu clearfix">
     <?php wp_nav_menu( array(
       'container' => false,
-      'theme_locations' => 'artists-menu',
+      'theme_locations' => 'Artists Menu',
       'menu' => 'artists-menu'
     )); ?> 
   </div><!--end .artistmenu-->
