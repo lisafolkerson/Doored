@@ -2,12 +2,10 @@ $(function(){
 	//your jQuery here
 
 	// reveal menus
-	$( '.menu ul li').click(function () {
+	$( '#menu-item-284').mouseover(function () {
 		console.log('fine children');
-	    // $header = $(this);
-	    // $content = $header.next();
-	    // $content.slideToggle(500, function () {
-	    // });     
+		$('.artistMenu').slideToggle(500, function () {
+	    });     
 	});
 
 // M A S O N R Y 
