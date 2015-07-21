@@ -35,13 +35,13 @@ class acf_field_font_awesome extends acf_field {
 
 		$this->settings = array(
 			'path' => dirname(__FILE__),
-			'dir' => plugin_dir_url( __FILE__ ),
+			'dir' => $this->helpers_get_dir( __FILE__ ),
 			'version' => '1.5'
 		);
 
 		add_filter('acf/load_field', array( $this, 'maybe_enqueue_font_awesome' ) );
 
-    	parent::__construct();
+		parent::__construct();
 	}
 
 	function get_icons()
@@ -70,6 +70,8 @@ class acf_field_font_awesome extends acf_field {
 			$unicode = '&#x' . ltrim( $hex, '\\') . ';';
 			$new_icons[ $bfa_prefix . $class ] = $unicode . ' ' . $bfa_prefix . $class;
 		}
+
+		$new_icons = array_merge( array( 'null' => '- Select -' ), $new_icons );
 
 		return $new_icons;
 	}
@@ -237,6 +239,8 @@ class acf_field_font_awesome extends acf_field {
 		// loop through values and add them as options
 		if( is_array($field['choices']) )
 		{
+			unset( $field['choices']['null'] );
+
 			foreach( $field['choices'] as $key => $value )
 			{
 				$selected = $this->find_selected( $key, $field['value'], $field['save_format'], $field['choices'] );
@@ -257,6 +261,13 @@ class acf_field_font_awesome extends acf_field {
 				$search = array( '<i class="fa ', '"></i>' );
 				$string = str_replace( $search, '', $haystack[0] );
 				break;
+
+			case 'unicode':
+				$index = $choices[ $needle ];
+				if ( stristr( $index, $haystack[0] ) ) {
+					return 'selected="selected"';
+				}
+				return '';
 
 			case 'class':
 				$string = $haystack[0];
@@ -284,7 +295,7 @@ class acf_field_font_awesome extends acf_field {
 	*/
 
 	function input_admin_enqueue_scripts() {
-		
+
 		// register acf scripts
 		wp_enqueue_script('acf-input-font-awesome-edit-input', $this->settings['dir'] . 'js/edit_input.js', array(), $this->settings['version']);
 		wp_enqueue_style('acf-input-font-awesome-input', $this->settings['dir'] . 'css/input.css', array(), $this->settings['version']);
@@ -306,7 +317,7 @@ class acf_field_font_awesome extends acf_field {
 	*/
 	
 	function field_group_admin_enqueue_scripts() {
-	
+
 		// register acf scripts
 		wp_enqueue_script('font-awesome-create-input', $this->settings['dir'] . 'js/create_input.js', array(), $this->settings['version']);
 		wp_enqueue_style('acf-input-font-awesome-input', $this->settings['dir'] . 'css/input.css', array(), $this->settings['version']);
@@ -329,6 +340,10 @@ class acf_field_font_awesome extends acf_field {
 	*/
 	
 	function load_value( $value, $post_id, $field ) {
+
+		if ( 'null' == $value ) {
+			return;
+		}
 
 		switch( $field['save_format'] )
 		{
@@ -356,11 +371,42 @@ class acf_field_font_awesome extends acf_field {
 
 		return $value;
 	}
-	
-}
 
+	/*
+	*  helpers_get_dir()
+	*
+	*  Helper function taken from ACF 4.x to allow finding of asset paths when plugin is included from outside the plugins directory
+	*
+	*/
+
+	function helpers_get_dir( $file ) {
+		
+		$dir = trailingslashit( dirname( $file ) );
+		$count = 0;
+
+		// sanitize for Win32 installs
+		$dir = str_replace('\\' ,'/', $dir); 
+		
+		// if file is in plugins folder
+		$wp_plugin_dir = str_replace( '\\' ,'/', WP_PLUGIN_DIR ); 
+		$dir = str_replace( $wp_plugin_dir, plugins_url(), $dir, $count );
+
+		if ( $count < 1 ) {
+			// if file is in wp-content folder
+			$wp_content_dir = str_replace( '\\' ,'/', WP_CONTENT_DIR ); 
+			$dir = str_replace( $wp_content_dir, content_url(), $dir, $count );
+		}
+
+		if ( $count < 1 ) {
+			// if file is in ??? folder
+			$wp_dir = str_replace( '\\' ,'/', ABSPATH ); 
+			$dir = str_replace( $wp_dir, site_url( '/' ), $dir );
+		}
+		
+		return $dir;
+	}
+
+}
 
 // create field
 new acf_field_font_awesome();
-
-?>

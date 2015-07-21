@@ -12,7 +12,16 @@
 				</div><!--end .name-->
 			</a>
 			<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
-		</div><!--end .lowerTombstone-->
+
+			<?php if( have_rows('links', 'options') ) : ?>
+ 				<div class="bottom-nav">
+					<ul>
+						<?php while( have_rows('links', 'options') ) : the_row(); ?>
+							<a href="<?php the_sub_field('fa_link', 'options'); ?>"><?php the_sub_field('fa_icon', 'options'); ?></a>
+						<?php endwhile; ?>
+					</ul>
+				</div><!--end .lowerTombstone-->
+			<?php endif; ?>
 	</div><!--end .tombstone-->
 
     <div class="grounder"></div>

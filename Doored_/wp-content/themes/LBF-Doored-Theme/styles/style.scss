@@ -608,6 +608,27 @@ header {
   display: block;
 }
 
+.bottom-nav {
+  display: inline-block;
+  float: left;
+  text-align: left;
+  width: 100%;
+
+  ul {
+    font-size: 35px;
+    padding: 0 15px;
+    float: left;
+    position: relative;
+    margin: 0 auto;
+    transform: translateY(50%);
+    color: black;
+
+    a {
+      padding: 15px;
+    }       
+  }
+} // end .bottom-nav
+
 
 @import "comments";
 @import "mediaQueries";

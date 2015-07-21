@@ -668,6 +668,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
   height: 20px;
   display: block; }
 
+.bottom-nav {
+  display: inline-block;
+  float: left;
+  text-align: left;
+  width: 100%; }
+  .bottom-nav ul {
+    font-size: 35px;
+    padding: 0 15px;
+    float: left;
+    position: relative;
+    margin: 0 auto;
+    transform: translateY(50%);
+    color: black; }
+    .bottom-nav ul a {
+      padding: 15px; }
+
 /* =============================================================================
                    Comment Styling
    ========================================================================== */

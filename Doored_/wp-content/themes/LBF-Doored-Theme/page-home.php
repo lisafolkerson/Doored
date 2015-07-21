@@ -62,13 +62,12 @@ get_header();  ?>
 		    while ( have_rows('pinned_content') ) : the_row();
 		        // display image and link it properly
 				$rptrImg = get_sub_field('pinned_image'); ?>
-				<!-- <div class="pinnedItem item"> -->
+				<div class="item">
 					<a href="<?php the_sub_field('links_to'); ?>">
-						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="pinnedImage" alt="<?php the_sub_field('pinned_text');?>">
+						<img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" alt="<?php the_sub_field('pinned_text');?>">
 				        <p><?php the_sub_field('pinned_text');?></p>
 			        </a>
 		    	</div><!--end .pinnedItem-->
-
 		    <?php endwhile;
 
 		else :

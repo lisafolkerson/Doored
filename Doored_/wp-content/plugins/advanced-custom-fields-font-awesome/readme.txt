@@ -40,6 +40,23 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.7.1 =
+* Updated Better Font Awesome Library for better compatibility with Better Font Awesome plugin
+* Changed ACF 4/5 detection method for better integration with Better Font Awesome plugin
+* Bugfix wrong preview icon appearing in ACF custom field creator area
+
+= 1.7 =
+* Added ability to select no icon by default
+* Better handling of 'null' or 'no selection' items
+* Fixed bug where default icon would not display in admin area if 'unicode' return type was selected 
+
+= 1.6.4 =
+* Misc JS performance improvements
+* Fixed bug where select2 would not initialize on repeater items added mid-rows (using the plus icon at the end of a repeater row)
+
+= 1.6.3 =
+* Fixed asset path errors when including this add-on from a theme instead of the plugins directory
+
 = 1.6.2 =
 * Rolling back changes from 1.6.1 after a number of bugs were reported. Incompatibility issues with Better Font Awesome have been corrected in that plugins code.
 
@@ -79,20 +96,20 @@ This ACF field type is compatible with:
 
 == Upgrade Notice ==
 
+= 1.7.1 =
+Updated Better Font Awesome Library for better compatibility with Better Font Awesome plugin. Minor JS bug fix in admin area
+
+= 1.7 =
+Added ability to select no icon by default and better handling of 'null' or 'no selection' items. Fixed bug where default icon would not display in admin area if 'unicode' return type was selected 
+
+= 1.6.4 =
+Misc JS performance improvements and fixed bug where select2 would not initialize on repeater items added mid-rows (using the plus icon at the end of a repeater row)
+
+= 1.6.3 =
+Fixed asset path errors when including this add-on from a theme instead of the plugins directory
+
 = 1.6.2 =
 Rolling back changes from 1.6.1 after a number of bugs were reported. Incompatibility issues with Better Font Awesome have been corrected in that plugins code.
 
 = 1.6.1 =
 Addressing incompatibility issues between this plugin and the Better Font Awesome plugin
-
-= 1.6 =
-Misc fixes to JS to properly target ACF fields in the DOM (based on changes to the ACF structure). This should resolve issues with duplicate, or missing select2 fields when picking font awesome icons. Note: this has been tested only on the latest versions of 4.x and 5.x, if you are not on the latest versions I suggest that you ugprade to them before updating this plugin.
-
-= 1.5 =
-This plugin now integrates with the [Better Font Awesome Library](https://github.com/MickeyKay/better-font-awesome-library) to automatically use the latest version of the Font Awesome icons
-
-= 1.4 =
-* Updated included FontAwesome to version 4.2 (40 more icons)
-
-= 1.3 =
-Advanced Custom Fields version 5.x support
