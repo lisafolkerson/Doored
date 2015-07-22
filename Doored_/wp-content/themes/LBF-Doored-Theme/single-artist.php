@@ -40,7 +40,7 @@
             while ( have_rows('gallery') ) : the_row();
             $rptrImg = get_field('artist_image'); ?>
 
-            <div class="pinnedItem">
+            <div class="item">
               <a href="<?php the_sub_field( 'links_to' ); ?>">
                 <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
               

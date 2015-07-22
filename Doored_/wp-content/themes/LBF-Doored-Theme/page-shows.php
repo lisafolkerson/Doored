@@ -39,7 +39,7 @@ get_header(); ?>
            while ( have_rows('show_repeater') ) : the_row();
                // display a sub field value
            $rptrImg = get_sub_field('show_image'); ?>
-           <div class="pinnedItem">
+           <div class="item">
             <a href="<?php the_sub_field( 'links_to' ); ?>">
              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
              

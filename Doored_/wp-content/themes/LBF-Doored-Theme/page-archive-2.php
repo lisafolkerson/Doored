@@ -25,13 +25,15 @@
             // }
 
         ?>
-        <div class="archive--images">
+        <div class="repeater clearfix">
             <?php foreach ($images as $img) { 
                 
                 ?>
+            <div class="item">
               <a href="<?php echo $img; ?>">
                   <img src="<?php echo $img; ?>" class="allImages">
               </a>
+            </div>
             <?php } ?>
         </div><!--end .archive--images-->               
         <?php endwhile; endif; ?>

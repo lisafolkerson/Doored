@@ -33,11 +33,11 @@
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
         </div><!-- #nav-below -->
-
+<!-- 
         <div id="placeholder"></div>
-        <div id="legend"></div>
+        <div id="legend"></div> -->
 
-        <div class="repeater clearfix" id="repeater">
+        <div class="repeater clearfix">
           <?php
           // check if the repeater field has rows of data
           if( have_rows('show_repeater') ):
@@ -46,13 +46,12 @@
                   // display sub fields:
               $rptrImg = get_sub_field('show_image'); ?>
 
-              <div class="pinnedItem">
+              <div class="item">
                 <a href="<?php the_sub_field( 'links_to' ); ?>">
-                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
-                
-                    <p><?php the_sub_field('show_text');?></p>
-                    </a>
-                </div><!--end .pinnedItem-->
+                  <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
+                  <p><?php the_sub_field('show_text');?></p>
+                </a>
+              </div><!--end .pinnedItem-->
 
               <?php endwhile;
 

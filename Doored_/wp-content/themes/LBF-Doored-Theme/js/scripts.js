@@ -1,18 +1,20 @@
 $(function(){
 	//your jQuery here
 
-	// reveal menus
+	// reveal menus (artist menu)
 	$( '#menu-item-284').mouseover(function () {
-		$('.artistMenu').slideDown(500, function () {
-			$('.artistMenu').css( 'display', 'block' );
-	    });     
+		$('.artistMenu').slideDown(250);
+		if ($( '.showMenu' ).is( ':visible' )){
+			$('.showMenu').fadeOut(250);
+		};
 	});
 
-	// reveal menus
+	// reveal menus (show menu)
 	$( '#menu-item-283').mouseover(function () {
-		$('.showMenu').slideDown(500, function () {
-			$('.showMenu').css( 'display', 'block' );
-	    });     
+		$('.showMenu').slideDown(250);   
+		if ($( '.artistMenu' ).is( ':visible' )){
+			$('.artistMenu').fadeOut(250);
+		};
 	});
 
 // M A S O N R Y 
