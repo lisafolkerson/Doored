@@ -3,14 +3,14 @@ $(function(){
 
 	// reveal menus
 	$( '#menu-item-284').mouseover(function () {
-		$('.artistMenu').slideToggle(500, function () {
+		$('.artistMenu').slideDown(500, function () {
 			$('.artistMenu').css( 'display', 'block' );
 	    });     
 	});
 
 	// reveal menus
 	$( '#menu-item-283').mouseover(function () {
-		$('.showMenu').slideToggle(500, function () {
+		$('.showMenu').slideDown(500, function () {
 			$('.showMenu').css( 'display', 'block' );
 	    });     
 	});
