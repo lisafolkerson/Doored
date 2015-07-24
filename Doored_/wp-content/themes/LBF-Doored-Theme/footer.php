@@ -1,30 +1,29 @@
 <footer>
   <div class="footer-container">
+		<!-- start tombstone-->
+		<div class="tombstone smoothScroll">
+			<div class="upperTombstone"></div>
+				<div class="lowerTombstone smoothScroll">
+					<a href="#top" class="smoothScroll">
+						<div class="name">
+							<p>doored</p>
+							<p>2012 - <?php echo date('Y'); ?></p>
+						</div><!--end .name-->
+					</a>
+					<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
 
-	<!-- start tombstone-->
-	<div class="tombstone smoothScroll">
-		<div class="upperTombstone"></div>
-		<div class="lowerTombstone smoothScroll">
-			<a href="#top" class="smoothScroll">
-				<div class="name">
-					<p>doored</p>
-					<p>2012 - <?php echo date('Y'); ?></p>
-				</div><!--end .name-->
-			</a>
-			<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
-
-			<?php if( have_rows('links', 'options') ) : ?>
- 				<div class="bottom-nav">
-					<ul>
-						<?php while( have_rows('links', 'options') ) : the_row(); ?>
-							<a href="<?php the_sub_field('fa_link', 'options'); ?>"><?php the_sub_field('fa_icon', 'options'); ?></a>
-						<?php endwhile; ?>
-					</ul>
+					<?php if( have_rows('links', 'options') ) : ?>
+		 				<div class="bottom-nav">
+							<ul>
+								<?php while( have_rows('links', 'options') ) : the_row(); ?>
+									<a href="<?php the_sub_field('fa_link', 'options'); ?>"><?php the_sub_field('fa_icon', 'options'); ?></a>
+								<?php endwhile; ?>
+							</ul>
+						</div><!--end .bottomNav-->
+					<?php endif; ?>
 				</div><!--end .lowerTombstone-->
-			<?php endif; ?>
-	</div><!--end .tombstone-->
-
-    <div class="grounder"></div>
+			</div><!--end .tombstone-->
+	  <div class="grounder"></div>
   </div><!--end .footer-container-->
 </footer>
 
