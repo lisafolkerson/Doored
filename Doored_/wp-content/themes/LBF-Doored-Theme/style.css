@@ -200,7 +200,8 @@ body {
 h1 {
   font-family: 'Kite One', sans-serif;
   margin: 0 auto;
-  font-size: 3.2rem; }
+  font-size: 3.2rem;
+  width: 20%; }
 
 p, h2, h3 {
   font-family: 'Open Sans', 'Helvetica', 'Ariel', sans-serif; }
@@ -286,7 +287,7 @@ header {
   height: 85px;
   width: 120px;
   box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  margin: 0 90px; }
+  margin: 0 0 0 90px; }
   .header--livestream a {
     color: #D49598; }
   .header--livestream a:hover, .header--livestream a:focus {
@@ -331,6 +332,10 @@ header {
     .artistMenu ul li, .showMenu ul li {
       padding: 6px;
       font-size: 12px; }
+      .artistMenu ul li a:hover, .artistMenu ul li a:focus, .showMenu ul li a:hover, .showMenu ul li a:focus {
+        border: none;
+        color: #c30;
+        text-shadow: 1px 1px 2px #D49598; }
 
 .showMenu ul {
   text-align: center; }

@@ -48,7 +48,6 @@ We'll let WordPress add them to our templates automatically instead
 of writing our own script tags in the header and footer. */
 
 function lets_add_some_scripts() {
-
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
   	wp_enqueue_script(
@@ -73,17 +72,6 @@ function lets_add_some_scripts() {
     array( 'jquery', 'plugins' ), //dependencies
     null, // version number
     true //load in footer
-  );
-
-  wp_enqueue_script(
-  	'filtrify',
-  	get_template_directory_uri() . '/js/filtrify.min.js',
-  	array('jquery')
-  );
-
-  wp_enqueue_style(
-  	'filtrify-css',
-  	get_template_directory_uri() . '/js/filtrify.css'
   );
 }
 

@@ -51,6 +51,7 @@ h1 {
   font-family: 'Kite One', sans-serif;
   margin: 0 auto;
   font-size: 3.2rem;
+  width: 20%;
 }
 
 p, h2, h3 {
@@ -165,7 +166,7 @@ header {
   height: 85px;
   width: 120px;
   box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  margin: 0 90px;
+  margin: 0 0 0 90px;
 
   a {
     color: $watchNow;
@@ -227,6 +228,12 @@ header {
     li {
       padding: 6px;
       font-size: 12px;
+
+      a:hover, a:focus {
+        border: none;
+        color: $accent;
+        text-shadow: 1px 1px 2px $watchNow;  
+      }
     }
   }
 }
@@ -606,7 +613,7 @@ header {
     font-size: 35px;
     padding: 0 15px;
     margin: 0 auto;
-    color: black;     
+    color: black; 
   }
 } // end .bottom-nav
 
