@@ -5,7 +5,7 @@ $(function(){
 	$( '#menu-item-284').mouseover(function () {
 		$('.artistMenu').slideDown(250);
 		if ($( '.showMenu' ).is( ':visible' )){
-			$('.showMenu').fadeOut(250);
+			$('.showMenu').slideUp(50);
 		};
 	});
 
@@ -13,7 +13,7 @@ $(function(){
 	$( '#menu-item-283').mouseover(function () {
 		$('.showMenu').slideDown(250);   
 		if ($( '.artistMenu' ).is( ':visible' )){
-			$('.artistMenu').fadeOut(250);
+			$('.artistMenu').slideUp(50);
 		};
 	});
 
