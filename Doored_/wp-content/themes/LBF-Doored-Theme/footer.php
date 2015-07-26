@@ -1,3 +1,4 @@
+<img src="<?php bloginfo('template_directory'); ?>/assets/images/tester content/laura-ghosts3.png" alt="A terrifying ghost" class="ghost--behindTomb animated">
 <footer>
   <div class="footer-container">
 		<!-- start tombstone-->
@@ -11,8 +12,6 @@
 						</div><!--end .name-->
 					</a>
 					<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
-					<img src="<?php bloginfo('template_directory'); ?>/assets/images/tester content/doored_website_ghost.svg" alt="A terrifying ghost" class="ghost--behindTomb">
-
 					<?php if( have_rows('links', 'options') ) : ?>
 		 				<div class="bottom-nav">
 							<ul>

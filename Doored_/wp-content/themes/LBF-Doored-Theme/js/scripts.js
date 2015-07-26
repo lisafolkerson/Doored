@@ -17,9 +17,10 @@ $(function(){
 		};
 	});
 
-	$('.tomb').hover( function(){
-		console.log(this);
-		$('.ghost--behindTomb').slideUp(200);
+	$('.tomb').click( function(){
+		$('.ghost--behindTomb').fadeIn( 50, function(){
+			$('.ghost--behindTomb').addClass('slideInUp');	
+		});
 	});
 
 	// M A S O N R Y 

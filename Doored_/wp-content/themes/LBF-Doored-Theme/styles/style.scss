@@ -22,6 +22,7 @@ $watchNow: #D49598;
 
 body { 
   color:#333;
+  position: relative;
 background: rgb(255,204,153); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(255,204,153,1) 35%, rgba(212,149,152,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(35%,rgba(255,204,153,1)), color-stop(100%,rgba(212,149,152,1))); /* Chrome,Safari4+ */
@@ -604,6 +605,7 @@ header {
   background: $accent;
   height: 20px;
   display: block;
+  z-index: 10;
 }
 
 .bottom-nav {
