@@ -7,7 +7,7 @@
     <p>Apologies, but the page you requested could not be found. Perhaps searching will help.</p>
     <?php get_search_form(); ?>
 
-    <img src="<?php bloginfo('template_directory'); ?>/assets/images/tester content/doored_website_ghost.svg" alt="">
+    <img src="<?php bloginfo('template_directory'); ?>/assets/images/tester content/doored_website_ghost.svg" alt="A terrifying ghost">
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 

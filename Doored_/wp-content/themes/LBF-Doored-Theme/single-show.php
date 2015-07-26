@@ -30,8 +30,8 @@
           </div><!-- .back-n-forth -->
 
         <div id="nav-below" class="navigation">
-          <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
+          <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
         </div><!-- #nav-below -->
 <!-- 
         <div id="placeholder"></div>

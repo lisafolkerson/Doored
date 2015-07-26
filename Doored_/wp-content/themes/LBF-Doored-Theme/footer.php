@@ -4,13 +4,14 @@
 		<div class="tombstone smoothScroll">
 			<div class="upperTombstone"></div>
 				<div class="lowerTombstone smoothScroll">
-					<a href="#top" class="smoothScroll">
+					<a href="#top" class="smoothScroll  tomb">
 						<div class="name">
 							<p>doored</p>
 							<p>2012 - <?php echo date('Y'); ?></p>
 						</div><!--end .name-->
 					</a>
 					<a href="mailto://lifeofacraphead@gmail.com" target="_blank">lifeofacraphead@gmail.com</a>
+					<img src="<?php bloginfo('template_directory'); ?>/assets/images/tester content/doored_website_ghost.svg" alt="A terrifying ghost" class="ghost--behindTomb">
 
 					<?php if( have_rows('links', 'options') ) : ?>
 		 				<div class="bottom-nav">

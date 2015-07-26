@@ -5,7 +5,7 @@ $(function(){
 	$( '#menu-item-284').mouseover(function () {
 		$('.artistMenu').slideDown(250);
 		if ($( '.showMenu' ).is( ':visible' )){
-			$('.showMenu').slideUp(50);
+			$('.showMenu').slideUp(100);
 		};
 	});
 
@@ -13,18 +13,22 @@ $(function(){
 	$( '#menu-item-283').mouseover(function () {
 		$('.showMenu').slideDown(250);   
 		if ($( '.artistMenu' ).is( ':visible' )){
-			$('.artistMenu').slideUp(50);
+			$('.artistMenu').slideUp(100);
 		};
 	});
 
-// M A S O N R Y 
-$(document).ready(function($){
-  $(".repeater").masonry({
-    itemSelector: ".item",
-    gutter: 15
-  });
-});
+	$('.tomb').hover( function(){
+		console.log(this);
+		$('.ghost--behindTomb').slideUp(200);
+	});
 
+	// M A S O N R Y 
+	$(document).ready(function($){
+	  $(".repeater").masonry({
+	    itemSelector: ".item",
+	    gutter: 15
+	  });
+	});
 
 
 }); // end  docReady
