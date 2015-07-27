@@ -880,13 +880,30 @@ p.form-allowed-tags, .nocomments {
     font-size: 1.8vw; } }
 
 @media (max-width: 705px) {
+  header .header--livestream {
+    position: absolute;
+    left: 50%;
+    margin: 0 auto; }
   header .menu__dropper {
     display: inline-block;
     font-size: 70px;
     margin: 0 auto;
     position: absolute;
     top: 0px;
-    float: right;
-    left: 50%; }
+    right: 20px;
+    cursor: pointer; }
   header .menuHolder {
     display: none; } }
+
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 36px; }
+  header .header--livestream {
+    line-height: 20px;
+    height: inherit;
+    padding: 8px;
+    top: 15px; }
+    header .header--livestream a {
+      font-size: 18px; }
+  header .menu__dropper {
+    top: -15px; } }

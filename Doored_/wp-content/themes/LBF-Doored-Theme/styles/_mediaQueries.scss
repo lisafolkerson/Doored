@@ -31,19 +31,50 @@
 
 @media (max-width: 705px) {
 	header {
+
+		.header--livestream {
+			position: absolute;
+			left: 50%;
+			margin: 0 auto;
+		}
+
 		.menu__dropper {
 			display: inline-block;
 		    font-size: 70px;
 		    margin: 0 auto;
 		    position: absolute;
 		    top: 0px;
-		    float: right;
-		    left: 50%;
+		    right: 20px;
+		    cursor: pointer;
 		}
 
 		.menuHolder {
 			display: none;
 		}
-	}
+	} // end header
 
 } // end @705px
+
+@media (max-width: 420px) {
+	header {
+		h1 {
+			font-size: 36px;
+		}
+
+		.header--livestream {
+			line-height: 20px;
+		    height: inherit;
+		    padding: 8px;
+	        top: 15px;	
+
+			a {
+				font-size: 18px;
+			}
+		}
+
+		.menu__dropper {
+			top: -15px;
+		}
+	}
+
+} // end @420px
