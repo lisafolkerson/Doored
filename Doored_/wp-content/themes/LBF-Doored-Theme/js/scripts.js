@@ -39,9 +39,9 @@ $(function(){
 
 	// M A S O N R Y 
 	$(document).ready(function($){
-	  $(".repeater").masonry({
-	    itemSelector: ".item",
-	    gutter: 15
+	  $('.repeater').masonry({
+	    itemSelector: '.item',
+	    columnWidth: '.item'
 	  });
 	});
 
