@@ -19,7 +19,7 @@ get_header();  ?>
 			   <!-- THE IMAGE TO REPRESENT DOORED -->
 			  <?php $dooredImg = get_field('main_image');
 			  if( !empty($dooredImg) ): ?>
-			  	<img src="<?php echo $dooredImg['url']; ?>" alt="<?php echo $dooredImg['alt']; ?>" />
+			  	<img src="<?php echo $dooredImg['url']; ?>" alt="<?php echo $dooredImg['alt']; ?>" class="mnLft__image">
 			  <?php endif; ?>
     	</div><!--end.mainLeft-->
 

@@ -26,6 +26,11 @@ $(function(){
 	$('.menu__dropper').click( function(){
 		if ($('.menuHolder').is( ':visible')) {
 			$('.menuHolder').slideUp(250);
+
+			if($('.showMenu').is(':visible') || $('.showMenu').is(':visible')) {
+				$('.showMenu').slideUp(100);
+				$('.artistMenu').slideUp(100);
+			}
 		} else {
 			$('.menuHolder').slideDown(250);
 			};

@@ -20,7 +20,7 @@
 		}
 
 		#menu-header-menu li.menu-item {
-			font-size: 1.8vw;
+			font-size: 16px;
 		}
 
 	}// end header
@@ -50,8 +50,18 @@
 
 		.menuHolder {
 			display: none;
+			padding-top: 30px;
+			margin: 0 auto;
+			width: 100%;
+		    text-align: center;
+		    max-width: 100%;
 		}
+		
 	} // end header
+
+	.mnLft__image {
+		display: none;
+	}
 
 } // end @705px
 
