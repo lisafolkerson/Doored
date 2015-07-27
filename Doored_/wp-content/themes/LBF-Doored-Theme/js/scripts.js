@@ -23,6 +23,7 @@ $(function(){
 		});
 	});
 
+	// cleck for the hamburger menu after 700px media query
 	$('.menu__dropper').click( function(){
 		if ($('.menuHolder').is( ':visible')) {
 			$('.menuHolder').slideUp(250);
@@ -33,7 +34,7 @@ $(function(){
 			}
 		} else {
 			$('.menuHolder').slideDown(250);
-			};
+		};
 	});
 
 	// M A S O N R Y 

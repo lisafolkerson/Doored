@@ -371,7 +371,7 @@ header {
     margin-top: 10px; }
   .mainLeft a {
     color: black; }
-  .mainLeft h2:hover, .mainLeft h2:focus {
+  .mainLeft h2:hover, .mainLeft h2:focus, .mainLeft h2:active {
     background: #c30;
     color: #F4FFF2; }
   .mainLeft .subtitle {
@@ -900,7 +900,25 @@ p.form-allowed-tags, .nocomments {
     text-align: center;
     max-width: 100%; }
   .mnLft__image {
-    display: none; } }
+    display: none; }
+  .sidebar {
+    display: none; }
+  .artist-page .content, .show-page .content {
+    width: 100%; }
+  .mainView {
+    display: block;
+    height: inherit; }
+  .mainLeft {
+    padding: 30px 10px 0 0;
+    max-width: 100%;
+    position: relative;
+    text-align: center; }
+  .mainRight {
+    width: 100%;
+    padding: 0; }
+    .mainRight .videoLink {
+      margin: 0 auto;
+      padding: 0; } }
 
 @media (max-width: 420px) {
   header h1 {
@@ -913,4 +931,8 @@ p.form-allowed-tags, .nocomments {
     header .header--livestream a {
       font-size: 18px; }
   header .menu__dropper {
-    top: -15px; } }
+    top: -15px; }
+  header .artistMenu ul, header .showMenu ul {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3; } }

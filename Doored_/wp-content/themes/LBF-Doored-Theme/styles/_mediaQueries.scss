@@ -63,6 +63,36 @@
 		display: none;
 	}
 
+	.sidebar {
+		display: none;
+	}
+
+	.artist-page .content, .show-page .content {
+		width: 100%;
+	}
+
+	.mainView {
+		display: block;
+		height: inherit;
+	}
+
+	.mainLeft {
+		padding: 30px 10px 0 0;
+		max-width: 100%;
+		position: relative;
+		text-align: center;
+	}
+
+	.mainRight {
+		width: 100%;
+		padding: 0;
+
+		.videoLink {
+			margin: 0 auto;
+			padding: 0;
+		}
+	}
+
 } // end @705px
 
 @media (max-width: 420px) {
@@ -85,6 +115,15 @@
 		.menu__dropper {
 			top: -15px;
 		}
-	}
+
+		.artistMenu ul, .showMenu ul {
+			-moz-column-count: 3;
+			-webkit-column-count: 3;
+			column-count: 3;
+
+		}
+	} // header
+
+
 
 } // end @420px

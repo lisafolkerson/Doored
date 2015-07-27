@@ -282,7 +282,7 @@ header {
     color: black;
   }
 
-  h2:hover, h2:focus {
+  h2:hover, h2:focus, h2:active {
     background: $accent;
     color: $textAccent;
   }
