@@ -297,20 +297,23 @@ header {
 .watchIcon {
   height: 80px; }
 
-.menu {
+.menu__dropper {
+  display: none; }
+
+.menuHolder {
   margin: 30px;
   float: right; }
-  .menu ul {
+  .menuHolder ul {
     margin: 0;
     padding: 0; }
-    .menu ul li {
+    .menuHolder ul li {
       display: inline-block;
       list-style: none;
       margin-right: 10px;
       font-size: 1.1rem; }
-      .menu ul li a {
+      .menuHolder ul li a {
         padding: 0px 10px; }
-      .menu ul li a:hover, .menu ul li a:focus {
+      .menuHolder ul li a:hover, .menuHolder ul li a:focus {
         border-bottom: 2px solid #c30; }
 
 .artistMenu, .showMenu {
@@ -860,3 +863,30 @@ p.form-allowed-tags, .nocomments {
 
 #respond p, #comments-list ul #respond {
   margin: 0; }
+
+@media (max-width: 900px) {
+  header .container {
+    padding: 20px 15px; }
+  header h1 {
+    max-width: 25%; }
+  header .header--livestream {
+    margin: 0 50px;
+    max-width: 25%; }
+  header .menuHolder {
+    max-width: 54%;
+    margin: 30px 0;
+    white-space: nowrap; }
+  header #menu-header-menu li.menu-item {
+    font-size: 1.8vw; } }
+
+@media (max-width: 705px) {
+  header .menu__dropper {
+    display: inline-block;
+    font-size: 70px;
+    margin: 0 auto;
+    position: absolute;
+    top: 0px;
+    float: right;
+    left: 50%; }
+  header .menuHolder {
+    display: none; } }

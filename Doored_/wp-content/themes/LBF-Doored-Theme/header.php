@@ -34,7 +34,8 @@
         </a>
       </div><!--end .header--livestream-->
 
-    <div class="menu">
+    <p class="menu__dropper">&#8803;</p>
+    <div class="menuHolder">
       <?php wp_nav_menu( array(
         'container' => false,
         'theme_locations' => 'Header Menu',

@@ -1,11 +1,49 @@
-// @media max-width: 900px {
-// 	// header {
-// 	// 	background: $main-color;
-// 	// }
-// }
+@media (max-width: 900px) {
+	header {
+		.container {
+			padding: 20px 15px;
+		}
 
-// @media (max-width: 900px) {
-// 	header {
-// 		background: $main-color;
-// 	}
-// }
+		h1 {
+			max-width: 25%;
+		}
+
+		.header--livestream {
+			margin: 0 50px;
+			max-width: 25%;
+		}
+		
+		.menuHolder{
+			max-width: 54%;
+			margin: 30px 0;
+		    white-space: nowrap;
+		}
+
+		#menu-header-menu li.menu-item {
+			font-size: 1.8vw;
+		}
+
+	}// end header
+
+
+
+} // end @900px
+
+@media (max-width: 705px) {
+	header {
+		.menu__dropper {
+			display: inline-block;
+		    font-size: 70px;
+		    margin: 0 auto;
+		    position: absolute;
+		    top: 0px;
+		    float: right;
+		    left: 50%;
+		}
+
+		.menuHolder {
+			display: none;
+		}
+	}
+
+} // end @705px

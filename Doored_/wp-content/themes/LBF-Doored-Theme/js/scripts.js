@@ -23,6 +23,14 @@ $(function(){
 		});
 	});
 
+	$('.menu__dropper').click( function(){
+		if ($('.menuHolder').is( ':visible')) {
+			$('.menuHolder').slideUp(250);
+		} else {
+			$('.menuHolder').slideDown(250);
+			};
+	});
+
 	// M A S O N R Y 
 	$(document).ready(function($){
 	  $(".repeater").masonry({

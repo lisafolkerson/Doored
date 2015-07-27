@@ -182,13 +182,18 @@ header {
   height: 80px;
 }
 
-.menu {
+.menu__dropper {
+  display:none;
+}
+
+.menuHolder {
   margin: 30px;
   float: right;
 
   ul {
     margin: 0;
     padding: 0;
+
     
     li {
       display:inline-block;
