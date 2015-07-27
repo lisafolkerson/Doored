@@ -918,7 +918,20 @@ p.form-allowed-tags, .nocomments {
     padding: 0; }
     .mainRight .videoLink {
       margin: 0 auto;
-      padding: 0; } }
+      padding: 0; }
+  .page-id-15 .contactInfo p {
+    font-size: 18px; }
+  .page-id-15 .theCredits {
+    padding-top: 20px;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px; }
+    .page-id-15 .theCredits h3.widget-title {
+      font-size: 14px; }
+    .page-id-15 .theCredits li.widget-container {
+      width: 85%; }
+    .page-id-15 .theCredits p, .page-id-15 .theCredits a {
+      font-size: 12px; } }
 
 @media (max-width: 420px) {
   header h1 {
@@ -938,4 +951,12 @@ p.form-allowed-tags, .nocomments {
     column-count: 3; }
   .repeater .item {
     width: 49%;
-    margin: 0.5%; } }
+    margin: 0.5%; }
+  .page-id-15 .contactInfo p {
+    font-size: 16px; }
+  .page-id-15 .theCredits {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1; }
+    .page-id-15 .theCredits li.widget-container {
+      width: 65%; } }
