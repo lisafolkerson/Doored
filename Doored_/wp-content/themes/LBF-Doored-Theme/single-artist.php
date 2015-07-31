@@ -13,7 +13,9 @@
           </div><!--end .section-header-->
 
           <?php $artistImg = get_field('artist_image'); ?>
-            <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
+            <a href="<?php echo $artistImg['url']; ?>">
+              <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
+            </a>
 
           <?php the_field('about') ?>  
 

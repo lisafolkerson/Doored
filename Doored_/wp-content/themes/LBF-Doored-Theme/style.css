@@ -288,7 +288,8 @@ header {
   height: 85px;
   width: 120px;
   box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  margin: 0 0 0 90px; }
+  margin: 0 0 0 90px;
+  float: left; }
   .header--livestream a {
     color: #D49598; }
   .header--livestream a:hover, .header--livestream a:focus {
@@ -870,14 +871,15 @@ p.form-allowed-tags, .nocomments {
   header h1 {
     max-width: 25%; }
   header .header--livestream {
-    margin: 0 50px;
+    margin: 0 48px;
     max-width: 25%; }
   header .menuHolder {
     max-width: 54%;
     margin: 30px 0;
     white-space: nowrap; }
   header #menu-header-menu li.menu-item {
-    font-size: 16px; } }
+    font-size: 16px;
+    margin: 0 auto; } }
 
 @media (max-width: 705px) {
   header .header--livestream {

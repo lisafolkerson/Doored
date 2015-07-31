@@ -1,6 +1,6 @@
 DOORED TO DO
 
--media queries
+😱media queries
 😱masonry.js
 -single media page view
 😱scary ghost animation
@@ -13,8 +13,24 @@ DOORED TO DO
 -put the ghost in the console?
 -make the ghost a gif that wiggles
 -accessibility checks
+-masonry images loading over fix https://github.com/desandro/masonry/issues/501#issuecomment-34583942
+-colors?
+
+-should subnav snap up also on contact and archive?
+-show/artist header snaps to content
+-single.php image size largest - and no link to content itself
+-.sidebar .single-entry img 90px => 85px
+-sidebar font size: 20px
+-either or statement dropdown list, add third field for external link
+
+
+
 
 
 IMPORTANT PLACES TO SHOW
 
 -primary widget area - contact - credits
+-reorder posts
+=artists post
+= shows post
+-options - social options in footr

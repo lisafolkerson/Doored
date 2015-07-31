@@ -9,7 +9,7 @@
 		}
 
 		.header--livestream {
-			margin: 0 50px;
+			margin: 0 48px;
 			max-width: 25%;
 		}
 		
@@ -21,6 +21,7 @@
 
 		#menu-header-menu li.menu-item {
 			font-size: 16px;
+			margin: 0 auto;
 		}
 
 	}// end header
@@ -173,15 +174,6 @@
 			li.widget-container {
 				width: 65%;
 			}
-
-			h3.widget-title {
-			    // font-size: 12px;
-			}
-
-			p, a {
-				// font-size: 12px;
-			}
-
 		} // end theCredits
 	} // end contact page
 
