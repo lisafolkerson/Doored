@@ -17,6 +17,15 @@ $(function(){
 		};
 	});
 
+	// hide menus if other menu items are chosen
+	$( '#menu-item-281, #menu-item-282' ).mouseover(function (){
+        if ($( '.artistMenu, .showMenu' ).is( ':visible' )){
+            $('.artistMenu').slideUp(250);
+            $('.showMenu').slideUp(250);
+        };
+	}); // END
+	
+
 	$('.tomb').click( function(){
 		$('.ghost--behindTomb').fadeIn( 50, function(){
 			$('.ghost--behindTomb').addClass('slideInUp');	
