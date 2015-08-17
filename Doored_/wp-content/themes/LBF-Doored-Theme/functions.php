@@ -305,7 +305,7 @@ function remove_admin_menus () {
 }
 add_action('admin_menu', 'remove_admin_menus');
 
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 /**
  * MASONRY ENQUEUE SCRIPTS

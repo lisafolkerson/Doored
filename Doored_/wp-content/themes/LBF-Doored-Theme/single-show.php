@@ -33,9 +33,6 @@
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
         </div><!-- #nav-below -->
-<!-- 
-        <div id="placeholder"></div>
-        <div id="legend"></div> -->
 
         <div class="repeater clearfix">
           <?php
@@ -45,7 +42,6 @@
               while ( have_rows('show_repeater') ) : the_row();
                   // display sub fields:
               $rptrImg = get_sub_field('show_image'); ?>
-
               <div class="item">
                 <a href="<?php the_sub_field( 'links_to' ); ?>">
                   <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>

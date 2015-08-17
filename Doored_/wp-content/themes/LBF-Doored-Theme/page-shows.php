@@ -28,9 +28,6 @@ get_header(); ?>
          <?php the_field('about_show') ?>  
        </div>
 
-     <?php endwhile; // end of the loop. ?>
-     <?php wp_reset_postdata(); //return env back to regular functionality?>
-
      <div class="repeater clearfix" id="repeater">
        <?php
        // check if the repeater field has rows of data
@@ -44,8 +41,8 @@ get_header(); ?>
              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
              
                  <p><?php the_sub_field('show_text');?></p>
-               </a>  
-             </div><!--end .pinnedItem-->
+            </a>  
+          </div><!--end .pinnedItem-->
 
            <?php endwhile;
 
@@ -55,6 +52,8 @@ get_header(); ?>
        ?>
        </div><!--end .repeater-->
 
+       <?php endwhile; // end of the loop. ?>
+       <?php wp_reset_postdata(); //return env back to regular functionality?>
 
     </div> <!-- /.content -->
     <?php get_sidebar(); ?>

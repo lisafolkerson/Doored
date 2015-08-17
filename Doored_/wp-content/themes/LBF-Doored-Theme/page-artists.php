@@ -39,8 +39,7 @@ get_header(); ?>
             <div class="item">
               <a href="<?php the_sub_field( 'links_to' ); ?>">
                <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
-               
-                   <p><?php the_sub_field('artist_text');?></p>
+                <p><?php the_sub_field('artist_text');?></p>
               </a>     
             </div><!--end .pinnedItem-->
 
