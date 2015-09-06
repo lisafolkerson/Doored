@@ -15,6 +15,24 @@
             <p><?php the_field('date') ?></p>
           </div><!--end .section-header-->
 
+          <div class="showImage">
+            <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube ?>
+              <?php if ( $heroType == 1 ) : ?>
+                <div class="livestream_embed">
+                  <?php the_field('hero_video') ?>
+                </div><!--end livestream_embed-->
+
+              <?php elseif ( $heroType == 2 ) : ?>
+                  <?php the_field('hero_youtube'); ?>
+
+            <?php endif; ?>
+
+            <?php elseif ( $heroType == 3) : ?>
+              <?php $showImg = get_field('show_image'); ?>
+                  <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+
+          </div>
+
           <?php $showImg = get_field('show_image'); ?>
             <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
