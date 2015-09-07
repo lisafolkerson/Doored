@@ -60,13 +60,24 @@ $(function(){
 		};
 	});
 
-	// M A S O N R Y 
-	$(document).ready(function($){
-	  $('.repeater').masonry({
-	    itemSelector: '.item',
-	    columnWidth: '.item'
-	  });
+	// Masonry fix:
+	var $container = $('.repeater');
+
+	// initialize Masonry after all images have loaded  
+	$container.imagesLoaded( function() {
+	     $container.masonry({
+	     	itemSelector: '.item',
+	     	columnWidth: '.item'
+	     });
 	});
+
+	// M A S O N R Y 
+	// $(document).ready(function($){
+	//   $('.repeater').masonry({
+	//     itemSelector: '.item',
+	//     columnWidth: '.item'
+	//   });
+	// });
 
 
 }); // end  docReady
