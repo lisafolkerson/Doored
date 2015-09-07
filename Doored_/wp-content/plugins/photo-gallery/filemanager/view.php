@@ -67,7 +67,7 @@ class FilemanagerView {
 
         var messageEnterDirName = "<?php echo 'Enter directory name'; ?>";
         var messageEnterNewName = "<?php echo 'Enter new name'; ?>";
-        var messageFilesUploadComplete = "<?php echo 'Files upload complete'; ?>";
+        var messageFilesUploadComplete = "<?php echo 'Processing uploaded files...'; ?>";
 
         var root = "<?php echo addslashes($this->controller->get_uploads_dir()); ?>";
         var dir = "<?php echo (isset($_REQUEST['dir']) ? addslashes(esc_html($_REQUEST['dir'])) : ''); ?>";
@@ -75,6 +75,17 @@ class FilemanagerView {
         var callback = "<?php echo (isset($_REQUEST['callback']) ? esc_html($_REQUEST['callback']) : ''); ?>";
         var sortBy = "<?php echo $sort_by; ?>";
         var sortOrder = "<?php echo $sort_order; ?>";
+        jQuery(document).ready(function () {
+          jQuery("#search_by_name .search_by_name").on("input keyup", function() {
+            var search_by_name = jQuery(this).val();
+            jQuery("#explorer_body .explorer_item").each(function() {
+            jQuery(this).hide();
+            if (jQuery(this).find(".item_name").html().trim().toLowerCase().indexOf(search_by_name) !== -1) {
+              jQuery(this).show();
+            }
+            });
+          });
+        });
       </script>
       <script src="<?php echo WD_BWG_URL; ?>/filemanager/js/default.js?ver=<?php echo wd_bwg_version(); ?>"></script>
       <link href="<?php echo WD_BWG_URL; ?>/filemanager/css/default.css?ver=<?php echo wd_bwg_version(); ?>" type="text/css" rel="stylesheet">
@@ -122,6 +133,10 @@ class FilemanagerView {
                   <a class="ctrl_bar_btn btn_import_files" onclick="onBtnShowImportClick(event, this);"><?php echo 'Media library'; ?></a>
                 </span>
                 <?php } ?>
+		<span class="ctrl_bar_divider"></span>
+                <span id="search_by_name" class="ctrl_bar_btn">
+                  <input type="search" placeholder="Search" class="ctrl_bar_btn search_by_name">
+                </span>
               </div>
               <div class="ctrls_right">
                 <a class="ctrl_bar_btn btn_view_thumbs" onclick="onBtnViewThumbsClick(event, this);" title="<?php echo 'View thumbs'; ?>"></a>
@@ -400,13 +415,15 @@ class FilemanagerView {
                           jQuery("#uploader_progress_text").text(messageFilesUploadComplete);
                           jQuery("#uploader_progress_text").addClass("uploader_text");
                         });
+                        jQuery("#opacity_div").show();
+                        jQuery("#loading_div").show();
                       }
                     },
                     stop: function (e, data) {
                       onBtnBackClick();
                     },
                     done: function (e, data) {
-                      jQuery.each(data.result.files, function (index, file) {
+                      jQuery.each(data.files, function (index, file) {
                         if (file.error) {
                           alert(errorLoadingFile + ' :: ' + file.error);
                         }
@@ -417,6 +434,8 @@ class FilemanagerView {
                           jQuery("#uploaded_files ul").prepend(jQuery("<li class=uploaded_item>" + file.name + " (<?php echo 'Uploaded' ?>)" + "</li>"));
                         }
                       });
+                      jQuery("#opacity_div").hide();
+                      jQuery("#loading_div").hide();
                     }
                   });
                   jQuery(window).load(function () {

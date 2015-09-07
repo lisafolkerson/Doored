@@ -114,8 +114,8 @@ class BWGViewSlideshow {
       $watermark_color = $options_row->watermark_color;
       $watermark_opacity = $options_row->watermark_opacity;
       $watermark_position = explode('-', $options_row->watermark_position);
-      $watermark_link = $options_row->watermark_link;
-      $watermark_url = $options_row->watermark_url;
+      $watermark_link = urlencode($options_row->watermark_link);
+      $watermark_url = urlencode($options_row->watermark_url);
       $watermark_width = $options_row->watermark_width;
       $watermark_height = $options_row->watermark_height;
     }
@@ -146,7 +146,7 @@ class BWGViewSlideshow {
       $filmstrip_thumb_margin_right = (int) $margins_split[0];
       $filmstrip_thumb_margin_left = $filmstrip_thumb_margin_right;
     }
-    $filmstrip_thumb_margin_hor = $filmstrip_thumb_margin_right + $filmstrip_thumb_margin_left;    
+    $filmstrip_thumb_margin_hor = $filmstrip_thumb_margin_right + $filmstrip_thumb_margin_left;
     ?>
     <style>
       #bwg_container1_<?php echo $bwg; ?> {
@@ -185,7 +185,7 @@ class BWGViewSlideshow {
         max-height: <?php echo $image_height - $slideshow_filmstrip_height; ?>px;
         vertical-align: middle;
       }
-      #bwg_container1_<?php echo $bwg; ?> #bwg_container2_<?php echo $bwg; ?> .bwg_slideshow_embed_<?php echo $bwg; ?>{
+      #bwg_container1_<?php echo $bwg; ?> #bwg_container2_<?php echo $bwg; ?> .bwg_slideshow_embed_<?php echo $bwg; ?> {
         padding: 0 !important;
         margin: 0 !important;
         float: none !important;
@@ -1083,7 +1083,8 @@ class BWGViewSlideshow {
         function bwg_gridlet(width, height, top, img_top, left, img_left, src, imgWidth, imgHeight, c, r) {
           var delay = (c + r) * count;
           /* Return a gridlet elem with styles for specific transition.*/
-          return jQuery('<div class="bwg_gridlet_<?php echo $bwg; ?>" />').css({
+          return jQuery('<span class="bwg_gridlet_<?php echo $bwg; ?>" />').css({
+            display : "block",
             width : width,
             height : height,
             top : top,
@@ -1101,7 +1102,7 @@ class BWGViewSlideshow {
         /* Get the current slide's image.*/
         var cur_img = jQuery(current_image_class).find('img');
         /* Create a grid to hold the gridlets.*/
-        var grid = jQuery('<div />').addClass('bwg_grid_<?php echo $bwg; ?>');
+        var grid = jQuery('<span style="display: block;" />').addClass('bwg_grid_<?php echo $bwg; ?>');
         /* Prepend the grid to the next slide (i.e. so it's above the slide image).*/
         jQuery(current_image_class).prepend(grid);
         /* vars to calculate positioning/size of gridlets*/
@@ -1255,8 +1256,8 @@ class BWGViewSlideshow {
           bwg_current_key_<?php echo $bwg; ?> = key;
           /* Change image id, title, description.*/
           jQuery("#bwg_slideshow_image_<?php echo $bwg; ?>").attr('image_id', data_<?php echo $bwg; ?>[key]["id"]);
-          jQuery(".bwg_slideshow_title_text_<?php echo $bwg; ?>").html(jQuery('<div />').html(data_<?php echo $bwg; ?>[key]["alt"]).text());
-          jQuery(".bwg_slideshow_description_text_<?php echo $bwg; ?>").html(jQuery('<div />').html(data_<?php echo $bwg; ?>[key]["description"]).text());
+          jQuery(".bwg_slideshow_title_text_<?php echo $bwg; ?>").html(jQuery('<span style="display: block;" />').html(data_<?php echo $bwg; ?>[key]["alt"]).text());
+          jQuery(".bwg_slideshow_description_text_<?php echo $bwg; ?>").html(jQuery('<span style="display: block;" />').html(data_<?php echo $bwg; ?>[key]["description"]).text());
           var current_image_class = "#image_id_<?php echo $bwg; ?>_" + data_<?php echo $bwg; ?>[current_key]["id"];
           var next_image_class = "#image_id_<?php echo $bwg; ?>_" + data_<?php echo $bwg; ?>[key]["id"];
           bwg_<?php echo $slideshow_effect; ?>_<?php echo $bwg; ?>(current_image_class, next_image_class, direction);
@@ -1456,8 +1457,6 @@ class BWGViewSlideshow {
         jQuery(".bwg_slideshow_image_<?php echo $bwg; ?>").removeAttr("width");
         jQuery(".bwg_slideshow_image_<?php echo $bwg; ?>").removeAttr("height");
       });
-
-
       function bwg_resize_instagram_post_<?php echo $bwg?>(){
         
         /*jQuery.fn.exists = function(){return this.length>0;};*/
@@ -1476,7 +1475,6 @@ class BWGViewSlideshow {
             post_height = w +88 ;  
           }
            jQuery('.inner_instagram_iframe_bwg_embed_frame_<?php echo $bwg?>').each(function(){
-          
           post_height = post_height;
           post_width = post_width;
           var top_pos = (0.5 *( h-post_height));
@@ -1490,14 +1488,10 @@ class BWGViewSlideshow {
               width: post_width,
               top:  top_pos
             });
-
           });
         }
-
         bwg_change_watermark_container_<?php echo $bwg; ?>();
-
       }
-
       function play_<?php echo $bwg; ?>() {
         window.clearInterval(bwg_playInterval_<?php echo $bwg; ?>);
         /* Play.*/

@@ -360,7 +360,7 @@ class BWGViewGalleries_bwg {
             var a_rotate = document.createElement('a');
             a_rotate.setAttribute('class', "thickbox thickbox-preview");
             a_rotate.setAttribute('onclick', "spider_set_href(this, '" + bwg_j + "', 'rotate');");
-            a_rotate.innerHTML = "Rotate";
+            a_rotate.innerHTML = "Edit";
             span_edit_rotate.appendChild(a_rotate);
             div_edit.innerHTML += " | "
             var span_edit_recover = document.createElement('span');
@@ -687,9 +687,9 @@ class BWGViewGalleries_bwg {
     $page_nav = $this->model->image_page_nav($id);
     $option_row = $this->model->get_option_row_data();
     $search_value = ((isset($_POST['search_value'])) ? esc_html(stripslashes($_POST['search_value'])) : '');
-    $asc_or_desc = ((isset($_POST['asc_or_desc'])) ? esc_html(stripslashes($_POST['asc_or_desc'])) : 'asc');
-    $image_order_by = (isset($_POST['image_order_by']) ? esc_html(stripslashes($_POST['image_order_by'])) : 'order');
-    $order_class = 'manage-column column-title sorted ' . $asc_or_desc;
+    $image_asc_or_desc = ((isset($_POST['image_asc_or_desc'])) ? esc_html(stripslashes($_POST['image_asc_or_desc'])) : ((isset($_COOKIE['bwg_image_asc_or_desc'])) ? esc_html(stripslashes($_COOKIE['bwg_image_asc_or_desc'])) : 'asc'));
+    $image_order_by = ((isset($_POST['image_order_by'])) ? esc_html(stripslashes($_POST['image_order_by'])) : ((isset($_COOKIE['bwg_image_order_by'])) ? esc_html(stripslashes($_COOKIE['bwg_image_order_by'])) : 'order'));
+    $order_class = 'manage-column column-title sorted ' . $image_asc_or_desc;
     $page_number = (isset($_POST['page_number']) ? esc_html(stripslashes($_POST['page_number'])) : 1);
     $ids_string = '';
     $per_page = $this->model->per_page();
@@ -833,7 +833,7 @@ class BWGViewGalleries_bwg {
           <th class="table_extra_large_col <?php if ($image_order_by == 'filename') {echo $order_class;} ?>">
             <a onclick="spider_set_input_value('task', '');
                         spider_set_input_value('image_order_by', 'filename');
-                        spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['image_order_by']) && (esc_html(stripslashes($_POST['image_order_by'])) == 'filename') && esc_html(stripslashes($_POST['asc_or_desc'])) == 'asc') ? 'desc' : 'asc'); ?>');
+                        spider_set_input_value('image_asc_or_desc', '<?php echo ($image_order_by == 'filename' && $image_asc_or_desc == 'asc') ? 'desc' : 'asc'; ?>');
                         spider_ajax_save('galleries_form');">
               <span>Filename</span><span class="sorting-indicator"></span>
             </a>
@@ -841,7 +841,7 @@ class BWGViewGalleries_bwg {
           <th class="table_extra_large_col <?php if ($image_order_by == 'alt') {echo $order_class;} ?>">
             <a onclick="spider_set_input_value('task', '');
                         spider_set_input_value('image_order_by', 'alt');
-                        spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['image_order_by']) && (esc_html(stripslashes($_POST['image_order_by'])) == 'alt') && esc_html(stripslashes($_POST['asc_or_desc'])) == 'asc') ? 'desc' : 'asc'); ?>');
+                        spider_set_input_value('image_asc_or_desc', '<?php echo ($image_order_by == 'alt' && $image_asc_or_desc == 'asc') ? 'desc' : 'asc'; ?>');
                         spider_ajax_save('galleries_form');">
               <span>Alt/Title<?php if ($option_row->thumb_click_action != 'open_lightbox') { ?><br />Redirect URL<?php } ?></span><span class="sorting-indicator"></span>
             </a>
@@ -849,7 +849,7 @@ class BWGViewGalleries_bwg {
           <th class="table_extra_large_col <?php if ($image_order_by == 'description') {echo $order_class;} ?>">
             <a onclick="spider_set_input_value('task', '');
                         spider_set_input_value('image_order_by', 'description');
-                        spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['image_order_by']) && (esc_html(stripslashes($_POST['image_order_by'])) == 'description') && esc_html(stripslashes($_POST['asc_or_desc'])) == 'asc') ? 'desc' : 'asc'); ?>');
+                        spider_set_input_value('image_asc_or_desc', '<?php echo ($image_order_by == 'description' && $image_asc_or_desc == 'asc') ? 'desc' : 'asc'; ?>');
                         spider_ajax_save('galleries_form');">
               <span>Description</span><span class="sorting-indicator"></span>
             </a>
@@ -858,7 +858,7 @@ class BWGViewGalleries_bwg {
           <th id="th_order" class="table_medium_col <?php if ($image_order_by == 'order') {echo $order_class;} ?>">
             <a onclick="spider_set_input_value('task', '');
                         spider_set_input_value('image_order_by', 'order');
-                        spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['image_order_by']) && (esc_html(stripslashes($_POST['image_order_by'])) == 'order') && esc_html(stripslashes($_POST['asc_or_desc'])) == 'asc') ? 'desc' : 'asc'); ?>');
+                        spider_set_input_value('image_asc_or_desc', '<?php echo ($image_order_by == 'order' && $image_asc_or_desc == 'asc') ? 'desc' : 'asc'; ?>');
                         spider_ajax_save('galleries_form');">
               <span>Order</span><span class="sorting-indicator"></span>
             </a>
@@ -866,7 +866,7 @@ class BWGViewGalleries_bwg {
           <th class="table_big_col <?php if ($image_order_by == 'published') {echo $order_class;} ?>">
             <a onclick="spider_set_input_value('task', '');
                         spider_set_input_value('image_order_by', 'published');
-                        spider_set_input_value('asc_or_desc', '<?php echo ((isset($_POST['asc_or_desc']) && isset($_POST['image_order_by']) && (esc_html(stripslashes($_POST['image_order_by'])) == 'published') && esc_html(stripslashes($_POST['asc_or_desc'])) == 'asc') ? 'desc' : 'asc'); ?>');
+                        spider_set_input_value('image_asc_or_desc', '<?php echo ($image_order_by == 'published' && $image_asc_or_desc == 'asc') ? 'desc' : 'asc'; ?>');
                         spider_ajax_save('galleries_form');">
               <span>Published</span><span class="sorting-indicator"></span>
             </a>
@@ -895,7 +895,7 @@ class BWGViewGalleries_bwg {
                   $query_url = add_query_arg(array('TB_iframe' => '1'), $query_url);
                   ?>
                   <a class="thickbox thickbox-preview" title="<?php echo $row_data->alt; ?>" href="<?php echo $query_url; ?>">
-                    <img id="image_thumb_<?php echo $row_data->id; ?>" class="thumb" src="<?php echo (!$is_embed ? site_url() . '/' . $WD_BWG_UPLOAD_DIR : "") . $row_data->thumb_url . '?date=' . date('Y-m-y H:i:s'); ?>">
+                    <img id="image_thumb_<?php echo $row_data->id; ?>" class="thumb" src="<?php echo (!$is_embed ? site_url() . '/' . $WD_BWG_UPLOAD_DIR : "") . $row_data->thumb_url . ($is_embed ? '' : '?date=' . date('Y-m-y H:i:s')); ?>" />
                   </a>
                 </td>
                 <td class="table_extra_large_col">
@@ -921,7 +921,7 @@ class BWGViewGalleries_bwg {
                     $query_url = wp_nonce_url( $query_url, 'editThumb', 'bwg_nonce' );
                     $query_url = add_query_arg(array('TB_iframe' => '1'), $query_url);
                     ?>
-                    <span class="edit_thumb"><a class="thickbox thickbox-preview" href="<?php echo $query_url; ?>">Rotate</a></span> | 
+                    <span class="edit_thumb"><a class="thickbox thickbox-preview" href="<?php echo $query_url; ?>">Edit</a></span> | 
                     <span class="edit_thumb"><a onclick="if (confirm('Do you want to reset the image?')) {
                                                           spider_set_input_value('ajax_task', 'recover');
                                                           spider_set_input_value('image_current_id', '<?php echo $row_data->id; ?>');
@@ -986,6 +986,7 @@ class BWGViewGalleries_bwg {
           ?>
           <input id="ids_string" name="ids_string" type="hidden" value="<?php echo $ids_string; ?>" />
           <input id="asc_or_desc" name="asc_or_desc" type="hidden" value="asc" />
+          <input id="image_asc_or_desc" name="image_asc_or_desc" type="hidden" value="asc" />
           <input id="image_order_by" name="image_order_by" type="hidden" value="<?php echo $image_order_by; ?>" />
           <input id="ajax_task" name="ajax_task" type="hidden" value="" />
           <input id="image_current_id" name="image_current_id" type="hidden" value="" />

@@ -90,7 +90,7 @@ class BWGModelAlbum_compact_preview {
     return $row;
   }
 
-  public function gallery_page_nav($id, $images_per_page, $bwg) {
+  public function gallery_page_nav($id, $bwg) {
     global $wpdb;
     $bwg_search = ((isset($_POST['bwg_search_' . $bwg]) && esc_html($_POST['bwg_search_' . $bwg]) != '') ? esc_html($_POST['bwg_search_' . $bwg]) : '');
     if ($bwg_search != '') {
@@ -102,29 +102,23 @@ class BWGModelAlbum_compact_preview {
     $total = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image WHERE published=1 ' . $where . ' AND gallery_id="%d"', $id));
     $page_nav['total'] = $total;
     if (isset($_REQUEST['page_number_' . $bwg]) && $_REQUEST['page_number_' . $bwg]) {
-      $limit = ((int) $_REQUEST['page_number_' . $bwg] - 1) * $images_per_page;
+      $page_nav['limit'] = (int) $_REQUEST['page_number_' . $bwg];
     }
     else {
-      $limit = 0;
-    }
-    if ($images_per_page) {
-      $page_nav['limit'] = (int) ($limit / $images_per_page + 1);
+      $page_nav['limit'] = 1;
     }
     return $page_nav;
   }
 
-  public function album_page_nav($id, $albums_per_page, $bwg) {
+  public function album_page_nav($id, $bwg) {
     global $wpdb;
     $total = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_album_gallery WHERE album_id="%d"', $id));
     $page_nav['total'] = $total;
     if (isset($_REQUEST['page_number_' . $bwg]) && $_REQUEST['page_number_' . $bwg]) {
-      $limit = ((int) $_REQUEST['page_number_' . $bwg] - 1) * $albums_per_page;
+      $page_nav['limit'] = (int) $_REQUEST['page_number_' . $bwg];
     }
     else {
-      $limit = 0;
-    }
-    if ($albums_per_page) {
-      $page_nav['limit'] = (int) ($limit / $albums_per_page + 1);
+      $page_nav['limit'] = 1;
     }
     return $page_nav;
   }

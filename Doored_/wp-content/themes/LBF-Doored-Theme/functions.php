@@ -173,14 +173,6 @@ function hackeryou_widgets_init() {
 
 add_action( 'widgets_init', 'hackeryou_widgets_init' );
 
-/**
- * Removes the default styles that are packaged with the Recent Comments widget.
- */
-function hackeryou_remove_recent_comments_style() {
-	global $wp_widget_factory;
-	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-}
-add_action( 'widgets_init', 'hackeryou_remove_recent_comments_style' );
 
 
 if ( ! function_exists( 'hackeryou_posted_on' ) ) :

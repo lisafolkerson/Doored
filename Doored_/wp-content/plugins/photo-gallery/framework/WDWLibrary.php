@@ -481,7 +481,9 @@ class WDWLibrary {
     }
   }
 
-  public static function ajax_html_frontend_page_nav($theme_row, $count_items, $page_number, $form_id, $limit = 20, $current_view, $id, $cur_alb_gal_id = 0, $type = 'album', $enable_seo = false, $pagination = 1) {
+  public static function ajax_html_frontend_page_nav($theme_row, $count_items, $page_number, $form_id, $items_per_page, $current_view, $id, $cur_alb_gal_id = 0, $type = 'album', $enable_seo = false, $pagination = 1) {
+    $limit = $page_number > 1 ? $items_per_page['load_more_image_count'] : $items_per_page['images_per_page'];
+    $limit = $limit ? $limit : 1;
     $type = (isset($_POST['type_' . $current_view]) ? esc_html($_POST['type_' . $current_view]) : $type);
     $album_gallery_id = (isset($_POST['album_gallery_id_' . $current_view]) ? esc_html($_POST['album_gallery_id_' . $current_view]) : $cur_alb_gal_id);
     if ($count_items) {
@@ -554,12 +556,27 @@ class WDWLibrary {
       <?php
     }
     elseif ($pagination == 2) {
-      if ($count_items > $limit * $page_number) {
+      if ($count_items > ($limit * ($page_number - 1)) + $items_per_page['images_per_page']) {
         ?>
 		<div id="bwg_load_<?php echo $current_view; ?>" class="tablenav-pages_<?php echo $current_view; ?>">
 			<a class="bwg_load_btn_<?php echo $current_view; ?> bwg_load_btn" href="javascript:void(0);"><?php echo __('Load More...', 'bwg'); ?></a>
 			<input type="hidden" id="bwg_load_more_<?php echo $current_view; ?>" name="bwg_load_more_<?php echo $current_view; ?>" value="on" />
 		</div>
+    <?php
+      }
+    }
+    elseif ($pagination == 3) {
+      if ($count_items > $limit * $page_number) {
+        ?>
+		<script type="text/javascript">
+		  jQuery(window).on("scroll", function() {
+        if (jQuery(document).scrollTop() + jQuery(window).height() > (jQuery('#<?php echo $form_id; ?>').offset().top + jQuery('#<?php echo $form_id; ?>').height())) {
+          spider_page_<?php echo $current_view; ?>('', <?php echo $page_number; ?>, 1, true);
+          jQuery(window).off("scroll");
+          return false;
+			  }
+		  });
+		</script>
     <?php
       }
     }
@@ -816,6 +833,14 @@ class WDWLibrary {
       $nonce_verified = true;
     }
     return $nonce_verified;
+  }
+
+  public static function spider_replace4byte($string) {
+    return preg_replace('%(?:
+          \xF0[\x90-\xBF][\x80-\xBF]{2}      # planes 1-3
+        | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
+        | \xF4[\x80-\x8F][\x80-\xBF]{2}      # plane 16
+    )%xs', '', $string);    
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////

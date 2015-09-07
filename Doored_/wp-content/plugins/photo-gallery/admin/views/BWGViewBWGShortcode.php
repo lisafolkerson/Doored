@@ -77,7 +77,7 @@ class BWGViewBWGShortcode {
     wp_print_scripts('jquery-ui-position');
     wp_print_scripts('jquery-ui-tooltip');
     ?>
-         <link rel="stylesheet" href="<?php echo WD_BWG_URL . '/css/bwg_shortcode.css?ver='.wd_bwg_version(); ?>">
+        <link rel="stylesheet" href="<?php echo WD_BWG_URL . '/css/bwg_shortcode.css?ver='.wd_bwg_version(); ?>">
         <link rel="stylesheet" href="<?php echo WD_BWG_URL . '/css/jquery-ui-1.10.3.custom.css'; ?>">
         <script language="javascript" type="text/javascript" src="<?php echo WD_BWG_URL . '/js/bwg_shortcode.js?ver='.wd_bwg_version(); ?>"></script>
         <script language="javascript" type="text/javascript" src="<?php echo WD_BWG_URL . '/js/jscolor/jscolor.js?ver='.wd_bwg_version(); ?>"></script>
@@ -147,6 +147,10 @@ class BWGViewBWGShortcode {
                 <span title="This view is disabled in free version." class="gallery_type">
                   <div style="text-align: center;"><input disabled="disabled" type="radio" id="blog_style" name="gallery_type" value="blog_style" /><label class="spider_free_version_label" for="blog_style">Blog Style</label></div>
                   <label><img style="opacity:0.5; filter: Alpha(opacity=50);" disabled="disabled" src="<?php echo WD_BWG_URL . '/images/blog_style.jpg'; ?>" /></label>
+                </span>			
+		  <span title="This view is disabled in free version." class="gallery_type">
+                  <div style="text-align: center;"><input disabled="disabled" type="radio" id="carousel" name="gallery_type" value="carousel" /><label class="spider_free_version_label" for="carousel">Carousel</label></div>
+                  <label for="carousel"><img style="opacity:0.5; filter: Alpha(opacity=50);" disabled="disabled" src="<?php echo WD_BWG_URL . '/images/Carousel.png'; ?>" /></label>
                 </span>
               </div>
               <hr />
@@ -244,19 +248,19 @@ class BWGViewBWGShortcode {
                   <tr id="tr_masonry_hor_ver">
                     <td class="spider_label"><label>Masonry: </label></td>
                     <td>
-                      <input type="radio" name="masonry_hor_ver" id="masonry_hor" value="horizontal" onclick="bwg_change_label('image_column_number_label', 'Max. number of image columns: ');
-                                                                                                              bwg_change_label('thumb_width_height_label', 'Image Thumbnail Height: ');
-                                                                                                              jQuery('#thumb_width').hide();
-                                                                                                              jQuery('#thumb_height').show();
-                                                                                                              jQuery('#thumb_width_height_separator').hide();" <?php echo ($option_row->masonry == 'horizontal') ? 'checked' : ''; ?> /><label for="masonry_hor">Horizontal</label>
                       <input type="radio" name="masonry_hor_ver" id="masonry_ver" value="vertical" onclick="bwg_change_label('image_column_number_label', 'Number of image rows: ');
                                                                                                             bwg_change_label('thumb_width_height_label', 'Image thumbnail width: ');
                                                                                                             jQuery('#thumb_width').show();
                                                                                                             jQuery('#thumb_height').hide();
                                                                                                             jQuery('#thumb_width_height_separator').hide();" <?php echo ($option_row->masonry == 'vertical') ? 'checked' : ''; ?> /><label for="masonry_ver">Vertical</label>
+                      <input type="radio" name="masonry_hor_ver" id="masonry_hor" value="horizontal" onclick="bwg_change_label('image_column_number_label', 'Max. number of image columns: ');
+                                                                                                              bwg_change_label('thumb_width_height_label', 'Image Thumbnail Height: ');
+                                                                                                              jQuery('#thumb_width').hide();
+                                                                                                              jQuery('#thumb_height').show();
+                                                                                                              jQuery('#thumb_width_height_separator').hide();" <?php echo ($option_row->masonry == 'horizontal') ? 'checked' : ''; ?> /><label for="masonry_hor">Horizontal</label>
                     </td>
                   </tr>
-		  <!--Thumbnails, Mosaic viewies-->
+                  <!--Thumbnails, Mosaic viewies-->
                   <tr id="tr_mosaic_hor_ver">
                     <td class="spider_label"><label>Mosaic: </label></td>
                     <td>
@@ -286,6 +290,7 @@ class BWGViewBWGShortcode {
                     <td title="Percentage of container's width" class="spider_label"><label for="mosaic_total_width">Total width of mosaic: </label></td>
                     <td><input type="text" name="mosaic_total_width" id="mosaic_total_width" value="<?php echo $option_row->mosaic_total_width; ?>" class="spider_int_input" /> %</td>
                   </tr>
+                 <!--Thumbnails, Masonry and Mosaic viewies-->
                   <tr id="tr_image_column_number">
                     <td class="spider_label"><label id="image_column_number_label" for="image_column_number">Max. number of image columns: </label></td>
                     <td><input type="text" name="image_column_number" id="image_column_number" value="<?php echo $option_row->image_column_number; ?>" class="spider_int_input" /></td>
@@ -305,11 +310,16 @@ class BWGViewBWGShortcode {
                   <tr id="tr_image_enable_page">
                     <td class="spider_label"><label>Enable pagination: </label></td>
                     <td>
-                      <input type="radio" name="image_enable_page" id="image_page_yes" value="1" <?php echo ($option_row->image_enable_page == '1') ? 'checked' : ''; ?> /><label for="image_page_yes">Yes</label>
-                      <input type="radio" name="image_enable_page" id="image_page_no" value="0" <?php echo ($option_row->image_enable_page == '0') ? 'checked' : ''; ?> /><label for="image_page_no">No</label>
-                      <input type="radio" name="image_enable_page" id="image_page_loadmore" value="2" <?php echo ($option_row->image_enable_page == '2') ? 'checked' : ''; ?> /><label for="image_page_loadmore">Load More</label>
+                      <input type="radio" name="image_enable_page" class="hide_load_count" id="image_page_yes" value="1" <?php echo ($option_row->image_enable_page == '1') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="image_page_yes">Yes</label>
+                      <input type="radio" name="image_enable_page" class="hide_load_count" id="image_page_no" value="0" <?php echo ($option_row->image_enable_page == '0') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="image_page_no">No</label>
+                      <input type="radio" name="image_enable_page" id="image_page_loadmore" value="2" <?php echo ($option_row->image_enable_page == '2') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="image_page_loadmore">Load More</label>
+                      <input type="radio" name="image_enable_page" id="image_page_scrol_load" value="3" <?php echo ($option_row->image_enable_page == '3') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="image_page_scrol_load">Scroll Load</label>
                     </td>
                   </tr>
+                  <tr id="tr_load_more_image_count">
+                    <td class="spider_label"><label for="load_more_image_count">Images per load: </label></td>
+                    <td><input type="text" name="load_more_image_count" id="load_more_image_count" value="<?php echo $option_row->images_per_page; ?>" class="spider_int_input" /></td>
+                  </tr> 
                   <tr id="tr_thumb_width_height">
                     <td title="Maximum values for thumbnail dimension." class="spider_label"><label id="thumb_width_height_label" for="thumb_width">Image Thumbnail dimensions: </label></td>
                     <td>
@@ -335,7 +345,7 @@ class BWGViewBWGShortcode {
                       <input type="radio" name="compuct_album_title" id="compuct_album_title_none" value="none" <?php echo ($option_row->album_title_show_hover == 'none') ? 'checked' : ''; ?> /><label for="compuct_album_title_none">Don't show</label>
                     </td>
                   </tr>
-		  <tr id="tr_compuct_album_thumb_width_height">
+                  <tr id="tr_compuct_album_thumb_width_height">
                     <td title="Maximum values for album thumb width and height." class="spider_label"><label for="compuct_album_thumb_width">Album Thumbnail dimensions: </label></td>
                     <td>
                       <input type="text" name="compuct_album_thumb_width" id="compuct_album_thumb_width" value="<?php echo $option_row->album_thumb_width; ?>" class="spider_int_input" /> x 
@@ -405,9 +415,19 @@ class BWGViewBWGShortcode {
                   <tr id="tr_compuct_album_enable_page">
                     <td class="spider_label"><label>Enable pagination: </label></td>
                     <td>
-                      <input type="radio" name="compuct_album_enable_page" id="compuct_album_page_yes" value="1" <?php echo ($option_row->album_enable_page) ? 'checked' : ''; ?> /><label for="compuct_album_page_yes">Yes</label>
-                      <input type="radio" name="compuct_album_enable_page" id="compuct_album_page_no" value="0" <?php echo ($option_row->album_enable_page) ? '' : 'checked'; ?> /><label for="compuct_album_page_no">No</label>
+                      <input type="radio" name="compuct_album_enable_page" class="hide_load_count" id="compuct_album_page_yes" value="1" <?php echo ($option_row->album_enable_page == '1') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="compuct_album_page_yes">Yes</label>
+                      <input type="radio" name="compuct_album_enable_page"  class="hide_load_count"  id="compuct_album_page_no" value="0" <?php echo ($option_row->album_enable_page == '0') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="compuct_album_page_no">No</label>  
+                      <input type="radio" name="compuct_album_enable_page" id="compuct_album_page_loadmore" value="2" <?php echo ($option_row->album_enable_page == '2') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="compuct_album_page_loadmore">Load More</label>
+                       <input type="radio" name="compuct_album_enable_page" id="compuct_album_page_scrol_load" value="3" <?php echo ($option_row->album_enable_page == '3') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="compuct_album_page_scrol_load">Scroll Load</label>
                     </td>
+		  </tr>
+                   <tr id="tr_compuct_albums_per_page_load_more">
+                    <td title="If you want to display all albums you should leave it blank or insert 0." class="spider_label"><label for="compuct_albums_per_page_load_more">Albums per load: </label></td>
+                    <td><input type="text" name="compuct_albums_per_page_load_more" id="compuct_albums_per_page_load_more" value="<?php echo $option_row->albums_per_page; ?>" class="spider_int_input" /></td>
+                  </tr>
+                   <tr id="tr_compuct_album_load_more_image_count">
+                    <td class="spider_label"><label for="compuct_album_load_more_image_count">Images per load: </label></td>
+                    <td><input type="text" name="compuct_album_load_more_image_count" id="compuct_album_load_more_image_count" value="<?php echo $option_row->images_per_page; ?>" class="spider_int_input" /></td>
                   </tr>
 
                   <!--Extended Album view-->
@@ -426,7 +446,7 @@ class BWGViewBWGShortcode {
                       <input type="radio" name="extended_album_description_enable" id="extended_album_description_no" value="0" <?php echo ($option_row->extended_album_description_enable) ? '' : 'checked'; ?> /><label for="extended_album_description_no">No</label>
                     </td>
                   </tr>
-		  <tr id="tr_extended_album_thumb_width_height">
+                  <tr id="tr_extended_album_thumb_width_height">
                     <td title="Maximum values for album thumb width and height." class="spider_label"><label for="extended_album_thumb_width">Album thumbnail dimensions: </label></td>
                     <td>
                       <input type="text" name="extended_album_thumb_width" id="extended_album_thumb_width" value="<?php echo $option_row->album_thumb_width; ?>" class="spider_int_input" /> x 
@@ -497,10 +517,19 @@ class BWGViewBWGShortcode {
                   <tr id="tr_extended_album_enable_page">
                     <td class="spider_label"><label>Enable pagination: </label></td>
                     <td>
-                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_yes" value="1" <?php echo ($option_row->album_enable_page == '1') ? 'checked' : ''; ?> /><label for="extended_album_page_yes">Yes</label>
-                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_no" value="0" <?php echo ($option_row->album_enable_page == '0') ? 'checked' : ''; ?> /><label for="extended_album_page_no">No</label>
-                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_loadmore" value="2" <?php echo ($option_row->album_enable_page == '2') ? 'checked' : ''; ?> /><label for="extended_album_page_loadmore">Load More</label>
+                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_yes" value="1" <?php echo ($option_row->album_enable_page == '1') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="extended_album_page_yes">Yes</label>
+                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_no" value="0" <?php echo ($option_row->album_enable_page == '0') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="extended_album_page_no">No</label>
+                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_loadmore" value="2" <?php echo ($option_row->album_enable_page == '2') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="extended_album_page_loadmore">Load More</label>
+                      <input type="radio" name="extended_album_enable_page" id="extended_album_page_scrol_load" value="3" <?php  echo ($option_row->album_enable_page == '3') ? 'checked' : ''; ?> onchange="bwg_loadmore()"/><label for="extended_album_page_scrol_load">Scroll Load </label>
                     </td>
+                  </tr>
+                   <tr id="tr_extended_albums_per_page_load_more">
+                    <td title="If you want to display all albums you should leave it blank or insert 0." class="spider_label"><label for="extended_albums_per_page_load_more">Albums per load: </label></td>
+                    <td><input type="text" name="extended_albums_per_page_load_more" id="extended_albums_per_page_load_more" value="<?php echo $option_row->albums_per_page; ?>" class="spider_int_input" /></td>
+                  </tr>
+                   <tr id="tr_extended_album_load_more_image_count">
+                    <td class="spider_label"><label for="extended_album_load_more_image_count">Images per load: </label></td>
+                    <td><input type="text" name="extended_album_load_more_image_count" id="extended_album_load_more_image_count" value="<?php echo $option_row->images_per_page; ?>" class="spider_int_input" /></td>
                   </tr>
 
                   <!--Image Browser view-->
@@ -546,10 +575,15 @@ class BWGViewBWGShortcode {
                   <tr id="tr_blog_style_enable_page">
                     <td class="spider_label"><label>Enable pagination: </label></td>
                     <td>
-                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_yes" value="1" <?php echo ($option_row->blog_style_enable_page == '1') ? 'checked' : ''; ?> /><label for="blog_style_page_yes">Yes</label>
-                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_no" value="0" <?php echo ($option_row->blog_style_enable_page == '0') ? 'checked' : ''; ?> /><label for="blog_style_page_no">No</label>
-                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_loadmore" value="2" <?php echo ($option_row->blog_style_enable_page == '2') ? 'checked' : ''; ?> /><label for="blog_style_page_loadmore">Load more</label>
+                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_yes" value="1" <?php echo ($option_row->blog_style_enable_page == '1') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="blog_style_page_yes">Yes</label>
+                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_no" value="0" <?php echo ($option_row->blog_style_enable_page == '0') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="blog_style_page_no">No</label>
+                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_loadmore" value="2" <?php echo ($option_row->blog_style_enable_page == '2') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="blog_style_page_loadmore">Load more</label>
+                      <input type="radio" name="blog_style_enable_page" id="blog_style_page_scrol_load" value="3" <?php echo ($option_row->blog_style_enable_page == '3') ? 'checked' : ''; ?> onchange="bwg_loadmore()" /><label for="blog_style_page_scrol_load">Scroll Load </label>
                     </td>
+                  </tr>
+                  <tr id="tr_blog_style_load_more_image_count">
+                    <td class="spider_label"><label for="blog_style_load_more_image_count">Images per load: </label></td>
+                    <td><input type="text" name="blog_style_load_more_image_count" id="blog_style_load_more_image_count" value="<?php echo $option_row->blog_style_images_per_page; ?>" class="spider_int_input" /></td>
                   </tr>
 
                   <!--Slideshow view-->
@@ -992,10 +1026,12 @@ class BWGViewBWGShortcode {
           }
           else {
             $tagtext = '';
+            $tagfunction = '';
             if (isset($_POST['currrent_id'])) {
               $currrent_id = stripslashes($_POST['currrent_id']);
               $title = ((isset($_POST['title'])) ? stripslashes($_POST['title']) : '');
               $tagtext = '[Best_Wordpress_Gallery id="' . $currrent_id . '"' . $title . ']';
+              $tagfunction = "<?php echo photo_gallery(" . $currrent_id . "); ?>";
             }
             ?>
             <hr style="float: left; width: 100%;" />
@@ -1003,7 +1039,14 @@ class BWGViewBWGShortcode {
               <a id="bwg_pro_version_link" class="button button-primary" target="_blank" style="display: table; margin-bottom: 5px;" href="https://web-dorado.com/files/fromPhotoGallery.php">Please see Pro <span id="bwg_pro_version">Thumbnail</span> View</a>
               <input type="button" class="button-primary" id="insert" name="insert" value="Generate" onclick="bwg_insert_shortcode('');" />
               <input type="button" class="button-secondary" id="import" name="import" value="Import" onclick="bwg_update_shortcode()" />
-              <textarea style="width: 100%; resize: vertical; margin-top: 5px;" id="bwg_shortcode" rows="2" onkeydown="bwg_onKeyDown(event)"><?php echo $tagtext; ?></textarea>
+              <div>
+                <input type="text" size="55" id="bwg_shortcode" name="bwg_shortcode" value='<?php echo $tagtext; ?>' onclick="bwg_onKeyDown(event)" />
+                <b>Shortcode</b>
+              </div>
+              <div>
+                <input type="text" size="55" id="bwg_function" name="bwg_function" value="<?php echo $tagfunction; ?>" onclick="spider_select_value(this)" readonly="readonly" />
+                <b>PHP function</b>
+              </div>
             </span>
             </div>
             <?php
@@ -1093,6 +1136,7 @@ class BWGViewBWGShortcode {
                   }
                   jQuery("#image_column_number").val(short_code['image_column_number']);
                   jQuery("#images_per_page").val(short_code['images_per_page']);
+                  jQuery("#load_more_image_count").val(short_code['load_more_image_count']);
                   jQuery("#image_title_" + short_code['image_title']).attr('checked', 'checked');
                   if (short_code['image_enable_page'] == 1) {
                     jQuery("#image_page_yes").attr('checked', 'checked');
@@ -1100,8 +1144,11 @@ class BWGViewBWGShortcode {
                   else if (short_code['image_enable_page'] == 0) {
                     jQuery("#image_page_no").attr('checked', 'checked');
                   }
-                  else {
+                  else if (short_code['image_enable_page'] == 2) {
                     jQuery("#image_page_loadmore").attr('checked', 'checked');
+                  }
+                   else if (short_code['image_enable_page'] == 3) {
+                    jQuery("#image_page_scrol_load").attr('checked', 'checked');
                   }
                   jQuery("#thumb_width").val(short_code['thumb_width']);
                   jQuery("#thumb_height").val(short_code['thumb_height']);
@@ -1246,14 +1293,19 @@ class BWGViewBWGShortcode {
                   jQuery("#compuct_album_image_title_" + short_code['compuct_album_image_title']).attr('checked', 'checked');
                   jQuery("#compuct_album_image_thumb_width").val(short_code['compuct_album_image_thumb_width']);
                   jQuery("#compuct_album_image_thumb_height").val(short_code['compuct_album_image_thumb_height']);
+                  jQuery("#compuct_album_load_more_image_count").val(short_code['compuct_album_load_more_image_count']);
+                  jQuery("#compuct_albums_per_page_load_more").val(short_code['compuct_albums_per_page_load_more']);
                   if (short_code['compuct_album_enable_page'] == 1) {
                     jQuery("#compuct_album_page_yes").attr('checked', 'checked');
                   }
                   else if (short_code['compuct_album_enable_page'] == 0) {
                     jQuery("#compuct_album_page_no").attr('checked', 'checked');
                   }
-                  else {
+                  else if (short_code['compuct_album_enable_page'] == 2) {
                     jQuery("#compuct_album_page_loadmore").attr('checked', 'checked');
+                  }
+                  else if (short_code['compuct_album_enable_page'] == 3) {
+                    jQuery("#compuct_album_page_scrol_load").attr('checked', 'checked');
                   }
                   if (short_code['compuct_album_view_type'] == 'thumbnail') {				  
                     jQuery("#compuct_album_view_type_1").attr('checked', 'checked');								  
@@ -1321,14 +1373,19 @@ class BWGViewBWGShortcode {
                   jQuery("#extended_album_image_title_" + short_code['extended_album_image_title']).attr('checked', 'checked');
                   jQuery("#extended_album_image_thumb_width").val(short_code['extended_album_image_thumb_width']);
                   jQuery("#extended_album_image_thumb_height").val(short_code['extended_album_image_thumb_height']);
+                  jQuery("#extended_albums_per_page_load_more").val(short_code['extended_albums_per_page_load_more']);
+		  jQuery("#extended_album_load_more_image_count").val(short_code['extended_album_load_more_image_count']);
                   if (short_code['extended_album_enable_page'] == 1) {
                     jQuery("#extended_album_page_yes").attr('checked', 'checked');
                   }
                   else if (short_code['extended_album_enable_page'] == 0) {
                     jQuery("#extended_album_page_no").attr('checked', 'checked');
                   }
-                  else {
+                   else if (short_code['extended_album_enable_page'] == 2) {
                     jQuery("#extended_album_page_loadmore").attr('checked', 'checked');
+                  }
+                  else if (short_code['extended_album_enable_page'] == 3){
+                    jQuery("#extended_album_page_scrol_load").attr('checked', 'checked');
                   }
                   if (short_code['extended_album_view_type'] == 'thumbnail') {  
                     jQuery("#extended_album_view_type_1").attr('checked', 'checked');
@@ -1566,6 +1623,7 @@ class BWGViewBWGShortcode {
                 tagtext += ' thumb_width="' + jQuery("#thumb_width").val() + '"';
                 tagtext += ' thumb_height="' + jQuery("#thumb_height").val() + '"';
                 title = ' gal_title="' + jQuery.trim(jQuery('#gallery option:selected').text().replace("'", "").replace('"', '')) + '"';
+                tagtext += ' load_more_image_count="' + jQuery("#load_more_image_count").val() + '"';
                 break;
 
               }
@@ -1584,7 +1642,7 @@ class BWGViewBWGShortcode {
                 tagtext += ' slideshow_filmstrip_height="' + jQuery("#slideshow_filmstrip_height").val() + '"';
                 tagtext += ' slideshow_enable_title="' + jQuery("input[name=slideshow_enable_title]:checked").val() + '"';
                 tagtext += ' slideshow_title_position="' + jQuery("input[name=slideshow_title_position]:checked").val() + '"';
-				tagtext += ' slideshow_title_full_width="' + jQuery("input[name=slideshow_title_full_width]:checked").val() + '"';  				
+                tagtext += ' slideshow_title_full_width="' + jQuery("input[name=slideshow_title_full_width]:checked").val() + '"';  				
                 tagtext += ' slideshow_enable_description="' + jQuery("input[name=slideshow_enable_description]:checked").val() + '"';
                 tagtext += ' slideshow_description_position="' + jQuery("input[name=slideshow_description_position]:checked").val() + '"';
                 tagtext += ' enable_slideshow_music="' + jQuery("input[name=enable_slideshow_music]:checked").val() + '"';
@@ -1628,6 +1686,8 @@ class BWGViewBWGShortcode {
                 tagtext += ' compuct_album_image_thumb_width="' + jQuery("#compuct_album_image_thumb_width").val() + '"';
                 tagtext += ' compuct_album_image_thumb_height="' + jQuery("#compuct_album_image_thumb_height").val() + '"';
                 tagtext += ' compuct_album_enable_page="' + jQuery("input[name=compuct_album_enable_page]:checked").val() + '"';
+                tagtext += ' compuct_album_load_more_image_count="' + jQuery("#compuct_album_load_more_image_count").val() + '"';
+                tagtext += ' compuct_albums_per_page_load_more="' + jQuery("#compuct_albums_per_page_load_more").val() + '"';
 								title = ' gal_title="' + jQuery.trim(jQuery('#album option:selected').text().replace("'", "").replace('"', '')) + '"';
                 break;
 
@@ -1654,6 +1714,8 @@ class BWGViewBWGShortcode {
                 tagtext += ' extended_album_image_thumb_width="' + jQuery("#extended_album_image_thumb_width").val() + '"';
                 tagtext += ' extended_album_image_thumb_height="' + jQuery("#extended_album_image_thumb_height").val() + '"';
                 tagtext += ' extended_album_enable_page="' + jQuery("input[name=extended_album_enable_page]:checked").val() + '"';
+                tagtext += ' extended_album_load_more_image_count="' + jQuery("#extended_album_load_more_image_count").val() + '"';
+                tagtext += ' extended_albums_per_page_load_more="' + jQuery("#extended_albums_per_page_load_more").val() + '"';
 								title = ' gal_title="' + jQuery.trim(jQuery('#album option:selected').text().replace("'", "").replace('"', '')) + '"';
                 break;
 
@@ -1675,7 +1737,7 @@ class BWGViewBWGShortcode {
               tagtext += ' popup_enable_fullscreen="' + jQuery("input[name=popup_enable_fullscreen]:checked").val() + '"';
               tagtext += ' popup_enable_info="' + jQuery("input[name=popup_enable_info]:checked").val() + '"';
               tagtext += ' popup_info_always_show="' + jQuery("input[name=popup_info_always_show]:checked").val() + '"';
-			  tagtext += ' popup_info_full_width="' + jQuery("input[name=popup_info_full_width]:checked").val() + '"';
+              tagtext += ' popup_info_full_width="' + jQuery("input[name=popup_info_full_width]:checked").val() + '"';
               tagtext += ' popup_enable_rate="' + jQuery("input[name=popup_enable_rate]:checked").val() + '"';
               tagtext += ' popup_enable_comment="' + jQuery("input[name=popup_enable_comment]:checked").val() + '"';
               tagtext += ' popup_hit_counter="' + jQuery("input[name=popup_hit_counter]:checked").val() + '"';
@@ -1729,6 +1791,9 @@ class BWGViewBWGShortcode {
             jQuery("#bwg_shortcode").val('[Best_Wordpress_Gallery id="' + shortcode_id + '"' + title + ']');
             <?php } ?>
           }
+          jQuery(document).ready(function () {
+            bwg_loadmore();
+          });
         </script>
       </body>
     </html>

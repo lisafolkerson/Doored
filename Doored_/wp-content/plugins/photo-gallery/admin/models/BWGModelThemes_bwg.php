@@ -31,9 +31,10 @@ class BWGModelThemes_bwg {
   public function get_rows_data() {
     global $wpdb;
     $where = ((isset($_POST['search_value']) && (esc_html($_POST['search_value']) != '')) ? 'WHERE name LIKE "%' . esc_html($_POST['search_value']) . '%"' : '');
-    $asc_or_desc = ((isset($_POST['asc_or_desc'])) ? esc_html($_POST['asc_or_desc']) : 'asc');
-    $asc_or_desc = ($asc_or_desc != 'asc') ? 'desc' : 'asc';
-    $order_by = ' ORDER BY ' . ((isset($_POST['order_by']) && esc_html($_POST['order_by']) != '') ? esc_html($_POST['order_by']) : 'id') . ' ' . $asc_or_desc;
+    $asc_or_desc = ((isset($_POST['asc_or_desc']) && esc_html($_POST['asc_or_desc']) == 'desc') ? 'desc' : 'asc');
+    $order_by_arr = array('id', 'name', 'default');
+    $order_by = ((isset($_POST['order_by']) && in_array(esc_html($_POST['order_by']), $order_by_arr)) ? esc_html($_POST['order_by']) : 'id');
+    $order_by = ' ORDER BY `' . $order_by . '` ' . $asc_or_desc;
     if (isset($_POST['page_number']) && $_POST['page_number']) {
       $limit = ((int) $_POST['page_number'] - 1) * $this->per_page;
     }
@@ -474,6 +475,37 @@ class BWGModelThemes_bwg {
           $row->lightbox_hit_font_style = 'segoe ui';
           $row->lightbox_hit_font_weight = 'normal';
           $row->lightbox_hit_font_size = 14;
+          //carousel
+          $row->carousel_cont_bg_color = '000000';
+          $row->carousel_cont_btn_transparent = 0;
+          $row->carousel_close_btn_transparent = 100;
+          $row->carousel_rl_btn_bg_color = '000000';
+          $row->carousel_rl_btn_border_radius = '20px';
+          $row->carousel_rl_btn_border_width = 0;
+          $row->carousel_rl_btn_border_style = 'none';
+          $row->carousel_rl_btn_border_color = 'FFFFFF';          
+          $row->carousel_rl_btn_color = 'FFFFFF';
+          $row->carousel_rl_btn_height = 40;
+          $row->carousel_rl_btn_size = 20;
+          $row->carousel_play_pause_btn_size = 20;
+          $row->carousel_rl_btn_width = 40;
+          $row->carousel_close_rl_btn_hover_color = 'CCCCCC';
+          $row->carousel_rl_btn_style='fa-chevron';
+          $row->carousel_mergin_bottom = '0.5';      
+          $row->carousel_font_family = 'Arial';
+          $row->carousel_feature_border_width = 2;
+          $row->carousel_feature_border_style = 'solid';
+          $row->carousel_feature_border_color= '5D204F';          
+          $row->carousel_caption_background_color = '000000';
+          $row->carousel_caption_bottom = 0;
+          $row->carousel_caption_p_mergin = 0;
+          $row->carousel_caption_p_pedding = 5;
+          $row->carousel_caption_p_font_weight = 'bold';
+          $row->carousel_caption_p_font_size = 14;
+          $row->carousel_caption_p_color = 'white';
+          $row->carousel_title_opacity = 100;
+          $row->carousel_title_border_radius = '5px';
+          $row->mosaic_thumb_transition = 1;
         }
       }
     }

@@ -35,7 +35,10 @@ class BWGModelThumbnails {
     return $row;
   }
 
-  public function get_image_rows_data($id, $images_per_page, $sort_by, $bwg, $type, $sort_direction = ' ASC ') {
+  public function get_image_rows_data($params, $bwg, $type, $sort_direction = ' ASC ') {
+    $id = $params['gallery_id'];
+    $images_per_page = $params['images_per_page'];
+    $sort_by = $params['sort_by'];
     global $wpdb;
     $bwg_search = ((isset($_POST['bwg_search_' . $bwg]) && esc_html($_POST['bwg_search_' . $bwg]) != '') ? esc_html($_POST['bwg_search_' . $bwg]) : '');
     if  ($type == 'tag') {
@@ -60,14 +63,18 @@ class BWGModelThumbnails {
     elseif (($sort_by != 'alt') && ($sort_by != 'date') && ($sort_by != 'filetype') && ($sort_by != 'RAND()') && ($sort_by != 'filename')) {
       $sort_by = '`order`';
     }
+    $items_in_page = $images_per_page;
     if (isset($_REQUEST['page_number_' . $bwg]) && $_REQUEST['page_number_' . $bwg]) {
-      $limit = ((int) $_REQUEST['page_number_' . $bwg] - 1) * $images_per_page;
+      if ($_REQUEST['page_number_' . $bwg] > 1) {
+        $items_in_page = $params['load_more_image_count'];
+      }
+      $limit = (((int) $_REQUEST['page_number_' . $bwg] - 2) * $items_in_page) + $images_per_page;
     }
     else {
       $limit = 0;
     }
     if ($images_per_page) {
-      $limit_str = 'LIMIT ' . $limit . ',' . $images_per_page;
+      $limit_str = 'LIMIT ' . $limit . ',' . $items_in_page;
     }
     else {
       $limit_str = '';
@@ -81,7 +88,7 @@ class BWGModelThumbnails {
     return $row;
   }
 
-  public function page_nav($id, $images_per_page, $bwg, $type) {
+  public function page_nav($id, $bwg, $type) {
     global $wpdb;
     $bwg_search = ((isset($_POST['bwg_search_' . $bwg]) && esc_html($_POST['bwg_search_' . $bwg]) != '') ? esc_html($_POST['bwg_search_' . $bwg]) : '');
     if ($type == 'tag') {
@@ -108,12 +115,11 @@ class BWGModelThumbnails {
     }
     $page_nav['total'] = $total;
     if (isset($_REQUEST['page_number_' . $bwg]) && $_REQUEST['page_number_' . $bwg]) {
-      $limit = ((int) $_REQUEST['page_number_' . $bwg] - 1) * $images_per_page;
+      $page_nav['limit'] = (int) $_REQUEST['page_number_' . $bwg];
     }
     else {
-      $limit = 0;
+      $page_nav['limit'] = 1;
     }
-    $page_nav['limit'] = (int) ($limit / $images_per_page + 1);
     return $page_nav;
   }
   

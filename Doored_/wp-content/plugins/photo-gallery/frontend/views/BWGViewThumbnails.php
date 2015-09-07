@@ -120,14 +120,14 @@ class BWGViewThumbnails {
       $params['popup_enable_pinterest'] = $options_row->popup_enable_pinterest;
       $params['popup_enable_tumblr'] = $options_row->popup_enable_tumblr;
       $params['watermark_type'] = $options_row->watermark_type;
-      $params['watermark_link'] = $options_row->watermark_link;
+      $params['watermark_link'] = urlencode($options_row->watermark_link);
       $params['watermark_opacity'] = $options_row->watermark_opacity;
       $params['watermark_position'] = $options_row->watermark_position;
       $params['watermark_text'] = $options_row->watermark_text;
       $params['watermark_font_size'] = $options_row->watermark_font_size;
       $params['watermark_font'] = $options_row->watermark_font;
       $params['watermark_color'] = $options_row->watermark_color;
-      $params['watermark_url'] = $options_row->watermark_url;
+      $params['watermark_url'] = urlencode($options_row->watermark_url);
       $params['watermark_width'] = $options_row->watermark_width;
       $params['watermark_height'] = $options_row->watermark_height;
       $params['thumb_click_action'] = $options_row->thumb_click_action;
@@ -161,13 +161,15 @@ class BWGViewThumbnails {
       echo WDWLibrary::message(__('There is no gallery selected or the gallery was deleted.', 'bwg'), 'error');
       return;
     }
-    $image_rows = $this->model->get_image_rows_data($params['gallery_id'], $params['images_per_page'], $params['sort_by'], $bwg, $type, $sort_direction);
+    $params['load_more_image_count'] = (isset($params['load_more_image_count']) && ($params['image_enable_page'] == 2)) ? $params['load_more_image_count'] : $params['images_per_page'];
+    $items_per_page = array('images_per_page' => $params['images_per_page'], 'load_more_image_count' => $params['load_more_image_count']);
+    $image_rows = $this->model->get_image_rows_data($params, $bwg, $type, $sort_direction);
     $images_count = count($image_rows); 
     if (!$image_rows) {
       echo WDWLibrary::message(__('There are no images in this gallery.', 'bwg'), 'error');
     }
     if ($params['image_enable_page'] && $params['images_per_page']) {
-      $page_nav = $this->model->page_nav($params['gallery_id'], $params['images_per_page'], $bwg, $type);
+      $page_nav = $this->model->page_nav($params['gallery_id'], $bwg, $type);
     }
     $rgb_page_nav_font_color = WDWLibrary::spider_hex2rgb($theme_row->page_nav_font_color);
     $rgb_thumbs_bg_color = WDWLibrary::spider_hex2rgb($theme_row->thumbs_bg_color);
@@ -386,7 +388,7 @@ class BWGViewThumbnails {
             </div>
             <?php
             if ($params['image_enable_page']  && $params['images_per_page'] && ($theme_row->page_nav_position == 'top')) {
-              WDWLibrary::ajax_html_frontend_page_nav($theme_row, $page_nav['total'], $page_nav['limit'], 'gal_front_form_' . $bwg, $params['images_per_page'], $bwg, 'bwg_standart_thumbnails_' . $bwg, 0, 'album', $options_row->enable_seo, $params['image_enable_page']);
+              WDWLibrary::ajax_html_frontend_page_nav($theme_row, $page_nav['total'], $page_nav['limit'], 'gal_front_form_' . $bwg, $items_per_page, $bwg, 'bwg_standart_thumbnails_' . $bwg, 0, 'album', $options_row->enable_seo, $params['image_enable_page']);
             }
             ?>
             <div id="bwg_standart_thumbnails_<?php echo $bwg; ?>" class="bwg_standart_thumbnails_<?php echo $bwg; ?>">
@@ -479,7 +481,7 @@ class BWGViewThumbnails {
             </div>
             <?php
             if ($params['image_enable_page']  && $params['images_per_page'] && ($theme_row->page_nav_position == 'bottom')) {
-              WDWLibrary::ajax_html_frontend_page_nav($theme_row, $page_nav['total'], $page_nav['limit'], 'gal_front_form_' . $bwg, $params['images_per_page'], $bwg, 'bwg_standart_thumbnails_' . $bwg, 0, 'album', $options_row->enable_seo, $params['image_enable_page']);
+              WDWLibrary::ajax_html_frontend_page_nav($theme_row, $page_nav['total'], $page_nav['limit'], 'gal_front_form_' . $bwg, $items_per_page, $bwg, 'bwg_standart_thumbnails_' . $bwg, 0, 'album', $options_row->enable_seo, $params['image_enable_page']);
             }
             ?>
           </div>
@@ -525,7 +527,7 @@ class BWGViewThumbnails {
           'current_url' => urlencode($current_url)
         );
         if ($params['watermark_type'] != 'none') {
-          $params_array['watermark_link'] = $params['watermark_link'];
+          $params_array['watermark_link'] = urlencode($params['watermark_link']);
           $params_array['watermark_opacity'] = $params['watermark_opacity'];
           $params_array['watermark_position'] = $params['watermark_position'];
         }
@@ -536,7 +538,7 @@ class BWGViewThumbnails {
           $params_array['watermark_color'] = $params['watermark_color'];
         }
         elseif ($params['watermark_type'] == 'image') {
-          $params_array['watermark_url'] = $params['watermark_url'];
+          $params_array['watermark_url'] = urlencode($params['watermark_url']);
           $params_array['watermark_width'] = $params['watermark_width'];
           $params_array['watermark_height'] = $params['watermark_height'];
         }
@@ -546,7 +548,7 @@ class BWGViewThumbnails {
       }
       function bwg_document_ready_<?php echo $bwg; ?>() {
         var bwg_touch_flag = false;
-        jQuery(".bwg_lightbox_<?php echo $bwg; ?>").on("touchend click", function () {
+        jQuery(".bwg_lightbox_<?php echo $bwg; ?>").on("click", function () {
           if (!bwg_touch_flag) {
             bwg_touch_flag = true;
             setTimeout(function(){ bwg_touch_flag = false; }, 100);
