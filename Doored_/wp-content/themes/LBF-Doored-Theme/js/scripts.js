@@ -67,17 +67,10 @@ $(function(){
 	$container.imagesLoaded( function() {
 	     $container.masonry({
 	     	itemSelector: '.item',
-	     	columnWidth: '.item'
-	     });
+	     	columnWidth: '.masonry-brick',
+	     	// gutter: '.gutter-sizer',
+	     	percentPosition: true
+	    });
 	});
-
-	// M A S O N R Y 
-	// $(document).ready(function($){
-	//   $('.repeater').masonry({
-	//     itemSelector: '.item',
-	//     columnWidth: '.item'
-	//   });
-	// });
-
 
 }); // end  docReady

@@ -437,12 +437,12 @@ header {
     width: 100%;
 
   .item {
-    float: left;
-    margin: 1%;
+    // float: left;
+    margin-right: 1.33333%;
     text-align: center;
     background-color: $textAccent;
     display: inline-block;
-    width: 30%;
+    width: 32%;
     padding-bottom: 3px;
 
     p {
@@ -456,6 +456,10 @@ header {
     a:hover {
       border: none;
     }
+  }
+
+  .item:nth-child(3n+3) {
+    margin-right: 0;
   }
 
   .item:hover, .item:focus {
@@ -472,8 +476,13 @@ header {
   }
 } // end .repeater
 
+.gutter-sizer {
+  width: 2%;
+}
 
-
+.masonry-brick {
+  width: 33.333%;
+}
 
 /* =============================================================================
                    Sidebar
