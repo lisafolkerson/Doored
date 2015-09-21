@@ -23,14 +23,14 @@
                 </div><!--end livestream_embed-->
 
               <?php elseif ( $heroType == 2 ) : ?>
-                  <?php the_field('hero_youtube'); ?>
+                  <?php the_field('hero_youtube'); ?>x
 
-            <?php endif; ?>
 
-            <?php elseif ( $heroType == 3) : ?>
-              <?php $showImg = get_field('show_image'); ?>
-                  <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+              <?php elseif ( $heroType == 3) : ?>
+                <?php $showImg = get_field('show_image'); ?>
+                    <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
+              <?php endif; ?>
           </div>
 
           <?php $showImg = get_field('show_image'); ?>

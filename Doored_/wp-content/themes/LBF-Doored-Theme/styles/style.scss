@@ -437,10 +437,8 @@ header {
     width: 100%;
 
   .item {
-    // float: left;
-    margin-right: 1.33333%;
+    margin: 0 1.33333% 1.33333% 0;
     text-align: center;
-    background-color: $textAccent;
     display: inline-block;
     width: 32%;
     padding-bottom: 3px;
@@ -452,26 +450,17 @@ header {
     a {
       padding: 0;
     }
-
-    a:hover {
-      border: none;
-    }
   }
 
   .item:nth-child(3n+3) {
     margin-right: 0;
   }
 
-  .item:hover, .item:focus {
-    border: none;
+  .item img:hover, .item img:focus {
     box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-    background: $textAccent;
-    color: black;
   }
 
-  .item:hover a, .item:focus a {
-    border: none;
-    background: $textAccent;
+  .item img:hover a, .item img:focus a {
     color: black;
   }
 } // end .repeater
@@ -515,7 +504,7 @@ header {
       display: inline-block;
       border-radius: 50%;
       border: 2px solid black;
-      width: 90px;
+      width: 85px;
     }
     .entry-name {
       display: inline-block;

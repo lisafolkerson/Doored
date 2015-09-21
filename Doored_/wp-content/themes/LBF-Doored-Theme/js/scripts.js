@@ -60,7 +60,7 @@ $(function(){
 		};
 	});
 
-	// Masonry fix:
+	// M A S O N R Y
 	var $container = $('.repeater');
 
 	// initialize Masonry after all images have loaded  

@@ -482,9 +482,8 @@ header {
   padding-top: 30px;
   width: 100%; }
   .repeater .item {
-    margin-right: 1.33333%;
+    margin: 0 1.33333% 1.33333% 0;
     text-align: center;
-    background-color: #F4FFF2;
     display: inline-block;
     width: 32%;
     padding-bottom: 3px; }
@@ -492,18 +491,11 @@ header {
       margin: 0 auto; }
     .repeater .item a {
       padding: 0; }
-    .repeater .item a:hover {
-      border: none; }
   .repeater .item:nth-child(3n+3) {
     margin-right: 0; }
-  .repeater .item:hover, .repeater .item:focus {
-    border: none;
-    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-    background: #F4FFF2;
-    color: black; }
-  .repeater .item:hover a, .repeater .item:focus a {
-    border: none;
-    background: #F4FFF2;
+  .repeater .item img:hover, .repeater .item img:focus {
+    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4); }
+  .repeater .item img:hover a, .repeater .item img:focus a {
     color: black; }
 
 .gutter-sizer {
@@ -537,7 +529,7 @@ header {
       display: inline-block;
       border-radius: 50%;
       border: 2px solid black;
-      width: 90px; }
+      width: 85px; }
     .sidebar .single-entry .entry-name {
       display: inline-block;
       position: absolute;
