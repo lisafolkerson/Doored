@@ -4,7 +4,7 @@ Donate link: https://web-dorado.com/products/wordpress-photo-gallery-plugin.html
 Tags: photo, photo gallery, image gallery, video gallery, gallery, galleries,  wordpress gallery plugin, images gallery, album, photo albums, simple gallery, best gallery plugin, free photo gallery, wp gallery, wordpress gallery, website gallery, gallery shortcode, best gallery, picture, pictures, gallery slider, photo album, photogallery, widget gallery, image, images, photos,  gallery lightbox, photoset, wordpress photo gallery plugin, wp gallery plugins, responsive wordpress photo gallery, media, image album, filterable gallery, banner rotator, fullscreen gallery, fotogalerie, galleria, galerie, galeri, responsive gallery, add album,  add gallery, add pictures, fotoalbum, foto, gallery decription, multiple pictures, photoalbum, upload images, upload photos, view images, view pictures, admin, AJAX, comments, gallery image, image lightbox, image rotate, image slideshow, image slider, jquery, jquery gallery, slide show, slideshow, thumbnail, thumbnail view, thumbnails, thumbs, responsive, watermarking, watermarks,fullscreen slider, lightbox, photography, sidebar, slide, youtube, vimeo, videos, instagram, facebook, mosaic 
 Requires at least: 3.4 
 Tested up to: 4.3 
-Stable tag: 1.2.57    
+Stable tag: 1.2.59    
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,11 @@ https://www.youtube.com/watch?v=4Mxg0FsFZZE&index=5&list=PLnxWPiY5tLFUsFI67acGEP
 [Photo Gallery Demo Admin](http://wpdemo.web-dorado.com/wp-admin/admin.php?page=galleries_bwg)  
 [Photo Gallery User Manual](https://web-dorado.com/wordpress-gallery-guide-step-1.html)  
 [Photo Gallery Support Forum](https://web-dorado.com/forum/photo-gallery.html)  
+
+
+= Photo Gallery Add-ons: =
+[Facebook Integration Add-on](https://web-dorado.com/products/wordpress-photo-gallery-plugin/add-ons/facebook.html) 
+
 
 Photo Gallery is an advanced plugin with a list of tools and options for adding and editing images for different views. It is fully responsive. The product includes plugin for adding image galleries and albums to posts and pages, as well as multiple widgets. You can add images, providing detailed descriptions and tags, organize the galleries into different albums.  
 
@@ -92,9 +97,9 @@ Upgrade to [WordPress Photo Gallery Pro](https://web-dorado.com/products/wordpre
 *   Masonry Album view   
 *   Slideshow/Lightbox 15 effects.    
 *   Editable themes.   
-*	Instagram Integration
+*	Instagram Integration.   
 *   Commenting possibility with Captcha protection possibility.   
-*   Social sharing possibility (Facebook, Google+, Twitter, Pinterest and Tumblr)    
+*   Social sharing possibility (Facebook, Google+, Twitter, Pinterest and Tumblr).    
 *   Dynamic Photo Gallery Tag Cloud widget  with image tag cloud and text tag cloud options.   
 *   Possibility to include both videos and images within a single gallery.   
 
@@ -126,6 +131,7 @@ Greek (el)
 Hebrew (he_IL)  
 Hindi (hi_IN)  
 Hungarian (hu_HU)  
+Icelandic (is_IS) by Eggert Johannesson
 Indonesian (id_ID)  
 Italian (it_IT)  
 Japanese (ja)  
@@ -206,6 +212,15 @@ Yes, it is possible to add advertising and/or watermark over the images. In both
 
 
 == Changelog ==
+
+= 1.2.59 =
+New: Facebook embed add-on.   
+Added: Add-ons page.
+
+= 1.2.58 =
+*  Added: Translation in Icelandic. Thanks to Eggert Johannesson.   
+*  Fixed: Serbian translation.    
+*  Fixed: Share url on Pinterest.   
 
 = 1.2.57 =
 *  Fixed: Edit images with quotas in name.   

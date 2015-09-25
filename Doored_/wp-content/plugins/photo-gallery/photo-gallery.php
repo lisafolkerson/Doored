@@ -4,7 +4,7 @@
  * Plugin Name: Photo Gallery
  * Plugin URI: https://web-dorado.com/products/wordpress-photo-gallery-plugin.html
  * Description: This plugin is a fully responsive gallery plugin with advanced functionality.  It allows having different image galleries for your posts and pages. You can create unlimited number of galleries, combine them into albums, and provide descriptions and tags.
- * Version: 1.2.57
+ * Version: 1.2.59
  * Author: WebDorado
  * Author URI: https://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -86,6 +86,8 @@ function bwg_options_panel() {
   $uninstall_page = add_submenu_page('galleries_bwg', 'Uninstall', 'Uninstall', 'manage_options', 'uninstall_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $uninstall_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $uninstall_page, 'bwg_options_scripts');
+
+  add_menu_page('Photo Gallery Add-ons', 'Photo Gallery Add-ons', 'manage_options', 'addons_bwg', 'bwg_addons', WD_BWG_URL . '/addons/images/add-ons-icon.png');
 }
 add_action('admin_menu', 'bwg_options_panel');
 
@@ -129,6 +131,21 @@ function bwg_featured_themes() {
   wp_register_style('bwg_featured_themes', WD_BWG_URL . '/featured/themes_style.css', array(), wd_bwg_version());
   wp_print_styles('bwg_featured_themes');
   spider_featured_themes();
+}
+
+function bwg_addons() {
+  if (function_exists('current_user_can')) {
+    if (!current_user_can('manage_options')) {
+      die('Access Denied');
+    }
+  }
+  else {
+    die('Access Denied');
+  }
+  require_once(WD_BWG_DIR . '/addons/addons.php');
+  wp_register_style('bwg_addons', WD_BWG_URL . '/addons/style.css', array(), wd_bwg_version());
+  wp_print_styles('bwg_addons');
+  bwg_addons_display();
 }
 
 function bwg_ajax_frontend() {
@@ -563,7 +580,7 @@ function bwg_activate() {
     `author` bigint(20) NOT NULL,
     `published` tinyint(1) NOT NULL,
     `gallery_type` varchar(32) NOT NULL,
-    `gallery_source` varchar(64) NOT NULL,
+    `gallery_source` varchar(256) NOT NULL,
     `autogallery_image_number` int(4) NOT NULL,
     `update_flag` varchar(32) NOT NULL,
     PRIMARY KEY (`id`)
@@ -749,24 +766,26 @@ function bwg_activate() {
     `instagram_client_id` varchar(40) NOT NULL,
     `description_tb` tinyint(1) NOT NULL,
     `enable_seo` tinyint(1) NOT NULL,
-	`autohide_lightbox_navigation` tinyint(1) NOT NULL,
-	`autohide_slideshow_navigation` tinyint(1) NOT NULL,
-	`read_metadata` tinyint(1) NOT NULL,
-	`enable_loop` tinyint(1) NOT NULL,
-	`enable_addthis` tinyint(1) NOT NULL,
-	`addthis_profile_id` varchar(66) NOT NULL,
-	`carousel_interval` int(4) NOT NULL,
-  `carousel_width` int(4) NOT NULL,
-  `carousel_height` int(4) NOT NULL,
-  `carousel_image_column_number` int(4) NOT NULL,
-  `carousel_image_par` varchar(32) NOT NULL,
-  `carousel_enable_title` tinyint(1) NOT NULL,
-  `carousel_enable_autoplay` tinyint(1) NOT NULL,
-  `carousel_r_width` int(4) NOT NULL,
-  `carousel_fit_containerWidth` tinyint(1) NOT NULL,
-  `carousel_prev_next_butt` tinyint(1) NOT NULL,
-  `carousel_play_pause_butt` tinyint(1) NOT NULL,
-  `permissions` varchar(20) NOT NULL,
+    `autohide_lightbox_navigation` tinyint(1) NOT NULL,
+    `autohide_slideshow_navigation` tinyint(1) NOT NULL,
+    `read_metadata` tinyint(1) NOT NULL,
+    `enable_loop` tinyint(1) NOT NULL,
+    `enable_addthis` tinyint(1) NOT NULL,
+    `addthis_profile_id` varchar(66) NOT NULL,
+    `carousel_interval` int(4) NOT NULL,
+    `carousel_width` int(4) NOT NULL,
+    `carousel_height` int(4) NOT NULL,
+    `carousel_image_column_number` int(4) NOT NULL,
+    `carousel_image_par` varchar(32) NOT NULL,
+    `carousel_enable_title` tinyint(1) NOT NULL,
+    `carousel_enable_autoplay` tinyint(1) NOT NULL,
+    `carousel_r_width` int(4) NOT NULL,
+    `carousel_fit_containerWidth` tinyint(1) NOT NULL,
+    `carousel_prev_next_butt` tinyint(1) NOT NULL,
+    `carousel_play_pause_butt` tinyint(1) NOT NULL,
+    `permissions` varchar(20) NOT NULL,
+    `facebook_app_id` varchar(64) NOT NULL,
+    `facebook_app_secret` varchar(64) NOT NULL,
     PRIMARY KEY (`id`)
   ) DEFAULT CHARSET=utf8;";
   $wpdb->query($bwg_option);
@@ -2311,7 +2330,7 @@ function bwg_activate() {
     ));
   }
   $version = get_option("wd_bwg_version");
-  $new_version = '1.2.57';
+  $new_version = '1.2.59';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_BWG_DIR . "/update/bwg_update.php";
     bwg_update($version);
@@ -2359,7 +2378,7 @@ wp_oembed_add_provider( '#https://instagr(\.am|am\.com)/p/.*#i', 'https://api.in
 
 function bwg_update_hook() {
 	$version = get_option("wd_bwg_version");
-  $new_version = '1.2.57';
+  $new_version = '1.2.59';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_BWG_DIR . "/update/bwg_update.php";
     bwg_update($version);
@@ -2664,10 +2683,10 @@ function bwg_captcha() {
   }
 }
 
-function wd_bwg_version(){
+function wd_bwg_version() {
   $version = get_option("wd_bwg_version");
-  if($version){
-    if(WD_BWG_PRO){
+  if ($version) {
+    if (WD_BWG_PRO) {
       $version = substr_replace($version, '2', 0, 1);
     }
   }
@@ -2675,7 +2694,6 @@ function wd_bwg_version(){
     $version = '';
   }
   return $version;
-
 }
 
 if (is_admin() && (!defined('DOING_AJAX') || !DOING_AJAX)) {

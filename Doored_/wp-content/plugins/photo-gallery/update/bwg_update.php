@@ -308,6 +308,12 @@ function bwg_update($version) {
   if (version_compare($version, '1.2.48') == -1) {
 	  $wpdb->query("ALTER TABLE " . $wpdb->prefix . "bwg_image CHANGE `slug` `slug` longtext NOT NULL");
 	}
+	if (version_compare($version, '1.2.59') == -1) {
+	  // Add facebook params.
+    $wpdb->query("ALTER TABLE " . $wpdb->prefix . "bwg_option ADD `facebook_app_id` varchar(64) NOT NULL DEFAULT ''");
+	  $wpdb->query("ALTER TABLE " . $wpdb->prefix . "bwg_option ADD `facebook_app_secret` varchar(64) NOT NULL DEFAULT ''");
+	  $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "bwg_gallery` CHANGE `gallery_source` `gallery_source` varchar(256) NOT NULL");
+  }
   return;
 }
 

@@ -16,9 +16,11 @@
 
               <?php $image = get_field('show_image');
                 if( !empty($image) ): ?>
-                <a href="<?php the_permalink(); ?>" class="a__img">
-                  <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="showImage"/>
-                </a>
+                <a href="<?php the_permalink(); ?>" class="a__img"><?php
+                    if( $image ) {
+                      echo wp_get_attachment_image( $image );
+                    }
+                    ?></a>
                 <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
               <?php endif; ?>
               </div><!--end .single-entry-->  

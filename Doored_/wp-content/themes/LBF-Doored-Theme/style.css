@@ -529,7 +529,8 @@ header {
       display: inline-block;
       border-radius: 50%;
       border: 2px solid black;
-      width: 85px; }
+      width: 85px;
+      height: 85px; }
     .sidebar .single-entry .entry-name {
       display: inline-block;
       position: absolute;

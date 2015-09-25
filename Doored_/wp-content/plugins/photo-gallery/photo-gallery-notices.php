@@ -86,7 +86,7 @@ class BWG_Notices {
 					$query_str = esc_url(add_query_arg($this->prefix . '_admin_notice_ignore', $slug));
 					// Admin notice display output
 					echo '<div class="update-nag wd-admin-notice">
-                  <div class="wd-notice-logo"></div>
+                  <div class="' . $this->prefix . '-notice-logo"></div>
                   <p class="wd-notice-title">' . $admin_display_title . '</p>
                   <p class="wd-notice-body">' . $admin_display_msg . '</p>
                   <ul class="wd-notice-body wd-blue">' . $admin_display_link . '</ul>
