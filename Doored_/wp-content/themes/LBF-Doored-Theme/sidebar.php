@@ -24,14 +24,15 @@
                 <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
               <?php endif; ?>
               </div><!--end .single-entry-->  
+              <?php //endif; ?>
           <?php endwhile; ?>
-      <?php wp_reset_postdata(); ?>
       <?php endif; ?>   
+      <?php //wp_reset_postdata(); ?>
 
 
     <?php 
     if ( is_page( 'artists' ) || is_singular( 'artist' ) ) : ?>        
-        <h3 class="sidebarTitle">Artists</h3>
+        <h3 class="sidebarTitle" itemprop="name">Artists</h3>
 
         <?php $latestArtistPosts = new WP_Query(array(
             'post_type' => 'artist', //only want artist posts
@@ -40,11 +41,15 @@
         <?php if ($latestArtistPosts->have_posts()) while($latestArtistPosts->have_posts()) : $latestArtistPosts->the_post(); ?>
         
         <div class="single-entry entry-artist">
-          <?php $artistImg = get_field('artist_image'); ?>
-          <a href="<?php the_permalink(); ?>" class="a__img">
-            <img src="<?php echo $artistImg['sizes']['square']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
-          </a>
-          <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
+         <?php $image = get_field('artist_image');
+           if( !empty($image) ): ?>
+           <a href="<?php the_permalink(); ?>" class="a__img"><?php
+               if( $image ) {
+                 echo wp_get_attachment_image( $image );
+               }
+               ?></a>
+           <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
+         <?php endif; ?>
         </div><!--end .single-entry-->
         <?php endwhile //end custom loop ?>
     <?php endif; ?>
@@ -53,4 +58,7 @@
 </div>
 
 <?php endif; ?>
+
+<?php wp_reset_postdata(); ?>
+
   

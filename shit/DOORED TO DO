@@ -19,15 +19,16 @@ DOORED TO DO
 😱should subnav snap up also on contact and archive?
 -show/artist header snaps to content
 -single.php image size largest - and no link to content itself
--.sidebar .single-entry img 90px => 85px
--sidebar font size: 20px
+😱.sidebar .single-entry img 90px => 85px
+😱 sidebar font size: 20px
 -either or statement dropdown list//, add third field for external link
 -single artist and show pages does what archive page does
 -take text possibility page away
 😱strip white bar on images
 -embed videos for shows
 😱ACF style: seamless:no metabox => standard wp metabox
-
+😱fix jQuery enqueuing error in functions.php
+😱 clear errors out of the console
 
 
 

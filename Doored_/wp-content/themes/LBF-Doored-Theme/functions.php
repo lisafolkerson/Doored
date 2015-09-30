@@ -52,7 +52,7 @@ function lets_add_some_scripts() {
 	wp_deregister_script('jquery');
   	wp_enqueue_script(
   	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.jsx",
+  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
   	false, //dependencies
   	null, //version number
   	true //load in footer
