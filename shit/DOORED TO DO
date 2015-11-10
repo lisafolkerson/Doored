@@ -11,9 +11,11 @@ DOORED TO DO
 😱smoothscroll
 -cross browser testing
 -put the ghost in the console?
+-accessibility checks
+😱put pikachu in header
 -make the ghost a gif that wiggles
 -accessibility checks
-😱masonry images loading over fix https://github.com/desandro/masonry/issues/501#issuecomment-34583942
+😱masonry images loading overlap fix https://github.com/desandro/masonry/issues/501#issuecomment-34583942
 -colors?
 
 😱should subnav snap up also on contact and archive?
@@ -29,6 +31,7 @@ DOORED TO DO
 😱ACF style: seamless:no metabox => standard wp metabox
 😱fix jQuery enqueuing error in functions.php
 😱 clear errors out of the console
+😱 squash smoothscroll error and dependancies order issue
 
 
 

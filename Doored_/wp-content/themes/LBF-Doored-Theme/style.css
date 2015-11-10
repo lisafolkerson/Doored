@@ -463,7 +463,8 @@ header {
     color: #F4FFF2; }
 
 .nav-next, .nav-previous {
-  display: inline-block; }
+  display: inline-block;
+  max-width: 50%; }
 
 .nav-previous {
   float: left; }

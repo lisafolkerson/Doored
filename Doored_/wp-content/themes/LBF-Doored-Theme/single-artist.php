@@ -9,13 +9,16 @@
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <div class="section-header">
             <h2 class="entry-title"><?php the_title(); ?></h2>
-            <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
+  
+            <?php $website = the_field('website');
+              if ( !empty($website) ):  ?>
+                <a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website') ?></a> lisa
+            <?php endif ?>
+
           </div><!--end .section-header-->
 
           <?php $artistImg = get_field('artist_image'); ?>
-            <a href="<?php echo $artistImg['url']; ?>">
               <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
-            </a>
 
           <?php the_field('about') ?>  
 

@@ -75,13 +75,11 @@ function lets_add_some_scripts() {
   );
 }
 
-add_action( 'wp_enqueue_scripts', 'lets_add_some_scripts' );
-
-
+add_action( 'lets_add_some_scripts', 'wp_enqueue_scripts');
 
 /* Custom Title Tags */
 
-function hackeryou_wp_title( $title, $sep ) {
+function lisa_wp_title( $title, $sep ) {
 	global $paged, $page;
 
 	if ( is_feed() ) {
@@ -99,65 +97,65 @@ function hackeryou_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'hackeryou' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'lisa' ), max( $paged, $page ) );
 	}
 
 	return $title;
 }
-add_filter( 'wp_title', 'hackeryou_wp_title', 10, 2 );
+add_filter( 'wp_title', 'lisa_wp_title', 10, 2 );
 
 /*
   Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-function hackeryou_page_menu_args( $args ) {
+function lisa_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'hackeryou_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'lisa_page_menu_args' );
 
 
 /*
  * Sets the post excerpt length to 40 characters.
  */
-function hackeryou_excerpt_length( $length ) {
+function lisa_excerpt_length( $length ) {
 	return 40;
 }
-add_filter( 'excerpt_length', 'hackeryou_excerpt_length' );
+add_filter( 'excerpt_length', 'lisa_excerpt_length' );
 
 /*
  * Returns a "Continue Reading" link for excerpts
  */
-function hackeryou_continue_reading_link() {
+function lisa_continue_reading_link() {
 	return ' <a href="'. get_permalink() . '">Continue reading <span class="meta-nav">&rarr;</span></a>';
 }
 
 /**
- * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and hackeryou_continue_reading_link().
+ * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and lisa_continue_reading_link().
  */
-function hackeryou_auto_excerpt_more( $more ) {
-	return ' &hellip;' . hackeryou_continue_reading_link();
+function lisa_auto_excerpt_more( $more ) {
+	return ' &hellip;' . lisa_continue_reading_link();
 }
-add_filter( 'excerpt_more', 'hackeryou_auto_excerpt_more' );
+add_filter( 'excerpt_more', 'lisa_auto_excerpt_more' );
 
 /**
  * Adds a pretty "Continue Reading" link to custom post excerpts.
  */
-function hackeryou_custom_excerpt_more( $output ) {
+function lisa_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= hackeryou_continue_reading_link();
+		$output .= lisa_continue_reading_link();
 	}
 	return $output;
 }
-add_filter( 'get_the_excerpt', 'hackeryou_custom_excerpt_more' );
+add_filter( 'get_the_excerpt', 'lisa_custom_excerpt_more' );
 
 
 /*
  * Register a single widget area.
  * You can register additional widget areas by using register_sidebar again
- * within hackeryou_widgets_init.
+ * within lisa_widgets_init.
  * Display in your template with dynamic_sidebar()
  */
-function hackeryou_widgets_init() {
+function lisa_widgets_init() {
 	// Area 1, located at the top of the sidebar.
 	register_sidebar( array(
 		'name' => 'Primary Widget Area',
@@ -171,15 +169,15 @@ function hackeryou_widgets_init() {
 
 }
 
-add_action( 'widgets_init', 'hackeryou_widgets_init' );
+add_action( 'widgets_init', 'lisa_widgets_init' );
 
 
 
-if ( ! function_exists( 'hackeryou_posted_on' ) ) :
+if ( ! function_exists( 'lisa_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post—date/time and author.
  */
-function hackeryou_posted_on() {
+function lisa_posted_on() {
 	printf('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s',
 		'meta-prep meta-prep-author',
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
@@ -196,11 +194,11 @@ function hackeryou_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'hackeryou_posted_in' ) ) :
+if ( ! function_exists( 'lisa_posted_in' ) ) :
 /**
  * Prints HTML with meta information for the current post (category, tags and permalink).
  */
-function hackeryou_posted_in() {
+function lisa_posted_in() {
 	// Retrieves tag list of current post, separated by commas.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {

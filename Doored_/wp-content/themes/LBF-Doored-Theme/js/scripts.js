@@ -1,19 +1,4 @@
 $(function(){
-	//your jQuery here
-
-//   console.log('// ▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊
-// ┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊
-// ┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲
-// ┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲
-// ┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱
-// ┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱
-// ┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲
-// ┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲
-// ┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱
-// ┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊
-// ┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊
-// ┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈
-// ┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈');
     
 	// reveal menus (artist menu)
 	$( '#menu-item-284').mouseover(function () {
@@ -37,8 +22,7 @@ $(function(){
             $('.artistMenu').slideUp(250);
             $('.showMenu').slideUp(250);
         };
-	}); // END
-	
+	}); // END	
 
 	$('.tomb').click( function(){
 		$('.ghost--behindTomb').fadeIn( 50, function(){
