@@ -1,7 +1,0 @@
-        <div id="grid">
-          <?php $images = get_field('artist_gallery'); if( $images ): ?> <!-- This is the gallery filed slug -->
-          <?php foreach( $images as $image ): ?>
-              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="repeatingArtistImage">
-          <?php endforeach; ?>
-          <?php endif; ?>
-        </div><!--end .grid-->
