@@ -75,7 +75,19 @@ class BWGModelAlbum_extended_preview {
     else {
       $limit_str = '';
     }
-    $row = $wpdb->get_results($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'bwg_image WHERE published=1 ' . $where . ' AND gallery_id="%d" ORDER BY `' . $sort_by . '` ' . $sort_direction . $limit_str, $id));
+    if ($sort_by == 'random') {
+      $sort_by = 'RAND()';
+    }
+    else {
+      $sort_by = 'image.`' . $sort_by . '`';
+    }
+    if (isset($_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]) && $_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]) {
+	    $row = $wpdb->get_results($wpdb->prepare('SELECT image.* FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN 
+	   (SELECT GROUP_CONCAT( tag_id SEPARATOR ",") AS tags, image_id FROM  ' . $wpdb->prefix . 'bwg_image_tag WHERE gallery_id="' . $id . '"  GROUP BY image_id) AS tag ON image.id=tag.image_id WHERE image.published=1 ' . $where . ' AND CONCAT(",", tag.tags, ",") REGEXP ",('.implode("|",$_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]).')," AND image.gallery_id="%d" ORDER BY ' . $sort_by . ' ' . $sort_direction . ' ' . $limit_str, $id));
+    }
+    else {
+      $row = $wpdb->get_results($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'bwg_image as image WHERE published=1 ' . $where . ' AND gallery_id="%d" ORDER BY ' . $sort_by . ' ' . $sort_direction . $limit_str, $id));
+    }
     return $row;
   }
 
@@ -88,7 +100,12 @@ class BWGModelAlbum_extended_preview {
     else {
       $where = '';
     }
-    $total = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image WHERE published=1 ' . $where . ' AND gallery_id="%d"', $id));
+    if (isset($_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]) && $_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]) {
+      $total = $wpdb->get_var('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN 	(SELECT GROUP_CONCAT( tag_id SEPARATOR ",") AS tags, image_id FROM  ' . $wpdb->prefix . 'bwg_image_tag WHERE gallery_id="' . $id . '" GROUP BY image_id) AS tag ON image.id=tag.image_id  WHERE image.published=1 ' . $where . ' AND  CONCAT(",", tag.tags, ",") REGEXP ",('.implode("|",$_REQUEST['bwg_tag_id_bwg_album_extended_' . $bwg]).')," ');
+    }
+    else {
+      $total = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image WHERE published=1 ' . $where . ' AND gallery_id="%d"', $id));
+    }
     $page_nav['total'] = $total;
     if (isset($_REQUEST['page_number_' . $bwg]) && $_REQUEST['page_number_' . $bwg]) {
       $page_nav['limit'] = (int) $_REQUEST['page_number_' . $bwg];
@@ -117,6 +134,11 @@ class BWGModelAlbum_extended_preview {
     return $row;
   }
 
+  public function get_tags_rows_data($gallery_id) {
+    global $wpdb;
+    $row = $wpdb->get_results('Select t1.* FROM ' . $wpdb->prefix . 'terms AS t1 LEFT JOIN ' . $wpdb->prefix . 'term_taxonomy AS t2 ON t1.term_id = t2.term_id LEFT JOIN ( SELECT DISTINCT tag_id , gallery_id  FROM ' . $wpdb->prefix . 'bwg_image_tag) AS t3 ON  t1.term_id=t3.tag_id WHERE taxonomy = "bwg_tag" AND t3.gallery_id="' . $gallery_id . '"');
+    return $row;
+  }
   ////////////////////////////////////////////////////////////////////////////////////////
   // Getters & Setters                                                                  //
   ////////////////////////////////////////////////////////////////////////////////////////

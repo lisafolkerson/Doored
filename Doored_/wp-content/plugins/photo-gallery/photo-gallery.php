@@ -4,7 +4,7 @@
  * Plugin Name: Photo Gallery
  * Plugin URI: https://web-dorado.com/products/wordpress-photo-gallery-plugin.html
  * Description: This plugin is a fully responsive gallery plugin with advanced functionality.  It allows having different image galleries for your posts and pages. You can create unlimited number of galleries, combine them into albums, and provide descriptions and tags.
- * Version: 1.2.59
+ * Version: 1.2.71
  * Author: WebDorado
  * Author URI: https://web-dorado.com/
  * License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -51,39 +51,39 @@ else {
 function bwg_options_panel() {
   $galleries_page = add_menu_page('Photo Gallery', 'Photo Gallery', 'manage_options', 'galleries_bwg', 'bwg_gallery', WD_BWG_URL . '/images/best-wordpress-gallery.png');
 
-  $galleries_page = add_submenu_page('galleries_bwg', 'Add Galleries/Images', 'Add Galleries/Images', 'manage_options', 'galleries_bwg', 'bwg_gallery');
+  $galleries_page = add_submenu_page('galleries_bwg', __('Add Galleries/Images', 'bwg_back'), __('Add Galleries/Images', 'bwg_back'), 'manage_options', 'galleries_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $galleries_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $galleries_page, 'bwg_scripts');
   add_action('load-' . $galleries_page, 'bwg_add_galleries_per_page_option');
 
-  $albums_page = add_submenu_page('galleries_bwg', 'Albums', 'Albums', 'manage_options', 'albums_bwg', 'bwg_gallery');
+  $albums_page = add_submenu_page('galleries_bwg', __('Albums', 'bwg_back'), __('Albums', 'bwg_back'), 'manage_options', 'albums_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $albums_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $albums_page, 'bwg_scripts');
   add_action('load-' . $albums_page, 'bwg_add_albums_per_page_option');
 
-  $tags_page = add_submenu_page('galleries_bwg', 'Tags', 'Tags', 'manage_options', 'tags_bwg', 'bwg_gallery');
+  $tags_page = add_submenu_page('galleries_bwg', __('Tags', 'bwg_back'), __('Tags', 'bwg_back'), 'manage_options', 'tags_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $tags_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $tags_page, 'bwg_scripts');
   add_action('load-' . $tags_page, 'bwg_add_tags_per_page_option');
 
-  $options_page = add_submenu_page('galleries_bwg', 'Options', 'Options', 'manage_options', 'options_bwg', 'bwg_gallery');
+  $options_page = add_submenu_page('galleries_bwg', __('Options', 'bwg_back'), __('Options', 'bwg_back'), 'manage_options', 'options_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $options_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $options_page, 'bwg_options_scripts');
 
-  $themes_page = add_submenu_page('galleries_bwg', 'Themes', 'Themes', 'manage_options', 'themes_bwg', 'bwg_gallery');
+  $themes_page = add_submenu_page('galleries_bwg', __('Themes', 'bwg_back'), __('Themes', 'bwg_back'), 'manage_options', 'themes_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $themes_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $themes_page, 'bwg_options_scripts');
   add_action('load-' . $themes_page, 'bwg_add_themes_per_page_option');
 
-  add_submenu_page('galleries_bwg', 'Generate Shortcode', 'Generate Shortcode', 'manage_options', 'BWGShortcode', 'bwg_gallery');
+  add_submenu_page('galleries_bwg', __('Generate Shortcode', 'bwg_back'), __('Generate Shortcode', 'bwg_back'), 'manage_options', 'BWGShortcode', 'bwg_gallery');
   
-  $licensing_plugins_page = add_submenu_page('galleries_bwg', 'Licensing', 'Licensing', 'manage_options', 'licensing_bwg', 'bwg_gallery');
+  $licensing_plugins_page = add_submenu_page('galleries_bwg', __('Licensing', 'bwg_back'), __('Licensing', 'bwg_back'), 'manage_options', 'licensing_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $licensing_plugins_page, 'bwg_licensing_styles');
 
-  add_submenu_page('galleries_bwg', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'featured_plugins_bwg', 'bwg_featured');
-  add_submenu_page('galleries_bwg', 'Featured Themes', 'Featured Themes', 'manage_options', 'featured_themes_bwg', 'bwg_featured_themes'); 
+  add_submenu_page('galleries_bwg', __('Featured Plugins', 'bwg_back'), __('Featured Plugins', 'bwg_back'), 'manage_options', 'featured_plugins_bwg', 'bwg_featured');
+  add_submenu_page('galleries_bwg', __('Featured Themes', 'bwg_back'), __('Featured Themes', 'bwg_back'), 'manage_options', 'featured_themes_bwg', 'bwg_featured_themes'); 
 
-  $uninstall_page = add_submenu_page('galleries_bwg', 'Uninstall', 'Uninstall', 'manage_options', 'uninstall_bwg', 'bwg_gallery');
+  $uninstall_page = add_submenu_page('galleries_bwg', __('Uninstall', 'bwg_back'), __('Uninstall', 'bwg_back'), 'manage_options', 'uninstall_bwg', 'bwg_gallery');
   add_action('admin_print_styles-' . $uninstall_page, 'bwg_styles');
   add_action('admin_print_scripts-' . $uninstall_page, 'bwg_options_scripts');
 
@@ -340,7 +340,8 @@ function bwg_shortcode($params) {
         'enable_image_twitter' => 1,
         'enable_image_google' => 1,
         'watermark_type' => 'none',
-        'load_more_image_count' => 15
+        'load_more_image_count' => 15,
+        'show_tag_box' => 0
       ), $params);
       break;
 
@@ -786,6 +787,9 @@ function bwg_activate() {
     `permissions` varchar(20) NOT NULL,
     `facebook_app_id` varchar(64) NOT NULL,
     `facebook_app_secret` varchar(64) NOT NULL,
+    `show_tag_box` tinyint(1) NOT NULL,
+    `show_hide_custom_post` tinyint(1) NOT NULL,
+    `show_hide_post_meta` tinyint(1) NOT NULL,
     PRIMARY KEY (`id`)
   ) DEFAULT CHARSET=utf8;";
   $wpdb->query($bwg_option);
@@ -1417,6 +1421,11 @@ function bwg_activate() {
       'carousel_prev_next_butt' => 1,
       'carousel_play_pause_butt' => 1,
       'permissions' => 'manage_options',
+      'facebook_app_id' => '',
+      'facebook_app_secret' => '',
+      'show_tag_box' => 0,
+      'show_hide_custom_post' => 0,
+      'show_hide_post_meta' => 0,
     ));
   }
   $exists_default = $wpdb->get_var('SELECT count(id) FROM ' . $wpdb->prefix . 'bwg_theme');
@@ -2330,7 +2339,7 @@ function bwg_activate() {
     ));
   }
   $version = get_option("wd_bwg_version");
-  $new_version = '1.2.59';
+  $new_version = '1.2.71';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_BWG_DIR . "/update/bwg_update.php";
     bwg_update($version);
@@ -2378,7 +2387,7 @@ wp_oembed_add_provider( '#https://instagr(\.am|am\.com)/p/.*#i', 'https://api.in
 
 function bwg_update_hook() {
 	$version = get_option("wd_bwg_version");
-  $new_version = '1.2.59';
+  $new_version = '1.2.71';
   if ($version && version_compare($version, $new_version, '<')) {
     require_once WD_BWG_DIR . "/update/bwg_update.php";
     bwg_update($version);
@@ -2416,7 +2425,32 @@ function bwg_styles() {
 function bwg_scripts() {
   wp_enqueue_script('thickbox');
   wp_enqueue_script('bwg_admin', WD_BWG_URL . '/js/bwg.js', array(), wd_bwg_version());
-  
+  wp_localize_script('bwg_admin', 'bwg_objectL10B', array(
+    'bwg_field_required'  => __('field is required.', 'bwg_back'),
+    'bwg_select_image'  => __('You must select an image file.', 'bwg_back'),
+    'bwg_select_audio'  => __('You must select an audio file.', 'bwg_back'),
+    'bwg_client_id'  => __('You do not have Instagram CLIENT_ID. Input its value in Options->Embed options. ', 'bwg_back'),
+    'bwg_post_number'  => __('Instagram recent post number must be between 1 and 33.', 'bwg_back'),
+    'bwg_not_empty'  => __('The gallery is not empty. Please delete all the images first.', 'bwg_back'),
+    'bwg_enter_url'  => __('Please enter url to embed.', 'bwg_back'),
+    'bwg_cannot_response'  => __('Error: cannot get response from the server.', 'bwg_back'),
+    'bwg_something_wrong'  => __('Error: something wrong happened at the server.', 'bwg_back'),
+    'bwg_error'  => __('Error', 'bwg_back'),
+    'bwg_show_order'  => __('Show order column', 'bwg_back'),
+    'bwg_hide_order'  => __('Hide order column', 'bwg_back'),
+    'selected'  => __('Selected', 'bwg_back'),
+    'item'  => __('item', 'bwg_back'),
+    'saved'  => __('Items Succesfully Saved.', 'bwg_back'),
+    'recovered'  => __('Item Succesfully Recovered.', 'bwg_back'),
+    'published'  => __('Item Succesfully Published.', 'bwg_back'),
+    'unpublished'  => __('Item Succesfully Unpublished.', 'bwg_back'),
+    'deleted'  => __('Item Succesfully Deleted.', 'bwg_back'),
+    'one_item'  => __('You must select at least one item.', 'bwg_back'),
+    'resized'  => __('Items Succesfully resized.', 'bwg_back'),
+    'watermark_set'  => __('Watermarks Succesfully Set.', 'bwg_back'),
+    'reset'  => __('Items Succesfully Reset.', 'bwg_back'),
+  ));
+
   global $wp_scripts;
   if (isset($wp_scripts->registered['jquery'])) {
     $jquery = $wp_scripts->registered['jquery'];
@@ -2551,7 +2585,8 @@ function bwg_front_end_scripts() {
 
   wp_enqueue_script('bwg_frontend', WD_BWG_FRONT_URL . '/js/bwg_frontend.js', array(), $version);
   wp_enqueue_style('bwg_frontend', WD_BWG_FRONT_URL . '/css/bwg_frontend.css', array(), $version);
-
+  wp_enqueue_script('bwg_sumoselect', WD_BWG_FRONT_URL . '/js/jquery.sumoselect.min.js', array(), $version);
+  wp_enqueue_style('bwg_sumoselect', WD_BWG_FRONT_URL . '/css/sumoselect.css', array(), $version);
   // Styles/Scripts for popup.
   wp_enqueue_style('bwg_font-awesome', WD_BWG_FRONT_URL . '/css/font-awesome/font-awesome.css', array(), '4.2.0');
   wp_enqueue_script('bwg_jquery_mobile', WD_BWG_FRONT_URL . '/js/jquery.mobile.js', array(), $version);
@@ -2564,26 +2599,46 @@ function bwg_front_end_scripts() {
     'bwg_mail_validation' => __('This is not a valid email address.', 'bwg'),
     'bwg_search_result' => __('There are no images matching your search.', 'bwg'),
   ));
+  wp_localize_script('bwg_sumoselect', 'bwg_objectsL10n', array(
+    'bwg_select_tag'  => __('Select Tag.', 'bwg'),
+  ));
 }
 add_action('wp_enqueue_scripts', 'bwg_front_end_scripts');
 
 // Languages localization.
 function bwg_language_load() {
   load_plugin_textdomain('bwg', FALSE, basename(dirname(__FILE__)) . '/languages');
+  load_plugin_textdomain('bwg_back', FALSE, basename(dirname(__FILE__)) . '/languages/backend');
 }
 add_action('init', 'bwg_language_load');
 
 function bwg_create_post_type() {
+  global $wpdb;
+  $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'bwg_option WHERE id="%d"', 1));
+ 
+  if ($row->show_hide_post_meta == 1) {
+     $show_hide_post_meta = array('editor', 'comments');
+  }
+  else {
+     $show_hide_post_meta = array();
+  }
+  if ($row->show_hide_custom_post == 0) {
+     $show_hide_custom_post = false;
+  }
+  else {
+     $show_hide_custom_post = true;
+  }
   $args = array(
     'public' => TRUE,
     'exclude_from_search' => TRUE,
     'publicly_queryable' => TRUE,
-    'show_ui' => FALSE,
-    'show_in_menu' => FALSE,
+    'show_ui' => $show_hide_custom_post,
+    'show_in_menu' => TRUE,
     'show_in_nav_menus' => FALSE,
     'permalink_epmask' => TRUE,
     'rewrite' => TRUE,
-    'label'  => 'bwg_gallery'
+    'label'  => 'bwg_gallery',
+    'supports' => $show_hide_post_meta
   );
   register_post_type( 'bwg_gallery', $args );
 
@@ -2591,12 +2646,13 @@ function bwg_create_post_type() {
     'public' => TRUE,
     'exclude_from_search' => TRUE,
     'publicly_queryable' => TRUE,
-    'show_ui' => FALSE,
-    'show_in_menu' => FALSE,
+    'show_ui' => $show_hide_custom_post,
+    'show_in_menu' => TRUE,
     'show_in_nav_menus' => FALSE,
     'permalink_epmask' => TRUE,
     'rewrite' => TRUE,
-    'label'  => 'bwg_album'
+    'label'  => 'bwg_album',
+    'supports' => $show_hide_post_meta
   );
   register_post_type( 'bwg_album', $args );
 
@@ -2604,12 +2660,13 @@ function bwg_create_post_type() {
     'public' => TRUE,
     'exclude_from_search' => TRUE,
     'publicly_queryable' => TRUE,
-    'show_ui' => FALSE,
-    'show_in_menu' => FALSE,
+    'show_ui' => $show_hide_custom_post,
+    'show_in_menu' => TRUE,
     'show_in_nav_menus' => FALSE,
     'permalink_epmask' => TRUE,
     'rewrite' => TRUE,
-    'label'  => 'bwg_tag'
+    'label'  => 'bwg_tag',
+    'supports' => $show_hide_post_meta
   );
   register_post_type( 'bwg_tag', $args );
 }

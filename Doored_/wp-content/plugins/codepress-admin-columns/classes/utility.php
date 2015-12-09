@@ -69,15 +69,35 @@ function cpac_is_wc_version_gte( $version = '1.0' ) {
 	return $wc_version && version_compare( $wc_version, $version, '>=' );
 }
 
-function cpac_get_ids_from_array( $array ) {
-	$array = trim( str_replace( ' ','', $array ) );
-	$ids = array();
-	if ( strpos( $array, ',' ) !== false ) {
-		$ids = explode( ',', $array );
-		$ids = array_map( 'intval', $ids );
+function cpac_is_acf_active() {
+	return class_exists( 'acf', false );
+}
+
+function cpac_is_woocommerce_active() {
+	return class_exists( 'WooCommerce', false );
+}
+
+function cpac_is_pro_active() {
+	return class_exists( 'CAC_Addon_Pro', false );
+}
+
+/**
+ * Whether the current screen is the Admin Columns settings screen
+ *
+ * @since 2.4.8
+ * @param strong $tab Specifies a tab screen (optional)
+ * @return bool True if the current screen is the settings screen, false otherwise
+ */
+function cac_is_setting_screen( $tab = '' ){
+	global $pagenow;
+
+	if ( ! ( 'options-general.php' === $pagenow && isset( $_GET['page'] ) && ( 'codepress-admin-columns' === $_GET['page'] ) ) ) {
+		return false;
 	}
-	elseif ( is_numeric( $array ) ) {
-		$ids[] = $array;
+
+	if ( $tab && ( empty( $_GET['tab'] ) || ( isset( $_GET['tab'] ) && $tab !== $_GET['tab'] ) ) ) {
+		return false;
 	}
-	return $ids;
+
+	return true;
 }

@@ -1341,6 +1341,7 @@ class BWGViewSlideshow {
           jQuery('div[id^="bwg_container"]').bind("contextmenu", function () {
             return false;
           });
+          jQuery('div[id^="bwg_container"]').css('webkitTouchCallout','none');
           <?php
         }
         ?>

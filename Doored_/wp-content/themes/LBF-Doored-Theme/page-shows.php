@@ -10,7 +10,7 @@ get_header(); ?>
     <div class="content">
 
      <?php $latestPosts = new WP_Query(array(
-         'post_type' => 'show', //only want portfolio posts
+         'post_type' => 'show', //only want show posts
          'posts_per_page'   => 1
      )) ?>
      
@@ -22,7 +22,7 @@ get_header(); ?>
      </div><!--end .section-header-->
 
      <?php $showImg = get_field('show_image'); ?>
-       <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+     <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
        <div class="about">
          <?php the_field('about_show') ?>  

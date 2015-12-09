@@ -60,6 +60,9 @@ class BWGModelThumbnails {
     if ($sort_by == 'size' || $sort_by == 'resolution') {
       $sort_by = ' CAST(' . $sort_by . ' AS SIGNED) ';
     }
+    elseif ($sort_by == 'random') {
+      $sort_by = 'RAND()';
+    }
     elseif (($sort_by != 'alt') && ($sort_by != 'date') && ($sort_by != 'filetype') && ($sort_by != 'RAND()') && ($sort_by != 'filename')) {
       $sort_by = '`order`';
     }
@@ -79,7 +82,12 @@ class BWGModelThumbnails {
     else {
       $limit_str = '';
     }
-    if($type == 'tag') {
+
+    if( isset($_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg]) && $_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg] ){
+	    $row = $wpdb->get_results('SELECT image.* FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN 
+	   (SELECT GROUP_CONCAT( tag_id SEPARATOR ",") AS tags, image_id FROM  ' . $wpdb->prefix . 'bwg_image_tag WHERE gallery_id="' . $id . '" GROUP BY image_id) AS tag ON image.id=tag.image_id WHERE image.published=1 ' . $where . ' AND CONCAT(",", tag.tags, ",") REGEXP ",('.implode("|",$_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg]).')," ORDER BY ' . $sort_by . ' ' . $sort_direction . ' ' . $limit_str);
+    }
+    elseif($type == 'tag') {
       $row = $wpdb->get_results($wpdb->prepare('SELECT image.* FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN ' . $wpdb->prefix . 'bwg_image_tag as tag ON image.id=tag.image_id WHERE image.published=1 ' . $where . ' AND tag.tag_id="%d" ORDER BY ' . $sort_by . ' ' . $sort_direction . ' ' . $limit_str, $id));
     }
     else {
@@ -107,7 +115,10 @@ class BWGModelThumbnails {
         $where = '';
       }
     }
-    if ($type == 'tag') {
+    if( isset($_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg]) && $_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg] ){
+      $total = $wpdb->get_var('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN 	(SELECT GROUP_CONCAT( tag_id SEPARATOR ",") AS tags, image_id FROM  ' . $wpdb->prefix . 'bwg_image_tag WHERE gallery_id="' . $id . '"  GROUP BY image_id) AS tag ON image.id=tag.image_id  WHERE image.published=1 ' . $where . ' AND  CONCAT(",", tag.tags, ",") REGEXP ",('.implode("|",$_REQUEST['bwg_tag_id_bwg_standart_thumbnails_' . $bwg]).')," ');	
+    }
+    elseif ($type == 'tag') {
       $total = $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'bwg_image as image INNER JOIN ' . $wpdb->prefix . 'bwg_image_tag as tag ON image.id=tag.image_id WHERE image.published=1 ' . $where . ' AND tag.tag_id="%d"', $id));
     }
     else {
@@ -129,6 +140,11 @@ class BWGModelThumbnails {
     return $row;
   }
 
+  public function get_tags_rows_data($gallery_id) {
+    global $wpdb;
+    $row = $wpdb->get_results('Select t1.* FROM ' . $wpdb->prefix . 'terms AS t1 LEFT JOIN ' . $wpdb->prefix . 'term_taxonomy AS t2 ON t1.term_id = t2.term_id LEFT JOIN ( SELECT DISTINCT tag_id , gallery_id  FROM ' . $wpdb->prefix . 'bwg_image_tag) AS t3 ON  t1.term_id=t3.tag_id WHERE taxonomy = "bwg_tag" AND t3.gallery_id="' . $gallery_id . '"');
+    return $row;
+  }
   ////////////////////////////////////////////////////////////////////////////////////////
   // Getters & Setters                                                                  //
   ////////////////////////////////////////////////////////////////////////////////////////

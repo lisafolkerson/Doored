@@ -43,103 +43,103 @@ class WDWLibrary {
     if ($message_id) {
       switch($message_id) {
         case 1: {
-          $message = 'Item Succesfully Saved.';
+          $message = __('Item Succesfully Saved.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 2: {
-          $message = 'Error. Please install plugin again.';
+          $message = __('Error. Please install plugin again.', 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 3: {
-          $message = 'Item Succesfully Deleted.';
+          $message = __('Item Succesfully Deleted.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 4: {
-          $message = "You can't delete default theme";
+          $message = __("You can't delete default theme", 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 5: {
-          $message = 'Items Succesfully Deleted.';
+          $message = __('Items Succesfully Deleted.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 6: {
-          $message = 'You must select at least one item.';
+          $message = __('You must select at least one item.', 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 7: {
-          $message = 'The item is successfully set as default.';
+          $message = __('The item is successfully set as default.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 8: {
-          $message = 'Options Succesfully Saved.';
+          $message = __('Options Succesfully Saved.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 9: {
-          $message = 'Item Succesfully Published.';
+          $message = __('Item Succesfully Published.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 10: {
-          $message = 'Items Succesfully Published.';
+          $message = __('Items Succesfully Published.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 11: {
-          $message = 'Item Succesfully Unpublished.';
+          $message = __('Item Succesfully Unpublished.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 12: {
-          $message = 'Items Succesfully Unpublished.';
+          $message = __('Items Succesfully Unpublished.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 13: {
-          $message = 'Ordering Succesfully Saved.';
+          $message = __('Ordering Succesfully Saved.', 'bwg_back');
           $type = 'updated';
           break;
 
         }
         case 14: {
-          $message = 'A term with the name provided already exists.';
+          $message = __('A term with the name provided already exists.', 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 15: {
-          $message = 'Name field is required.';
+          $message = __('Name field is required.', 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 16: {
-          $message = 'The slug must be unique.';
+          $message = __('The slug must be unique.', 'bwg_back');
           $type = 'error';
           break;
 
         }
         case 17: {
-          $message = 'Changes must be saved.';
+          $message = __('Changes must be saved.', 'bwg_back');
           $type = 'error';
           break;
 
@@ -185,8 +185,8 @@ class WDWLibrary {
         <input type="text" id="search_value" name="search_value" class="spider_search_value" onkeypress="return check_search_key(event, this);" value="<?php echo esc_html($search_value); ?>" style="width: 150px;<?php echo (get_bloginfo('version') > '3.7') ? ' height: 28px;' : ''; ?>" />
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="spider_search()" class="button-secondary action">
-        <input type="button" value="Reset" onclick="spider_reset()" class="button-secondary action">
+        <input type="button" value="<?php echo __('Search', 'bwg_back'); ?>" onclick="spider_search()" class="button-secondary action">
+        <input type="button" value="<?php echo __('Reset', 'bwg_back'); ?>" onclick="spider_reset()" class="button-secondary action">
       </div>
     </div>
     <?php
@@ -312,7 +312,7 @@ class WDWLibrary {
         <span class="paging-input">
           <span class="total-pages">
           <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event, this)" title="Go to the page" type="text" size="1" />
-        </span> of 
+        </span> <?php echo __('of', 'bwg_back'); ?> 
         <span class="total-pages">
             <?php echo $items_county; ?>
           </span>
@@ -359,8 +359,8 @@ class WDWLibrary {
         <input type="text" id="search_value" name="search_value" class="spider_search_value" onkeypress="return check_search_key(event, this);" value="<?php echo esc_html($search_value); ?>" style="width: 150px;<?php echo (get_bloginfo('version') > '3.7') ? ' height: 28px;' : ''; ?>" />
       </div>
       <div class="alignleft actions">
-        <input type="button" value="Search" onclick="spider_search()" class="button-secondary action">
-        <input type="button" value="Reset" onclick="spider_reset()" class="button-secondary action">
+        <input type="button" value="<?php echo __('Search', 'bwg_back'); ?>" onclick="spider_search()" class="button-secondary action">
+        <input type="button" value="<?php echo __('Reset', 'bwg_back'); ?>" onclick="spider_reset()" class="button-secondary action">
       </div>
     </div>
     <?php
@@ -433,7 +433,7 @@ class WDWLibrary {
       <span class="displaying-num">
         <?php
         if ($count_items != 0) {
-          echo $count_items; ?> item<?php echo (($count_items == 1) ? '' : 's');
+          echo $count_items; ?> <?php echo __('item', 'bwg_back'); ?><?php echo (($count_items == 1) ? '' : 's');
         }
         ?>
       </span>
@@ -462,7 +462,7 @@ class WDWLibrary {
         <span class="paging-input">
           <span class="total-pages">
           <input class="current_page" id="current_page" name="current_page" value="<?php echo $page_number; ?>" onkeypress="return check_enter_key(event, this)" title="Go to the page" type="text" size="1" />
-        </span> of 
+        </span> <?php echo __('of', 'bwg_back'); ?> 
         <span class="total-pages">
             <?php echo $items_county; ?>
           </span>
@@ -730,6 +730,85 @@ class WDWLibrary {
         </span>
       </div>
     </div>
+    <?php
+  }
+
+  public static function ajax_html_frontend_search_tags($form_id, $current_view, $cur_gal_id, $images_count, $tags_rows) {
+    $type = (isset($_POST['type_' . $current_view]) ? esc_html($_POST['type_' . $current_view]) : 'album');
+    $bwg_search_tags = (isset($_POST['bwg_tag_id_' . $cur_gal_id]) && $_POST['bwg_tag_id_' . $cur_gal_id] != '' )? $_POST['bwg_tag_id_' . $cur_gal_id] : array();	
+    $album_gallery_id = (isset($_POST['album_gallery_id_' . $current_view]) ? esc_html($_POST['album_gallery_id_' . $current_view]) : 0);
+    ?>
+    <style>
+      #bwg_tag_wrap{
+        background-color: #FFFFFF;
+        width: 100%;
+        font-family: inherit;
+        margin:0 -5px 20px 5px;
+        z-index:200;
+        position:relative
+      }
+      .bwg_search_loupe_container,.bwg_search_reset_container{
+        font-size: 18px;
+        color: #CCCCCC;
+        cursor: pointer;
+        position: relative;
+        top: -4px;
+      }
+      #bwg_tag_container p{
+        text-align:center
+      }
+      #bwg_tag_container {
+        border: 1px solid #CCCCCC;
+        box-shadow: 0 0 3px 1px #CCCCCC;
+        border-radius: 4px;
+        width:256px;
+        float:right
+      }
+    </style>
+	  <div id="bwg_tag_wrap" >
+      <div id="bwg_tag_container">
+        <select class="search_tags" id="bwg_tag_id_<?php echo $cur_gal_id;  ?>" multiple="multiple" >		 
+        <?php                 
+          foreach($tags_rows as $tags_row){
+            $selected = (in_array($tags_row->term_id ? $tags_row->term_id : '' ,$bwg_search_tags))	? 'selected="selected"' : "";
+        ?>     
+          <option value="<?php echo $tags_row->term_id ?>" <?php echo $selected;?>><?php echo $tags_row->name ?></option>
+        <?php
+          }
+        ?>
+        </select>
+        <span class="bwg_search_loupe_container" >
+          <i title="<?php echo __('Search', 'bwg'); ?>" class="bwg_search fa fa-search" onclick="select_tag('<?php echo $current_view; ?>' ,'<?php echo $form_id; ?>', '<?php echo $cur_gal_id; ?>', <?php echo $album_gallery_id; ?>,'<?php echo $type; ?>');"></i>
+        </span>
+        <span class="bwg_search_reset_container" >
+          <i title="<?php echo __('Reset', 'bwg'); ?>" class="bwg_reset fa fa-times" onclick="clear_input_<?php echo $cur_gal_id; ?>('<?php echo $cur_gal_id; ?>'),spider_frontend_ajax('<?php echo $form_id; ?>', '<?php echo $current_view; ?>', '<?php echo $cur_gal_id; ?>', <?php echo $album_gallery_id; ?>, '', '<?php echo $type; ?>', 1)"></i>
+        </span>
+        <input type="hidden" id="bwg_tags_id_<?php echo $cur_gal_id;  ?>" value=""/>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <script>
+      jQuery(".search_tags").SumoSelect();
+      function select_tag( current_view, form_id, cur_gal_id, album_gallery_id, type ){
+        spider_frontend_ajax(form_id, current_view, cur_gal_id, album_gallery_id, '', type, 1);
+      };	  
+      function clear_input_<?php echo $cur_gal_id; ?> (cur_gal_id) {
+        jQuery("#bwg_tag_id_" + cur_gal_id).val('');
+      } 
+      function searchTags(obj){
+        var valthis = jQuery(obj).val().toLowerCase();
+        var num = 0;
+        jQuery('#bwg_tag_container .options li label').each(function () {
+          var text = jQuery(this).text().toLowerCase();
+          if(text.indexOf(valthis) != -1) { 
+          jQuery(this).closest("li").show();
+          } 
+          else{ 
+          jQuery(this).closest("li").hide();
+          }
+        });	 
+      }
+    </script>
     <?php
   }
 

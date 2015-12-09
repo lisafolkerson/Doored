@@ -5,27 +5,27 @@
       <h3 class="sidebarTitle" itemprop="name">Shows</h3> 
 
       <?php $latestShowPosts = new WP_query( // custom query to display testimonials on about us page
-              array(
-                  'post_type' => 'show',
-                  )
-              ); ?>
+        array(
+          'post_type' => 'show'
+          )
+      ); ?>
 
       <?php if ($latestShowPosts->have_posts() ) : ?>
-          <?php while ( $latestShowPosts->have_posts() ) : $latestShowPosts->the_post(); ?> 
-              <div class="single-entry entry-show">
+        <?php while ( $latestShowPosts->have_posts() ) : $latestShowPosts->the_post(); ?> 
+          <div class="single-entry entry-show">
 
-              <?php $image = get_field('show_image');
-                if( !empty($image) ): ?>
-                <a href="<?php the_permalink(); ?>" class="a__img"><?php
-                    if( $image ) {
-                      echo wp_get_attachment_image( $image );
-                    }
-                    ?></a>
-                <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
-              <?php endif; ?>
-              </div><!--end .single-entry-->  
-              <?php //endif; ?>
-          <?php endwhile; ?>
+          <?php $image = get_field('show_image');
+            if( !empty($image) ): ?>
+            <a href="<?php the_permalink(); ?>" class="a__img"><?php
+              if( $image ) {
+                echo wp_get_attachment_image( $image );
+              }
+              ?></a>
+            <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
+          <?php endif; ?>
+          </div><!--end .single-entry-->  
+          <?php //endif; ?>
+        <?php endwhile; ?>
       <?php endif; ?>   
       <?php //wp_reset_postdata(); ?>
 
@@ -35,7 +35,7 @@
         <h3 class="sidebarTitle" itemprop="name">Artists</h3>
 
         <?php $latestArtistPosts = new WP_Query(array(
-            'post_type' => 'artist', //only want artist posts
+            'post_type' => 'artist' //only want artist posts
         )) ?>
 
         <?php if ($latestArtistPosts->have_posts()) while($latestArtistPosts->have_posts()) : $latestArtistPosts->the_post(); ?>

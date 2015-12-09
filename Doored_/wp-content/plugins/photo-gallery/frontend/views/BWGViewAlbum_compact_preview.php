@@ -85,6 +85,9 @@ class BWGViewAlbum_compact_preview {
     if (!isset($params['compuct_album_enable_page'])) {
       $params['compuct_album_enable_page'] = 1;
     }
+    if (!isset($params['show_tag_box'])) {
+      $params['show_tag_box'] = 0;
+    }
     $options_row = $this->model->get_options_row_data();
     if (!isset($params['show_album_name'])) {
       $params['show_album_name'] = $options_row->show_album_name;
@@ -267,6 +270,7 @@ class BWGViewAlbum_compact_preview {
       $params_array['watermark_height'] = $params['watermark_height'];
     }
     $params_array_hash = $params_array;
+    $tags_rows = $this->model->get_tags_rows_data($album_gallery_id);
     ?>	
     <style>
       #bwg_container1_<?php echo $bwg; ?> #bwg_container2_<?php echo $bwg; ?> .bwg_album_thumb_<?php echo $bwg; ?> {
@@ -576,6 +580,9 @@ class BWGViewAlbum_compact_preview {
           if (isset($params['show_sort_images']) && $params['show_sort_images'] && $type == 'gallery') {
             WDWLibrary::ajax_html_frontend_sort_box('gal_front_form_' . $bwg, $bwg, $album_gallery_div_id, $params['sort_by'], $params['search_box_width']);
           }
+          if (isset($params['show_tag_box']) && $params['show_tag_box'] && $type == 'gallery') {
+            WDWLibrary::ajax_html_frontend_search_tags('gal_front_form_' . $bwg, $bwg, $album_gallery_div_id, $images_count, $tags_rows);
+          }
           ?>
           <div id="<?php echo $form_child_div_id; ?>" style="<?php echo $form_child_div_style; ?>">
             <div id="ajax_loading_<?php echo $bwg; ?>" style="position:absolute;width: 100%; z-index: 115; text-align: center; height: 100%; vertical-align: middle; display: none;">
@@ -776,7 +783,7 @@ class BWGViewAlbum_compact_preview {
                   $thumb_top = ($params['compuct_album_image_thumb_height'] - $image_thumb_height) / 2;
                     ?>
 
-                    <a <?php echo ($params['thumb_click_action'] == 'open_lightbox' ? (' class="bwg_lightbox_' . $bwg . '"' . ($options_row->enable_seo ? ' href="' . ($is_embed ? $image_row->thumb_url : site_url() . '/' . $WD_BWG_UPLOAD_DIR . $image_row->image_url) . '"' : '') . ' data-image-id="' . $image_row->id . '" data-gallery-id="' . $album_gallery_id . '"') : ($image_row->redirect_url ? 'href="' . $image_row->redirect_url . '" target="' .  ($params['thumb_link_target'] ? '_blank' : '')  . '"' : '')) ?>>
+                    <a <?php echo ($params['thumb_click_action'] == 'open_lightbox' ? (' class="bwg_lightbox_' . $bwg . '"' . ($options_row->enable_seo ? ' href="' . ($is_embed ? $image_row->thumb_url : site_url() . '/' . $WD_BWG_UPLOAD_DIR . $image_row->image_url) . '"' : '') . ' data-image-id="' . $image_row->id . '" data-gallery-id="' . $album_gallery_id . '"') : ($params['thumb_click_action'] == 'redirect_to_url' && $image_row->redirect_url ? 'href="' . $image_row->redirect_url . '" target="' .  ($params['thumb_link_target'] ? '_blank' : '')  . '"' : '')) ?>>
                     <span class="bwg_standart_thumb_<?php echo $bwg; ?>">
                       <?php
                       if ($params['compuct_album_image_title'] == 'show' && $theme_row->album_compact_thumb_title_pos == 'top') {
@@ -843,7 +850,8 @@ class BWGViewAlbum_compact_preview {
     </div>
     <script>
       function bwg_gallery_box_<?php echo $bwg; ?>(gallery_id, image_id) {
-        spider_createpopup('<?php echo addslashes(add_query_arg($params_array, admin_url('admin-ajax.php'))); ?>&gallery_id=' + gallery_id + '&image_id=' + image_id, '<?php echo $bwg; ?>', '<?php echo $params['popup_width']; ?>', '<?php echo $params['popup_height']; ?>', 1, 'testpopup', 5);
+        var filterTags = jQuery("#bwg_tags_id_bwg_album_compact_<?php echo $bwg; ?>" ).val() ? jQuery("#bwg_tags_id_bwg_album_compact_<?php echo $bwg; ?>" ).val() : 0;
+        spider_createpopup('<?php echo addslashes(add_query_arg($params_array, admin_url('admin-ajax.php'))); ?>&gallery_id=' + gallery_id + '&image_id=' + image_id + "&filter_tag_<?php echo $bwg; ?>=" +  filterTags, '<?php echo $bwg; ?>', '<?php echo $bwg; ?>', '<?php echo $params['popup_width']; ?>', '<?php echo $params['popup_height']; ?>', 1, 'testpopup', 5);
       }
       function bwg_document_ready_<?php echo $bwg; ?>() {
         var bwg_touch_flag = false;

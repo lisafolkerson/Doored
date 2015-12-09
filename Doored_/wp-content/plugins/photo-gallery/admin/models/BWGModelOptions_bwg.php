@@ -155,13 +155,10 @@ class BWGModelOptions_bwg {
       $row->enable_loop = 1;
       $row->enable_addthis = 0;
       $row->addthis_profile_id = '';
-      
-      //carousel
-    
+
       $row->carousel_interval = 5;
       $row->carousel_width = 300;
       $row->carousel_height = 300;
-	    /*$row->carousel_title_full_width = 620;*/   
       $row->carousel_image_column_number = 5;
       $row->carousel_image_par = 0.75;
       $row->carousel_enable_autoplay = 0;
@@ -171,6 +168,11 @@ class BWGModelOptions_bwg {
       $row->carousel_prev_next_butt = 1;
       $row->carousel_play_pause_butt = 1;
       $row->permissions = 'manage_options';
+      $row->facebook_app_id = '';
+      $row->facebook_app_secret = '';
+      $row->show_tag_box = 0;
+      $row->show_hide_custom_post = 0;
+      $row->show_hide_post_meta = 0;
     }
     return $row;
   }

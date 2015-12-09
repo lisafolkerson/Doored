@@ -499,7 +499,7 @@ class BWGViewImage_browser {
                       }
                       if (!$is_embed) {
                       ?>
-                        <a style="position:relative;" <?php echo ($params['thumb_click_action'] == 'open_lightbox' ? (' class="bwg_lightbox_' . $bwg . '" data-image-id="' . $image_row->id . '"') : ($image_row->redirect_url ? 'href="' . $image_row->redirect_url . '" target="' .  ($params['thumb_link_target'] ? '_blank' : '')  . '"' : '')) ?>>
+                        <a style="position:relative;" <?php echo ($params['thumb_click_action'] == 'open_lightbox' ? (' class="bwg_lightbox_' . $bwg . '" data-image-id="' . $image_row->id . '"') : ($params['thumb_click_action'] == 'redirect_to_url' && $image_row->redirect_url ? 'href="' . $image_row->redirect_url . '" target="' .  ($params['thumb_link_target'] ? '_blank' : '')  . '"' : '')) ?>>
                           <img class="bwg_image_browser_img_<?php echo $bwg; ?>" src="<?php echo site_url() . '/' . $WD_BWG_UPLOAD_DIR . $image_row->image_url; ?>" alt="<?php echo $image_row->alt; ?>" />
                         </a>
                       <?php 
@@ -596,6 +596,7 @@ class BWGViewImage_browser {
           jQuery('div[id^="bwg_container"]').bind("contextmenu", function (e) {
             return false;
           });
+          jQuery('div[id^="bwg_container"]').css('webkitTouchCallout','none');
           <?php
         }
         ?>

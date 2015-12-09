@@ -97,7 +97,7 @@ function bwg_popup_fullscreen() {
 }
 
 function bwg_thumb_click_action() {
-  if (!jQuery("#thumb_click_action_2").is(':checked')) {
+  if (jQuery("#thumb_click_action_1").is(':checked')) {
     jQuery("#tr_thumb_link_target").css('display', 'none');
     jQuery("#tbody_popup").css('display', '');
     jQuery("#tr_popup_width_height").css('display', '');
@@ -129,7 +129,7 @@ function bwg_thumb_click_action() {
     bwg_popup_fullscreen();
   }
   else {
-    jQuery("#tr_thumb_link_target").css('display', '');
+    jQuery("#tr_thumb_link_target").css('display', jQuery("#thumb_click_action_2").is(':checked') ? '' : 'none');
     jQuery("#tbody_popup").css('display', 'none');
     jQuery("#tbody_popup_ctrl_btn").css('display', 'none');
   }
@@ -146,7 +146,7 @@ function bwg_show_search_box() {
 
 function bwg_change_compuct_album_view_type() {
   if (jQuery("input[name=compuct_album_view_type]:checked").val() == 'thumbnail') {
-    jQuery("#compuct_album_image_thumb_dimensions").html('Image thumbnail dimensions: ');
+    jQuery("#compuct_album_image_thumb_dimensions").html(bwg_image_thumb);
     jQuery("#compuct_album_image_thumb_dimensions_x").css('display', '');
     jQuery("#compuct_album_image_thumb_width").css('display', '');
     jQuery("#compuct_album_image_thumb_height").css('display', '');
@@ -158,7 +158,7 @@ function bwg_change_compuct_album_view_type() {
   }
   
   else if(jQuery("input[name=compuct_album_view_type]:checked").val() == 'masonry'){
-    jQuery("#compuct_album_image_thumb_dimensions").html('Image thumbnail width: '); 
+    jQuery("#compuct_album_image_thumb_dimensions").html(bwg_image_thumb_width); 
     jQuery("#compuct_album_image_thumb_dimensions_x").css('display', 'none');
     jQuery("#compuct_album_image_thumb_width").css('display', '');
     jQuery("#compuct_album_image_thumb_height").css('display', 'none');
@@ -177,12 +177,12 @@ function bwg_change_compuct_album_view_type() {
     jQuery("#tr_compuct_album_resizable_mosaic").css('display', '');
     jQuery("#tr_compuct_album_mosaic_total_width").css('display', '');
     if(jQuery("input[name=compuct_album_mosaic_hor_ver]:checked").val() == 'vertical'){
-      jQuery("#compuct_album_image_thumb_dimensions").html('Image thumbnail width: ');
+      jQuery("#compuct_album_image_thumb_dimensions").html(bwg_image_thumb_width);
       jQuery("#compuct_album_image_thumb_height").css('display', 'none');
       jQuery("#compuct_album_image_thumb_width").css('display', '');
     }
     else{
-      jQuery("#compuct_album_image_thumb_dimensions").html('Image thumbnail height: ');
+      jQuery("#compuct_album_image_thumb_dimensions").html(bwg_image_thumb_height);
       jQuery("#compuct_album_image_thumb_width").css('display', 'none');
       jQuery("#compuct_album_image_thumb_height").css('display', '');
 
@@ -194,7 +194,7 @@ function bwg_change_compuct_album_view_type() {
 
 function bwg_change_extended_album_view_type() {
   if (jQuery("input[name=extended_album_view_type]:checked").val() == 'thumbnail') {
-    jQuery("#extended_album_image_thumb_dimensions").html('Image thumbnail dimensions: ');
+    jQuery("#extended_album_image_thumb_dimensions").html(bwg_image_thumb);
     jQuery("#extended_album_image_thumb_dimensions_x").css('display', '');
     jQuery("#extended_album_image_thumb_width").css('display', '');
     jQuery("#extended_album_image_thumb_height").css('display', '');
@@ -206,7 +206,7 @@ function bwg_change_extended_album_view_type() {
   }
   
   else if(jQuery("input[name=extended_album_view_type]:checked").val() == 'masonry'){
-    jQuery("#extended_album_image_thumb_dimensions").html('Image thumbnail width: '); 
+    jQuery("#extended_album_image_thumb_dimensions").html(bwg_image_thumb_width); 
     jQuery("#extended_album_image_thumb_dimensions_x").css('display', 'none');
     jQuery("#extended_album_image_thumb_width").css('display', '');
     jQuery("#extended_album_image_thumb_height").css('display', 'none');
@@ -224,12 +224,12 @@ function bwg_change_extended_album_view_type() {
     jQuery("#tr_extended_album_resizable_mosaic").css('display', '');
     jQuery("#tr_extended_album_mosaic_total_width").css('display', '');
     if(jQuery("input[name=extended_album_mosaic_hor_ver]:checked").val() == 'vertical'){
-      jQuery("#extended_album_image_thumb_dimensions").html('Image thumbnail width: ');
+      jQuery("#extended_album_image_thumb_dimensions").html(bwg_image_thumb_width);
       jQuery("#extended_album_image_thumb_height").css('display', 'none');
       jQuery("#extended_album_image_thumb_width").css('display', '');
     }
     else{
-      jQuery("#extended_album_image_thumb_dimensions").html('Image thumbnail height: ');
+      jQuery("#extended_album_image_thumb_dimensions").html(bwg_image_thumb_height);
       jQuery("#extended_album_image_thumb_width").css('display', 'none');
       jQuery("#extended_album_image_thumb_height").css('display', '');
 
@@ -395,8 +395,8 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_sort_by").css('display', '');
       jQuery("#tr_order_by").css('display', '');
       jQuery("#tr_show_search_box").css('display', '');
-      bwg_change_label('image_column_number_label', 'Max. number of image columns: ');
-      bwg_change_label('thumb_width_height_label', 'Image thumbnail dimensions: ');
+      bwg_change_label('image_column_number_label', bwg_max_column);
+      bwg_change_label('thumb_width_height_label', bwg_image_thumb);
       jQuery('#thumb_width').show();
       jQuery('#thumb_height').show();
       jQuery('#thumb_width_height_separator').show();
@@ -407,6 +407,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_thumb_width_height").css('display', '');
 			jQuery("#tr_show_sort_images").css('display', '');
       jQuery("#tr_load_more_image_count").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       bwg_show_search_box();
       jQuery("#bwg_pro_version").html('Thumbnails');
       jQuery("#bwg_pro_version_link").attr("href", "http://wpdemo.web-dorado.com/thumbnails-view-2/");
@@ -419,15 +420,16 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_order_by").css('display', '');
       jQuery("#tr_show_search_box").css('display', '');
 			jQuery("#tr_show_sort_images").css('display', '');
+			jQuery("#tr_show_tag_box").css('display', '');
       if (jQuery("input[name=masonry_hor_ver]:checked").val() == 'horizontal') {
         bwg_change_label('image_column_number_label', 'Number of image rows: ');
-        bwg_change_label('thumb_width_height_label', 'Image thumbnail height: ');
+        bwg_change_label('thumb_width_height_label', bwg_image_thumb_height);
         jQuery('#thumb_width').hide();
         jQuery('#thumb_height').show();
       }
       else {
-        bwg_change_label('image_column_number_label', 'Max. number of image columns: ');
-        bwg_change_label('thumb_width_height_label', 'Image thumbnail width: ');
+        bwg_change_label('image_column_number_label', bwg_max_column);
+        bwg_change_label('thumb_width_height_label', bwg_image_thumb_width);
         jQuery('#thumb_width').show();
         jQuery('#thumb_height').hide();
       }
@@ -449,13 +451,14 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_order_by").css('display', '');
       jQuery("#tr_show_search_box").css('display', '');
       jQuery("#tr_show_sort_images").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       if (jQuery("input[name=mosaic_hor_ver]:checked").val() == 'horizontal') {
-        bwg_change_label('thumb_width_height_label', 'Image thumbnail height: ');
+        bwg_change_label('thumb_width_height_label', bwg_image_thumb_height);
         jQuery('#thumb_width').hide();
         jQuery('#thumb_height').show();
       }
       else {
-        bwg_change_label('thumb_width_height_label', 'Image thumbnail width: ');
+        bwg_change_label('thumb_width_height_label', bwg_image_thumb_width);
         jQuery('#thumb_width').show();
         jQuery('#thumb_height').hide();
       }
@@ -487,6 +490,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_enable_slideshow_ctrl").css('display', '');
       jQuery("#tr_enable_slideshow_filmstrip").css('display', '');
 			jQuery("#tr_show_sort_images").css('display', 'none');
+      jQuery("#tr_show_tag_box").css('display', 'none');
       if (jQuery("input[name=enable_slideshow_filmstrip]:checked").val() == 1) {
         bwg_enable_disable('', 'tr_slideshow_filmstrip_height', 'slideshow_filmstrip_yes');
       }
@@ -527,6 +531,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_image_browser_width_height").css('display', '');
       jQuery("#tr_image_browser_title_enable").css('display', '');
       jQuery("#tr_image_browser_description_enable").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', 'none');
       bwg_show_search_box();
       jQuery("#bwg_pro_version").html('Image Browser');
       jQuery("#bwg_pro_version_link").attr("href", "http://wpdemo.web-dorado.com/image-browser-view/");
@@ -555,6 +560,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_compuct_album_mosaic_total_width").css('display', '');
       jQuery("#tr_compuct_album_load_more_image_count").css('display', '');
       jQuery("#tr_compuct_albums_per_page_load_more").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       bwg_change_compuct_album_view_type();
       bwg_show_search_box();
       jQuery("#bwg_pro_version").html('Compact Album');
@@ -583,6 +589,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_extended_album_mosaic_total_width").css('display', '');
       jQuery("#tr_extended_album_load_more_image_count").css('display', '');
       jQuery("#tr_extended_albums_per_page_load_more").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       bwg_change_extended_album_view_type();
       bwg_show_search_box();
       jQuery("#bwg_pro_version").html('Extended Album');
@@ -605,6 +612,7 @@ function bwg_gallery_type(gallery_type) {
 			jQuery("#tr_show_sort_images").css('display', '');
       jQuery("#tr_masonry_album_load_more_image_count").css('display', '');
       jQuery("#tr_masonry_albums_per_page_load_more").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       //bwg_change_masonry_album_view_type();
       bwg_show_search_box();
       break;
@@ -621,6 +629,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_blog_style_enable_page").css('display', '');
 			jQuery("#tr_show_sort_images").css('display', '');
       jQuery("#tr_blog_style_load_more_image_count").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', '');
       bwg_show_search_box();
       break;
     }
@@ -639,6 +648,7 @@ function bwg_gallery_type(gallery_type) {
       jQuery("#tr_carousel_fit_containerWidth").css('display', '');
       jQuery("#tr_carousel_prev_next_butt").css('display', '');
       jQuery("#tr_carousel_play_pause_butt").css('display', '');
+      jQuery("#tr_show_tag_box").css('display', 'none');
       break;
 		}
 			

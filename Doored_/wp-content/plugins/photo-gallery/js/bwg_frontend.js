@@ -44,6 +44,7 @@ function spider_frontend_ajax(form_id, current_view, id, album_gallery_id, cur_a
   if (jQuery("#bwg_search_input_" + current_view).length > 0) { // Search box exists.
     post_data["bwg_search_" + current_view] = jQuery("#bwg_search_input_" + current_view).val();
   }
+  post_data["bwg_tag_id_" + id] = jQuery("#bwg_tag_id_" + id).val();
   // Loading.
   jQuery("#ajax_loading_" + current_view).css('display', '');
   jQuery.post(
@@ -71,7 +72,12 @@ function spider_frontend_ajax(form_id, current_view, id, album_gallery_id, cur_a
       }
     }
   ).success(function(jqXHR, textStatus, errorThrown) {
+      jQuery(".blog_style_image_buttons_conteiner_" + current_view).find(jQuery(".bwg_blog_style_img_" + current_view)).load(function(){
+        jQuery(".bwg_blog_style_img_" + current_view).closest(jQuery(".blog_style_image_buttons_conteiner_" + current_view)).show();
+      })
     jQuery("#ajax_loading_" + current_view).css('display', 'none');
+    jQuery("#bwg_tags_id_" + id).val(jQuery("#bwg_tag_id_" + id).val());
+
     if (jQuery(".pagination-links_" + current_view).length) {
       jQuery("html, body").animate({scrollTop: jQuery('#' + form_id).offset().top - 150}, 500);
     }

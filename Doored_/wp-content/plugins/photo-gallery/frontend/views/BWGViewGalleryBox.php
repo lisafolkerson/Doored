@@ -46,6 +46,7 @@ class BWGViewGalleryBox {
     $popup_info_full_width = (isset($_GET['popup_info_full_width']) ? esc_html($_GET['popup_info_full_width']) : 0);
     $popup_enable_rate = (isset($_GET['popup_enable_rate']) ? esc_html($_GET['popup_enable_rate']) : 0);
     $popup_hit_counter = (isset($_GET['popup_hit_counter']) ? esc_html($_GET['popup_hit_counter']) : 0);
+    $show_tag_box = (isset($_GET['show_tag_box']) ? esc_html($_GET['show_tag_box']) : 0);
 
     if ($enable_image_filmstrip) {
       $image_filmstrip_height = (isset($_GET['image_filmstrip_height']) ? esc_html($_GET['image_filmstrip_height']) : '20');
@@ -86,7 +87,7 @@ class BWGViewGalleryBox {
       $image_rows = $this->model->get_image_rows_data_tag($tag_id, $sort_by, $order_by);
     }
     else {
-      $image_rows = $this->model->get_image_rows_data($gallery_id, $sort_by, $order_by);
+      $image_rows = $this->model->get_image_rows_data($gallery_id, $bwg, $sort_by, $order_by);
     }
     $image_id = (isset($_POST['image_id']) ? (int) $_POST['image_id'] : $current_image_id);
     $comment_rows = $this->model->get_comment_rows_data($image_id);
@@ -247,14 +248,14 @@ class BWGViewGalleryBox {
           ?>
           border-bottom-left-radius: <?php echo $theme_row->lightbox_ctrl_cont_border_radius; ?>px;
           border-bottom-right-radius: <?php echo $theme_row->lightbox_ctrl_cont_border_radius; ?>px;
-          top: <?php echo $theme_row->lightbox_ctrl_btn_height + 2 * $theme_row->lightbox_ctrl_btn_margin_top; ?>px;
+          /*top: <?php echo $theme_row->lightbox_ctrl_btn_height + 2 * $theme_row->lightbox_ctrl_btn_margin_top; ?>px;*/
           <?php
         }
         else {
           ?>
           border-top-left-radius: <?php echo $theme_row->lightbox_ctrl_cont_border_radius; ?>px;
           border-top-right-radius: <?php echo $theme_row->lightbox_ctrl_cont_border_radius; ?>px;
-          bottom: <?php echo $theme_row->lightbox_ctrl_btn_height + 2 * $theme_row->lightbox_ctrl_btn_margin_top; ?>px;
+          /*bottom: <?php echo $theme_row->lightbox_ctrl_btn_height + 2 * $theme_row->lightbox_ctrl_btn_margin_top; ?>px;*/
           <?php
         }?>
         cursor: pointer;
@@ -899,7 +900,7 @@ class BWGViewGalleryBox {
               }
               elseif ($watermark_type == 'text') {
               ?>
-              <a class="bwg_none_selectable bwg_watermark_text bwg_watermark" target="_blank" href="<?php echo $watermark_link; ?>"><?php echo $watermark_text; ?></a>
+              <a class="bwg_none_selectable bwg_watermark_text bwg_watermark" target="_blank" href="<?php echo $watermark_link; ?>"><?php echo stripslashes($watermark_text); ?></a>
               <?php
               }
               ?>
@@ -942,7 +943,7 @@ class BWGViewGalleryBox {
                       <?php 
                       }
                       else {  /*$is_embed*/ ?>
-                        <span class="bwg_popup_embed bwg_popup_watermark">
+                        <span class="bwg_popup_embed bwg_popup_watermark" style="diplay: table; table-layout: fixed;">
                         <?php
                         if($is_embed_instagram_post){
                           $post_width = $image_width - ($filmstrip_direction == 'vertical' ? $image_filmstrip_width : 0);
@@ -1368,38 +1369,38 @@ class BWGViewGalleryBox {
         });
         if (typeof data[key] != 'undefined') {
           if (typeof data[current_key] != 'undefined') {
-          if (jQuery('.bwg_ctrl_btn').hasClass('fa-pause')) {
-            bwg_play();
-          }
-          if (!from_effect) {
-            /* Change image key.*/
-            jQuery("#bwg_current_image_key").val(key);
-            /*if (current_key == '-1') {
-              current_key = jQuery(".bwg_thumb_active").children("img").attr("image_key");
-            }*/
-          }
-          if (bwg_trans_in_progress) {
-            event_stack.push(current_key + '-' + key);
-            return;
-          }
-          var direction = 'right';
-          if (bwg_current_key > key) {
-            var direction = 'left';
-          }
-          else if (bwg_current_key == key) {
-            return;
-          }
-          /*jQuery("#spider_popup_left").hover().css({"display": "inline"});
-          jQuery("#spider_popup_right").hover().css({"display": "inline"});*/
-          jQuery(".bwg_image_count").html(data[key]["number"]);
-          /* Set filmstrip initial position.*/
-          jQuery(".bwg_watermark").css({display: 'none'});
-          /* Set active thumbnail position.*/
-          bwg_current_filmstrip_pos = key * (jQuery(".bwg_filmstrip_thumbnail").width() + 2 + 2 * <?php echo $theme_row->lightbox_filmstrip_thumb_border_width; ?>);
-          bwg_current_key = key;
-          /* Change image id.*/
-          jQuery("#bwg_popup_image").attr('image_id', data[key]["id"]);
-          /* Change image title, description.*/
+            if (jQuery(".bwg_play_pause") && !jQuery(".bwg_play_pause").hasClass("fa-play")) {
+              bwg_play();
+            }
+            if (!from_effect) {
+              /* Change image key.*/
+              jQuery("#bwg_current_image_key").val(key);
+              /*if (current_key == '-1') {
+                current_key = jQuery(".bwg_thumb_active").children("img").attr("image_key");
+              }*/
+            }
+            if (bwg_trans_in_progress) {
+              event_stack.push(current_key + '-' + key);
+              return;
+            }
+            var direction = 'right';
+            if (bwg_current_key > key) {
+              var direction = 'left';
+            }
+            else if (bwg_current_key == key) {
+              return;
+            }
+            /*jQuery("#spider_popup_left").hover().css({"display": "inline"});
+            jQuery("#spider_popup_right").hover().css({"display": "inline"});*/
+            jQuery(".bwg_image_count").html(data[key]["number"]);
+            /* Set filmstrip initial position.*/
+            jQuery(".bwg_watermark").css({display: 'none'});
+            /* Set active thumbnail position.*/
+            bwg_current_filmstrip_pos = key * (jQuery(".bwg_filmstrip_thumbnail").width() + 2 + 2 * <?php echo $theme_row->lightbox_filmstrip_thumb_border_width; ?>);
+            bwg_current_key = key;
+            /* Change image id.*/
+            jQuery("#bwg_popup_image").attr('image_id', data[key]["id"]);
+            /* Change image title, description.*/
             jQuery(".bwg_image_title").html(jQuery('<span style="display: block;" />').html(data[key]["alt"]).text());
             jQuery(".bwg_image_description").html(jQuery('<span style="display: block;" />').html(data[key]["description"]).text());
             jQuery(".bwg_image_info").removeAttr("style");
@@ -1673,6 +1674,12 @@ class BWGViewGalleryBox {
             jQuery(".spider_popup_close").attr("class", "bwg_ctrl_btn spider_popup_close_fullscreen");
           }
         }
+        if ( "<?php echo $theme_row->lightbox_ctrl_btn_pos ;?>" == 'bottom') {
+          jQuery(".bwg_toggle_container").css("bottom", jQuery(".bwg_ctrl_btn_container").height() + "px");
+        }
+        if ( "<?php echo $theme_row->lightbox_ctrl_btn_pos ;?>" == 'top') {
+          jQuery(".bwg_toggle_container").css("top", jQuery(".bwg_ctrl_btn_container").height() + "px");
+        }
       }
       jQuery(window).resize(function() {
         if (typeof jQuery().fullscreen !== 'undefined') {
@@ -1790,13 +1797,14 @@ class BWGViewGalleryBox {
           jQuery(".bwg_image_wrap").bind("contextmenu", function (e) {
             return false;
           });
+           jQuery(".bwg_image_wrap").css('webkitTouchCallout','none');
           <?php
         }
         ?>
         if (typeof jQuery().swiperight !== 'undefined') {
           if (jQuery.isFunction(jQuery().swiperight)) {
             jQuery('#spider_popup_wrap').swiperight(function () {
-              bwg_change_image(parseInt(jQuery('#bwg_current_image_key').val()), parseInt(jQuery('#bwg_current_image_key').val()) - 1, data)
+            bwg_change_image(parseInt(jQuery('#bwg_current_image_key').val()), (parseInt(jQuery('#bwg_current_image_key').val()) + data.length - 1) % data.length, data);
               return false;
             });
           }
@@ -1804,7 +1812,7 @@ class BWGViewGalleryBox {
         if (typeof jQuery().swipeleft !== 'undefined') {
           if (jQuery.isFunction(jQuery().swipeleft)) {
             jQuery('#spider_popup_wrap').swipeleft(function () {
-              bwg_change_image(parseInt(jQuery('#bwg_current_image_key').val()), parseInt(jQuery('#bwg_current_image_key').val()) + 1, data);
+            bwg_change_image(parseInt(jQuery('#bwg_current_image_key').val()), (parseInt(jQuery('#bwg_current_image_key').val()) + 1) % data.length, data);
               return false;
             });
           }
@@ -2183,8 +2191,8 @@ class BWGViewGalleryBox {
         });
         /* Play/pause.*/
         jQuery(".bwg_play_pause, .bwg_popup_image").on(bwg_click, function () {
-          if (jQuery(".bwg_ctrl_btn").hasClass("fa-play")) {
-            /* PLay.*/
+          if (jQuery(".bwg_play_pause") && jQuery(".bwg_play_pause").hasClass("fa-play")) {
+            /* Play.*/
             bwg_play();
             jQuery(".bwg_play_pause").attr("title", "<?php echo __('Pause', 'bwg'); ?>");
             jQuery(".bwg_play_pause").attr("class", "bwg_ctrl_btn bwg_play_pause fa fa-pause");
@@ -2287,7 +2295,6 @@ class BWGViewGalleryBox {
           
           post_height = post_height;
           post_width = post_width;
-          
           var top_pos = (0.5 *( h-post_height));
             jQuery(this).parent().css({
               height: post_height,
@@ -2316,9 +2323,9 @@ class BWGViewGalleryBox {
       }
       jQuery(window).focus(function() {
         /* event_stack = [];*/
-        if (!jQuery(".bwg_ctrl_btn").hasClass("fa-play")) {
-          bwg_play();
-        }
+          if (jQuery(".bwg_play_pause") && !jQuery(".bwg_play_pause").hasClass("fa-play")) {
+            bwg_play();
+          }
         /*var i = 0;
         jQuery(".bwg_slider").children("span").each(function () {
           if (jQuery(this).css('opacity') == 1) {
@@ -2331,6 +2338,7 @@ class BWGViewGalleryBox {
         event_stack = [];
         window.clearInterval(bwg_playInterval);
       });
+      var lightbox_ctrl_btn_pos = "<?php echo $theme_row->lightbox_ctrl_btn_pos ;?>";
     </script>
     <?php
     die();

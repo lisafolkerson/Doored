@@ -41,7 +41,7 @@ class BWGModelGalleryBox {
     return $row;
   }
 
-  public function get_image_rows_data($gallery_id, $sort_by, $order_by = 'asc') {
+  public function get_image_rows_data($gallery_id, $bwg, $sort_by, $order_by = 'asc') {
     global $wpdb;
     if ($sort_by == 'size' || $sort_by == 'resolution') {
       $sort_by = ' CAST(t1.' . $sort_by . ' AS SIGNED) ';
@@ -52,7 +52,15 @@ class BWGModelGalleryBox {
     if (preg_replace('/\s+/', '', $order_by) != 'asc') {
       $order_by = 'desc';
     }
-    $row = $wpdb->get_results($wpdb->prepare('SELECT t1.*,t2.rate FROM ' . $wpdb->prefix . 'bwg_image as t1 LEFT JOIN (SELECT rate, image_id FROM ' . $wpdb->prefix . 'bwg_image_rate WHERE ip="%s") as t2 ON t1.id=t2.image_id WHERE t1.published=1 AND t1.gallery_id="%d" ORDER BY ' . $sort_by . ' ' . $order_by, $_SERVER['REMOTE_ADDR'], $gallery_id));
+
+    $filter_tags = (isset($_REQUEST['filter_tag_'. $bwg]) && $_REQUEST['filter_tag_'. $bwg]  ) ? explode(",",$_REQUEST['filter_tag_'. $bwg]) : array();
+
+    if ($filter_tags) {
+      $row = $wpdb->get_results($wpdb->prepare('SELECT t1.*,t2.rate FROM ' . $wpdb->prefix . 'bwg_image as t1 LEFT JOIN (SELECT rate, image_id FROM ' . $wpdb->prefix . 'bwg_image_rate WHERE ip="%s") as t2 ON t1.id=t2.image_id INNER JOIN (SELECT GROUP_CONCAT( tag_id SEPARATOR ",") AS tags, image_id FROM  ' . $wpdb->prefix . 'bwg_image_tag WHERE gallery_id="' . $gallery_id . '" GROUP BY image_id) AS tag ON t1.id=tag.image_id WHERE t1.published=1 AND CONCAT(",", tag.tags, ",") REGEXP ",('.implode("|",$filter_tags).')," AND t1.gallery_id="%d" ORDER BY ' . $sort_by . ' ' . $order_by, $_SERVER['REMOTE_ADDR'], $gallery_id));
+    }
+    else {
+      $row = $wpdb->get_results($wpdb->prepare('SELECT t1.*,t2.rate FROM ' . $wpdb->prefix . 'bwg_image as t1 LEFT JOIN (SELECT rate, image_id FROM ' . $wpdb->prefix . 'bwg_image_rate WHERE ip="%s") as t2 ON t1.id=t2.image_id WHERE t1.published=1 AND t1.gallery_id="%d" ORDER BY ' . $sort_by . ' ' . $order_by, $_SERVER['REMOTE_ADDR'], $gallery_id));
+    }
     return $row;
   }
 

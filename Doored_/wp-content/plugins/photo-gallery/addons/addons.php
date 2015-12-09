@@ -17,7 +17,7 @@ function bwg_addons_display() {
     ),
     'photo-gallery-export'   => array(
       'name'        => __('Photo Gallery Export / Import', 'bwg'),
-      'url'         => '#',
+      'url'         => 'https://web-dorado.com/products/wordpress-photo-gallery-plugin/add-ons/export-import.html',
       'description' => __('Photo Gallery Export/Import helps to move created galleries and albums from one site to another. This way you can save the gallery/album options and manual modifications.', 'bwg'),
       'icon'        => '',
       'image'       => WD_BWG_URL . '/addons/images/import_export.png',
