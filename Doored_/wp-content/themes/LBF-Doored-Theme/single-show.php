@@ -5,52 +5,52 @@
 
 <div class="content">
 
-       <?php if ( have_posts() ) while ( have_posts() ) : the_post();
-        ?>
+  <?php if ( have_posts() ) while ( have_posts() ) : the_post();
+    ?>
 
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-          <div class="section-header">
-            <h2 class="entry-title"><?php the_title(); ?></h2>
-            <p><?php the_field('date') ?></p>
-          </div><!--end .section-header-->
+      <div class="section-header">
+        <h2 class="entry-title"><?php the_title(); ?></h2>
+        <p><?php the_field('date') ?></p>
+      </div><!--end .section-header-->
 
-          <div class="showImage">
-            <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube ?>
-              <?php if ( $heroType == 1 ) { ?>
-                <div class="livestream_embed">
-                  <p>livestream</p>
-                  <?php the_field('hero_video') ?>
-                </div><!--end livestream_embed-->
+      <div class="showImage">
+        <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube ?>
+          <?php if ( $heroType == 1 ) : ?>
+            <div class="livestream_embed">
+              <p>livestream</p>
+              <?php the_field('hero_video') ?>
+            </div><!--end livestream_embed-->
 
-              <?php } elseif ( $heroType == 2 ) { ?>
-                <p>youtube</p>
-                <?php get_field('hero_youtube'); ?>
+          <?php  elseif ( $heroType == 2 ) : ?>
+            <p>youtube</p>
+            <?php get_field('hero_youtube'); 
 
-              <?php } else { ?>
-                <?php $showImg = get_field('show_image'); 
-                      $size = 'full';
+            else : 
+              $showImg = get_field('show_image'); 
+              $size = 'full';
 
-                      if( $showImg ) {
-                        echo wp_get_attachment_image( $showImg, $size );
-                      }
-                ?>
+              if( $showImg ) {
+                echo wp_get_attachment_image( $showImg, $size );
+              }
+            ?>
 
-              <?php } ?>
-            </div>
+          <?php endif; ?>
+        </div>
 
-            <div class="about">
-              <?php the_field('about_show') ?>  
-            </div>
+        <div class="about">
+          <?php the_field('about_show') ?>  
+        </div>
 
-          <div class="back-n-forth">
-            <?php wp_link_pages(array(
-              'before' => '<div class="page-link"> Pages: ',
-              'after' => '</div>'
-            )); ?>
-          </div><!-- .back-n-forth -->
+        <div class="back-n-forth">
+          <?php wp_link_pages(array(
+            'before' => '<div class="page-link"> Pages: ',
+            'after' => '</div>'
+          )); ?>
+        </div><!-- .back-n-forth -->
 
-        <div id="nav-below" class="navigation">
+        <div id="nav-below" class="navigation  clearfix">
           <p class="nav-next"><?php next_post_link('%link', '%title &rarr;'); ?></p>
           <p class="nav-previous"><?php previous_post_link('%link', '&larr; %title'); ?></p>
         </div><!-- #nav-below -->
@@ -72,10 +72,10 @@
 
               <?php endwhile;
 
-          else :
-              // no rows found
-          endif;
-          ?>
+            else :
+                // no rows found
+            endif;
+            ?>
           </div><!--end .repeater-->
         </div><!-- #post-## -->
 
