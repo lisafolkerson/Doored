@@ -17,26 +17,27 @@
 
           <div class="showImage">
             <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube ?>
-              <?php if ( $heroType == 1 ) : ?>
+              <?php if ( $heroType == 1 ) { ?>
                 <div class="livestream_embed">
                   <p>livestream</p>
                   <?php the_field('hero_video') ?>
                 </div><!--end livestream_embed-->
 
-              <?php elseif ( $heroType == 2 ) : ?>
+              <?php } elseif ( $heroType == 2 ) { ?>
                 <p>youtube</p>
                 <?php get_field('hero_youtube'); ?>
 
-              <?php elseif ( $heroType == 3) : ?>
-                <p>just image</p>
-                <?php $showImg = get_field('show_image'); ?>
-                    <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+              <?php } else { ?>
+                <?php $showImg = get_field('show_image'); 
+                      $size = 'full';
 
-              <?php endif; ?>
-          </div>
+                      if( $showImg ) {
+                        echo wp_get_attachment_image( $showImg, $size );
+                      }
+                ?>
 
-          <?php $showImg = get_field('show_image'); ?>
-            <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+              <?php } ?>
+            </div>
 
             <div class="about">
               <?php the_field('about_show') ?>  
