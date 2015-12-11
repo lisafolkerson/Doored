@@ -28,16 +28,13 @@
 
       <?php if ($latestArtistPosts->have_posts()) while($latestArtistPosts->have_posts()) : $latestArtistPosts->the_post(); ?>
       
+
       <div class="single-entry entry-artist">
-       <?php $image = get_field('artist_image');
-         if( !empty($image) ): ?>
-         <a href="<?php the_permalink(); ?>" class="a__img"><?php
-             if( $image ) {
-               echo wp_get_attachment_image( $image );
-             }
-             ?></a>
-         <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
-       <?php endif; ?>
+        <?php $artistImg = get_field('artist_image'); ?>
+        <a href="<?php the_permalink(); ?>" class="a__img">
+          <img src="<?php echo $artistImg['sizes']['square']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
+        </a>
+        <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
       </div><!--end .single-entry-->
       <?php endwhile; ?>
    <?php wp_reset_postdata(); ?>
