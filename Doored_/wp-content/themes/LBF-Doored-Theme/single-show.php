@@ -16,7 +16,9 @@
       </div><!--end .section-header-->
 
       <div class="showImage">
-        <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube ?>
+        <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube 
+          
+        ?>
           <?php if ( $heroType == 1 ) : ?>
             <div class="livestream_embed">
               <p>livestream</p>
@@ -27,16 +29,14 @@
             <p>youtube</p>
             <?php get_field('hero_youtube'); 
 
-            else : 
-              $showImg = get_field('show_image'); 
-              $size = 'full';
+          else : 
+            $showImg = get_field('show_image'); 
+            $size = 'full';
 
-              if( $showImg ) {
-                echo wp_get_attachment_image( $showImg, $size );
-              }
-            ?>
-
-          <?php endif; ?>
+            if( $showImg ) :
+              echo wp_get_attachment_image( $showImg, $size );
+            endif;
+          endif; ?>
         </div>
 
         <div class="about">
@@ -71,9 +71,6 @@
               </div><!--end .pinnedItem-->
 
               <?php endwhile;
-
-            else :
-                // no rows found
             endif;
             ?>
           </div><!--end .repeater-->

@@ -24,27 +24,27 @@ get_header(); ?>
      <?php $showImg = get_field('show_image'); ?>
      <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
-       <div class="about">
-         <?php the_field('about_show') ?>  
-       </div>
+     <div class="about">
+       <?php the_field('about_show') ?>  
+     </div>
 
      <div class="repeater clearfix" id="repeater">
        <?php
        // check if the repeater field has rows of data
        if( have_rows('show_repeater') ):
          // loop through the rows of data
-           while ( have_rows('show_repeater') ) : the_row();
-               // display a sub field value
-           $rptrImg = get_sub_field('show_image'); ?>
-           <div class="item">
-            <a href="<?php the_sub_field( 'links_to' ); ?>">
-             <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
-             
-                 <p><?php the_sub_field('show_text');?></p>
-            </a>  
-          </div><!--end .pinnedItem-->
+         while ( have_rows('show_repeater') ) : the_row();
+             // display a sub field value
+         $rptrImg = get_sub_field('show_image'); ?>
+         <div class="item">
+          <a href="<?php the_sub_field( 'links_to' ); ?>">
+           <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
+           
+               <p><?php the_sub_field('show_text');?></p>
+          </a>  
+        </div><!--end .pinnedItem-->
 
-           <?php endwhile;
+        <?php endwhile;
 
        else :
            // no rows found
