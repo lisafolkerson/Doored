@@ -26,7 +26,7 @@
               <?php the_field('hero_video') ?>
             </div><!--end livestream_embed-->
 
-          <?php  elseif ( $heroType == 2 ) : ?>
+          <?php elseif ( $heroType == 2 ) : ?>
             <p>youtube</p>
             <?php get_field('hero_youtube'); 
 
@@ -78,6 +78,7 @@
         </div><!-- #post-## -->
 
       <?php endwhile; // end of the loop. ?>
+      <?php wp_reset_postdata(); ?>
 
     </div> <!-- /.content -->
 

@@ -8,7 +8,6 @@ get_header(); ?>
 <div class="main clearfix">
   <div class="container clearfix artist-page">
     <div class="content">
-
       <?php 
       remove_all_filters('posts_orderby');
       $artistPosts = new WP_Query(array(
@@ -17,12 +16,6 @@ get_header(); ?>
         'orderby' => 'rand'
       )) ?> 
 
-      <?php /*
-      $rand_posts = get_posts( $args );
-      foreach ( $rand_posts as $post ) : setup_postdata( $post ); 
-      */
-      ?>
-     
      <?php while($artistPosts->have_posts()) : $artistPosts->the_post(); ?>
 
      <div class="section-header">
@@ -38,7 +31,7 @@ get_header(); ?>
        </div>
 
        <div class="repeater clearfix" id="repeater">
-         <?php /*
+         <?php 
          // check if the repeater field has rows of data
          if( have_rows('artist_repeater') ):
            // loop through the rows of data
@@ -53,7 +46,7 @@ get_header(); ?>
           </div><!--end .pinnedItem-->
 
           <?php endwhile;
-         endif; */
+         endif; 
          ?>
          </div><!--end .repeater-->
 
