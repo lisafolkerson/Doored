@@ -9,19 +9,21 @@ get_header(); ?>
   <div class="container clearfix artist-page">
     <div class="content">
 
-     <?php $args = new WP_Query(array(
-         'orderby' => 'rand',
-         'post_type' => 'artist',
-         'posts_per_page'   => 1  
-     )) 
+      <?php 
+      remove_all_filters('posts_orderby');
+      $artistPosts = new WP_Query(array(
+        'post_type' => 'artist',
+        'posts_per_page' => 1,
+        'orderby' => 'rand'
+      )) ?> 
 
-     // $rand_posts = get_posts( $args );
-     // foreach ( $rand_posts as $post ) : 
-     //  setup_postdata( $post ); 
-
-     ?>
+      <?php /*
+      $rand_posts = get_posts( $args );
+      foreach ( $rand_posts as $post ) : setup_postdata( $post ); 
+      */
+      ?>
      
-     <?php if ($args->have_posts()) while($args->have_posts()) : $args->the_post(); ?>
+     <?php while($artistPosts->have_posts()) : $artistPosts->the_post(); ?>
 
      <div class="section-header">
        <h2 class="entry-title"><?php the_title(); ?></h2>
@@ -36,7 +38,7 @@ get_header(); ?>
        </div>
 
        <div class="repeater clearfix" id="repeater">
-         <?php
+         <?php /*
          // check if the repeater field has rows of data
          if( have_rows('artist_repeater') ):
            // loop through the rows of data
@@ -51,12 +53,12 @@ get_header(); ?>
           </div><!--end .pinnedItem-->
 
           <?php endwhile;
-         endif;
+         endif; */
          ?>
          </div><!--end .repeater-->
 
-      <?php endwhile; // end of the loop. 
-      wp_reset_postdata(); //return env back to regular functionality ?>
+      <?php endwhile; ?>
+      <?php wp_reset_postdata(); ?>
       </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>
