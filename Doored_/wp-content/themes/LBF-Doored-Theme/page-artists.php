@@ -9,12 +9,19 @@ get_header(); ?>
   <div class="container clearfix artist-page">
     <div class="content">
 
-     <?php $latestPosts = new WP_Query(array(
-         'post_type' => 'artist', //only want artist posts
-         'posts_per_page'   => 1
-     )) ?>
+     <?php $args = new WP_Query(array(
+         'orderby' => 'rand',
+         'post_type' => 'artist',
+         'posts_per_page'   => 1  
+     )) 
+
+     // $rand_posts = get_posts( $args );
+     // foreach ( $rand_posts as $post ) : 
+     //  setup_postdata( $post ); 
+
+     ?>
      
-     <?php if ($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post(); ?>
+     <?php if ($args->have_posts()) while($args->have_posts()) : $args->the_post(); ?>
 
      <div class="section-header">
        <h2 class="entry-title"><?php the_title(); ?></h2>
@@ -33,32 +40,28 @@ get_header(); ?>
          // check if the repeater field has rows of data
          if( have_rows('artist_repeater') ):
            // loop through the rows of data
-             while ( have_rows('artist_repeater') ) : the_row();
-                 // display a sub field value
-             $rptrImg = get_sub_field('artist_image'); ?>
-            <div class="item">
-              <a href="<?php the_sub_field( 'links_to' ); ?>">
-               <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
-                <p><?php the_sub_field('artist_text');?></p>
-              </a>     
-            </div><!--end .pinnedItem-->
+           while ( have_rows('artist_repeater') ) : the_row();
+               // display a sub field value
+           $rptrImg = get_sub_field('artist_image'); ?>
+          <div class="item">
+            <a href="<?php the_sub_field( 'links_to' ); ?>">
+             <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
+              <p><?php the_sub_field('artist_text');?></p>
+            </a>     
+          </div><!--end .pinnedItem-->
 
-             <?php endwhile;
-
-         else :
-             // no rows found
+          <?php endwhile;
          endif;
          ?>
          </div><!--end .repeater-->
 
-     <?php endwhile; // end of the loop. ?>
-     <?php wp_reset_postdata(); //return env back to regular functionality?>
-
-    </div> <!-- /.content -->
+      <?php endwhile; // end of the loop. 
+      wp_reset_postdata(); //return env back to regular functionality ?>
+      </div> <!-- /.content -->
 
     <?php get_sidebar(); ?>
 
   </div> <!-- /.container -->
 </div> <!-- /.main -->
-
+  
 <?php get_footer(); ?>

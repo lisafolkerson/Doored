@@ -404,6 +404,8 @@ header {
   }
 } //end .show-page/ .artist-page
 
+
+
 .nav-next, .nav-previous {
   display: inline-block;
   max-width: 50%;
@@ -455,9 +457,6 @@ header {
     box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
   }
 
-  .item img:hover a, .item img:focus a {
-    color: black;
-  }
 } // end .repeater
 
 .gutter-sizer {
@@ -466,6 +465,12 @@ header {
 
 .masonry-brick {
   width: 33.333%;
+}
+
+.show-page .item a:hover, .show-page .item a:active, .show-page .item a:focus, .artist-page .item a:hover, .artist-page .item a:active, .artist-page .item a:focus {
+  color: black;
+  border: none;
+  background: none;
 }
 
 /* =============================================================================

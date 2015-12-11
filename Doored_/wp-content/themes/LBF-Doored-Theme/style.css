@@ -170,21 +170,8 @@ body {
   color: #333;
   position: relative;
   background: #ffcc99;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffcc99 35%, #d49598 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(35%, #ffcc99), color-stop(100%, #d49598));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffcc99 35%, #d49598 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #ffcc99 35%, #d49598 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #ffcc99 35%, #d49598 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #ffcc99 35%, #d49598 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc99', endColorstr='#d49598',GradientType=0 );
-  /* IE6-9 */ }
+  background: -webkit-linear-gradient(#ffcc99 35%, #d49598 100%);
+  background: linear-gradient(#ffcc99 35%, #d49598 100%); }
 
 .container {
   max-width: 1200px;
@@ -496,14 +483,17 @@ header {
     margin-right: 0; }
   .repeater .item img:hover, .repeater .item img:focus {
     box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4); }
-  .repeater .item img:hover a, .repeater .item img:focus a {
-    color: black; }
 
 .gutter-sizer {
   width: 2%; }
 
 .masonry-brick {
   width: 33.333%; }
+
+.show-page .item a:hover, .show-page .item a:active, .show-page .item a:focus, .artist-page .item a:hover, .artist-page .item a:active, .artist-page .item a:focus {
+  color: black;
+  border: none;
+  background: none; }
 
 /* =============================================================================
                    Sidebar
@@ -668,17 +658,6 @@ header {
   top: 5vh;
   left: calc(50% - 100px); }
 
-/* =============================================================================
-
-background: -moz-linear-gradient(-45deg,  #4c4c4c 0%, #595959 12%, #b48890 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #9f777d 60%, #5a4c50 76%, #8c5d66 91%, #734647 100%); 
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4c4c4c), color-stop(12%,#595959), color-stop(25%,#b48890), color-stop(39%,#474747), color-stop(50%,#2c2c2c), color-stop(51%,#000000), color-stop(60%,#9f777d), color-stop(76%,#5a4c50), color-stop(91%,#8c5d66), color-stop(100%,#734647));
-background: -webkit-linear-gradient(-45deg,  #4c4c4c 0%,#595959 12%,#b48890 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#9f777d 60%,#5a4c50 76%,#8c5d66 91%,#734647 100%); 
-background: -o-linear-gradient(-45deg,  #4c4c4c 0%,#595959 12%,#b48890 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#9f777d 60%,#5a4c50 76%,#8c5d66 91%,#734647 100%); 
-background: -ms-linear-gradient(-45deg,  #4c4c4c 0%,#595959 12%,#b48890 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#9f777d 60%,#5a4c50 76%,#8c5d66 91%,#734647 100%); 
-background: linear-gradient(135deg,  #4c4c4c 0%,#595959 12%,#b48890 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#9f777d 60%,#5a4c50 76%,#8c5d66 91%,#734647 100%); 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#734647',GradientType=1 );
-
-   ========================================================================== */
 .grounder {
   width: 100%;
   background: #c30;

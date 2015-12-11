@@ -17,8 +17,9 @@
 
       <div class="showImage">
         <?php $heroType = get_field('hero_image'); // 1 : Video - Livestream | 2 : Video - Youtube 
-          
+
         ?>
+          <?php pre_r($heroType) ?>
           <?php if ( $heroType == 1 ) : ?>
             <div class="livestream_embed">
               <p>livestream</p>
