@@ -9,7 +9,7 @@
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="section-header">
           <h2 class="entry-title"><?php the_title(); ?></h2>
-          <a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website') ?></a> 
+          <p><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website') ?></a> 
         </div><!--end .section-header-->
 
         <?php $artistImg = get_field('artist_image'); ?>

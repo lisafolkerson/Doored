@@ -38,22 +38,18 @@ get_header(); ?>
          $rptrImg = get_sub_field('show_image'); ?>
          <div class="item">
           <a href="<?php the_sub_field( 'links_to' ); ?>">
-           <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
-           
-               <p><?php the_sub_field('show_text');?></p>
+            <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
+            <p><?php the_sub_field('show_text');?></p>
           </a>  
         </div><!--end .pinnedItem-->
 
         <?php endwhile;
-
-       else :
-           // no rows found
        endif;
        ?>
        </div><!--end .repeater-->
 
-       <?php endwhile; // end of the loop. ?>
-       <?php wp_reset_postdata(); //return env back to regular functionality?>
+       <?php endwhile; ?>
+       <?php wp_reset_postdata(); ?>
 
     </div> <!-- /.content -->
     <?php get_sidebar(); ?>

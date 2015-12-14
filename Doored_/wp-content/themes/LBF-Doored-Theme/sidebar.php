@@ -23,12 +23,12 @@
       <h3 class="sidebarTitle" itemprop="name">Artists</h3>
 
       <?php $latestArtistPosts = new WP_Query(array(
-          'post_type' => 'artist'
+        'post_type' => 'artist',
+        'orderby' => 'rand'
       )) ?>
 
       <?php if ($latestArtistPosts->have_posts()) while($latestArtistPosts->have_posts()) : $latestArtistPosts->the_post(); ?>
       
-
       <div class="single-entry entry-artist">
         <?php $artistImg = get_field('artist_image'); ?>
         <a href="<?php the_permalink(); ?>" class="a__img">
