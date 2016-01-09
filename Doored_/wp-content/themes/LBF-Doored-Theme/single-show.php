@@ -23,12 +23,12 @@
           <?php if ( $heroType == 1 ) : ?>
             <div class="livestream_embed">
               <p>livestream</p>
-              <?php the_field('hero_video') ?>
+              <?php get_field('show_video') ?>
             </div><!--end livestream_embed-->
 
           <?php elseif ( $heroType == 2 ) : ?>
             <p>youtube</p>
-            <?php get_field('hero_youtube'); 
+            <?php the_field('show_youtube'); 
 
           else : 
             $showImg = get_field('show_image'); 
