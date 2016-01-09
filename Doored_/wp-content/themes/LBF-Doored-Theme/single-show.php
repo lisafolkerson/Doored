@@ -23,7 +23,7 @@
           <?php if ( $heroType == 1 ) : ?>
             <div class="livestream_embed">
               <p>livestream</p>
-              <?php get_field('show_video') ?>
+              <?php the_field('show_video') ?>
             </div><!--end livestream_embed-->
 
           <?php elseif ( $heroType == 2 ) : ?>
