@@ -12,9 +12,15 @@
           <div class="single-entry entry-show">
             <?php $image = get_field('show_image'); ?>
             <a href="<?php the_permalink(); ?>" class="a__img">
-            <?php  if( $image ) {echo wp_get_attachment_image( $image );} ?></a>
+            <?php  if( wp_get_attachment_image( $image )) :
+              echo wp_get_attachment_image( $image ); 
+              else : ?>
+              <img src="<?php echo $image['sizes']['square']; ?>" alt="<?php echo $image['alt']; ?>">
+             <?php endif ?></a>
             <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
+          
           </div><!--end .single-entry-->  
+
           <?php endwhile; ?>
         <?php endif; ?>
       <?php wp_reset_postdata(); ?>

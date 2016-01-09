@@ -2,7 +2,6 @@
 /*
   Template Name: Shows Page
 */
-
 get_header(); ?>
 
 <div class="main clearfix">
@@ -11,7 +10,7 @@ get_header(); ?>
 
      <?php $latestPosts = new WP_Query(array(
          'post_type' => 'show', //only want show posts
-         'posts_per_page'   => 1
+         'posts_per_page' => 1
      )) ?>
      
      <?php if ($latestPosts->have_posts()) while($latestPosts->have_posts()) : $latestPosts->the_post(); ?>
@@ -32,11 +31,11 @@ get_header(); ?>
        <?php
        // check if the repeater field has rows of data
        if( have_rows('show_repeater') ):
-         // loop through the rows of data
-         while ( have_rows('show_repeater') ) : the_row();
-             // display a sub field value
-         $rptrImg = get_sub_field('show_image'); ?>
-         <div class="item">
+        // loop through the rows of data
+        while ( have_rows('show_repeater') ) : the_row();
+        // display a sub field value
+        $rptrImg = get_sub_field('show_image'); ?>
+        <div class="item">
           <a href="<?php the_sub_field( 'links_to' ); ?>">
             <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
             <p><?php the_sub_field('show_text');?></p>
@@ -44,9 +43,8 @@ get_header(); ?>
         </div><!--end .pinnedItem-->
 
         <?php endwhile;
-       endif;
-       ?>
-       </div><!--end .repeater-->
+          endif; ?>
+      </div><!--end .repeater-->
 
        <?php endwhile; ?>
        <?php wp_reset_postdata(); ?>
