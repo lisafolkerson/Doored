@@ -21,16 +21,18 @@
         ?>
           <?php // pre_r($heroType) ?>
           <?php if ( $heroType == 1 ) : ?>
-            <div class="livestream_embed">
-              <p>livestream</p>
+            <div class="heroImage  livestream_embed">
+              <!-- <p>livestream</p> -->
               <?php the_field('show_video') ?>
             </div><!--end livestream_embed-->
 
           <?php elseif ( $heroType == 2 ) : ?>
-            <p>youtube</p>
-            <?php the_field('show_youtube'); 
-
-          else : 
+            <div class="heroImage  youtube_embed">
+              <!-- <p>youtube</p> -->
+              <?php the_field('show_youtube'); ?>
+            </div>
+            
+          <?php else : 
             $showImg = get_field('show_image'); 
             $size = 'full';
 
