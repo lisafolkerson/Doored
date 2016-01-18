@@ -8,14 +8,15 @@
 
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="section-header">
-          <h2 class="entry-title"><?php the_title(); ?></h2>
+          <a href="#artistContent" class="jumpToContent  smoothScroll"><h2 class="entry-title"><?php the_title(); ?></h2></a>
           <p><a href="http://<?php the_field('website'); ?>" target="_blank"><?php the_field('website') ?></a> 
         </div><!--end .section-header-->
 
         <?php $artistImg = get_field('artist_image'); ?>
         <img src="<?php echo $artistImg['url']; ?>" alt="<?php echo $artistImg['alt']; ?>" class="artistImage">
-
-        <?php the_field('about') ?>  
+        <div id="artistContent">
+          <?php the_field('about') ?>          
+        </div>
 
         <div class="back-n-forth">
           <?php wp_link_pages(array(

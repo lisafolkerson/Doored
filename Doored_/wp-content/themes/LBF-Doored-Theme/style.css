@@ -176,7 +176,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5%; }
+  padding: 0 20px; }
 
 .content {
   width: 100%;
@@ -445,7 +445,7 @@ header {
 .show-page, .artist-page {
   margin: 0 auto;
   width: 100%;
-  padding: 0 5%; }
+  padding: 0 20px; }
   .show-page .content, .artist-page .content {
     float: left;
     width: 65%;
@@ -475,6 +475,12 @@ header {
 .nav-next:hover, .nav-previous:hover {
   background: #c30;
   color: #F4FFF2; }
+
+a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
+  text-decoration: none;
+  border: none;
+  background: none;
+  color: black; }
 
 /* =============================================================================
              Repeater
@@ -525,10 +531,10 @@ header {
   .sidebar .single-entry {
     width: 100%;
     position: relative;
-    padding: 0px 25px; }
-    .sidebar .single-entry a:hover {
-      background: #c30;
-      color: #F4FFF2; }
+    padding: 0px 25px 0 0;
+    min-height: 90px;
+    display: flex;
+    align-items: center; }
     .sidebar .single-entry img {
       display: inline-block;
       border-radius: 50%;
@@ -538,14 +544,19 @@ header {
     .sidebar .single-entry .entry-name {
       font-size: 20px;
       display: inline-block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      margin: 0 15px;
+      margin: 0 0 0 100px;
       color: black; }
+    .sidebar .single-entry a.a__img {
+      display: inline-block;
+      max-width: 50%;
+      position: absolute; }
     .sidebar .single-entry a.a__img:hover, .sidebar .single-entry a.a__img:focus, .sidebar .single-entry a.a__img:active .showImage {
       border: none;
       background: none; }
+  .sidebar .single-entry:hover .entry-name, .sidebar .single-entry:focus .entry-name, .sidebar .single-entry:active .entry-name {
+    background: #c30;
+    color: #F4FFF2;
+    border: none; }
 
 .sidebar ul {
   margin: 0;
@@ -592,6 +603,12 @@ header {
    ========================================================================== */
 .page-id-83 {
   text-align: center; }
+
+/* =============================================================================
+            Single Media Page
+   ========================================================================== */
+.single-attachment a:hover, .single-attachment a:focus, .single-attachment a:active {
+  border: none; }
 
 /* =============================================================================
                    Error

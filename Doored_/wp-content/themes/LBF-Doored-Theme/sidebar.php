@@ -28,7 +28,9 @@
     <?php elseif ( is_page( 'artists' ) || is_singular( 'artist' ) ): ?>        
       <h3 class="sidebarTitle" itemprop="name">Artists</h3>
 
-      <?php $latestArtistPosts = new WP_Query(array(
+      <?php 
+        remove_all_filters('posts_orderby');
+        $latestArtistPosts = new WP_Query(array(
         'post_type' => 'artist',
         'orderby' => 'rand'
       )) ?>

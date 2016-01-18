@@ -52,9 +52,9 @@ $(function(){
 	     $container.masonry({
 	     	itemSelector: '.item',
 	     	columnWidth: '.masonry-brick',
-	     	// gutter: '.gutter-sizer',
 	     	percentPosition: true
 	    });
 	});
+
 
 }); // end  docReady
