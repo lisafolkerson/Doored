@@ -21,7 +21,15 @@
 
 		#menu-header-menu li.menu-item {
 			font-size: 16px;
-			margin: 0 auto;
+			margin: 0 20px;
+			background: $textAccent;
+			box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+			font-family: 'Kite One', sans-serif;
+		}
+
+		#menu-header-menu li.menu-item a:hover, #menu-header-menu li.menu-item a:focus, #menu-header-menu li.menu-item a:active {
+			color: $watchNow;
+			border: none;
 		}
 
 	}// end header

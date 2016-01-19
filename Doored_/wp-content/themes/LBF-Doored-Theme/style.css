@@ -174,7 +174,6 @@ body {
   background: linear-gradient(#ffcc99 35%, #d49598 100%); }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px; }
 
@@ -341,8 +340,7 @@ header {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
-  flex-direction: row;
-  height: 100vh; }
+  flex-direction: row; }
 
 .mainLeft {
   flex: 2 auto;
@@ -397,7 +395,9 @@ header {
     text-align: center;
     flex: 5; }
   .mainRight .rwatch {
-    flex: 1; }
+    flex: 1;
+    position: relative;
+    left: -45px; }
   .mainRight #Artboard-1 {
     max-width: 100%;
     stroke: #000; }
@@ -444,8 +444,7 @@ header {
 
 .show-page, .artist-page {
   margin: 0 auto;
-  width: 100%;
-  padding: 0 20px; }
+  width: 100%; }
   .show-page .content, .artist-page .content {
     float: left;
     width: 65%;
@@ -509,7 +508,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
 .masonry-brick {
   width: 33.333%; }
 
-.show-page .item a:hover, .show-page .item a:active, .show-page .item a:focus, .artist-page .item a:hover, .artist-page .item a:active, .artist-page .item a:focus {
+.item a:hover, .item a:active, .item a:focus {
   color: black;
   border: none;
   background: none; }
@@ -518,8 +517,9 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
                    Sidebar
    ========================================================================== */
 .sidebar {
-  width: 30%;
-  float: left; }
+  width: 340px;
+  max-width: 30%;
+  float: right; }
   .sidebar .sidebarTitle {
     font-family: 'Kite One', sans-serif;
     padding: 10px 15px;
@@ -531,7 +531,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   .sidebar .single-entry {
     width: 100%;
     position: relative;
-    padding: 0px 25px 0 0;
+    padding: 0 0 0 10px;
     min-height: 90px;
     display: flex;
     align-items: center; }
@@ -890,7 +890,13 @@ p.form-allowed-tags, .nocomments {
     white-space: nowrap; }
   header #menu-header-menu li.menu-item {
     font-size: 16px;
-    margin: 0 auto; } }
+    margin: 0 20px;
+    background: #F4FFF2;
+    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+    font-family: 'Kite One', sans-serif; }
+  header #menu-header-menu li.menu-item a:hover, header #menu-header-menu li.menu-item a:focus, header #menu-header-menu li.menu-item a:active {
+    color: #D49598;
+    border: none; } }
 
 @media (max-width: 705px) {
   header .header--livestream {

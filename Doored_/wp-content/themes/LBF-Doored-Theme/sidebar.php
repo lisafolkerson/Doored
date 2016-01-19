@@ -18,7 +18,6 @@
               <img src="<?php echo $image['sizes']['square']; ?>" alt="<?php echo $image['alt']; ?>">
              <?php endif ?></a>
             <a href="<?php the_permalink(); ?>" class="entry-name"><?php the_title(); ?></a>
-          
           </div><!--end .single-entry-->  
 
           <?php endwhile; ?>

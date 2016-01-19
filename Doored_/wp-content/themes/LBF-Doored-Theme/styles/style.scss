@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-  max-width:1200px; 
+  // width:1200px; 
   margin:0 auto;
   padding: 0 20px ;
 }
@@ -254,7 +254,7 @@ header {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  height: 100vh; 
+  // height: 100vh; 
 }   
 
 .mainLeft {
@@ -334,6 +334,8 @@ header {
 
   .rwatch {
     flex: 1;
+    position: relative;
+    left: -45px;
   }
 
   #Artboard-1 {
@@ -394,7 +396,7 @@ header {
 .show-page, .artist-page {
     margin: 0 auto;
     width: 100%;
-    padding: 0 20px ;
+    // padding: 0 20px ;
 
     .content{
       float:left;
@@ -489,7 +491,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   width: 33.333%;
 }
 
-.show-page .item a:hover, .show-page .item a:active, .show-page .item a:focus, .artist-page .item a:hover, .artist-page .item a:active, .artist-page .item a:focus {
+.item a:hover, .item a:active, .item a:focus {
   color: black;
   border: none;
   background: none;
@@ -499,8 +501,9 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
                    Sidebar
    ========================================================================== */
 .sidebar {
-  width:30%;
-  float:left;
+  width: 340px;
+  max-width: 30%;
+  float:right;
 
   .sidebarTitle {
     font-family: 'Kite One', sans-serif;
@@ -515,7 +518,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   .single-entry {
     width: 100%;
     position: relative;
-    padding: 0px 25px 0 0;
+    padding: 0 0 0 10px;
     min-height: 90px;
     display: flex;
     align-items: center;
