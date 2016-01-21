@@ -19,18 +19,7 @@
 		    white-space: nowrap;
 		}
 
-		#menu-header-menu li.menu-item {
-			font-size: 16px;
-			margin: 0 20px;
-			background: $textAccent;
-			box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-			font-family: 'Kite One', sans-serif;
-		}
-
-		#menu-header-menu li.menu-item a:hover, #menu-header-menu li.menu-item a:focus, #menu-header-menu li.menu-item a:active {
-			color: $watchNow;
-			border: none;
-		}
+		
 
 	}// end header
 } // end @900px
@@ -38,7 +27,7 @@
 
 
 
-@media (max-width: 705px) {
+@media (max-width: 760px) {
 	header {
 
 		.header--livestream {
@@ -64,6 +53,19 @@
 			width: 100%;
 		    text-align: center;
 		    max-width: 100%;
+		}
+
+		#menu-header-menu li.menu-item {
+			font-size: 16px;
+			margin: 0 20px;
+			background: $textAccent;
+			box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+			font-family: 'Kite One', sans-serif;
+		}
+
+		#menu-header-menu li.menu-item a:hover, #menu-header-menu li.menu-item a:focus, #menu-header-menu li.menu-item a:active {
+			color: $watchNow;
+			border: none;
 		}
 		
 	} // end header
@@ -152,6 +154,18 @@
 
 		.menu__dropper {
 			top: -15px;
+		}
+
+		#menu-header-menu li.menu-item {
+			display: block;
+			margin: 10px 20px;
+
+			a {
+				height: 100%;
+				width: 100%;
+				display: block;
+				padding: 4px;
+			}
 		}
 
 		.artistMenu ul, .showMenu ul {
