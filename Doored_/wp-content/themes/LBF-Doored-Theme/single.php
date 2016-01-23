@@ -9,9 +9,12 @@
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           
-          <div class="entry-content">
-          
-            <?php the_content(); ?>
+          <div class="entry-content  single--attachmentContent">
+
+            <?php 
+
+            echo wp_get_attachment_image( $post->ID, 'large' );
+            ?>
 
             <?php wp_link_pages(array(
               'before' => '<div class="page-link"> Pages: ',
@@ -26,7 +29,7 @@
           <p class="nav-next"><?php next_image_link(); ?></p>
         </div><!-- #nav-below -->
 
-      <?php endwhile; // end of the loop. ?>
+      <?php endwhile; // end of the loop. ?>  
 
     </div> <!-- /.content -->
   </div> <!-- /.container -->

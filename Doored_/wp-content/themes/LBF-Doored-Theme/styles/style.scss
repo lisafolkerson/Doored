@@ -29,7 +29,6 @@ body {
 }
 
 .container {
-  // width:1200px; 
   margin:0 auto;
   padding: 0 20px ;
 }
@@ -628,6 +627,13 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
 .single-attachment a:hover, .single-attachment a:focus, .single-attachment a:active{
   border: none;
 }
+/* =============================================================================
+                   Single
+   ========================================================================== */
+.single--attachmentContent {
+  margin: 30px auto;
+}
+
 
 /* =============================================================================
                    Error
