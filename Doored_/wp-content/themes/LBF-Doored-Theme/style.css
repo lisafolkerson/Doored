@@ -620,9 +620,18 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
                    Error
    ========================================================================== */
 .error404 {
-  text-align: center; }
-  .error404 .main {
-    padding: 50px; }
+  text-align: center;
+  min-height: 368px; }
+  .error404 .error_h1 {
+    width: 100%;
+    padding: 30px 0; }
+
+.ghostContainer {
+  width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  left: calc(50% - 400px);
+  top: 100px; }
 
 /* =============================================================================
                    Footer
