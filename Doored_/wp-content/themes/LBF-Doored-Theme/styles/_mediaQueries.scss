@@ -1,134 +1,147 @@
 @media (max-width: 900px) {
-	header {
-		.container {
-			padding: 20px 15px;
-		}
+    header {
+        .container {
+            padding: 20px 15px;
+        }
 
-		h1 {
-			max-width: 25%;
-		}
+        h1 {
+            max-width: 25%;
+        }
 
-		.header--livestream {
-			margin: 0 48px;
-			max-width: 25%;
-		}
-		
-		.menuHolder{
-			max-width: 54%;
-			margin: 30px 0;
-		    white-space: nowrap;
-		}
+        .header--livestream {
+            margin: 0 48px;
+            max-width: 25%;
+        }
+        
+        .menuHolder{
+            max-width: 54%;
+            margin: 30px 0;
+            white-space: nowrap;
+        }
 
-		
-
-	}// end header
+    }// end header
 } // end @900px
 
 
 
 
 @media (max-width: 760px) {
-	header {
+    header {
 
-		.header--livestream {
-			position: absolute;
-			left: 50%;
-			margin: 0 auto;
-		}
+        .header--livestream {
+            position: absolute;
+            left: 50%;
+            margin: 0 auto;
+        }
 
-		.menu__dropper {
-			display: inline-block;
-		    font-size: 70px;
-		    margin: 0 auto;
-		    position: absolute;
-		    top: 0px;
-		    right: 20px;
-		    cursor: pointer;
-		}
+        .menu__dropper {
+            display: inline-block;
+            font-size: 70px;
+            margin: 0 auto;
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            cursor: pointer;
+        }
 
-		.menuHolder {
-			display: none;
-			padding-top: 30px;
-			margin: 0 auto;
-			width: 100%;
-		    text-align: center;
-		    max-width: 100%;
-		}
+        .menuHolder {
+            display: none;
+            padding-top: 30px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            max-width: 100%;
+        }
 
-		#menu-header-menu li.menu-item {
-			font-size: 16px;
-			margin: 0 20px;
-			background: $textAccent;
-			box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-			font-family: 'Kite One', sans-serif;
-		}
+        #menu-header-menu li.menu-item {
+            font-size: 16px;
+            margin: 0 20px;
+            background: $textAccent;
+            box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
+            font-family: 'Kite One', sans-serif;
+        }
 
-		#menu-header-menu li.menu-item a:hover, #menu-header-menu li.menu-item a:focus, #menu-header-menu li.menu-item a:active {
-			color: $watchNow;
-			border: none;
-		}
-		
-	} // end header
+        #menu-header-menu li.menu-item a:hover, #menu-header-menu li.menu-item a:focus, #menu-header-menu li.menu-item a:active {
+            color: $watchNow;
+            border: none;
+        }
+        
+    } // end header
 
-	.mnLft__image {
-		display: none;
-	}
+    .mnLft__image {
+        display: none;
+    }
 
-	.sidebar {
-		display: none;
-	}
+    .sidebar {
+        display: none;
+    }
 
-	.artist-page .content, .show-page .content {
-		width: 100%;
-	}
+    .artist-page .content, .show-page .content {
+        width: 100%;
+    }
 
-	.mainView {
-		display: block;
-		height: inherit;
-	}
+    .mainView {
+        display: block;
+        height: inherit;
+    }
 
-	.mainLeft {
-		padding: 30px 10px 0 0;
-		max-width: 100%;
-		position: relative;
-		text-align: center;
-	}
+    .mainLeft {
+        padding: 30px 10px 0 0;
+        max-width: 100%;
+        position: relative;
+        text-align: center;
+    }
 
-	.mainRight {
-		width: 100%;
-		padding: 0;
+    .mainRight {
+        width: 100%;
+        padding: 0;
 
-		.videoLink {
-			margin: 0 auto;
-			padding: 0;
-		}
-	}
+        .videoLink {
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
 
-	.page-id-15 {
-		.contactInfo p {
-			font-size: 18px;
-		}
+    .page-id-15 {
+        .contactInfo p {
+            font-size: 18px;
+        }
 
-		.theCredits {
-			padding-top: 20px;
-			-webkit-column-gap: 10px;
-			-moz-column-gap: 10px;
-		    column-gap: 10px;
+        .theCredits {
+            padding-top: 20px;
+            -webkit-column-gap: 10px;
+            -moz-column-gap: 10px;
+            column-gap: 10px;
 
-			h3.widget-title {
-			    font-size: 14px;
-			}
+            h3.widget-title {
+                font-size: 14px;
+            }
 
-			li.widget-container {
-				width: 85%;
-			}
+            li.widget-container {
+                width: 85%;
+            }
 
-			p, a {
-				font-size: 12px;
-			}
+            p, a {
+                font-size: 12px;
+            }
 
-		} // end theCredits
-	} // end contact page
+        } // end theCredits
+    } // end contact page
+
+    .error404page {
+      min-height: 130px;
+    }
+    .ghostContainer {
+      overflow: hidden;
+      width: 300px;
+      left: calc(50% - 150px);
+      bottom: 215px;
+      overflow: hidden;
+    }
+  
+    .error_h1 {
+      font-size: 1.7rem;
+    }
 
 } // end @705px
 
@@ -136,68 +149,68 @@
 
 
 @media (max-width: 420px) {
-	header {
-		h1 {
-			font-size: 36px;
-		}
+    header {
+        h1 {
+            font-size: 36px;
+        }
 
-		.header--livestream {
-			line-height: 20px;
-		    height: inherit;
-		    padding: 8px;
-	        top: 15px;	
+        .header--livestream {
+            line-height: 20px;
+            height: inherit;
+            padding: 8px;
+            top: 15px;  
 
-			a {
-				font-size: 18px;
-			}
-		}
+            a {
+                font-size: 18px;
+            }
+        }
 
-		.menu__dropper {
-			top: -15px;
-		}
+        .menu__dropper {
+            top: -15px;
+        }
 
-		#menu-header-menu li.menu-item {
-			display: block;
-			margin: 10px 20px;
+        #menu-header-menu li.menu-item {
+            display: block;
+            margin: 10px 20px;
 
-			a {
-				height: 100%;
-				width: 100%;
-				display: block;
-				padding: 4px;
-			}
-		}
+            a {
+                height: 100%;
+                width: 100%;
+                display: block;
+                padding: 4px;
+            }
+        }
 
-		.artistMenu ul, .showMenu ul {
-			-moz-column-count: 3;
-			-webkit-column-count: 3;
-			column-count: 3;
+        .artistMenu ul, .showMenu ul {
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+            column-count: 3;
 
-		}
-	} // header
+        }
+    } // header
 
-	.repeater {
-		.item {
-		    width: 49%;
-		    margin: 0.5%;
-		}
-	}
+    .repeater {
+        .item {
+            width: 49%;
+            margin: 0.5%;
+        }
+    }
 
-	.page-id-15 {
-		.contactInfo p {
-			font-size: 16px;
-		}
+    .page-id-15 {
+        .contactInfo p {
+            font-size: 16px;
+        }
 
-		.theCredits {
-			-moz-column-count: 1;
-			-webkit-column-count: 1;
-			column-count: 1;
+        .theCredits {
+            -moz-column-count: 1;
+            -webkit-column-count: 1;
+            column-count: 1;
 
-			li.widget-container {
-				width: 65%;
-			}
-		} // end theCredits
-	} // end contact page
+            li.widget-container {
+                width: 65%;
+            }
+        } // end theCredits
+    } // end contact page
 
 
 } // end @420px

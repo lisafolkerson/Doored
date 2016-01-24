@@ -619,10 +619,10 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
 /* =============================================================================
                    Error
    ========================================================================== */
-.error404 {
+.error404page {
   text-align: center;
   min-height: 368px; }
-  .error404 .error_h1 {
+  .error404page .error_h1 {
     width: 100%;
     padding: 30px 0; }
 
@@ -631,7 +631,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   margin: 0 auto;
   position: absolute;
   left: calc(50% - 400px);
-  top: 100px; }
+  bottom: 115px; }
 
 /* =============================================================================
                    Footer
@@ -965,7 +965,17 @@ p.form-allowed-tags, .nocomments {
     .page-id-15 .theCredits li.widget-container {
       width: 85%; }
     .page-id-15 .theCredits p, .page-id-15 .theCredits a {
-      font-size: 12px; } }
+      font-size: 12px; }
+  .error404page {
+    min-height: 130px; }
+  .ghostContainer {
+    overflow: hidden;
+    width: 300px;
+    left: calc(50% - 150px);
+    bottom: 215px;
+    overflow: hidden; }
+  .error_h1 {
+    font-size: 1.7rem; } }
 
 @media (max-width: 420px) {
   header h1 {

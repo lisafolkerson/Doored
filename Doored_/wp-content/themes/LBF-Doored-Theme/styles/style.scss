@@ -639,7 +639,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
                    Error
    ========================================================================== */
 
-.error404 {
+.error404page {
   text-align: center;
   min-height: 368px;
 
@@ -654,7 +654,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   margin: 0 auto;
   position: absolute;
   left: calc(50% - 400px);
-  top: 100px;
+  bottom: 115px;
 }
 
 /* =============================================================================

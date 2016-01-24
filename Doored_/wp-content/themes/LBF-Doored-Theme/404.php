@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="main">
-  <div class="container  error404">
+  <div class="container  error404page">
 
     <h1 class="error_h1">404 Sorry Not Found</h1>
 	<div class="ghostContainer">
