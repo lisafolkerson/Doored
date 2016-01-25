@@ -65,10 +65,16 @@
             // loop through the rows of data
               while ( have_rows('show_repeater') ) : the_row();
                   // display sub fields:
-              $rptrImg = get_sub_field('show_image'); ?>
+              $rptrImg = get_sub_field('show_image'); 
+              //pre_r(get_sub_field('show_image'));
+              ?>
+
               <div class="item">
-                <a href="<?php the_sub_field( 'links_to' ); ?>">
+                <?php $lolThing = $rptrImg['ID']; ?>
+                <p><?php pre_r($lolThing) ?></p>
+                <a href="<?php //bloginfo('template_directory'); ?>/?attachment_id=<?php echo $lolThing ?>">
                   <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
+                  <!-- <p><?php pre_r($rptrImg['ID'] );?></p> -->
                   <p><?php the_sub_field('show_text');?></p>
                 </a>
               </div><!--end .pinnedItem-->
