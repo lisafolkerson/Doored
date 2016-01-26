@@ -70,11 +70,9 @@
               ?>
 
               <div class="item">
-                <?php $lolThing = $rptrImg['ID']; ?>
-                <p><?php pre_r($lolThing) ?></p>
-                <a href="<?php //bloginfo('template_directory'); ?>/?attachment_id=<?php echo $lolThing ?>">
+                <?php $singleMediaLink = $rptrImg['ID']; ?>
+                <a href="<?php bloginfo('url'); ?>/?attachment_id=<?php echo $singleMediaLink ?>">
                   <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
-                  <!-- <p><?php pre_r($rptrImg['ID'] );?></p> -->
                   <p><?php the_sub_field('show_text');?></p>
                 </a>
               </div><!--end .pinnedItem-->
