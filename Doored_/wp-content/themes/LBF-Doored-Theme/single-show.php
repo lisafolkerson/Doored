@@ -19,16 +19,13 @@
         <?php $heroType = get_field('show_hero'); // 1 : Video - Livestream | 2 : Video - Youtube 
 
         ?>
-          <?php // pre_r($heroType) ?>
           <?php if ( $heroType == 1 ) : ?>
             <div class="heroImage  livestream_embed">
-              <!-- <p>livestream</p> -->
               <?php the_field('show_video') ?>
             </div><!--end livestream_embed-->
 
           <?php elseif ( $heroType == 2 ) : ?>
             <div class="heroImage  youtube_embed">
-              <!-- <p>youtube</p> -->
               <?php the_field('show_youtube'); ?>
             </div>
             

@@ -20,12 +20,40 @@ get_header(); ?>
        <p><?php the_field('date') ?></p>
      </div><!--end .section-header-->
 
-     <?php $showImg = get_field('show_image'); ?>
-     <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+     <div class="showImage">
+       <?php $heroType = get_field('show_hero'); // 1 : Video - Livestream | 2 : Video - Youtube 
+
+       ?>
+         <?php if ( $heroType == 1 ) : ?>
+           <div class="heroImage  livestream_embed">
+             <?php the_field('show_video') ?>
+           </div><!--end livestream_embed-->
+
+         <?php elseif ( $heroType == 2 ) : ?>
+           <div class="heroImage  youtube_embed">
+             <?php the_field('show_youtube'); ?>
+           </div>
+           
+         <?php else : 
+           $showImg = get_field('show_image'); 
+           $size = 'full';
+
+           if( $showImg ) :
+             echo wp_get_attachment_image( $showImg, $size );
+           endif;
+         endif; ?>
+       </div>
 
      <div class="about">
        <?php the_field('about_show') ?>  
      </div>
+
+     <div class="back-n-forth">
+       <?php wp_link_pages(array(
+         'before' => '<div class="page-link"> Pages: ',
+         'after' => '</div>'
+       )); ?>
+     </div><!-- .back-n-forth -->
 
      <div class="repeater clearfix" id="repeater">
        <?php
