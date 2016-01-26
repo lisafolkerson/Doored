@@ -72,6 +72,7 @@
               <div class="item">
                 <?php $singleMediaLink = $rptrImg['ID']; ?>
                 <a href="<?php bloginfo('url'); ?>/?attachment_id=<?php echo $singleMediaLink ?>">
+                
                   <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingShowImage"/>
                   <p><?php the_sub_field('show_text');?></p>
                 </a>

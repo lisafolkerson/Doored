@@ -38,10 +38,16 @@ get_header(); ?>
            while ( have_rows('artist_repeater') ) : the_row();
                // display a sub field value
            $rptrImg = get_sub_field('artist_image'); ?>
-          <div class="item">
-            <?php $singleMediaLink = $rptrImg['ID']; ?>
+          <div class="item">            
+
+            <?php $singleMediaLink = $rptrImg['ID']; 
+            $specialLink = get_sub_field( 'links_to' );
+            if ( !empty($specialLink) ):
+             ?>
+            <a href="<?php the_sub_field( 'links_to' ); ?>">
+            <?php else: ?>
             <a href="<?php bloginfo('url'); ?>/?attachment_id=<?php echo $singleMediaLink ?>">
-            <!-- <a href="<?php //the_sub_field( 'links_to' ); ?>"> -->
+            <?php endif; ?>
              <img src="<?php echo $rptrImg['url']; ?>" alt="<?php echo $rptrImg['alt']; ?>" class="repeatingArtistImage"/>
               <p><?php the_sub_field('artist_text');?></p>
             </a>     
