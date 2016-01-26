@@ -48,21 +48,12 @@ get_header(); ?>
        <?php the_field('about_show') ?>  
      </div>
 
-     <div class="back-n-forth">
-       <?php wp_link_pages(array(
-         'before' => '<div class="page-link"> Pages: ',
-         'after' => '</div>'
-       )); ?>
-     </div><!-- .back-n-forth -->
-
      <div class="repeater clearfix" id="repeater">
        <?php
        // check if the repeater field has rows of data
-       if( have_rows('show_repeater') ):
-        // loop through the rows of data
-        while ( have_rows('show_repeater') ) : the_row();
-        // display a sub field value
+       if( have_rows('show_repeater') ): while ( have_rows('show_repeater') ) : the_row();
         $rptrImg = get_sub_field('show_image'); ?>
+
         <div class="item">
           <?php $singleMediaLink = $rptrImg['ID']; ?>
           <a href="<?php bloginfo('url'); ?>/?attachment_id=<?php echo $singleMediaLink ?>">
