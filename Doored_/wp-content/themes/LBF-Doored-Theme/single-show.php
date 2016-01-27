@@ -28,6 +28,14 @@
             <div class="heroImage  youtube_embed">
               <?php the_field('show_youtube'); ?>
             </div>
+            <div class="jumpToLinks">
+              <?php if( have_rows('jump_to') ): while ( have_rows('jump_to') ) : the_row();
+               $jumpTime = get_sub_field('jump_to_time'); 
+               $jumpText = get_sub_field('jump_to_text'); ?>
+
+               <a class="jumpLink" value="?feature=oembed&autoplay=1&start=<?php echo $jumpTime ?>"><?php echo $jumpText; ?></a>
+               <?php endwhile; endif; ?>
+            </div>
             
           <?php else : 
             $showImg = get_field('show_image'); 
