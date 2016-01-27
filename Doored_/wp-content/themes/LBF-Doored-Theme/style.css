@@ -447,8 +447,7 @@ header {
   width: 100%; }
   .show-page .content, .artist-page .content {
     float: left;
-    width: 65%;
-    margin-right: 5%; }
+    width: 70%; }
     .show-page .content .about, .artist-page .content .about {
       text-align: center; }
     .show-page .content h2, .artist-page .content h2 {
