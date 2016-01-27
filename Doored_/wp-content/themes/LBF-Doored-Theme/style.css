@@ -461,6 +461,14 @@ header {
     background: #c30;
     color: #F4FFF2; }
 
+.jumpLabel {
+  display: inline-block; }
+
+.jumpLink {
+  border-bottom: 2px solid #c30;
+  cursor: pointer;
+  margin-right: 4px; }
+
 .nav-next, .nav-previous {
   display: inline-block;
   max-width: 50%; }

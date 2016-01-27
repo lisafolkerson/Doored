@@ -422,6 +422,18 @@ header {
   }
 } //end .show-page/ .artist-page
 
+// Jump to styles
+.jumpLabel {
+  display: inline-block;
+}
+
+.jumpLink {
+  border-bottom: 2px solid $accent;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+
 
 
 .nav-next, .nav-previous {

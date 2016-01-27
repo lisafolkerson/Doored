@@ -7,17 +7,15 @@ $(function(){
     var index = 0;
     var newURL = oldURL;
     index = oldURL.indexOf('?');
+    
     if(index == -1){
         index = oldURL.indexOf('#');
     }
     if(index != -1){
         newURL = oldURL.substring(0, index);
     }
-
-    console.log(newURL);
     
     var $jumpParams = $(this).attr('value');
-    // var imgSource = $iframe.attr('src');
     $iframe.attr('src', newURL + $jumpParams );
   });
     
@@ -70,11 +68,11 @@ $(function(){
 
   // initialize Masonry after all images have loaded  
   $container.imagesLoaded( function() {
-       $container.masonry({
-        itemSelector: '.item',
-        columnWidth: '.masonry-brick',
-        percentPosition: true
-      });
+     $container.masonry({
+      itemSelector: '.item',
+      columnWidth: '.masonry-brick',
+      percentPosition: true
+    });
   });
 
 
