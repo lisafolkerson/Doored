@@ -20,7 +20,7 @@ get_header(); ?>
 
      <div class="section-header">
        <h2 class="entry-title"><?php the_title(); ?></h2>
-       <p><a href="http://<?php the_field('website') ?>" target="_blank"><?php the_field('website') ?></a></p>
+       <p><a href="http://<?php the_field('website') ?>" target="_blank" class="artistWebsite"><?php the_field('website') ?></a></p>
      </div><!--end .section-header-->
 
      <?php $artistImg = get_field('artist_image'); ?>

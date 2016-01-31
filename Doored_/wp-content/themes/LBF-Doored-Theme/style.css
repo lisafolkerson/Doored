@@ -306,7 +306,15 @@ header {
 .artistMenu, .showMenu {
   display: none;
   width: 100%; }
-  .artistMenu ul, .showMenu ul {
+  .artistMenu .menu-item-411, .showMenu .menu-item-411 {
+    margin: 0;
+    padding: 0;
+    font-size: 0; }
+  .artistMenu ul.menu, .showMenu ul.menu {
+    margin: 0;
+    padding: 0;
+    font-size: 0; }
+  .artistMenu ul.sub-menu, .showMenu ul.sub-menu {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
@@ -317,14 +325,13 @@ header {
     -webkit-column-width: 20%;
     column-width: 20%;
     list-style: none;
-    margin: 0 auto;
     padding: 0 30px 30px;
     width: 100%;
     text-align: center; }
-    .artistMenu ul li, .showMenu ul li {
-      padding: 6px;
+    .artistMenu ul.sub-menu li, .showMenu ul.sub-menu li {
+      padding: 3px 6px;
       font-size: 12px; }
-      .artistMenu ul li a:hover, .artistMenu ul li a:focus, .showMenu ul li a:hover, .showMenu ul li a:focus {
+      .artistMenu ul.sub-menu li a:hover, .artistMenu ul.sub-menu li a:focus, .showMenu ul.sub-menu li a:hover, .showMenu ul.sub-menu li a:focus {
         border: none;
         color: #c30;
         text-shadow: 1px 1px 2px #D49598; }
@@ -455,6 +462,8 @@ header {
   .show-page a, .artist-page a {
     color: black;
     padding: 0 3px; }
+  .show-page .artistWebsite, .artist-page .artistWebsite {
+    border-bottom: 2px solid #c30; }
   .show-page a:focus, .show-page a:hover, .artist-page a:focus, .artist-page a:hover {
     border-bottom: 2px solid #c30;
     background: #c30;

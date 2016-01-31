@@ -210,7 +210,19 @@ header {
   display: none;
   width: 100%;
 
-  ul {
+  .menu-item-411 {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+
+  ul.menu {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+
+  ul.sub-menu {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
@@ -221,13 +233,13 @@ header {
     -webkit-column-width: 20%;
     column-width: 20%;
     list-style: none;
-    margin: 0 auto;
     padding: 0 30px 30px;
     width: 100%;
     text-align: center;
+    
 
     li {
-      padding: 6px;
+      padding: 3px 6px;
       font-size: 12px;
 
       a:hover, a:focus {
@@ -412,6 +424,10 @@ header {
   a {
     color: black;
     padding: 0 3px;
+  }
+
+  .artistWebsite {
+    border-bottom: 2px solid $accent;
   }
 
   a:focus, a:hover {
