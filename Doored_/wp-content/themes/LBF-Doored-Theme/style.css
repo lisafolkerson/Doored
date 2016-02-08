@@ -169,9 +169,8 @@ img.alignright {
 body {
   color: #333;
   position: relative;
-  background: #ffcc99;
-  background: -webkit-linear-gradient(#ffcc99 35%, #d49598 100%);
-  background: linear-gradient(#ffcc99 35%, #d49598 100%); }
+  background: -webkit-linear-gradient(to bottom, #ffcc99 25%, #D49598 75%, #d49598 100%);
+  background: linear-gradient(to bottom, #ffcc99 25%, #D49598 75%, #d49598 100%); }
 
 .container {
   margin: 0 auto;
@@ -374,7 +373,8 @@ header {
 
 .mainRight {
   flex: 1 auto;
-  padding: 30px 0 30px 10px; }
+  padding: 30px 0 30px 10px;
+  overflow: hidden; }
   .mainRight .imagelink:hover {
     border-bottom: none; }
   .mainRight .videoLink {
@@ -565,7 +565,9 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
     .sidebar .single-entry a.a__img {
       display: inline-block;
       max-width: 50%;
-      position: absolute; }
+      position: absolute;
+      top: 0;
+      left: 20px; }
     .sidebar .single-entry a.a__img:hover, .sidebar .single-entry a.a__img:focus, .sidebar .single-entry a.a__img:active .showImage {
       border: none;
       background: none; }
@@ -602,8 +604,12 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
       z-index: 0; }
       .page-id-15 .theCredits li.widget-container a {
         text-decoration: underline;
-        padding: 0 3px; }
+        padding: 0 3px;
+        border-bottom: 2px solid #F4FFF2;
+        margin: 2px auto;
+        display: inline-block; }
       .page-id-15 .theCredits li.widget-container a:hover, .page-id-15 .theCredits li.widget-container a:focus {
+        border-bottom: 2px solid #F4FFF2;
         background: #c30;
         color: #F4FFF2; }
     .page-id-15 .theCredits .widget-title {
