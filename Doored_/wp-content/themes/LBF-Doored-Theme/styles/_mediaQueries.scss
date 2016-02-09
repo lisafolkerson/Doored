@@ -88,20 +88,33 @@
 
           }
 
+          a:hover, a:focus, a:active {
+            border: 2px solid black;
+            background: none;
+            color: black;
+          }
+
           li{
           list-style: none;
         }
       } // end ul
 
       .sub-menu {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          
         a {
           padding: 2px;
           margin: 0;
           border: none;
           display: inline-block;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
+        }
+
+        a:hover, a:focus, a:active {
+            background: $accent;
+            border: none;
+            color: $textAccent;
         }
       }
     } //end .menu_onPage
