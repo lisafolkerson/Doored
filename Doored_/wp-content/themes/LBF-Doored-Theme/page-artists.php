@@ -9,7 +9,7 @@ get_header(); ?>
   <div class="container clearfix artist-page">
     <div class="content">
 
-      <div class="artistMenu_onPage clearfix">
+      <div class="menu_onPage clearfix">
         <?php wp_nav_menu( array(
           'container' => false,
           'theme_locations' => 'Artists Menu',

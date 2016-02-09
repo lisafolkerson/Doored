@@ -72,7 +72,7 @@
         
     } // end header
 
-    .artistMenu_onPage {
+    .menu_onPage {
       display: block !important;
 
       ul {
@@ -95,7 +95,7 @@
 
       .sub-menu {
         a {
-          padding: 0;
+          padding: 2px;
           margin: 0;
           border: none;
           display: inline-block;
@@ -104,13 +104,19 @@
           flex-direction: column;
         }
       }
-    } //end .artistMenu_onPage
+    } //end .menu_onPage
+
+    .show-page .menu_onPage ul.sub-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column-reverse;
+    }
     
     // hide all content except menu on small devices
-    .artistMenu_onPage ~ div, .artistMenu_onPage ~ img {
+    .menu_onPage ~ div, .menu_onPage ~ img {
       display: none;
     }
-
 
 
     .mnLft__image {

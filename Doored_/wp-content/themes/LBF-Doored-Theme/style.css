@@ -170,8 +170,8 @@ img.alignright {
 body {
   color: #333;
   position: relative;
-  background: -webkit-linear-gradient(to bottom, #ffcc99 25%, #D49598 75%, #d49598 100%);
-  background: linear-gradient(to bottom, #ffcc99 25%, #D49598 75%, #d49598 100%); }
+  background: -webkit-linear-gradient(to bottom, #ffcc99 20%, #D49598 75%, #d49598 100%);
+  background: linear-gradient(to bottom, #ffcc99 20%, #D49598 75%, #d49598 100%); }
 
 .container {
   margin: 0 auto;
@@ -425,7 +425,7 @@ header {
 /* =============================================================================
         Show / Artist Page
    ========================================================================== */
-.artistMenu_onPage {
+.menu_onPage {
   display: none !important; }
 
 .section-header {
@@ -960,28 +960,33 @@ p.form-allowed-tags, .nocomments {
     border: none; }
   header .artistMenu, header .showMenu {
     display: none !important; }
-  .artistMenu_onPage {
+  .menu_onPage {
     display: block !important; }
-    .artistMenu_onPage ul {
+    .menu_onPage ul {
       margin: 0;
       padding: 0; }
-      .artistMenu_onPage ul a {
+      .menu_onPage ul a {
         padding: 10px 15px;
         border: 2px solid black;
         display: inline-block;
         min-width: 50%;
         margin: 15px 0; }
-      .artistMenu_onPage ul li {
+      .menu_onPage ul li {
         list-style: none; }
-    .artistMenu_onPage .sub-menu a {
-      padding: 0;
+    .menu_onPage .sub-menu a {
+      padding: 2px;
       margin: 0;
       border: none;
       display: inline-block;
       display: flex;
       justify-content: center;
       flex-direction: column; }
-  .artistMenu_onPage ~ div, .artistMenu_onPage ~ img {
+  .show-page .menu_onPage ul.sub-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse; }
+  .menu_onPage ~ div, .menu_onPage ~ img {
     display: none; }
   .mnLft__image {
     display: none; }

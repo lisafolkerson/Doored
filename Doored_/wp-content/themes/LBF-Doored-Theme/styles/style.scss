@@ -22,8 +22,8 @@ $watchNow: #D49598;
 body { 
   color:#333;
   position: relative;
-  background: -webkit-linear-gradient(to bottom,  rgba(255,204,153,1) 25%, #D49598 75%, rgba(212,149,152,1) 100%); 
-  background: linear-gradient(to bottom,  rgba(255,204,153,1) 25%, #D49598 75%, rgba(212,149,152,1) 100%);
+  background: -webkit-linear-gradient(to bottom,  rgba(255,204,153,1) 20%, #D49598 75%, rgba(212,149,152,1) 100%); 
+  background: linear-gradient(to bottom,  rgba(255,204,153,1) 20%, #D49598 75%, rgba(212,149,152,1) 100%);
 }
 
 .container {
@@ -372,7 +372,7 @@ header {
         Show / Artist Page
    ========================================================================== */
 
-.artistMenu_onPage {
+.menu_onPage {
   display: none !important;
 }
 

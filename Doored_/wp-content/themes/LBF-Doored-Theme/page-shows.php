@@ -8,6 +8,15 @@ get_header(); ?>
   <div class="container clearfix show-page">
     <div class="content">
 
+      <div class="menu_onPage clearfix">
+        <?php wp_nav_menu( array(
+          'container' => false,
+          'theme_locations' => 'Shows Menu',
+          'menu' => 'shows-menu'
+        )); ?> 
+      </div><!--end .artistmenu-->
+      <?php wp_reset_postdata(); ?>
+
      <?php $latestPosts = new WP_Query(array(
          'post_type' => 'show', //only want show posts
          'posts_per_page' => 1
