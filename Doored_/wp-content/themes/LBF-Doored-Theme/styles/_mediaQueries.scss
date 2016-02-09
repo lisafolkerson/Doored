@@ -65,8 +65,53 @@
             color: $watchNow;
             border: none;
         }
+
+        .artistMenu, .showMenu {
+          display: none !important;
+        }
         
     } // end header
+
+    .artistMenu_onPage {
+      display: block !important;
+
+      ul {
+          margin: 0;
+          padding: 0;
+
+          a {
+            padding: 10px 15px;
+            border: 2px solid black;
+            display: inline-block;
+            min-width: 50%;
+            margin: 15px 0;
+
+          }
+
+          li{
+          list-style: none;
+        }
+      } // end ul
+
+      .sub-menu {
+        a {
+          padding: 0;
+          margin: 0;
+          border: none;
+          display: inline-block;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+    } //end .artistMenu_onPage
+    
+    // hide all content except menu on small devices
+    .artistMenu_onPage ~ div, .artistMenu_onPage ~ img {
+      display: none;
+    }
+
+
 
     .mnLft__image {
         display: none;

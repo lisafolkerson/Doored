@@ -18,30 +18,36 @@ $(function(){
     var $jumpParams = $(this).attr('value');
     $iframe.attr('src', newURL + $jumpParams );
   });
-    
-  // reveal menus (artist menu)
-  $( '#menu-item-284').mouseover(function () {
-    $('.artistMenu').slideDown(250);
-    if ($( '.showMenu' ).is( ':visible' )){
-      $('.showMenu').slideUp(100);
-    };
-  });
 
-  // reveal menus (show menu)
-  $( '#menu-item-283').mouseover(function () {
-    $('.showMenu').slideDown(250);   
-    if ($( '.artistMenu' ).is( ':visible' )){
-      $('.artistMenu').slideUp(100);
-    };
-  });
+  if(window.innerWidth < 720){
+    // do nothing
+    console.log('less than 720')
+  } else {
+      
+    // reveal menus (artist menu)
+    $( '#menu-item-284').mouseover(function () {
+      $('.artistMenu').slideDown(250);
+      if ($( '.showMenu' ).is( ':visible' )){
+        $('.showMenu').slideUp(100);
+      };
+    });
 
-  // hide menus if other menu items are chosen
-  $( '#menu-item-281, #menu-item-282' ).mouseover(function (){
-        if ($( '.artistMenu, .showMenu' ).is( ':visible' )){
-            $('.artistMenu').slideUp(250);
-            $('.showMenu').slideUp(250);
-        };
-  }); // END  
+    // reveal menus (show menu)
+    $( '#menu-item-283').mouseover(function () {
+      $('.showMenu').slideDown(250);   
+      if ($( '.artistMenu' ).is( ':visible' )){
+        $('.artistMenu').slideUp(100);
+      };
+    });
+
+    // hide menus if other menu items are chosen
+    $( '#menu-item-281, #menu-item-282' ).mouseover(function (){
+          if ($( '.artistMenu, .showMenu' ).is( ':visible' )){
+              $('.artistMenu').slideUp(250);
+              $('.showMenu').slideUp(250);
+          };
+    }); // END  
+  }
 
   $('.tomb').click( function(){
     $('.ghost--behindTomb').fadeIn( 50, function(){

@@ -425,6 +425,9 @@ header {
 /* =============================================================================
         Show / Artist Page
    ========================================================================== */
+.artistMenu_onPage {
+  display: none !important; }
+
 .section-header {
   text-align: center;
   margin-bottom: 30px; }
@@ -955,6 +958,31 @@ p.form-allowed-tags, .nocomments {
   header #menu-header-menu li.menu-item a:hover, header #menu-header-menu li.menu-item a:focus, header #menu-header-menu li.menu-item a:active {
     color: #D49598;
     border: none; }
+  header .artistMenu, header .showMenu {
+    display: none !important; }
+  .artistMenu_onPage {
+    display: block !important; }
+    .artistMenu_onPage ul {
+      margin: 0;
+      padding: 0; }
+      .artistMenu_onPage ul a {
+        padding: 10px 15px;
+        border: 2px solid black;
+        display: inline-block;
+        min-width: 50%;
+        margin: 15px 0; }
+      .artistMenu_onPage ul li {
+        list-style: none; }
+    .artistMenu_onPage .sub-menu a {
+      padding: 0;
+      margin: 0;
+      border: none;
+      display: inline-block;
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+  .artistMenu_onPage ~ div, .artistMenu_onPage ~ img {
+    display: none; }
   .mnLft__image {
     display: none; }
   .sidebar {

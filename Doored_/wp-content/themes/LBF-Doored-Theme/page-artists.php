@@ -8,13 +8,24 @@ get_header(); ?>
 <div class="main clearfix">
   <div class="container clearfix artist-page">
     <div class="content">
+
+      <div class="artistMenu_onPage clearfix">
+        <?php wp_nav_menu( array(
+          'container' => false,
+          'theme_locations' => 'Artists Menu',
+          'menu' => 'artists-menu'
+        )); ?> 
+      </div><!--end .artistmenu-->
+      <?php wp_reset_postdata(); ?>
+
+
       <?php 
       remove_all_filters('posts_orderby');
       $artistPosts = new WP_Query(array(
         'post_type' => 'artist',
         'posts_per_page' => 1,
         'orderby' => 'rand'
-      )) ?> 
+      )); ?> 
 
      <?php while($artistPosts->have_posts()) : $artistPosts->the_post(); ?>
 
