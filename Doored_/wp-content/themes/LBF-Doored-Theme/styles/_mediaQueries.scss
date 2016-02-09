@@ -122,7 +122,7 @@
             }
 
             p, a {
-                font-size: 12px;
+                font-size: 16px;
             }
 
         } // end theCredits
@@ -159,6 +159,7 @@
             height: inherit;
             padding: 8px;
             top: 15px;  
+            left: 55%;
 
             a {
                 font-size: 18px;
@@ -166,7 +167,9 @@
         }
 
         .menu__dropper {
-            top: -15px;
+            top: 8px;
+            font-size: 44px;
+            right: 10px;
         }
 
         #menu-header-menu li.menu-item {
@@ -188,6 +191,18 @@
 
         }
     } // header
+
+    .mainRight {
+
+      .watch {
+          justify-content: space-around;
+          padding: 0;
+      }
+
+      .rwatch {
+        left: -10px;
+      }
+    } // end .mainRight
 
     .repeater {
         .item {

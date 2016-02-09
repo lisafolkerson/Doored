@@ -11,7 +11,6 @@ Author URI: http://lisafolkerson.com
 
 $main-color: #fc9;
 $accent: #c30;
-// $background: #fc9;
 $textAccent: #F4FFF2;
 $watchNow: #D49598;
 
@@ -619,15 +618,14 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
     a {
       text-decoration: underline;
       padding: 0 3px;
-      border-bottom: 2px solid $textAccent;
       margin: 2px auto;
       display: inline-block;
     } 
 
     a:hover, a:focus {
-      border-bottom: 2px solid $textAccent;
       background: $accent;
       color: $textAccent;
+      border: none;
     }
   }
 
