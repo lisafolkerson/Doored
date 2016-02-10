@@ -444,16 +444,16 @@ header {
 // Jump to styles
 .jumpLabel {
   display: inline-block;
+  line-height: 28px;
+  margin-bottom: 0;
 }
 
 .jumpLink {
   border-bottom: 2px solid $accent;
   cursor: pointer;
   margin-right: 4px;
+  line-height: 28px;
 }
-
-
-
 
 .nav-next, .nav-previous {
   display: inline-block;

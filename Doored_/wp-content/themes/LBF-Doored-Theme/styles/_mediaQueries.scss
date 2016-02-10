@@ -22,7 +22,16 @@
     }// end header
 } // end @900px
 
-
+@mixin word-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
 
 
 @media (max-width: 760px) {
@@ -72,6 +81,10 @@
         
     } // end header
 
+    .content * {
+        @include word-wrap;
+    }
+
     .menu_onPage {
       display: block !important;
 
@@ -103,7 +116,7 @@
           display: flex;
           justify-content: center;
           flex-direction: column;
-          
+
         a {
           padding: 2px;
           margin: 0;
@@ -205,6 +218,10 @@
   
     .error_h1 {
       font-size: 1.7rem;
+    }
+
+    .show-page img, .artist-page img {
+        height: inherit;
     }
 
 } // end @705px

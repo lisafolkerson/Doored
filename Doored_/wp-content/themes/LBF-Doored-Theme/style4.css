@@ -475,12 +475,15 @@ header {
     color: #F4FFF2; }
 
 .jumpLabel {
-  display: inline-block; }
+  display: inline-block;
+  line-height: 28px;
+  margin-bottom: 0; }
 
 .jumpLink {
   border-bottom: 2px solid #c30;
   cursor: pointer;
-  margin-right: 4px; }
+  margin-right: 4px;
+  line-height: 28px; }
 
 .nav-next, .nav-previous {
   display: inline-block;
@@ -961,6 +964,15 @@ p.form-allowed-tags, .nocomments {
     border: none; }
   header .artistMenu, header .showMenu {
     display: none !important; }
+  .content * {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto; }
   .menu_onPage {
     display: block !important; }
     .menu_onPage ul {
@@ -1040,7 +1052,9 @@ p.form-allowed-tags, .nocomments {
     bottom: 215px;
     overflow: hidden; }
   .error_h1 {
-    font-size: 1.7rem; } }
+    font-size: 1.7rem; }
+  .show-page img, .artist-page img {
+    height: inherit; } }
 
 @media (max-width: 420px) {
   header h1 {
