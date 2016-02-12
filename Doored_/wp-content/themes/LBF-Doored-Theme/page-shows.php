@@ -43,10 +43,10 @@ get_header(); ?>
              <?php the_field('show_youtube'); ?>
            </div>
            <div class="jumpToLinks">
+            <p class="jumpLabel">Jump to: </p>
               <?php if( have_rows('jump_to') ): while ( have_rows('jump_to') ) : the_row();
                $jumpTime = get_sub_field('jump_to_time'); 
                $jumpText = get_sub_field('jump_to_text'); ?>
-
                <a class="jumpLink" value="?feature=oembed&autoplay=1&start=<?php echo $jumpTime ?>"><?php echo $jumpText; ?></a>
                <?php endwhile; endif; ?>
             </div>
@@ -56,8 +56,12 @@ get_header(); ?>
            $size = 'full';
 
            if( $showImg ) :
-             echo wp_get_attachment_image( $showImg, $size );
-           endif;
+             if( wp_get_attachment_image( $showImg )) :
+              echo wp_get_attachment_image( $showImg ); 
+              else : ?>
+               <img src="<?php echo $showImg['sizes']['square']; ?>" alt="<?php echo $showImg['alt']; ?>">
+              <?php endif; ?></a>
+           <?php endif;
          endif; ?>
        </div>
 

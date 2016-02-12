@@ -18,6 +18,19 @@
           <?php the_field('about') ?>          
         </div>
 
+        <div class="jumpToLinks">
+          <p class="jumpLabel">See <?php the_title(); ?> in: </p>
+          <?php if( have_rows('jump_to') ): 
+          while ( have_rows('jump_to') ) : the_row();
+           $jumpObject = get_sub_field('jump_to_show'); 
+           if ($jumpObject):?>
+              <a class="jumpLink" value="<?php get_permalink($jumpObject->ID); ?>"><?php echo $jumpObject->post_title; ?></a>
+           <?php wp_reset_postdata(); ?>
+           <?php endif; 
+           endwhile; 
+           endif; ?>
+        </div>
+
         <div class="back-n-forth">
           <?php wp_link_pages(array(
             'before' => '<div class="page-link"> Pages: ',
