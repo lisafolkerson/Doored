@@ -1,7 +1,7 @@
 $(function(){
 
   // iframe jump to
-  $('.jumpLink').click( function(){
+  $('.jumpLinktoShow').click( function(){
     var $iframe = $('iframe');
     var oldURL = $iframe.attr('src');
     var index = 0;
