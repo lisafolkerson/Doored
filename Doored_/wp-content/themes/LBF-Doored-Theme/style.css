@@ -235,7 +235,8 @@ pre {
 
 img {
   max-width: 100%;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  height: inherit; }
 
 svg {
   max-width: 100%; }

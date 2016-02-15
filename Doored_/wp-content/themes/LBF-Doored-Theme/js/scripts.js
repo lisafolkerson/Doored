@@ -9,10 +9,10 @@ $(function(){
     index = oldURL.indexOf('?');
 
     if(index == -1){
-        index = oldURL.indexOf('#');
+      index = oldURL.indexOf('#');
     }
     if(index != -1){
-        newURL = oldURL.substring(0, index);
+      newURL = oldURL.substring(0, index);
     }
     
     var $jumpParams = $(this).attr('value');
