@@ -12,6 +12,14 @@
 	bottom: -4px;
 }
 
+.tombstone:hover .upperTombstone, .tombstone:hover .lowerTombstone {
+	background: #9db29f;
+}
+
+.tombstone:hover .upperTombstone {
+	box-shadow: 0 -10px 20px 10px rgba(236,236,141,0.2);
+}
+
 .upperTombstone {
 	border-radius: 50%;
 	width: 200px;

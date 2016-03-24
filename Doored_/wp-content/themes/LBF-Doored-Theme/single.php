@@ -24,9 +24,9 @@
 
         </div><!-- #post-## -->
 
-        <div id="nav-below" class="navigation">
-          <p class="nav-previous"><?php previous_image_link(); ?></p>
-          <p class="nav-next"><?php next_image_link(); ?></p>
+        <div id="nav-below" class="navigation  clearfix">
+          <p class="nav-previous"><?php previous_image_link( false, '&larr;'); ?></p>
+          <p class="nav-next"><?php next_image_link(false, '&rarr;'); ?></p>
         </div><!-- #nav-below -->
 
       <?php endwhile; // end of the loop. ?>  

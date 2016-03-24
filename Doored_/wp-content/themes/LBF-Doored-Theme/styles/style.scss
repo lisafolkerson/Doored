@@ -13,6 +13,8 @@ $main-color: #fc9;
 $accent: #c30;
 $textAccent: #F4FFF2;
 $watchNow: #D49598;
+$greenTinge: #9db29f;
+
 
 
 /* =============================================================================
@@ -671,6 +673,25 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   margin: 30px auto;
 }
 
+.single-attachment {
+
+  .navigation {
+    font-size: 52px;
+
+    .nav-next:hover, .nav-previous:hover {
+      border: none;
+      background: none;
+    }
+
+    a:hover, a:focus, a:active {
+      border: none;
+      color: #c30;
+      text-shadow: 1px 1px 2px #D49598;
+      background: none;
+    }
+  }
+}
+
 
 /* =============================================================================
                    Error
@@ -709,7 +730,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
 }
 
 .bottom-nav {
-  display: inline-block;
+  display: none;
   width: 100%;
 
   ul {

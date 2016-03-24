@@ -275,10 +275,10 @@ function remove_admin_menus () {
   global $menu;
 
   // all users
-  $restrict = explode(',', 'Links,Comments,Posts,Maps,Options');
+  $restrict = explode(',', 'Links,Comments,Posts,Maps');
   
   // non-administrator users
-  $restrict_user = explode(',', 'Plugins,Users,Posts,Tools,Options,Maps');
+  $restrict_user = explode(',', 'Plugins,Users,Posts,Tools,Options,Maps,Options');
 
   // WP localization
   $f = create_function('$v,$i', 'return __($v);');

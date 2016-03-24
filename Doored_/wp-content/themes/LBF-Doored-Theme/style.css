@@ -646,6 +646,17 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
 .single--attachmentContent {
   margin: 30px auto; }
 
+.single-attachment .navigation {
+  font-size: 52px; }
+  .single-attachment .navigation .nav-next:hover, .single-attachment .navigation .nav-previous:hover {
+    border: none;
+    background: none; }
+  .single-attachment .navigation a:hover, .single-attachment .navigation a:focus, .single-attachment .navigation a:active {
+    border: none;
+    color: #c30;
+    text-shadow: 1px 1px 2px #D49598;
+    background: none; }
+
 /* =============================================================================
                    Error
    ========================================================================== */
@@ -677,6 +688,12 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   text-align: center;
   font-size: 0;
   bottom: -4px; }
+
+.tombstone:hover .upperTombstone, .tombstone:hover .lowerTombstone {
+  background: #9db29f; }
+
+.tombstone:hover .upperTombstone {
+  box-shadow: 0 -10px 20px 10px rgba(236, 236, 141, 0.2); }
 
 .upperTombstone {
   border-radius: 50%;
@@ -741,7 +758,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
   z-index: 10; }
 
 .bottom-nav {
-  display: inline-block;
+  display: none;
   width: 100%; }
   .bottom-nav ul {
     font-size: 35px;
