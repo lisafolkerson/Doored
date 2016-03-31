@@ -42,11 +42,9 @@
         </a>
     </h1>
 
-      <!-- THE LINK FOR LIVE STREAM -->
+      <!-- Upcoming Show -->
       <div class="header--livestream">
-        <a href="http://livestream.com/doubledoubleland" target="_blank">
-          Watch Now
-        </a>
+        <?php  dynamic_sidebar( 'header-next-show-area' ); ?>
       </div><!--end .header--livestream-->
  
     <p class="menu__dropper">&#8803;</p>

@@ -162,14 +162,24 @@ add_filter( 'get_the_excerpt', 'lisa_custom_excerpt_more' );
 function lisa_widgets_init() {
   // Area 1, located at the top of the sidebar.
   register_sidebar( array(
-    'name' => 'Primary Widget Area',
+    'name' => 'Credits Widget Area',
     'id' => 'primary-widget-area',
-    'description' => 'The primary widget area',
+    'description' => 'Add the credits categories and people',
     'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
     'after_widget' => '</li>',
     'before_title' => '<h3 class="widget-title">',
     'after_title' => '</h3>',
   ) );
+
+  register_sidebar( array(
+      'name'          => 'Header Next Show Area',
+      'id'            => 'header-next-show-area',
+      'description' => 'Update the upcoming shows for the header',
+      'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="header-next-show-text">',
+      'after_title'   => '</div>',
+    ) );
 
 }
 

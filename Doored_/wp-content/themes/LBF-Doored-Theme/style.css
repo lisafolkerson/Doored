@@ -268,23 +268,34 @@ header {
 
 .header--livestream {
   display: inline-block;
-  text-align: center;
   background: #F4FFF2;
+  padding: 2px 5px;
   font-family: 'Kite One', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   position: relative;
-  height: 85px;
-  width: 120px;
-  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  margin: 0 0 0 90px;
-  float: left; }
+  margin: 30px 0;
+  text-shadow: 1px 1px 2px #D49598;
+  animation: glowing 5s ease-in-out infinite; }
+  .header--livestream .header-next-show-text {
+    display: inline-block; }
+  .header--livestream .textwidget {
+    display: inline-block; }
   .header--livestream a {
     color: #D49598; }
   .header--livestream a:hover, .header--livestream a:focus {
     border-bottom: none; }
 
-.watchIcon {
-  height: 80px; }
+@-webkit-keyframes glowing {
+  50% {
+    color: #9db29f; }
+  100% {
+    color: black; } }
+
+@keyframes glowing {
+  50% {
+    color: #9db29f; }
+  100% {
+    color: black; } }
 
 .menu__dropper {
   display: none; }
@@ -338,6 +349,9 @@ header {
         color: #c30;
         text-shadow: 1px 1px 2px #D49598; }
 
+.artist--subMenuItem__exceptions {
+  text-shadow: 1px 1px 2px #9db29f; }
+
 .showMenu ul {
   text-align: center; }
 
@@ -345,84 +359,15 @@ header {
          MAIN PAGE
    ========================================================================== */
 .mainView {
-  width: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row; }
-
-.mainLeft {
-  flex: 2 auto;
-  padding: 30px 10px 30px 0;
-  max-width: 50%;
-  position: relative;
-  text-align: center; }
-  .mainLeft .pageTitle {
-    padding: 10px 15px;
-    border: 2px solid black;
-    display: inline-block;
+  width: 100%; }
+  .mainView .pageTitle {
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px; }
-  .mainLeft a {
-    color: black; }
-  .mainLeft h2:hover, .mainLeft h2:focus, .mainLeft h2:active {
-    background: #c30;
-    color: #F4FFF2; }
-  .mainLeft .subtitle {
+  .mainView .subtitle {
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-top: 0; }
-
-.mainRight {
-  flex: 1 auto;
-  padding: 30px 0 30px 10px;
-  overflow: hidden; }
-  .mainRight .imagelink:hover {
-    border-bottom: none; }
-  .mainRight .videoLink {
-    margin-bottom: 40px; }
-  .mainRight .watch {
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 0 30px;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap; }
-  .mainRight .watch > * {
-    padding: 10px;
-    flex: 1 100%; }
-  .mainRight .action {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    word-spacing: 100%;
-    margin: 10px;
-    transform: rotate(-12deg);
-    line-height: 1; }
-  .mainRight .lwatch {
-    text-align: center;
-    flex: 5; }
-  .mainRight .rwatch {
-    flex: 1;
-    position: relative;
-    left: -45px; }
-  .mainRight #Artboard-1 {
-    max-width: 100%;
-    stroke: #000; }
-
-.arrow {
-  text-align: center;
-  position: relative;
-  display: inline-block; }
-
-.downBoy {
-  text-decoration: none;
-  -webkit-text-decoration: none;
-  font-size: 72px;
-  color: black;
-  flex: 4 100%; }
 
 /* =============================================================================
         Show / Artist Page
@@ -624,7 +569,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
       border: 2px solid black;
       text-transform: uppercase;
       padding: 10px 0;
-      font-size: 2.8vh; }
+      font-size: 16px; }
   .page-id-15 .showImage {
     margin-top: 50px; }
 

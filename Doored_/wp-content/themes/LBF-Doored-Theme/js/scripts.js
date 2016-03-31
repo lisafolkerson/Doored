@@ -78,11 +78,14 @@ $(function(){
 
   // SORT ARTISTS MENU ALPHABETICALLY
   var mylist = $('.artistMenu .sub-menu');
-  var listitems = mylist.children('li').get();
+  var listitems = mylist.children('li').not(':contains(Groceries)').not(':contains(Intermission Sculpture)').get();
   listitems.sort(function(a, b) {
      return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
   })
   $.each(listitems, function(idx, itm) { mylist.append(itm); });
+
+  $('.artistMenu .sub-menu li:contains(Groceries)').addClass('artist--subMenuItem__exceptions');
+  $('.artistMenu .sub-menu li:contains(Intermission Sculpture)').addClass('artist--subMenuItem__exceptions');
 
 
 }); // end  docReady

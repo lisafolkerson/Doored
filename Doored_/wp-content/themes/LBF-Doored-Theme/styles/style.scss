@@ -154,16 +154,22 @@ header {
 
 .header--livestream {
   display: inline-block;
-  text-align: center;
   background: $textAccent;
+  padding: 2px 5px;
   font-family: 'Kite One', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   position: relative;
-  height: 85px;
-  width: 120px;
-  box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.4);
-  margin: 0 0 0 90px;
-  float: left;
+  margin: 30px 0;
+  text-shadow: 1px 1px 2px $watchNow; 
+  animation: glowing 5s ease-in-out infinite;
+
+  .header-next-show-text {
+    display: inline-block;
+  }
+
+  .textwidget {
+    display: inline-block;
+  }
 
   a {
     color: $watchNow;
@@ -174,9 +180,15 @@ header {
   }
 } // end header--livestream
 
-.watchIcon {
-  height: 80px;
+@-webkit-keyframes glowing {
+  50% {color: $greenTinge;}
+  100% {color: black;}
 }
+@keyframes glowing {
+  50% {color: $greenTinge;}
+  100% {color: black;}
+}
+
 
 .menu__dropper {
   display:none;
@@ -253,6 +265,10 @@ header {
   }
 }
 
+.artist--subMenuItem__exceptions {
+  text-shadow: 1px 1px 2px $greenTinge;
+}
+
 .showMenu ul {
   text-align: center;
 }
@@ -263,36 +279,11 @@ header {
 
 .mainView {
   width: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  // height: 100vh; 
-}   
-
-.mainLeft {
-  flex: 2 auto;
-  padding: 30px 10px 30px 0;
-  max-width: 50%; 
-  position: relative;
-  text-align: center; 
 
   .pageTitle {
-    padding: 10px 15px;
-    border: 2px solid black;
-    display: inline-block;
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
-  }
-
-  a {
-    color: black;
-  }
-
-  h2:hover, h2:focus, h2:active {
-    background: $accent;
-    color: $textAccent;
   }
   
   .subtitle {
@@ -302,74 +293,6 @@ header {
   }
 }// end .mainLeft
 
-.mainRight {
-  flex: 1 auto;
-  padding: 30px 0 30px 10px;
-  overflow: hidden;
-
-  .imagelink:hover {
-    border-bottom: none;
-  }
-
-  .videoLink {
-    margin-bottom: 40px;
-  }
-
-  .watch {
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 0 30px;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-
-  }
-
-  .watch > * {
-    padding: 10px;
-    flex: 1 100%;
-  }
-
-  .action {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    word-spacing: 100%; 
-    margin: 10px;
-    transform: rotate(-12deg);
-    line-height: 1;
-  }
-
-  .lwatch {
-    text-align: center;
-    flex: 5;
-  }
-
-  .rwatch {
-    flex: 1;
-    position: relative;
-    left: -45px;
-  }
-
-  #Artboard-1 {
-    max-width: 100%;
-    stroke: #000;
-  }
-} // end .mainRight
-
-.arrow {
-  text-align: center;
-  position: relative;
-  display: inline-block;
-}
-.downBoy {
-  text-decoration: none;
-  -webkit-text-decoration: none;
-  font-size: 72px;
-  color: black;
-  flex: 4 100%;
-}
 
 
 /* =============================================================================
@@ -641,7 +564,7 @@ a.jumpToContent:hover, a.jumpToContent:focus, a.jumpToContent:active {
     border: 2px solid black;
     text-transform: uppercase;
     padding: 10px 0;
-    font-size: 2.8vh;
+    font-size: 16px;
   }
 } // end theCredits
 
