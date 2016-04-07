@@ -9,7 +9,9 @@
       <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="section-header">
           <a href="#artistContent" class="jumpToContent  smoothScroll"><h2 class="entry-title"><?php the_title(); ?></h2></a>
-          <p><a href="http://<?php the_field('website'); ?>" target="_blank" class="artistWebsite"><?php the_field('website') ?></a> 
+          <?php if( get_field('website') ): ?>
+            <p><a href="http://<?php the_field('website'); ?>" target="_blank" class="artistWebsite"><?php the_field('website') ?></a> 
+          <?php endif; ?>
         </div><!--end .section-header-->
 
         <?php $artistImg = get_field('artist_image'); ?>

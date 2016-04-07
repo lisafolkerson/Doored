@@ -285,15 +285,17 @@ header {
     text-align: center;
     margin-top: 10px;
   }
+
+  .main_image {
+    width: 100vh;
+  }
   
   .subtitle {
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-top: 0;
   }
-}// end .mainLeft
-
-
+}// end .mainLeft 
 
 /* =============================================================================
         Show / Artist Page

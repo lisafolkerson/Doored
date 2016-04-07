@@ -84,6 +84,7 @@ $(function(){
   })
   $.each(listitems, function(idx, itm) { mylist.append(itm); });
 
+  // EXCEPT SCULPTURE AND GROCERIES, THEY DIFFERENT
   $('.artistMenu .sub-menu li:contains(Groceries)').addClass('artist--subMenuItem__exceptions');
   $('.artistMenu .sub-menu li:contains(Intermission Sculpture)').addClass('artist--subMenuItem__exceptions');
 

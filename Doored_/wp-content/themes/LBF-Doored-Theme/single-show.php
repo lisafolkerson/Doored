@@ -30,12 +30,18 @@
             </div>
             <div class="jumpToLinks">
               <?php if( have_rows('jump_to') ): ?>
-               <p class="jumpLabel">Jump to: </p>
-                <?php while ( have_rows('jump_to') ) : the_row();
-               $jumpTime = get_sub_field('jump_to_time'); 
-               $jumpText = get_sub_field('jump_to_text'); ?>
-               <a class="jumpLink  jumpLinktoShow" value="?feature=oembed&autoplay=1&start=<?php echo $jumpTime ?>"><?php echo $jumpText; ?></a>
-               <?php endwhile; endif; ?>
+              <p class="jumpLabel">Jump to: </p>
+              <?php while ( have_rows('jump_to') ) : the_row();
+              $jumpTimeH = get_sub_field('jump_to_time_hours'); 
+              $jumpTimeM = get_sub_field('jump_to_time_minutes'); 
+              $jumpTimeS = get_sub_field('jump_to_time_seconds'); 
+
+              $jumpTotalSeconds = $jumpTimeS + ($jumpTimeM * 60) + ($jumpTimeH * 3600);
+
+              $jumpText = get_sub_field('jump_to_text'); ?>
+
+              <a class="jumpLink  jumpLinktoShow" value="?feature=oembed&autoplay=1&start=<?php echo $jumpTotalSeconds ?>"><?php echo $jumpTimeH ?>:<?php echo $jumpTimeM ?>:<?php echo $jumpTimeS ?> - <?php echo $jumpText; ?></a>
+              <?php endwhile; endif; ?>
             </div>
             
           <?php else : 

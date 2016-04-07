@@ -12,12 +12,21 @@ get_header();  ?>
       <div class="mainView">
         <h2 class="pageTitle"><?php the_title(); ?></h2>
          <!-- THE IMAGE TO REPRESENT DOORED -->
-        <?php $dooredImg = get_field('main_image');
-        if( !empty($dooredImg) ): ?>
-          <img src="<?php echo $dooredImg['url']; ?>" alt="<?php echo $dooredImg['alt']; ?>" class="mnLft__image">
-        <?php endif; ?>
-        <p class="subtitle"><?php the_field('subtitle') ?></p>
+         <?php $dooredImg = get_field('main_image'); // 0 : Video - Livestream | 1 : Video - Youtube 
+       ?>
+       <?php if ( $dooredImg == 0 ) : ?>
+          <?php $image = get_field('hero_image');
+          if( !empty($image) ): ?>
+            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="mainImage">
+          <?php endif; ?>
 
+        <?php elseif ( $dooredImg == 1 ) : ?>
+          <div class="heroImage  youtube_embed">
+            <?php the_field('hero_youtube'); ?>
+          </div>
+        <?php endif; ?>
+        
+        <p class="subtitle"><?php the_field('subtitle') ?></p>
       </div><!--end .mainView-->
     </div> <!-- /.content -->
 
