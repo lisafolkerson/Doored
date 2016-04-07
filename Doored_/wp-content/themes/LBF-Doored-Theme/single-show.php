@@ -21,7 +21,7 @@
         ?>
           <?php if ( $heroType == 0 ) : ?>
             <?php $showImg = get_field('show_image'); ?>
-              <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="artistImage">
+              <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
 
           <?php elseif ( $heroType == 1 ) : ?>
             <div class="heroImage  livestream_embed">

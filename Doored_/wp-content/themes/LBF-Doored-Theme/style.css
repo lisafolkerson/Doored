@@ -273,7 +273,7 @@ header {
   font-family: 'Kite One', sans-serif;
   font-size: 20px;
   position: relative;
-  margin: 30px 0;
+  margin: 30px 0 0;
   text-shadow: 1px 1px 2px #D49598;
   animation: glowing 5s ease-in-out infinite; }
   .header--livestream .header-next-show-text {
@@ -301,7 +301,7 @@ header {
   display: none; }
 
 .menuHolder {
-  margin: 30px;
+  margin: 30px 0;
   float: right; }
   .menuHolder ul {
     margin: 0;
@@ -885,24 +885,36 @@ p.form-allowed-tags, .nocomments {
 #respond p, #comments-list ul #respond {
   margin: 0; }
 
+@media (max-width: 1080px) {
+  .header--livestream {
+    max-width: 190px;
+    text-align: center;
+    margin: 0px 30px; } }
+
 @media (max-width: 900px) {
   header .container {
     padding: 20px 15px; }
   header h1 {
     max-width: 25%; }
   header .header--livestream {
-    margin: 0 48px;
-    max-width: 25%; }
+    margin: 10px 0 0 48px;
+    max-width: 25%;
+    font-size: 16px; }
   header .menuHolder {
     max-width: 54%;
     margin: 30px 0;
-    white-space: nowrap; } }
+    white-space: nowrap; }
+    header .menuHolder ul li {
+      margin-right: 2px; } }
 
 @media (max-width: 760px) {
+  header h1 {
+    font-size: 48px; }
   header .header--livestream {
-    position: absolute;
-    left: 50%;
-    margin: 0 auto; }
+    position: relative;
+    left: 22%;
+    margin: 10px auto;
+    max-width: 190px; }
   header .menu__dropper {
     display: inline-block;
     font-size: 70px;
@@ -984,17 +996,6 @@ p.form-allowed-tags, .nocomments {
   .mainView {
     display: block;
     height: inherit; }
-  .mainLeft {
-    padding: 30px 10px 0 0;
-    max-width: 100%;
-    position: relative;
-    text-align: center; }
-  .mainRight {
-    width: 100%;
-    padding: 0; }
-    .mainRight .videoLink {
-      margin: 0 auto;
-      padding: 0; }
   .page-id-15 .contactInfo p {
     font-size: 18px; }
   .page-id-15 .theCredits {
@@ -1021,17 +1022,15 @@ p.form-allowed-tags, .nocomments {
   .show-page img, .artist-page img {
     height: inherit; } }
 
+@media (max-width: 490px) {
+  .header--livestream {
+    display: none; } }
+
 @media (max-width: 420px) {
   header h1 {
     font-size: 36px; }
-  header .header--livestream {
-    line-height: 20px;
-    height: inherit;
-    padding: 8px;
-    top: 15px;
-    left: 55%; }
-    header .header--livestream a {
-      font-size: 18px; }
+    header h1 a {
+      border-bottom: 2px solid #c30; }
   header .menu__dropper {
     top: 8px;
     font-size: 44px;

@@ -1,3 +1,11 @@
+@media (max-width: 1080px) {
+    .header--livestream {
+        max-width: 190px;
+        text-align: center;
+        margin: 0px 30px;
+    }
+}
+
 @media (max-width: 900px) {
     header {
         .container {
@@ -9,14 +17,19 @@
         }
 
         .header--livestream {
-            margin: 0 48px;
+            margin: 10px 0 0 48px;
             max-width: 25%;
+            font-size: 16px;
         }
         
         .menuHolder{
             max-width: 54%;
             margin: 30px 0;
             white-space: nowrap;
+
+            ul li {
+                margin-right: 2px;
+            }
         }
 
     }// end header
@@ -36,11 +49,15 @@
 
 @media (max-width: 760px) {
     header {
+        h1 {
+            font-size: 48px;
+        }
 
         .header--livestream {
-            position: absolute;
-            left: 50%;
-            margin: 0 auto;
+            position: relative;
+            left: 22%;
+            margin: 10px auto;
+            max-width: 190px;
         }
 
         .menu__dropper {
@@ -162,22 +179,22 @@
         height: inherit;
     }
 
-    .mainLeft {
-        padding: 30px 10px 0 0;
-        max-width: 100%;
-        position: relative;
-        text-align: center;
-    }
+    // .mainLeft {
+    //     padding: 30px 10px 0 0;
+    //     max-width: 100%;
+    //     position: relative;
+    //     text-align: center;
+    // }
 
-    .mainRight {
-        width: 100%;
-        padding: 0;
+    // .mainRight {
+    //     width: 100%;
+    //     padding: 0;
 
-        .videoLink {
-            margin: 0 auto;
-            padding: 0;
-        }
-    }
+    //     .videoLink {
+    //         margin: 0 auto;
+    //         padding: 0;
+    //     }
+    // }
 
     .page-id-15 {
         .contactInfo p {
@@ -224,26 +241,22 @@
         height: inherit;
     }
 
-} // end @705px
+} // end @760px
 
-
+@media (max-width: 490px) {
+    .header--livestream {
+        display: none;
+    }
+}
 
 
 @media (max-width: 420px) {
     header {
         h1 {
             font-size: 36px;
-        }
-
-        .header--livestream {
-            line-height: 20px;
-            height: inherit;
-            padding: 8px;
-            top: 15px;  
-            left: 55%;
 
             a {
-                font-size: 18px;
+                border-bottom: 2px solid #c30;
             }
         }
 

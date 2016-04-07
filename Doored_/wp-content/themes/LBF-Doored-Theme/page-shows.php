@@ -30,9 +30,13 @@ get_header(); ?>
      </div><!--end .section-header-->
 
      <div class="showImage">
-       <?php $heroType = get_field('show_hero'); // 1 : Video - Livestream | 2 : Video - Youtube 
+       <?php $heroType = get_field('show_hero'); // 0: Image | 1 : Video - Livestream | 2 : Video - Youtube 
 
        ?>
+        <?php if ( $heroType == 0 ) : ?>
+          <?php $showImg = get_field('show_image'); ?>
+            <img src="<?php echo $showImg['url']; ?>" alt="<?php echo $showImg['alt']; ?>" class="showImage">
+
          <?php if ( $heroType == 1 ) : ?>
            <div class="heroImage  livestream_embed">
              <?php the_field('show_video') ?>
